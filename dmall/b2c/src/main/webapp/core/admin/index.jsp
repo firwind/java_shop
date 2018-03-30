@@ -18,10 +18,10 @@
 	    <div id="item6" class="item"></div>
 	</div>
 
-<!-- 易族公告 -->
+<!-- 佰谷公告 -->
 <!-- 暂时为OEM客户关闭
 <div id="en_notice">
-<h3>易族公告</h3>
+<h3>佰谷公告</h3>
 <iframe src="http://www.baigusoft.com/notice.html" frameborder=0 width='100%' height="200px"></iframe>
 </div>
 -->
