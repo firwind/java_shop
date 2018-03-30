@@ -1,18 +1,11 @@
-/**
- *  版权：Copyright (C) 2015  易族智汇（北京）科技有限公司.
- *  本系统是商用软件,未经授权擅自复制或传播本程序的部分或全部将是非法的.
- *  描述：文章列表Tag
- *  修改人：Sylow
- *  修改时间：2015-10-26
- *  修改内容：制定初版
- */
-package com.baigu.app.shop.front.tag.goods;
+package com.baigu.app.cms.core.tag;
 
 import java.util.Map;
 
+import com.baigu.app.cms.core.service.IDataManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.baigu.app.cms.core.service.IDataManager;
 import com.enation.framework.database.Page;
 import com.enation.framework.taglib.BaseFreeMarkerTag;
 import com.enation.framework.util.StringUtil;
@@ -20,23 +13,20 @@ import com.enation.framework.util.StringUtil;
 import freemarker.template.TemplateModelException;
 
 /**
- * 文章列表Tag
- * @author Sylow
- * @version v1.0,2015-10-26
- * @since v5.2
- * 
+ * 文章数据搜索标签
+ * @author kingapex
+ *2013-10-26下午5:04:05
  */
 @Component
-public class DataListTag extends BaseFreeMarkerTag {
-
+public class DataSearchTag extends BaseFreeMarkerTag {
+	@Autowired
 	private IDataManager dataManager;
 	
 	/**
-	 * 
+	 * 根据模型的字段值
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {
-		// TODO Auto-generated method stub
 		String connector =(String) params.get("connector");
 		
 		if( StringUtil.isEmpty(connector)) {
@@ -64,17 +54,12 @@ public class DataListTag extends BaseFreeMarkerTag {
 			cat_id=catid.toString();
 		}
 		
-		Page dataPage = dataManager.list(pageNo, pageSize, modelid, connector,cat_id);
+		Page dataPage = dataManager.search(pageNo, pageSize, modelid, connector,cat_id);
 		
 		return dataPage;
 	}
 
-	public IDataManager getDataManager() {
-		return dataManager;
-	}
-
-	public void setDataManager(IDataManager dataManager) {
-		this.dataManager = dataManager;
-	}
+	
+	
 
 }
