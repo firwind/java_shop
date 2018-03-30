@@ -116,7 +116,7 @@ public class ImageMagickMaskUtil {
 
 	public static void main(String[] args) {
 		ImageMagickMaskUtil magickMask = new ImageMagickMaskUtil();
-		magickMask.mask("d:/temp.jpg", "易族智汇","#000000",16,5,"e:/st.TTF");
+		magickMask.mask("d:/temp.jpg", "佰谷科技","#000000",16,5,"e:/st.TTF");
 	}
 
 }

@@ -116,7 +116,7 @@ function getLodop(oOBJECT,oEMBED){
             return LODOP;
         };
         //===如下空白位置适合调用统一功能(如注册语句、语言选择等):===
-	     LODOP.SET_LICENSES("易族智汇（北京）科技有限公司","9D32CB078EE17DE9676D08BCA683CAEB","","");
+	     LODOP.SET_LICENSES("佰谷科技（北京）科技有限公司","9D32CB078EE17DE9676D08BCA683CAEB","","");
         //===========================================================
         return LODOP;
     } catch(err) {alert("getLodop出错:"+err);};
