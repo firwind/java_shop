@@ -22,7 +22,7 @@ import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.util.JsonResultUtil;
 
 /**
- *  版权：Copyright (C) 2015  佰谷科技（北京）科技有限公司.
+ *  版权：Copyright (C) 2015  佰谷科技（四川）科技有限公司.
  *  本系统是商用软件,未经授权擅自复制或传播本程序的部分或全部将是非法的.
  *  描述：百度富文本 ueditor Action
  *  修改人：xulipeng

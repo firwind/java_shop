@@ -8,7 +8,7 @@ import com.baigu.app.shop.core.statistics.model.MonthAmount;
 import com.baigu.framework.database.Page;
 
 /**
- *  版权：Copyright (C) 2015  佰谷科技（北京）科技有限公司.
+ *  版权：Copyright (C) 2015  佰谷科技（四川）科技有限公司.
  *  本系统是商用软件,未经授权擅自复制或传播本程序的部分或全部将是非法的.
  *  描述：销售统计接口
  *  修改人：xulipeng
