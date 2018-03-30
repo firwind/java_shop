@@ -1,4 +1,4 @@
-package com.enation.app.sms.component.ztsms.plugin;
+package com.baigu.app.sms.component.ztsms.plugin;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;

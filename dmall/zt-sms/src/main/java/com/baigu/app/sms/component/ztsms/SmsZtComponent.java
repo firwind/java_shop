@@ -1,4 +1,4 @@
-package com.enation.app.sms.component.ztsms;
+package com.baigu.app.sms.component.ztsms;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
