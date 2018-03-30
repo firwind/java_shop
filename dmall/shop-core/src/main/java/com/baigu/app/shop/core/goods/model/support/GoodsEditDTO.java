@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.goods.model.support;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.app.base.core.model.PluginTab;
+import com.baigu.app.base.core.model.PluginTab;
 
 //商品编辑数据dto
 public class GoodsEditDTO {

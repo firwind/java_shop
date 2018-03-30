@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.member.plugin;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 
 /**
  * 会员注册事件

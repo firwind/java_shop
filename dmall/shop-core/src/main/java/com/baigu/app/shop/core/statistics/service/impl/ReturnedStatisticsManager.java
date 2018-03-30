@@ -16,8 +16,8 @@ import com.baigu.app.shop.core.statistics.service.IReturnedStatisticsManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.DateUtil;
 @Service("returnedStatisticsManager")
 public class ReturnedStatisticsManager implements IReturnedStatisticsManager {
 	

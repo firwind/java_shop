@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 
 /**

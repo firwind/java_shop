@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.baigu.app.shop.core.goods.model.Brand;
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 品牌url工具

@@ -10,14 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.member.plugin.IMemberLoginEvent;
 import com.baigu.app.shop.core.member.plugin.IMemberRegisterEvent;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 微信绑定插件

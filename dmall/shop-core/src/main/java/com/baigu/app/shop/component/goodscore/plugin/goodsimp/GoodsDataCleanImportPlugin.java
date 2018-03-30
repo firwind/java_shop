@@ -6,12 +6,12 @@ import com.baigu.app.shop.core.goods.plugin.goodsimp.IBeforeGoodsImportEvent;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 
-import com.enation.eop.SystemSetting;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品导入前清除商品数据插件 

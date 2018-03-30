@@ -17,11 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.cms.core.plugin.ArticlePluginBundle;
 import com.baigu.app.cms.core.service.IDataModelManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 后台文章管理

@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.statistics.service;
 
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 团购统计

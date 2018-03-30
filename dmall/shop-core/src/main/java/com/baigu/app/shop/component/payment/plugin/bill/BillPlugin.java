@@ -15,7 +15,7 @@ import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 /**
  * 快钱人民币支付

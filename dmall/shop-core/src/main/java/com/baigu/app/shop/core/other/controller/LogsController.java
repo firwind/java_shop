@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.service.auth.IAdminUserManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.app.base.core.service.auth.IAdminUserManager;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 操作日志管理

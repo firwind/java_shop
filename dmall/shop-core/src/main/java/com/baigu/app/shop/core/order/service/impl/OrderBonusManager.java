@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.component.bonus.model.MemberBonus;
 import com.baigu.app.shop.core.order.model.OrderBonus;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 订单优惠券管理接口实现类

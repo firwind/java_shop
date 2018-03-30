@@ -11,11 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.util.SmsUtil;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.TestUtil;
+import com.baigu.app.base.core.util.SmsUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.TestUtil;
 
 /**
  * 统一发送短信api

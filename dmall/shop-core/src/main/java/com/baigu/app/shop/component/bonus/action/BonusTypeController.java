@@ -9,12 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.shop.component.bonus.model.BonusType;
 import com.baigu.app.shop.component.bonus.service.IBonusTypeManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 优惠券类型管理

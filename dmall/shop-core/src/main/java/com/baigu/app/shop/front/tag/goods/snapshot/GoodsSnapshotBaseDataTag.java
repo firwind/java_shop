@@ -10,13 +10,13 @@ import com.baigu.app.shop.core.goods.service.IGoodsSnapshotManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.eop.processor.core.UrlNotFoundException;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.RequestUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.RequestUtil;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

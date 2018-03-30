@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.baigu.app.shop.core.goods.model.SpecValue;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 
 /**
  * 规格值Mapper

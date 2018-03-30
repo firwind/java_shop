@@ -29,10 +29,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.ExcelUtil;
-import com.enation.framework.util.XMLUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.ExcelUtil;
+import com.baigu.framework.util.XMLUtil;
 
 /**
  * 默认的商品数据批量导入器实现

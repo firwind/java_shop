@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 区域统计

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.member.model.MemberComment;
 import com.baigu.app.shop.core.member.service.IMemberCommentManager;
-import com.enation.framework.database.Page;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

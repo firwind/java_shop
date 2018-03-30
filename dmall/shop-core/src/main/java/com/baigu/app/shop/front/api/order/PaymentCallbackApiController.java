@@ -9,9 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.RequestUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.RequestUtil;
 
 /**
  * 支付回调api

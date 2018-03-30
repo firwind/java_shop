@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.data.IDataOperation;
-import com.enation.framework.log.LogType;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.data.IDataOperation;
+import com.baigu.framework.log.LogType;
 
 /**
  * 数据模型业务类

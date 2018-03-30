@@ -7,7 +7,7 @@ import com.baigu.app.shop.core.goods.model.Attribute;
 import com.baigu.app.shop.core.goods.model.support.GoodsTypeDTO;
 import com.baigu.app.shop.core.goods.model.support.ParamGroup;
 import com.baigu.app.shop.core.goods.model.GoodsType;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 
 

@@ -22,7 +22,7 @@ import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 public class LogUtil {
 

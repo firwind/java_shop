@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
 import com.baigu.app.shop.core.member.service.IMemberPriceManager;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 @Controller
 @Scope("prototype")

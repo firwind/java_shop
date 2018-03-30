@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.eop.processor.HttpCopyWrapper;
-import com.enation.eop.processor.facade.GoodsPreviewParser;
-import com.enation.framework.action.GridController;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonMessageUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.eop.processor.HttpCopyWrapper;
+import com.baigu.eop.processor.facade.GoodsPreviewParser;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonMessageUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 商品api

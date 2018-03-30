@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baigu.app.shop.component.bonus.service.IBonusManager;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 红包订单插件

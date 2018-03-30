@@ -3,10 +3,10 @@ package com.baigu.app.shop.component.member.plugin.comments;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.plugin.IMemberTabShowEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 他的评论

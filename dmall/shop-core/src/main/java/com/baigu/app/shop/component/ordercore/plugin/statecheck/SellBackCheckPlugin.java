@@ -8,12 +8,12 @@ import com.baigu.app.shop.core.order.service.ISellBackManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.job.IEveryDayExecuteEvent;
+import com.baigu.app.base.core.plugin.job.IEveryDayExecuteEvent;
 import com.baigu.app.shop.core.order.model.SellBack;
-import com.enation.eop.SystemSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 售后检测插件

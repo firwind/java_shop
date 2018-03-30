@@ -22,19 +22,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.component.bonus.model.MemberBonus;
 import com.baigu.app.shop.component.bonus.service.IBonusManager;
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.eop.SystemSetting;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.ExcelUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.ExcelUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 红包管理

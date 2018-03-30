@@ -11,9 +11,9 @@ import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.order.IAfterOrderCreateEvent;
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 发票插件

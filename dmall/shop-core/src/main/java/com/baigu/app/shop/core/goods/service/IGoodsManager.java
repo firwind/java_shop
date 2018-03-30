@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.model.support.GoodsEditDTO;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 商品管理接口

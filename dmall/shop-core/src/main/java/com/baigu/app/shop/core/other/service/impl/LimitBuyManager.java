@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.baigu.app.shop.core.other.model.LimitBuy;
 import com.baigu.app.shop.core.other.model.LimitBuyGoods;
 import com.baigu.app.shop.core.other.service.ILimitBuyManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.DateUtil;
 
 
 @Deprecated

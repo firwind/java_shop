@@ -16,11 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.statistics.model.Collect;
 import com.baigu.app.shop.core.statistics.service.IIndustryStatisticsManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonMessageUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonMessageUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 行业统计

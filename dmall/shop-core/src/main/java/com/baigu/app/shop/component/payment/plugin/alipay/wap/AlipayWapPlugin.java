@@ -18,10 +18,10 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 /**
  * 支付宝wap支付接口
  * @version 1.1 kanon 2016-7－26 修改支付回调方法，添加买家支付宝账号进行纪录。

@@ -11,7 +11,7 @@ import com.baigu.app.shop.core.goods.utils.GoodsUtils;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.baigu.app.shop.core.goods.model.support.GoodsView;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 
 public class GoodsDetailMapper implements RowMapper {
 

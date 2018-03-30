@@ -9,12 +9,12 @@ import com.baigu.app.cms.core.service.IDataCatManager;
 import com.baigu.app.cms.core.service.IDataManager;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.SiteMapUrl;
-import com.enation.app.base.core.plugin.IRecreateMapEvent;
-import com.enation.app.base.core.service.ISitemapManager;
+import com.baigu.app.base.core.model.SiteMapUrl;
+import com.baigu.app.base.core.plugin.IRecreateMapEvent;
+import com.baigu.app.base.core.service.ISitemapManager;
 import com.baigu.app.cms.core.plugin.IDataDeleteEvent;
 import com.baigu.app.cms.core.plugin.IDataSaveEvent;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * CMS的sitemap生成插件

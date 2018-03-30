@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.upload.IUploader;
-import com.enation.app.base.core.upload.UploadFacatory;
+import com.baigu.app.base.core.upload.IUploader;
+import com.baigu.app.base.core.upload.UploadFacatory;
 import com.baigu.app.shop.core.decorate.service.ISubjectManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 专题管理controller

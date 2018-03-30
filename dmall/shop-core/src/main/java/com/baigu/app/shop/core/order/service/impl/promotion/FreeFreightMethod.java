@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.baigu.app.shop.core.order.service.promotion.IPromotionMethod;
 import com.baigu.app.shop.core.order.service.promotion.IReduceFreightBehavior;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 /**
  * 免运费方法 

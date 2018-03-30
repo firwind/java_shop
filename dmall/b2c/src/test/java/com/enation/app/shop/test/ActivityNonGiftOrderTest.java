@@ -10,8 +10,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.baigu.app.shop.core.member.model.MemberAddress;
 import com.baigu.app.shop.core.member.service.IMemberAddressManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /**
  * 促销活动送赠品

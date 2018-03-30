@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.service.ISettingService;
 import com.baigu.app.shop.component.gallery.model.GoodsGallery;
 import com.baigu.app.shop.component.gallery.service.IGoodsGalleryManager;
 import com.baigu.app.shop.core.goods.plugin.AbstractGoodsPlugin;
 import com.baigu.app.shop.core.goods.plugin.IGoodsDeleteEvent;
 import com.baigu.app.shop.core.goods.plugin.IGoodsTabShowEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.jms.IJmsProcessor;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.jms.IJmsProcessor;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

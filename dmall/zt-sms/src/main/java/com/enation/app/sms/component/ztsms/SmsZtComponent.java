@@ -3,10 +3,10 @@ package com.enation.app.sms.component.ztsms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.SmsPlatform;
-import com.enation.app.base.core.plugin.sms.AbstractSmsComponent;
-import com.enation.app.base.core.service.ISmsManager;
-import com.enation.framework.component.IComponent;
+import com.baigu.app.base.core.model.SmsPlatform;
+import com.baigu.app.base.core.plugin.sms.AbstractSmsComponent;
+import com.baigu.app.base.core.service.ISmsManager;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 助通短信网关插件

@@ -44,10 +44,10 @@
 	</bean>
 
 	<!--  OrderMessage converter  -->
-	<bean id="eopMessageConverter" class="com.enation.framework.jms.EopMessageConverter"/>
+	<bean id="eopMessageConverter" class="com.baigu.framework.jms.EopMessageConverter"/>
 
 	<!-- POJO which send Message uses  Spring JmsTemplate -->
-	<bean id="eopProducer" class="com.enation.framework.jms.EopProducer">
+	<bean id="eopProducer" class="com.baigu.framework.jms.EopProducer">
 		<property name="template" ref="jmsTemplate"/>
 		<property name="destination" ref="destination"/>
 	</bean>
@@ -55,7 +55,7 @@
 	<!--  Message Driven POJO (MDP) -->
 	<bean id="messageListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
 		<constructor-arg>
-			<bean class="com.enation.framework.jms.EopConsumer"> 
+			<bean class="com.baigu.framework.jms.EopConsumer">
 			</bean>
 		</constructor-arg>
 		<!--  may be other method -->
@@ -71,11 +71,11 @@
 		<property name="messageListener" ref="messageListener"/>
 	</bean>
 	
-	<bean id="ehCacheImpl" class="com.enation.framework.cache.EhCacheImpl"></bean>
+	<bean id="ehCacheImpl" class="com.baigu.framework.cache.EhCacheImpl"></bean>
 	
 	
 	
-	<!-- <bean id="cacheFactory" class="com.enation.framework.cache.CacheFactory" init-method="init">
+	<!-- <bean id="cacheFactory" class="CacheFactory" init-method="init">
 		<property name="cache" ref="cache"></property>
 	</bean> -->
 	

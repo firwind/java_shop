@@ -10,7 +10,7 @@ import com.baigu.app.shop.core.order.model.support.CartItem;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.framework.database.ObjectNotFoundException;
+import com.baigu.framework.database.ObjectNotFoundException;
 
 /**
  * 订单流程管理<br>

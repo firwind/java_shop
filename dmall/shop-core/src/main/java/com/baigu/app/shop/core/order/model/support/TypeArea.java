@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.order.model.support;
 
-import com.enation.framework.database.NotDbField;
+import com.baigu.framework.database.NotDbField;
 
 /**
  * 配送地区费用表

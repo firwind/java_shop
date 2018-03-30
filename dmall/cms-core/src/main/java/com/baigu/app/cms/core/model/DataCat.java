@@ -3,8 +3,8 @@ package com.baigu.app.cms.core.model;
 import java.io.Serializable;
 import java.util.List;
 
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 数据分类

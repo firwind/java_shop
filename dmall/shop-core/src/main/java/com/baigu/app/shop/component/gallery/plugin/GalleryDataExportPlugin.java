@@ -2,9 +2,9 @@ package com.baigu.app.shop.component.gallery.plugin;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.data.IDataExportEvent;
-import com.enation.app.base.core.service.dbsolution.DBSolutionFactory;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.plugin.data.IDataExportEvent;
+import com.baigu.app.base.core.service.dbsolution.DBSolutionFactory;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 相册导出插件

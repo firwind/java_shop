@@ -19,8 +19,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 价格url生成工具

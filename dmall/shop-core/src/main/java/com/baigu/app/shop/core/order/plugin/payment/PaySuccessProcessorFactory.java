@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.order.plugin.payment;
 
-import com.enation.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.spring.SpringContextHolder;
 
 
 /**

@@ -7,7 +7,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /** 
  * 楼层管理-删除楼层  单元测试类

@@ -35,12 +35,12 @@ import com.baigu.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentQrCodeEvent;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentRedPackEvent;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 
 @SuppressWarnings("unchecked")
@@ -296,7 +296,7 @@ public class WeixinPayPlugin extends AbstractPaymentPlugin implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.plugin.payment.IPaymentRedPackEvent#sendRedPack(com.enation.app.base.core.model.Member, java.util.Map)
+	 * @see com.enation.app.shop.core.plugin.payment.IPaymentRedPackEvent#sendRedPack(Member, java.util.Map)
 	 */
 	@Override
 	public String sendRedPack(Map member,Double money,PayCfg payCfg, Map other) {

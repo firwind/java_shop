@@ -19,23 +19,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.app.base.core.service.IRegionsManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IRegionsManager;
 import com.baigu.app.shop.core.member.service.IMemberCommentManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
 import com.baigu.app.shop.core.member.service.IPointHistoryManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
-import com.enation.framework.util.TestUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
+import com.baigu.framework.util.TestUtil;
 /**
  * 会员管理Action
  * 

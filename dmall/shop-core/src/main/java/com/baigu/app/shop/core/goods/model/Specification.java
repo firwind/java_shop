@@ -2,8 +2,8 @@ package com.baigu.app.shop.core.goods.model;
 
 import java.util.List;
 
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 规格实体

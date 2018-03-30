@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.ExpressPlatform;
-import com.enation.app.base.core.plugin.express.IExpressEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.LogType;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.app.base.core.model.ExpressPlatform;
+import com.baigu.app.base.core.plugin.express.IExpressEvent;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 快递manager
@@ -47,7 +47,7 @@ public class ExpressManager implements IExpressManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see IExpressManager#add(com.enation.app.base.core.model.ExpressPlatform)
+	 * @see IExpressManager#add(ExpressPlatform)
 	 */
 	@Override
 	@Log(type=LogType.SETTING,detail="添加一个快递平台，快递平台为${platform.platform_name}")

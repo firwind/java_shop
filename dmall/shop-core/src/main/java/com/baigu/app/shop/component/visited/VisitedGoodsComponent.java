@@ -2,7 +2,7 @@ package com.baigu.app.shop.component.visited;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 浏览过的商品

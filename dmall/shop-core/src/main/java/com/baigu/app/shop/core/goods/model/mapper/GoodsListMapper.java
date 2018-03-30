@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.baigu.app.shop.core.goods.model.support.GoodsView;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 
 /**
  * 商品列表mapper

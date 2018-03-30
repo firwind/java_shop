@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 站内通知消息后台

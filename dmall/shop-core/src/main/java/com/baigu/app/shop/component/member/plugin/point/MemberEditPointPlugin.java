@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.member.plugin.IMemberTabShowEvent;
 import com.baigu.app.shop.core.member.service.IPointHistoryManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.plugin.IAjaxExecuteEnable;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonMessageUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.IAjaxExecuteEnable;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonMessageUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 后台会员积分插件

@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
 
 public class GoodsComplexManager   implements
         IGoodsComplexManager {

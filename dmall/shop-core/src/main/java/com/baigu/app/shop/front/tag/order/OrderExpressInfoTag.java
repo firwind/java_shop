@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.service.IExpressManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

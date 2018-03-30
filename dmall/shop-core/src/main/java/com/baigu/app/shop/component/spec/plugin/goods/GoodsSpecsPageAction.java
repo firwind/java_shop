@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 /**
  * 商品规格页面获取action

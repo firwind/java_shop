@@ -5,13 +5,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.PluginTab;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.PluginTab;
 import com.baigu.app.shop.core.member.model.MemberAddress;
 import com.baigu.app.shop.core.member.model.MemberComment;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
 
 
 /**

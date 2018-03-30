@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.statistics.service;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 商品分析统计接口

@@ -2,14 +2,13 @@ package com.baigu.app.shop.front.tag.goods.other.regions;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.app.base.core.service.IRegionsManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.service.IRegionsManager;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

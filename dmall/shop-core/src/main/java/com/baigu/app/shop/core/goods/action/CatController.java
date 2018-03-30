@@ -18,16 +18,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.sf.json.JSONArray;
 
-import com.enation.app.base.core.upload.IUploader;
-import com.enation.app.base.core.upload.UploadFacatory;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.database.PermssionRuntimeException;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.JsonMessageUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.upload.IUploader;
+import com.baigu.app.base.core.upload.UploadFacatory;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.database.PermssionRuntimeException;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.JsonMessageUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 商品分类action
  * @author apexking

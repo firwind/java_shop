@@ -12,10 +12,10 @@ import com.baigu.app.cms.core.plugin.AbstractFieldPlugin;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 
 import freemarker.template.Configuration;

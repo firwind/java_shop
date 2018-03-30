@@ -16,9 +16,9 @@ import com.baigu.app.shop.core.goods.model.GoodsSnapshot;
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.order.IBeforeOrderCreateEvent;
 import com.baigu.app.shop.core.order.service.IOrderSnapshotManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 /**
  * 
  * (商品快照插件) 

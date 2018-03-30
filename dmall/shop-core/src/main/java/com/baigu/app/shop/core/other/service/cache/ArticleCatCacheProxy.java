@@ -7,9 +7,9 @@ import com.baigu.app.shop.core.other.service.IArticleCatManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.cache.AbstractCacheProxy;
-import com.enation.framework.cache.CacheFactory;
-import com.enation.framework.cache.ICache;
+import com.baigu.framework.cache.AbstractCacheProxy;
+import com.baigu.framework.cache.CacheFactory;
+import com.baigu.framework.cache.ICache;
 
 @Service("articleCatManager")
 public class ArticleCatCacheProxy extends AbstractCacheProxy<List<ArticleCat>> implements

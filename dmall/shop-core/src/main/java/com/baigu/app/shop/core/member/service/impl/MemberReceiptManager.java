@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.component.receipt.Receipt;
 import com.baigu.app.shop.core.member.service.IMemberReceiptManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 

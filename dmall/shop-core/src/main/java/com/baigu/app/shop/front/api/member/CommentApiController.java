@@ -14,14 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.member.service.IMemberOrderItemManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 评论api

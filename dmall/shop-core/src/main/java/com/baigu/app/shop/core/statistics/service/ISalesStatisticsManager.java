@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.statistics.model.DayAmount;
 import com.baigu.app.shop.core.statistics.model.MonthAmount;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  *  版权：Copyright (C) 2015  易族智汇（北京）科技有限公司.

@@ -7,7 +7,7 @@ import com.baigu.app.shop.core.goods.service.batchimport.util.GoodsImageReader;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Element;
 
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 商品图片导入器

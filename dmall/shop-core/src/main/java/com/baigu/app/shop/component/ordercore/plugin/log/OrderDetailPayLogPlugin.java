@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.order.plugin.order.IOrderTabShowEvent;
 import com.baigu.app.shop.core.order.plugin.order.IShowOrderDetailHtmlEvent;
 import com.baigu.app.shop.core.order.service.IOrderReportManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.plugin.IAjaxExecuteEnable;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.IAjaxExecuteEnable;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 订单详细页支付日志显示插件

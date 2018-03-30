@@ -3,15 +3,14 @@ package com.enation.app.shop.test;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /**
  * 

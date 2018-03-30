@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/util/spring-util.xsd"
 	default-autowire="byName" default-lazy-init="false">
 
-	<bean id="shiroRealm" class="com.enation.app.base.security.ShiroRealm"></bean>
+	<bean id="shiroRealm" class="com.baigu.app.base.security.ShiroRealm"></bean>
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="sessionManager" ref="sessionManager" />
 		<property name="sessionMode" value="http" /><!-- native -->
@@ -36,14 +36,14 @@
 	            <map>  
 	                <entry key="sysAuth">  
 	                    <bean  
-	                        class="com.enation.app.base.security.AuthFilter" />  
+	                        class="com.baigu.app.base.security.AuthFilter" />
 	                </entry>  
 	            </map>  
 	        </property>  
 		<property name="filterChainDefinitions" ref="extensibleFilterChainDefinitions"/>
 	</bean>
 	
-	<bean id="extensibleFilterChainDefinitions" class="com.enation.app.base.security.domain.ExtensibleFilterChainDefinitions">
+	<bean id="extensibleFilterChainDefinitions" class="com.baigu.app.base.security.domain.ExtensibleFilterChainDefinitions">
 		<property name="locations" value="classpath*:spring_cfg/*filter-chain-definitions.properties"/>
 	</bean>
 </beans>

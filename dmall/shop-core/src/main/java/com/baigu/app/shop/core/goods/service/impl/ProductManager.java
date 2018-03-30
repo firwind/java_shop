@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.model.GoodsLvPrice;
 import com.baigu.app.shop.core.goods.model.Product;
@@ -22,12 +22,12 @@ import com.baigu.app.shop.core.goods.model.SpecValue;
 import com.baigu.app.shop.core.goods.model.Specification;
 import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.database.StringMapper;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.database.StringMapper;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 货品管理

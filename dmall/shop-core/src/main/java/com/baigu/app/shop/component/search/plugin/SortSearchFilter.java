@@ -7,7 +7,7 @@ import com.baigu.app.shop.core.goods.plugin.search.IGoodsFrontSearchFilter;
 import com.baigu.app.shop.core.goods.utils.SortUrlUtils;
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /***
  * 商品排序过滤器

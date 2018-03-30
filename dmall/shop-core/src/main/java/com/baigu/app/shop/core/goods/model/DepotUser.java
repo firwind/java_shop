@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.goods.model;
 
-import com.enation.eop.resource.model.AdminUser;
+import com.baigu.eop.resource.model.AdminUser;
 
 /**
  * 库存管理员

@@ -7,7 +7,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /** 
  * 专题管理--删除专题   单元测试类

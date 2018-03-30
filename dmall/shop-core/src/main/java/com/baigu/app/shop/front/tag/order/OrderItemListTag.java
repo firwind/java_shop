@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.model.OrderItem;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.framework.component.ComponentView;
-import com.enation.framework.component.context.ComponentContext;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.component.ComponentView;
+import com.baigu.framework.component.context.ComponentContext;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

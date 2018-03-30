@@ -19,8 +19,8 @@ import com.baigu.app.shop.core.goods.model.GoodsParam;
 import com.baigu.app.shop.core.goods.plugin.IGoodsTabShowEvent;
 import com.baigu.app.shop.core.goods.service.GoodsTypeUtil;
 import com.baigu.app.shop.core.goods.service.IGoodsTypeManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品自定义参数管理插件

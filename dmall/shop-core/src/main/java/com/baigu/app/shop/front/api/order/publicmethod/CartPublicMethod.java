@@ -16,14 +16,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.ISettingService;
 import com.baigu.app.shop.core.order.plugin.cart.CartPluginBundle;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.TestUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.TestUtil;
 
 
 

@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.IntegerMapper;
-import com.enation.framework.log.LogType;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.IntegerMapper;
+import com.baigu.framework.log.LogType;
 
 
 /***

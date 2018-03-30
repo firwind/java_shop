@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.member.service;
 
-import com.enation.app.base.core.model.Message;
-import com.enation.framework.database.Page;
+import com.baigu.app.base.core.model.Message;
+import com.baigu.framework.database.Page;
 
 /**
  * 留言、短消息管理

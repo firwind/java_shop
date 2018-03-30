@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.order.model.Delivery;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

@@ -63,7 +63,7 @@
        
 	<!-- 声明改变request的拦截器 -->  
 	<mvc:interceptors>
-		<bean class="com.enation.eop.sdk.interceptor.ChangeRequestInterceptor"></bean>
+		<bean class="com.baigu.eop.sdk.interceptor.ChangeRequestInterceptor"></bean>
 	</mvc:interceptors>
 
     <context:annotation-config />  

@@ -11,7 +11,7 @@ import com.baigu.app.shop.component.payment.plugin.unionpay.sdk.SDKConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.job.IEveryHourExecuteEvent;
+import com.baigu.app.base.core.plugin.job.IEveryHourExecuteEvent;
 import com.baigu.app.shop.component.payment.plugin.unionpay.sdk.AcpService;
 import com.baigu.app.shop.component.payment.plugin.unionpay.sdk.LogUtil;
 import com.baigu.app.shop.core.order.model.PaymentLog;
@@ -21,10 +21,10 @@ import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentLogManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.ISellBackManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
  * 中国银联定时任务查询退款进度

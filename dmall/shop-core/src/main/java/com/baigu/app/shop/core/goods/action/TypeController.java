@@ -25,12 +25,12 @@ import com.baigu.app.shop.core.goods.model.support.ParamGroup;
 import com.baigu.app.shop.core.goods.model.support.TypeSaveState;
 import com.baigu.app.shop.core.goods.service.IBrandManager;
 import com.baigu.app.shop.core.goods.service.IGoodsTypeManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

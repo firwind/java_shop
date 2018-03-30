@@ -2,10 +2,10 @@ package com.baigu.app.shop.component.express;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.ExpressPlatform;
-import com.enation.app.base.core.plugin.express.AbstractExpressComponent;
+import com.baigu.app.base.core.model.ExpressPlatform;
+import com.baigu.app.base.core.plugin.express.AbstractExpressComponent;
 import com.baigu.app.shop.core.order.service.IExpressManager;
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 /***
  * 网店快递组件
  * @author Xulipeng

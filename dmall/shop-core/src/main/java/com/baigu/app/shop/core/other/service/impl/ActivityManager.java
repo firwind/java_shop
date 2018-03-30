@@ -16,12 +16,12 @@ import com.baigu.app.shop.core.other.model.Activity;
 import com.baigu.app.shop.core.other.model.ActivityDetail;
 import com.baigu.app.shop.core.other.model.ActivityGoods;
 import com.baigu.app.shop.core.other.service.IActivityManager;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 促销活动管理接口实现类

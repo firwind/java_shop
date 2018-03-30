@@ -1,18 +1,18 @@
-package com.enation.app.cms.component.plugin;
+package com.baigu.app.cms.component.plugin;
 
 import java.util.List;
 import java.util.Map;
 
+import com.baigu.app.cms.core.model.DataCat;
+import com.baigu.app.cms.core.service.IDataCatManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.SiteMapUrl;
-import com.enation.app.base.core.plugin.IRecreateMapEvent;
-import com.enation.app.base.core.service.ISitemapManager;
-import com.enation.app.cms.core.model.DataCat;
-import com.enation.app.cms.core.service.IDataCatManager;
-import com.enation.app.cms.core.service.IDataManager;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.model.SiteMapUrl;
+import com.baigu.app.base.core.plugin.IRecreateMapEvent;
+import com.baigu.app.base.core.service.ISitemapManager;
+import com.baigu.app.cms.core.service.IDataManager;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * SiteMap信息重新生成插件

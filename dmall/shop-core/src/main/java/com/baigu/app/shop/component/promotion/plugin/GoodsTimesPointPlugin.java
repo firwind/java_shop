@@ -3,7 +3,7 @@ package com.baigu.app.shop.component.promotion.plugin;
 import com.baigu.app.shop.core.order.plugin.promotion.IPromotionPlugin;
 import com.baigu.app.shop.core.order.service.promotion.PromotionConditions;
 import com.baigu.app.shop.core.order.service.promotion.PromotionType;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 某商品翻倍积分

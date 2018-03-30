@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.order.model.Delivery;
 import com.baigu.app.shop.core.order.model.DeliveryItem;
 import com.baigu.app.shop.core.order.model.DlyType;
@@ -38,15 +38,15 @@ import com.baigu.app.shop.core.order.service.IOrderReportManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.OrderPaymentType;
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -131,7 +131,7 @@ public class OrderFlowManager implements IOrderFlowManager {
 		}
 
 		/************ 创建订单 ************************/
-		order.setCreate_time(com.enation.framework.util.DateUtil.getDateline());
+		order.setCreate_time(DateUtil.getDateline());
 		
 		//获取系统设置购买商品金额与积分的比例
 		Map map = settingManager.getSettingPoint();

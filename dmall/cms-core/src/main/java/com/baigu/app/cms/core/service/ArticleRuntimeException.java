@@ -1,4 +1,4 @@
-package com.enation.app.cms.core.service;
+package com.baigu.app.cms.core.service;
 
 
 /**

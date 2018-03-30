@@ -12,9 +12,9 @@ import com.baigu.app.shop.core.goods.service.ITagManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 商品标签插件

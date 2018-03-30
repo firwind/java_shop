@@ -5,7 +5,7 @@ import com.baigu.app.shop.core.decorate.service.IStyleManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 

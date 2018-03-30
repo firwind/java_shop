@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.other.model.ReceiptContent;
 import com.baigu.app.shop.core.other.service.IReceiptContentManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.Page;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.database.IDaoSupport;
 
 @Service("receiptContentManager")
 public class ReceiptContentManager implements IReceiptContentManager{

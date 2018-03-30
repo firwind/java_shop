@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.goods.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 网店工具类

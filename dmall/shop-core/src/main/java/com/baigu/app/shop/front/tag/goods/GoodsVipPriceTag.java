@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.CurrencyUtil;
 
 import freemarker.template.TemplateModelException;
 

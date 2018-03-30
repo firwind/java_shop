@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.baigu.app.shop.core.goods.model.Specification;
 import com.baigu.app.shop.core.goods.model.Product;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 货品管理

@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.utils.UrlUtils;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

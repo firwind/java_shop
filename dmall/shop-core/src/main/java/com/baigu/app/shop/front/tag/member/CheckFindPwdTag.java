@@ -9,12 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.EncryptionUtil1;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.EncryptionUtil1;
 
 import freemarker.template.TemplateModelException;
 

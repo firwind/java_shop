@@ -17,12 +17,12 @@ import net.sf.json.JSONArray;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.goods.service.IProductManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 商品选择Action
  * @author fenlongli

@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.upload.IUploader;
-import com.enation.app.base.core.upload.UploadFacatory;
+import com.baigu.app.base.core.upload.IUploader;
+import com.baigu.app.base.core.upload.UploadFacatory;
 import com.baigu.app.shop.core.goods.model.Brand;
 import com.baigu.app.shop.core.goods.service.IBrandManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

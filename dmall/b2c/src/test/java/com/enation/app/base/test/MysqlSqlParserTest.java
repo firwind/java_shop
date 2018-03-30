@@ -8,10 +8,10 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.database.data.INonVariableInsert;
-import com.enation.framework.database.data.entity.Field;
-import com.enation.framework.database.data.entity.Index;
-import com.enation.framework.database.data.xml.MysqlSqlParser;
+import com.baigu.framework.database.data.INonVariableInsert;
+import com.baigu.framework.database.data.entity.Field;
+import com.baigu.framework.database.data.entity.Index;
+import com.baigu.framework.database.data.xml.MysqlSqlParser;
  
 
 /**

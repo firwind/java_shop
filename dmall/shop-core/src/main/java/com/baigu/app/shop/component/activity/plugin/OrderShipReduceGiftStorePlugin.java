@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.order.model.DeliveryItem;
 import com.baigu.app.shop.core.order.plugin.order.IOrderShipEvent;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 订单发货时减少赠品实际库存插件

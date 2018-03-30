@@ -2,8 +2,8 @@ package com.baigu.app.shop.component.bonus.model;
 
 import java.io.Serializable;
 
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 会员红包

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.baigu.app.shop.component.bonus.model.Bonus;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.StringUtil;
 
 public final class BonusSession {
 	private static final String list_sessionkey ="bonus_list_session_key"; 

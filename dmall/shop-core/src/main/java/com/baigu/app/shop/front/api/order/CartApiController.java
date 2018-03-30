@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.ISettingService;
 import com.baigu.app.shop.core.goods.model.Product;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.goods.service.IProductManager;
@@ -23,13 +23,13 @@ import com.baigu.app.shop.core.order.model.support.OrderPrice;
 import com.baigu.app.shop.core.order.plugin.cart.CartPluginBundle;
 import com.baigu.app.shop.core.order.service.ICartManager;
 import com.baigu.app.shop.front.api.order.publicmethod.CartPublicMethod;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
-import com.enation.framework.util.TestUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
+import com.baigu.framework.util.TestUtil;
 
 /**
  * 购物车api

@@ -3,9 +3,9 @@
  */
 package com.baigu.app.shop.core.goods.service;
 
-import com.enation.app.base.core.model.ClusterSetting;
-import com.enation.eop.SystemSetting;
-import com.enation.framework.context.spring.SpringContextHolder;
+import com.baigu.app.base.core.model.ClusterSetting;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.context.spring.SpringContextHolder;
 
 
 /**

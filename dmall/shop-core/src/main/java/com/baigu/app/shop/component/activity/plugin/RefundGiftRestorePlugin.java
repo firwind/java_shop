@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.order.model.OrderGift;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.model.SellBack;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 订单退款赠品库存还原插件

@@ -9,12 +9,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.plugin.IMemberLoginEvent;
 import com.baigu.app.shop.core.order.service.impl.CartManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 购物车“记住我”插件

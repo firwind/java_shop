@@ -1,0 +1,51 @@
+package com.baigu.app.base.core.plugin.fdfs;
+
+import java.io.File;
+import java.util.List;
+
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import org.springframework.stereotype.Service;
+
+import com.baigu.framework.cache.ICache;
+import com.baigu.framework.plugin.IPlugin;
+
+/**
+ * 文件分发插件桩
+ * @author Chopper 
+ */
+@Service("fastdfsBundle")
+public class FastdfsBundle extends AutoRegisterPluginsBundle implements IFileUploadEvent,IGetFDFSCacheEvent{
+
+	@Override
+	public String getName() { 
+		return "文件分发插件装";
+	}
+
+	@Override
+	public String BeAfterUpload(File file) {
+		List<IPlugin> plugins =  this.getPlugins();
+		if(plugins!=null){
+			for (IPlugin plugin : plugins) {
+				if(plugin instanceof IFileUploadEvent){
+					return ((IFileUploadEvent)plugin).BeAfterUpload(file);
+				}
+			}
+		}
+		return null;
+	}
+
+
+	@Override
+	public ICache getCache() {
+		List<IPlugin> plugins =  this.getPlugins();
+		if(plugins!=null){
+			for (IPlugin plugin : plugins) {
+				if(plugin instanceof IGetFDFSCacheEvent){
+					return ((IGetFDFSCacheEvent)plugin).getCache();
+				}
+			}
+		}
+		return null;
+	}
+
+}

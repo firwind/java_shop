@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.cms.core.plugin.ArticlePluginBundle;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 模型字段管理

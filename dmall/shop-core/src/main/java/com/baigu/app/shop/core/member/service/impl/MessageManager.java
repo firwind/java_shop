@@ -6,11 +6,11 @@ import java.util.Map;
 import com.baigu.app.shop.core.member.service.IMessageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.Message;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Message;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 public class MessageManager   implements IMessageManager {
 	@Autowired

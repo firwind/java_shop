@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

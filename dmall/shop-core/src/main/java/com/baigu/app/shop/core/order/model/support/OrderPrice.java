@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.framework.util.CurrencyUtil;
 
 /**
  * 订单价格信息实体

@@ -16,8 +16,8 @@ import com.baigu.app.shop.core.member.service.IMemberAddressManager;
 import com.baigu.app.shop.core.order.model.Order;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 import net.sf.json.JSONObject;
 

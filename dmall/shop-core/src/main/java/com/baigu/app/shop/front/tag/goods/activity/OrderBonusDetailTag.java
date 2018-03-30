@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.model.OrderBonus;
 import com.baigu.app.shop.core.order.service.IOrderBonusManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

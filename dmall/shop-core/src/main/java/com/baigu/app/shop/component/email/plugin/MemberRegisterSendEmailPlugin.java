@@ -5,15 +5,15 @@ import com.baigu.app.shop.core.member.plugin.IMemberRegisterEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.service.IMemberPointManger;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.jms.EmailModel;
-import com.enation.framework.jms.EmailProducer;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.EncryptionUtil1;
-import com.enation.framework.util.RequestUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.framework.jms.EmailModel;
+import com.baigu.framework.jms.EmailProducer;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.EncryptionUtil1;
+import com.baigu.framework.util.RequestUtil;
 
 /**
  * 会员注册发送邮件插件

@@ -4,9 +4,9 @@ import com.baigu.app.shop.component.gallery.service.IGoodsGalleryManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.data.IDataOperation;
+import com.baigu.framework.component.IComponent;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.data.IDataOperation;
 
 /**
  * 新的相册

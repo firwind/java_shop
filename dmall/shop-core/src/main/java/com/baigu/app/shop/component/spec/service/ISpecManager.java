@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.goods.model.SpecValue;
 import com.baigu.app.shop.core.goods.model.Specification;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 
 /**

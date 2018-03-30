@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.other.service.IReceiptContentManager;
-import com.enation.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.context.UserConext;
 
 import freemarker.template.TemplateMethodModel;
 import freemarker.template.TemplateModelException;

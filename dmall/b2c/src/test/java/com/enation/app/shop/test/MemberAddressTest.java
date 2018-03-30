@@ -7,8 +7,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /** 
  * 会员中心收货地址管理单元测试类

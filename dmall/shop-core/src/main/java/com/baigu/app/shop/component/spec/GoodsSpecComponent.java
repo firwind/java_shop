@@ -3,12 +3,11 @@ package com.baigu.app.shop.component.spec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.auth.IAuthActionManager;
-import com.enation.app.base.core.service.auth.impl.PermissionConfig;
-import com.enation.app.base.core.service.dbsolution.DBSolutionFactory;
-import com.enation.eop.resource.IMenuManager;
-import com.enation.framework.component.IComponent;
-import com.enation.framework.database.data.IDataOperation;
+import com.baigu.app.base.core.service.auth.IAuthActionManager;
+import com.baigu.app.base.core.service.auth.impl.PermissionConfig;
+import com.baigu.eop.resource.IMenuManager;
+import com.baigu.framework.component.IComponent;
+import com.baigu.framework.database.data.IDataOperation;
 
 /**
  * 商品规格组件

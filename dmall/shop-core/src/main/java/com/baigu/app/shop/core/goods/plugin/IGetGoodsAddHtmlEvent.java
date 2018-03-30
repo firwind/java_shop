@@ -2,8 +2,6 @@ package com.baigu.app.shop.core.goods.plugin;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.enation.framework.plugin.IPlugin;
-
 /**
  * 获取商品添加html事件
  * @author kingapex

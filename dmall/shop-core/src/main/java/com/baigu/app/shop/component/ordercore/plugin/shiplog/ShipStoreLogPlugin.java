@@ -6,16 +6,16 @@ import com.baigu.app.shop.core.goods.model.StoreLog;
 import com.baigu.app.shop.core.order.model.Order;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.auth.IAdminUserManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.auth.IAdminUserManager;
 import com.baigu.app.shop.core.goods.service.IStoreLogManager;
 import com.baigu.app.shop.core.order.model.Delivery;
 import com.baigu.app.shop.core.order.model.DeliveryItem;
 import com.baigu.app.shop.core.order.plugin.order.IOrderShipEvent;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 订单发货库存日志插件

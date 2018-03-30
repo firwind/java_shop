@@ -12,13 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.goods.model.GoodsLvPrice;
 import com.baigu.app.shop.core.goods.model.Product;
 import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.CurrencyUtil;
 
 /**
  * 会员价格api

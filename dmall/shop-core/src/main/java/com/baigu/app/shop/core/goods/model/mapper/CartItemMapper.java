@@ -9,7 +9,7 @@ import java.util.List;
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 
 public class CartItemMapper implements RowMapper {
 

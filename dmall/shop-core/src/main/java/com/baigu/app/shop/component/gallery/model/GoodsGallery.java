@@ -1,6 +1,6 @@
 package com.baigu.app.shop.component.gallery.model;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 public class GoodsGallery {
 	

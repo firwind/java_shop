@@ -11,15 +11,13 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.User;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.test.SpringTestSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.model.User;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.test.SpringTestSupport;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

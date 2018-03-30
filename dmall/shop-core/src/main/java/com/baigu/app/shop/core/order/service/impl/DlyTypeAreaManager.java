@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.baigu.app.shop.core.order.service.IDlyTypeAreaManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONObject;
 

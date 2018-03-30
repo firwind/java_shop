@@ -2,12 +2,9 @@ package com.baigu.app.shop.core.order.plugin.promotion;
 
 import java.util.List;
 
-import javax.xml.ws.ServiceMode;
-
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
 
 /**
  * 优惠规则插件桩

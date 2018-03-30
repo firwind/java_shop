@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.order.plugin.promotion;
 
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 促销规则插件

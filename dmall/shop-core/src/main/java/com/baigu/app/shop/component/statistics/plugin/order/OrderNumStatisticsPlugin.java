@@ -6,8 +6,8 @@ import com.baigu.app.shop.core.order.plugin.order.IOrderStatisDetailHtmlEvent;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.plugin.order.IOrderStatisTabShowEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 
 /**

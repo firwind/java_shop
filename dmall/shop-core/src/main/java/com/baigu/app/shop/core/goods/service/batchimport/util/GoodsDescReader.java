@@ -7,8 +7,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import com.enation.eop.SystemSetting;
-import com.enation.framework.util.FileUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.util.FileUtil;
 
 /**
  * 商品描述读取

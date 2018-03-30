@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.baigu.app.cms.core.model.DataModel;
 import com.baigu.app.cms.core.service.IDataFieldManager;
 import com.baigu.app.cms.core.service.IDataModelManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 模型管理

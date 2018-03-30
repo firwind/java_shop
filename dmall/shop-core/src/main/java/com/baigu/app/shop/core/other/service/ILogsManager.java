@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.other.service;
 
 import java.util.Map;
 
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 操作日志

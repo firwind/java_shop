@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.member.model.MemberOrderItem;
 import com.baigu.app.shop.core.member.service.IMemberOrderItemManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 /**
  * @author wangxin  2016-2-17 6.0升级 改造
  */

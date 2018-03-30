@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.data.IDataOperation;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.data.IDataOperation;
+import com.baigu.framework.test.SpringTestSupport;
 
 /**
  * XmlDataOperation 单元测试类

@@ -11,18 +11,18 @@ import com.baigu.app.shop.core.goods.service.IDepotManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.user.IAdminUserDeleteEvent;
-import com.enation.app.base.core.plugin.user.IAdminUserInputDisplayEvent;
-import com.enation.app.base.core.plugin.user.IAdminUserLoginEvent;
-import com.enation.app.base.core.plugin.user.IAdminUserOnAddEvent;
-import com.enation.app.base.core.plugin.user.IAdminUserOnEditEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.plugin.user.IAdminUserDeleteEvent;
+import com.baigu.app.base.core.plugin.user.IAdminUserInputDisplayEvent;
+import com.baigu.app.base.core.plugin.user.IAdminUserLoginEvent;
+import com.baigu.app.base.core.plugin.user.IAdminUserOnAddEvent;
+import com.baigu.app.base.core.plugin.user.IAdminUserOnEditEvent;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 库管员插件

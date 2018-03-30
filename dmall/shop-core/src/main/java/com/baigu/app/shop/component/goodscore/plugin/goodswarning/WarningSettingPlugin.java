@@ -2,9 +2,9 @@ package com.baigu.app.shop.component.goodscore.plugin.goodswarning;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.setting.IOnSettingInputShow;
-import com.enation.app.base.core.plugin.setting.IOnSettingSaveEnvent;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.plugin.setting.IOnSettingInputShow;
+import com.baigu.app.base.core.plugin.setting.IOnSettingSaveEnvent;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 /**
  * 
  * (系统设置-库存预警设置插件) 

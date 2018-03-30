@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.member.model;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 
 
 public class MemberDTO extends Member {

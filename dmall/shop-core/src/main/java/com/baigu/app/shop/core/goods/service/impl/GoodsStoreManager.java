@@ -13,17 +13,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.service.auth.IPermissionManager;
-import com.enation.app.base.core.service.auth.impl.PermissionConfig;
+import com.baigu.app.base.core.service.auth.IPermissionManager;
+import com.baigu.app.base.core.service.auth.impl.PermissionConfig;
 import com.baigu.app.shop.core.goods.model.WarnNum;
 import com.baigu.app.shop.core.goods.plugin.GoodsStorePluginBundle;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.StringUtil;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Service("goodsStoreManager")
 public class GoodsStoreManager  implements IGoodsStoreManager {

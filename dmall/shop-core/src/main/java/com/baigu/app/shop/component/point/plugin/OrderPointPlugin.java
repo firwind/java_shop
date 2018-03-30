@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.plugin.order.IConfirmReceiptEvent;
 import com.baigu.app.shop.core.order.plugin.order.IOrderRefundEvent;
@@ -17,8 +17,8 @@ import com.baigu.app.shop.core.order.plugin.order.IOrderRogconfirmEvent;
 import com.baigu.app.shop.core.member.service.IMemberPointManger;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.OrderPaymentType;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 新版本的积分插件

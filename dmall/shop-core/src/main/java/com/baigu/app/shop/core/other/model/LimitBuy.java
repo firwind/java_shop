@@ -4,10 +4,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 限时抢购

@@ -10,10 +10,10 @@ import com.baigu.app.cms.core.service.IDataManager;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.processor.core.UrlNotFoundException;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.RequestUtil;
+import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.RequestUtil;
 
 import freemarker.template.TemplateModelException;
 

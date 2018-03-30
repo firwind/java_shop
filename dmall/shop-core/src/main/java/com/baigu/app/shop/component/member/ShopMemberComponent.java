@@ -2,7 +2,7 @@ package com.baigu.app.shop.component.member;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 网店会员组件

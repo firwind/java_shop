@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.member.model;
 
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 
 

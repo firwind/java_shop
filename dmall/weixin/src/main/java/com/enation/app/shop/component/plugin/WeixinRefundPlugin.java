@@ -9,7 +9,7 @@ import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.job.IEveryHourExecuteEvent;
+import com.baigu.app.base.core.plugin.job.IEveryHourExecuteEvent;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
@@ -18,9 +18,9 @@ import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentLogManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.ISellBackManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
  * 微信定时任务查询退款进度

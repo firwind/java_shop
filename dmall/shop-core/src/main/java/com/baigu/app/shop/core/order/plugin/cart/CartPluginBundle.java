@@ -8,8 +8,8 @@ import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.model.support.OrderPrice;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 购物车插件

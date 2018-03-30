@@ -5,7 +5,7 @@ import com.baigu.app.shop.core.order.service.promotion.PromotionConditions;
 import com.baigu.app.shop.core.order.service.promotion.PromotionType;
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 
 

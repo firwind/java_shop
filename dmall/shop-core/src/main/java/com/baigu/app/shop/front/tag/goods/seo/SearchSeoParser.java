@@ -9,8 +9,8 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.framework.util.StringUtil;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 
 import freemarker.template.Configuration;

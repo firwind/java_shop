@@ -11,16 +11,16 @@ import org.apache.tools.ant.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.ClusterSetting;
-import com.enation.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.model.ClusterSetting;
+import com.baigu.app.base.core.service.ISettingService;
 import com.baigu.app.shop.component.gallery.model.GoodsGallery;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.utils.IClusterFileManager;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.jms.IJmsProcessor;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.utils.IClusterFileManager;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.jms.IJmsProcessor;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品相册JMS处理器

@@ -2,7 +2,7 @@ package com.baigu.app.cms.component;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * CMS核心组件

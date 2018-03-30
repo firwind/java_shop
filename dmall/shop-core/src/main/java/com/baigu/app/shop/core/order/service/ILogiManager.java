@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.order.service;
 import java.util.List;
 
 import com.baigu.app.shop.core.order.model.Logi;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 /**
  * 物流公司管理类
  * @author fenlongli

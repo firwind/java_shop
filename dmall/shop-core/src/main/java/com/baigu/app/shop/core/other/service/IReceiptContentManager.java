@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.baigu.app.shop.core.order.model.Order;
 import com.baigu.app.shop.core.other.model.ReceiptContent;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 

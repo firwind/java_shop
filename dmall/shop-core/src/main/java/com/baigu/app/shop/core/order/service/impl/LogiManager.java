@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.order.service.ILogiManager;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.StringUtil;
  
 /**
  * 物流公司管理类

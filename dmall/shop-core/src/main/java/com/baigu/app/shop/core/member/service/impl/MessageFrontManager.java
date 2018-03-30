@@ -6,11 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.service.IMessageFrontManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 /**
  * 前台站内消息

@@ -3,7 +3,7 @@ package com.baigu.app.cms.core.taglib.articlesearch;
 import java.io.IOException;
 import java.util.Map;
 
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

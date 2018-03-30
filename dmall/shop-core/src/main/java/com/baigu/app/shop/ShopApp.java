@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.order.service.ICartManager;
 import com.baigu.app.shop.core.other.service.cache.ArticleCatCacheProxy;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.eop.sdk.App;
-import com.enation.framework.cache.CacheFactory;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.eop.sdk.App;
+import com.baigu.framework.cache.CacheFactory;
 
 /**
  * 网店应用

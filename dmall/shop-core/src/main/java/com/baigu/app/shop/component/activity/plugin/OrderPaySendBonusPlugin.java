@@ -7,16 +7,16 @@ import com.baigu.app.shop.core.order.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.component.bonus.model.MemberBonus;
 import com.baigu.app.shop.core.order.model.OrderBonus;
 import com.baigu.app.shop.core.order.plugin.order.IConfirmReceiptEvent;
 import com.baigu.app.shop.core.order.service.IOrderBonusManager;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 确认收款发放促销活动赠送优惠券插件

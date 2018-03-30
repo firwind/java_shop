@@ -7,17 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.jms.EmailModel;
-import com.enation.framework.jms.EmailProducer;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.EncryptionUtil1;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.RequestUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.jms.EmailModel;
+import com.baigu.framework.jms.EmailProducer;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.EncryptionUtil1;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.RequestUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * @author LiFenLong

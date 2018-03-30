@@ -1,10 +1,9 @@
 package com.baigu.app.shop.core.member.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 会员中心-接收地址

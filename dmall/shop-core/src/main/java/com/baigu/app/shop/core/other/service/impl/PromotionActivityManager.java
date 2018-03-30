@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.baigu.app.shop.core.order.model.PromotionActivity;
 import com.baigu.app.shop.core.order.service.IPromotionActivityManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 促销活动

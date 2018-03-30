@@ -3,8 +3,8 @@ package com.baigu.app.shop.core.order.model;
 import java.util.List;
 
 import com.baigu.app.shop.core.order.model.support.DlyTypeConfig;
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 配送方式

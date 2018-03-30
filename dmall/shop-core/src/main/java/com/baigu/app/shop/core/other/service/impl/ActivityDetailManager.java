@@ -11,8 +11,8 @@ import com.baigu.app.shop.core.other.service.IActivityDetailManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 促销活动优惠详细管理接口实现类

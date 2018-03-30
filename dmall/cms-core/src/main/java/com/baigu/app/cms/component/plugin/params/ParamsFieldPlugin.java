@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 import net.sf.json.JSONArray;
 
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 /**
  * 自定义参数字段插件

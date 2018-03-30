@@ -6,13 +6,13 @@ import com.baigu.app.shop.core.member.plugin.IMemberEmailCheckEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.plugin.IMemberLoginEvent;
 import com.baigu.app.shop.core.member.plugin.IMemberRegisterEvent;
 import com.baigu.app.shop.core.member.service.IMemberPointManger;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 会员积分插件

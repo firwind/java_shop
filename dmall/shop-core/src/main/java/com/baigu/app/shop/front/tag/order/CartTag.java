@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.service.ICartManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 import freemarker.template.TemplateMethodModel;
 import freemarker.template.TemplateModelException;

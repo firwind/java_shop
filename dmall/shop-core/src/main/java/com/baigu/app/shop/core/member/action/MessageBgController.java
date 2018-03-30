@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.jms.MessageFrontProducer;
+import com.baigu.app.base.jms.MessageFrontProducer;
 import com.baigu.app.shop.core.member.model.MessageBg;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 后台站内消息

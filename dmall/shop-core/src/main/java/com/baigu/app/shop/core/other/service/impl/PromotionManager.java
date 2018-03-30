@@ -22,12 +22,12 @@ import com.baigu.app.shop.core.order.service.promotion.IPromotionMethod;
 import com.baigu.app.shop.core.order.service.promotion.IReduceFreightBehavior;
 import com.baigu.app.shop.core.order.service.promotion.IReducePriceBehavior;
 import com.baigu.app.shop.core.order.service.promotion.ITimesPointBehavior;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.IntegerMapper;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.plugin.IPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.IntegerMapper;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.plugin.IPlugin;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

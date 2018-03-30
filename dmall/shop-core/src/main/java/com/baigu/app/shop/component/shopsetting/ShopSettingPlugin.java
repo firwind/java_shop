@@ -1,7 +1,7 @@
 package com.baigu.app.shop.component.shopsetting;
 
-import com.enation.app.base.core.plugin.setting.IOnSettingInputShow;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.plugin.setting.IOnSettingInputShow;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 

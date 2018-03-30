@@ -15,9 +15,9 @@ import net.sf.json.JSONArray;
 import com.baigu.app.shop.component.spec.service.ISpecManager;
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.cart.ICartItemFilter;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 规格购物车插件

@@ -6,7 +6,7 @@ package com.baigu.app.shop.core.goods.utils;
 import java.util.Map;
 
 import com.baigu.app.shop.core.goods.service.Separator;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 属性url生成工具

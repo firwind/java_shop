@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.order.service;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.app.base.core.model.ExpressPlatform;
+import com.baigu.app.base.core.model.ExpressPlatform;
 
 /**
  * 快递

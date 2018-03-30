@@ -8,9 +8,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
+import com.baigu.framework.util.StringUtil;
 
 /** 
  * 专题管理--专题设计，添加商品   单元测试类

@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName" default-lazy-init="false">
 
-	<bean id="jobExecuter" class="com.enation.app.base.core.service.impl.JobExecuter" />
+	<bean id="jobExecuter" class="com.baigu.app.base.core.service.impl.JobExecuter" />
 	<!-- 每天执行task -->		 
 	<bean id="everyDayTask"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">

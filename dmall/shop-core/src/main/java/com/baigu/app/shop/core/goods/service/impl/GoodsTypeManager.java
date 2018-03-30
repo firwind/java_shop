@@ -21,10 +21,10 @@ import com.baigu.app.shop.core.goods.model.GoodsType;
 import com.baigu.app.shop.core.goods.model.support.GoodsTypeDTO;
 import com.baigu.app.shop.core.goods.service.GoodsTypeUtil;
 import com.baigu.app.shop.core.goods.service.IGoodsTypeManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品类型管理
@@ -201,7 +201,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED) 
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="添加商品类型名为${type.name}的商品")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="添加商品类型名为${type.name}的商品")
 	public Integer save(GoodsType type) {
 		String typeTableName ="es_goods_type";
 		Integer[] brand_id = type.getBrand_ids();
@@ -241,7 +241,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 * @see IGoodsTypeManager#saveTypeBrand(GoodsType)
 	 */
 	@Override
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="保存商品类型名为${type.name}的商品类型  品牌信息")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="保存商品类型名为${type.name}的商品类型  品牌信息")
 	public Integer saveTypeBrand(GoodsType type) {
 		Integer[] brand_id = type.getBrand_ids();
 		Integer type_id=type.getType_id();
@@ -264,7 +264,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 * @see IGoodsTypeManager#saveTypeSpec(GoodsType)
 	 */
 	@Override
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="保存商品类型名为${type.name}的商品类型  规格信息")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="保存商品类型名为${type.name}的商品类型  规格信息")
 	public Integer saveTypeSpec(GoodsType type){
 		Integer[] spec_ids = type.getSpec_ids();
 		Integer type_id=type.getType_id();
@@ -287,7 +287,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 * @see IGoodsTypeManager#delete(java.lang.Integer[])
 	 */
 	@Override
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="将商品类型放入回收站中")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="将商品类型放入回收站中")
 	public int delete(Integer[] type_ids) {
 
 		if(type_ids==null) return 1;
@@ -322,7 +322,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED) 
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="清楚商品类型及其关联的品牌")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="清楚商品类型及其关联的品牌")
 	public void clean(Integer[] type_ids){
 		if(type_ids==null) return ;
 		String ids = "";
@@ -344,7 +344,7 @@ public class GoodsTypeManager  implements IGoodsTypeManager {
 	 * @see IGoodsTypeManager#revert(java.lang.Integer[])
 	 */
 	@Override
-	@com.enation.framework.annotation.Log(type=LogType.GOODS,detail="将商品类型还原")
+	@com.baigu.framework.annotation.Log(type=LogType.GOODS,detail="将商品类型还原")
 	public void revert(Integer[] type_ids){
 
 		if(type_ids==null) return ;

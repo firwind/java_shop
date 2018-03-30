@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.goods.model.mapper.BrandMapper;
 import com.baigu.app.shop.core.goods.service.IBrandManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.database.StringMapper;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.database.StringMapper;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
  * @author LiFenLong 2014-4-1;4.0版本改造  clean delete checkUsed revert 方法参数String修改为Integer[]

@@ -39,8 +39,8 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 
 @SuppressWarnings("deprecation")

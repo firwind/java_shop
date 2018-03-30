@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import com.baigu.app.shop.core.order.service.ISellBackManager;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.Page;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 /**

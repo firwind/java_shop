@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 /**

@@ -12,17 +12,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 会员管理
@@ -44,7 +44,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#logout()
+	 * @see IMemberManager#logout()
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -58,7 +58,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#register(com.enation.app.base.core.model.Member)
+	 * @see IMemberManager#register(Member)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -78,7 +78,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#add(com.enation.app.base.core.model.Member)
+	 * @see IMemberManager#add(Member)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -134,7 +134,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#checkEmailSuccess(com.enation.app.base.core.model.Member)
+	 * @see IMemberManager#checkEmailSuccess(Member)
 	 */
 	@Override
 	public void checkEmailSuccess(Member member) {
@@ -147,7 +147,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#get(java.lang.Integer)
+	 * @see IMemberManager#get(java.lang.Integer)
 	 */
 	@Override
 	public Member get(Integer memberId) {
@@ -161,7 +161,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#getMember(java.lang.Integer)
+	 * @see IMemberManager#getMember(java.lang.Integer)
 	 */
 	@Override
 	public Map getMember(Integer memberId) {
@@ -176,7 +176,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#getMemberByUname(java.lang.String)
+	 * @see IMemberManager#getMemberByUname(java.lang.String)
 	 */
 	@Override
 	public Member getMemberByUname(String uname) {
@@ -191,7 +191,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#getMemberByEmail(java.lang.String)
+	 * @see IMemberManager#getMemberByEmail(java.lang.String)
 	 */
 	@Override
 	public Member getMemberByEmail(String email) {
@@ -206,7 +206,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#edit(com.enation.app.base.core.model.Member)
+	 * @see IMemberManager#edit(Member)
 	 */
 	@Override
 	@Log(type=LogType.MEMBER,detail="修改了用户名为${member.uname}的会员信息")
@@ -246,7 +246,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#checkname(java.lang.String)
+	 * @see IMemberManager#checkname(java.lang.String)
 	 */
 	@Override
 	public int checkname(String name) {
@@ -258,7 +258,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#checkemail(java.lang.String)
+	 * @see IMemberManager#checkemail(java.lang.String)
 	 */
 	@Override
 	public int checkemail(String email) {
@@ -270,7 +270,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#checkMobile(java.lang.String)
+	 * @see IMemberManager#checkMobile(java.lang.String)
 	 */
 	@Override
 	public int checkMobile(String mobile) {
@@ -282,7 +282,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#delete(java.lang.Integer[])
+	 * @see IMemberManager#delete(java.lang.Integer[])
 	 */
 	@Override
 	@Log(type=LogType.MEMBER,detail="删除会员")
@@ -301,7 +301,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#updatePassword(java.lang.String)
+	 * @see IMemberManager#updatePassword(java.lang.String)
 	 */
 	@Override
 	public void updatePassword(String password) {
@@ -324,7 +324,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#updatePassword(java.lang.Integer, java.lang.String)
+	 * @see IMemberManager#updatePassword(java.lang.Integer, java.lang.String)
 	 */
 	@Override
 	public void updatePassword(Integer memberid, String password) {
@@ -336,7 +336,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#updateFindCode(java.lang.Integer, java.lang.String)
+	 * @see IMemberManager#updateFindCode(java.lang.Integer, java.lang.String)
 	 */
 	@Override
 	public void updateFindCode(Integer memberid, String code) {
@@ -346,7 +346,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#login(java.lang.String, java.lang.String)
+	 * @see IMemberManager#login(java.lang.String, java.lang.String)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -363,7 +363,7 @@ public class MemberManager  implements IMemberManager {
 					+ " l on m.lv_id = l.lv_id where m.disabled!=1 and m.email=? and password=?";
 		}
 
-		String pwdmd5 = com.enation.framework.util.StringUtil.md5(password);
+		String pwdmd5 = StringUtil.md5(password);
 		List<Member> list = this.daoSupport.queryForList(sql, Member.class, username, pwdmd5);
 		if (list == null || list.isEmpty()) {
 			//如果没有查到用户 可能是使用手机号码＋密码登录
@@ -439,7 +439,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#login(java.lang.String)
+	 * @see IMemberManager#login(java.lang.String)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -485,7 +485,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#loginWithCookie(java.lang.String, java.lang.String)
+	 * @see IMemberManager#loginWithCookie(java.lang.String, java.lang.String)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -529,7 +529,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#loginbysys(java.lang.String)
+	 * @see IMemberManager#loginbysys(java.lang.String)
 	 */
 	@Override
 	public int loginbysys(String username) {
@@ -555,7 +555,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#addMoney(java.lang.Integer, java.lang.Double)
+	 * @see IMemberManager#addMoney(java.lang.Integer, java.lang.Double)
 	 */
 	@Override
 	public void addMoney(Integer memberid, Double num) {
@@ -566,7 +566,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#cutMoney(java.lang.Integer, java.lang.Double)
+	 * @see IMemberManager#cutMoney(java.lang.Integer, java.lang.Double)
 	 */
 	@Override
 	public void cutMoney(Integer memberid, Double num) {
@@ -581,7 +581,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#searchMember(java.util.Map, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
+	 * @see IMemberManager#searchMember(java.util.Map, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public Page searchMember(Map memberMap, Integer page, Integer pageSize,String other,String order) {
@@ -598,7 +598,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#searchMemberNoShop(java.util.Map, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
+	 * @see IMemberManager#searchMemberNoShop(java.util.Map, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public Page searchMemberNoShop(Map memberMap, Integer page,
@@ -615,7 +615,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#search(java.util.Map)
+	 * @see IMemberManager#search(java.util.Map)
 	 */
 	@Override
 	public List<Member> search(Map memberMap) {
@@ -625,7 +625,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#updateLv(int, int)
+	 * @see IMemberManager#updateLv(int, int)
 	 */
 	@Override
 	public void updateLv(int memberid, int lvid) {
@@ -635,7 +635,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#getMemberByMobile(java.lang.String)
+	 * @see IMemberManager#getMemberByMobile(java.lang.String)
 	 */
 	@Override
 	public Member getMemberByMobile(String mobile) {
@@ -829,7 +829,7 @@ public class MemberManager  implements IMemberManager {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#changeMobile(java.lang.Integer, java.lang.String)
+	 * @see IMemberManager#changeMobile(java.lang.Integer, java.lang.String)
 	 */
 	@Override
 	public void changeMobile(Integer member_id, String mobile) {
@@ -896,7 +896,7 @@ public class MemberManager  implements IMemberManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.base.core.service.IMemberManager#editMemberImg(java.lang.Integer, java.lang.String)
+	 * @see IMemberManager#editMemberImg(java.lang.Integer, java.lang.String)
 	 */
 	@Override
 	public void editMemberImg(Integer member_id, String img) {

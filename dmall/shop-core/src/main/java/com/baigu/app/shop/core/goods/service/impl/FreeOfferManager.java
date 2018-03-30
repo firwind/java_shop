@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.baigu.app.shop.core.goods.model.mapper.GiftMapper;
 import com.baigu.app.shop.core.goods.service.IFreeOfferManager;
 import com.baigu.app.shop.core.order.model.FreeOffer;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 赠品管理

@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 橱窗管理实现类

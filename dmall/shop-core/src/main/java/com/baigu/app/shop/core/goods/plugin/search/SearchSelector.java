@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.goods.plugin.search;
 
 import java.util.List;
 
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 选器实体

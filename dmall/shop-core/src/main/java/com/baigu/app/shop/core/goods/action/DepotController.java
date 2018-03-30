@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.shop.core.goods.model.Depot;
 import com.baigu.app.shop.core.goods.service.IDepotManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 /**
  * 库房管理Action
  * @author LiFenLong 2014-4-2;4.0版本改造

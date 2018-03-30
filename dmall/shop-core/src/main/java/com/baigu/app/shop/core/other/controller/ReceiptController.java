@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.shop.core.other.model.ReceiptContent;
 import com.baigu.app.shop.core.other.service.IReceiptContentManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 

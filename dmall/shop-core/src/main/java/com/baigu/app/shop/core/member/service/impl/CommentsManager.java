@@ -8,15 +8,15 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.member.model.CommentDTO;
 import com.baigu.app.shop.core.member.model.Comments;
 import com.baigu.app.shop.core.member.service.ICommentsManager;
-import com.enation.eop.processor.core.EopException;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.eop.processor.core.EopException;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 /**
  * 咨询、评论管理

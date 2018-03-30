@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 商品数据导入插件桩

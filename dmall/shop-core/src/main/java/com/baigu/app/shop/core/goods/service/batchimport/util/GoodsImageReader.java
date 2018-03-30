@@ -4,13 +4,13 @@ import java.io.File;
 
 import org.apache.log4j.Logger;
 
-import com.enation.app.base.core.service.ISettingService;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.image.IThumbnailCreator;
-import com.enation.framework.image.ThumbnailCreatorFactory;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.service.ISettingService;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.image.IThumbnailCreator;
+import com.baigu.framework.image.ThumbnailCreatorFactory;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.StringUtil;
 
 public class GoodsImageReader {
 	protected final Logger logger = Logger.getLogger(getClass());

@@ -7,13 +7,13 @@ import java.util.Map;
 import com.baigu.app.shop.core.order.model.Order;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.order.model.OrderItem;
 import com.baigu.app.shop.core.order.plugin.order.IOrderRogconfirmEvent;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 /**
  * 确认收货后添加成交交易
  * @author LiFenLong

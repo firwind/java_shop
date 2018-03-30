@@ -13,8 +13,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.baigu.app.shop.core.member.model.MemberAddress;
 import com.baigu.app.shop.core.member.service.IMemberAddressManager;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 import net.sf.json.JSONObject;
 

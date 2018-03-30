@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.goods.service;
 
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 缺货登记

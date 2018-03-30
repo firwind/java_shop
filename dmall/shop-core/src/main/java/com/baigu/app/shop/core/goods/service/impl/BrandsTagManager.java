@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.goods.service.IBrandsTagManager;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.LogType;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.LogType;
 
 @Service("brandsTagManager")
 public class BrandsTagManager implements IBrandsTagManager {

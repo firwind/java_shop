@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.order.model.Order;
 import com.baigu.app.shop.core.order.model.PayCfg;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 支付方式管理接口

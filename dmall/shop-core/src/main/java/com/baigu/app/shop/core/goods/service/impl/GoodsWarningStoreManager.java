@@ -5,14 +5,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.service.auth.IPermissionManager;
-import com.enation.app.base.core.service.auth.impl.PermissionConfig;
+import com.baigu.app.base.core.service.auth.IPermissionManager;
+import com.baigu.app.base.core.service.auth.impl.PermissionConfig;
 import com.baigu.app.shop.core.goods.plugin.GoodsStorePluginBundle;
 import com.baigu.app.shop.core.goods.service.IDepotManager;
 import com.baigu.app.shop.core.goods.service.IGoodsWarningStoreManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONObject;
 /**

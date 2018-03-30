@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsSearchPluginBundle;
 import com.baigu.app.shop.core.goods.service.SearchEngineFactory;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

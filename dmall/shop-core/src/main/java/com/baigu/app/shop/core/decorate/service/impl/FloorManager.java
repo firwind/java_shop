@@ -10,18 +10,18 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.AdvMapper;
+import com.baigu.app.base.core.model.AdvMapper;
 import com.baigu.app.shop.core.decorate.DecoratePluginsBundle;
 import com.baigu.app.shop.core.decorate.model.Floor;
 import com.baigu.app.shop.core.decorate.model.FloorProps;
 import com.baigu.app.shop.core.decorate.service.IFloorManager;
 import com.baigu.app.shop.core.goods.model.Brand;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.JsonUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
  * 楼层管理实现类

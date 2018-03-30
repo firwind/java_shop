@@ -2,7 +2,7 @@ package com.baigu.app.shop.component.point;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 会员积分组件

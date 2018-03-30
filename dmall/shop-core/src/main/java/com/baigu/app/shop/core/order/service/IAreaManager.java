@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.order.service;
 import java.util.List;
 
 import com.baigu.app.shop.core.order.model.DlyArea;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 /**
  * 配送方式管理类
  * @author fenlongli

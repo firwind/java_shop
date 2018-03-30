@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

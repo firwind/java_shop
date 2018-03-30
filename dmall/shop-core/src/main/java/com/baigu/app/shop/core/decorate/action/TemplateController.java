@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enation.app.base.core.model.Adv;
-import com.enation.app.base.core.service.IAdvManager;
+import com.baigu.app.base.core.model.Adv;
+import com.baigu.app.base.core.service.IAdvManager;
 import com.baigu.app.shop.core.decorate.model.Floor;
 import com.baigu.app.shop.core.decorate.model.FloorProps;
 import com.baigu.app.shop.core.decorate.service.IFloorManager;
@@ -23,12 +23,12 @@ import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.service.IBrandManager;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.JsonUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 

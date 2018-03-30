@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.member.model.MemberComment;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 public interface IMemberCommentManager {
 

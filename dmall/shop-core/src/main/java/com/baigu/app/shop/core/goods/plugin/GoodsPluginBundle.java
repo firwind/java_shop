@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.PluginTab;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.app.base.core.model.PluginTab;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品插件桩

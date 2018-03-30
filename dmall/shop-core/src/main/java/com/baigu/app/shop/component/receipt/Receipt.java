@@ -3,8 +3,6 @@ package com.baigu.app.shop.component.receipt;
 
 import java.io.Serializable;
 
-import com.enation.framework.database.PrimaryKeyField;
-
 /**
  * 
  * 发票实体类

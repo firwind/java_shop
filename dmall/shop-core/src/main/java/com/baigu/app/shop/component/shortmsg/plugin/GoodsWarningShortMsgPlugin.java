@@ -8,11 +8,11 @@ import com.baigu.app.shop.ShopApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.ShortMsg;
-import com.enation.app.base.core.plugin.shortmsg.IShortMessageEvent;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.model.ShortMsg;
+import com.baigu.app.base.core.plugin.shortmsg.IShortMessageEvent;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 import net.sf.json.JSONObject;
 

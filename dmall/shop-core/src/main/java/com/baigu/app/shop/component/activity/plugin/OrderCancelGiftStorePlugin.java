@@ -7,8 +7,8 @@ import com.baigu.app.shop.core.other.service.IActivityGiftManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 订单取消时增加订单赠品的可用库存插件

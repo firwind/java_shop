@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.goods.model.Attribute;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.goods.service.IGoodsTypeManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.order.model.RefundLog;
+import com.baigu.framework.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,10 @@ import com.baigu.app.shop.core.order.model.PaymentDetail;
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.PaymentLogType;
 import com.baigu.app.shop.core.order.service.IOrderReportManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 订单报表
@@ -253,12 +254,12 @@ public class OrderReportManager implements IOrderReportManager {
 		}
 
 		if (start_time != null && !StringUtil.isEmpty(start_time)) {
-			long stime = com.enation.framework.util.DateUtil
+			long stime = DateUtil
 					.getDateline(start_time + " 00:00:00", "yyyy-MM-dd HH:mm:ss");
 			sql += " and create_time>" + stime;
 		}
 		if (end_time != null && !StringUtil.isEmpty(end_time)) {
-			long etime = com.enation.framework.util.DateUtil.getDateline(
+			long etime = DateUtil.getDateline(
 					end_time + " 23:59:59", "yyyy-MM-dd HH:mm:ss");
 			sql += " and create_time<" + etime;
 		}

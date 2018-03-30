@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品属性

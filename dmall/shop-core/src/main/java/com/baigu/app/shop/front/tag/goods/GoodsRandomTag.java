@@ -8,7 +8,7 @@ import com.baigu.app.shop.core.order.service.ISellBackManager;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.service.IGoodsTagManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

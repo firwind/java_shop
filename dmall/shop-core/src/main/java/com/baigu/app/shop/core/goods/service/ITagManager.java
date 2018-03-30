@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.goods.model.Tag;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 标签管理

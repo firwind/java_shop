@@ -19,9 +19,9 @@ import com.baigu.app.shop.core.statistics.service.IMemberStatisticsManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 /**
  * 会员统计实现类

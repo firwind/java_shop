@@ -30,14 +30,14 @@
 		</param-value>
 	</context-param>
 	<listener>
-		<listener-class>com.enation.eop.sdk.listener.EopSessionListener</listener-class>
+		<listener-class>com.baigu.eop.sdk.listener.EopSessionListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.enation.eop.sdk.listener.EopContextLoaderListener</listener-class>
+		<listener-class>com.baigu.eop.sdk.listener.EopContextLoaderListener</listener-class>
 	</listener>
 	<filter>
 		<filter-name>Compress</filter-name>
-		<filter-class>com.enation.framework.gzip.GZIPFilter</filter-class>
+		<filter-class>com.baigu.framework.gzip.GZIPFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>Compress</filter-name>
@@ -79,7 +79,7 @@
 
 	<filter>
 		<filter-name>dispatcherFilter</filter-name>
-		<filter-class>com.enation.eop.DispatcherFilter</filter-class>
+		<filter-class>com.baigu.eop.DispatcherFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>dispatcherFilter</filter-name>
@@ -119,7 +119,7 @@
 
 	<servlet>
 		<servlet-name>ValidCodeServlet</servlet-name>
-		<servlet-class>com.enation.eop.sdk.utils.ValidCodeServlet</servlet-class>
+		<servlet-class>com.baigu.eop.sdk.utils.ValidCodeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ValidCodeServlet</servlet-name>

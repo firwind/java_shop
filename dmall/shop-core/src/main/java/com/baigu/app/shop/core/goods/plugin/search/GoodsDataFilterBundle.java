@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
 @Service("goodsDataFilterBundle")
 public class GoodsDataFilterBundle extends AutoRegisterPluginsBundle {
 

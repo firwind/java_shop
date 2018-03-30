@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
 
 /**
  * 支付插件桩

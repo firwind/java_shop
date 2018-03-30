@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.enation.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
-import com.enation.eop.processor.core.HttpHeaderConstants;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.processor.core.HttpHeaderConstants;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 /**
  * @author kingapex
  *2014-11-19上午11:49:32

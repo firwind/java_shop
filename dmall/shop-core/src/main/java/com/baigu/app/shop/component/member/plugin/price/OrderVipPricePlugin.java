@@ -10,16 +10,16 @@ import com.baigu.app.shop.core.order.plugin.cart.ICartItemFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.goods.model.GoodsLvPrice;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
 import com.baigu.app.shop.core.order.service.IPromotionManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.CurrencyUtil;
 @Component
 public class OrderVipPricePlugin extends AutoRegisterPlugin implements ICartItemFilter {
 

@@ -11,20 +11,20 @@ import com.baigu.app.shop.core.goods.plugin.IStoreSaveEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.auth.IPermissionManager;
-import com.enation.app.base.core.service.auth.impl.PermissionConfig;
+import com.baigu.app.base.core.service.auth.IPermissionManager;
+import com.baigu.app.base.core.service.auth.impl.PermissionConfig;
 import com.baigu.app.shop.component.spec.service.IGoodsSpecStoreManager;
 import com.baigu.app.shop.core.goods.model.StoreLog;
 import com.baigu.app.shop.core.goods.plugin.AbstractGoodsStorePlugin;
 import com.baigu.app.shop.core.goods.plugin.IStockSaveEvent;
 import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.goods.service.IStoreLogManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 规格商品的库存维护插件

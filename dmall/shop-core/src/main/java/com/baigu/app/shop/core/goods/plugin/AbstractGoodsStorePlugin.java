@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.goods.plugin;
 
 import java.util.Map;
 
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 
 /**

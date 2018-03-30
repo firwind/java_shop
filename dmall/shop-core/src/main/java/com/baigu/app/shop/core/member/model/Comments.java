@@ -2,9 +2,9 @@ package com.baigu.app.shop.core.member.model;
 
 import java.util.Date;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 评论/咨询实体

@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.baigu.app.shop.core.order.model.Promotion;
 import com.baigu.app.shop.core.order.service.promotion.IPromotionMethod;
 import com.baigu.app.shop.core.order.service.promotion.IReducePriceBehavior;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.CurrencyUtil;
 
 /**
  * 减价优惠方式

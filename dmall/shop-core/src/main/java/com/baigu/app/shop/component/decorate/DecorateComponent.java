@@ -1,21 +1,15 @@
 package com.baigu.app.shop.component.decorate;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.ISiteMenuManager;
-import com.enation.app.base.core.service.dbsolution.DBSolutionFactory;
-import com.enation.app.base.core.service.impl.cache.SiteMenuCacheProxy;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.cache.CacheFactory;
-import com.enation.framework.cache.ICache;
-import com.enation.framework.component.IComponent;
-import com.enation.framework.component.IComponentStartAble;
-import com.enation.framework.component.IComponentStopAble;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.data.IDataOperation;
+import com.baigu.app.base.core.service.ISiteMenuManager;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.component.IComponent;
+import com.baigu.framework.component.IComponentStartAble;
+import com.baigu.framework.component.IComponentStopAble;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.data.IDataOperation;
 /**
  * 装修组件
  * @author    jianghongyan

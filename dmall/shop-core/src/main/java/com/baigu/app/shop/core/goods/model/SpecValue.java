@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.goods.model;
 
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 规格值

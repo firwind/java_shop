@@ -13,9 +13,9 @@ import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.search.IGoodsFrontSearchFilter;
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
 import com.baigu.app.shop.core.goods.utils.CatUrlUtils;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 商品分类搜索过虑器

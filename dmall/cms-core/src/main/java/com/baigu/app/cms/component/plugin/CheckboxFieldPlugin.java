@@ -9,8 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.cms.core.model.DataField;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 复选框字段插件

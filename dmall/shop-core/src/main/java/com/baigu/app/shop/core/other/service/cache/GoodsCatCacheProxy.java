@@ -11,9 +11,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.cache.CacheFactory;
-import com.enation.framework.cache.ICache;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.cache.CacheFactory;
+import com.baigu.framework.cache.ICache;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品分类缓存代理

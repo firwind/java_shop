@@ -8,15 +8,15 @@ import com.baigu.app.shop.core.member.model.MemberOrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.job.IEveryDayExecuteEvent;
+import com.baigu.app.base.core.plugin.job.IEveryDayExecuteEvent;
 import com.baigu.app.shop.core.member.model.MemberComment;
 import com.baigu.app.shop.core.member.service.IMemberCommentManager;
 import com.baigu.app.shop.core.member.service.IMemberOrderItemManager;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 /**
  * 收货后7*24小时没有评价的订单自动好评
  * @author LiFenLong

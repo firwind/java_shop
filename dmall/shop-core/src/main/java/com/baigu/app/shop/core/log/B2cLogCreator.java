@@ -6,12 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.log.ILogCreator;
-import com.enation.framework.model.Log;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.log.ILogCreator;
 
 /**
  * 单店日志创建实现
@@ -28,7 +26,7 @@ public class B2cLogCreator implements ILogCreator{
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.framework.log.ILogCreator#createLog()
+	 * @see ILogCreator#createLog()
 	 */
 	@Override
 	public Map createLog() {

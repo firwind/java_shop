@@ -8,14 +8,14 @@ import com.baigu.app.shop.core.member.plugin.IMemberTabShowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.plugin.IAjaxExecuteEnable;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.IAjaxExecuteEnable;
 
 @Component
 public class MemberEditorPlugin extends AutoRegisterPlugin implements IMemberTabShowEvent,IAjaxExecuteEnable  {

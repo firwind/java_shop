@@ -55,17 +55,17 @@
     <property name="testConnectionOnCheckout" value="true" />  
    </bean>  
 
-   	<bean id="jdbcTemplate" class="com.enation.framework.database.impl.LowerCaseJdbcTemplate"></bean>	
-   	<bean id="sqlFileExecutor" class="com.enation.framework.database.impl.DefaultSqlFileExecutor"></bean>	
+   	<bean id="jdbcTemplate" class="com.baigu.framework.database.impl.LowerCaseJdbcTemplate"></bean>
+   	<bean id="sqlFileExecutor" class="com.baigu.framework.database.impl.DefaultSqlFileExecutor"></bean>
 	<bean id = "transactionManager" 
          class = "org.springframework.jdbc.datasource.DataSourceTransactionManager" > 
          <property name = "dataSource" > 
              <ref bean = "dataSource" /> 
          </property > 
      </bean >
-	<bean id="springContextHolder" class="com.enation.framework.context.spring.SpringContextHolder" lazy-init="false"/>
-	<bean class="com.enation.framework.component.ComponentLoader"></bean>	
- 	<bean id="daoSupport" class="com.enation.framework.database.impl.JdbcDaoSupport"></bean>
+	<bean id="springContextHolder" class="com.baigu.framework.context.spring.SpringContextHolder" lazy-init="false"/>
+	<bean class="com.baigu.framework.component.ComponentLoader"></bean>
+ 	<bean id="daoSupport" class="com.baigu.framework.database.impl.JdbcDaoSupport"></bean>
 
 	<!-- 使用Spring封装的Mail Sender -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

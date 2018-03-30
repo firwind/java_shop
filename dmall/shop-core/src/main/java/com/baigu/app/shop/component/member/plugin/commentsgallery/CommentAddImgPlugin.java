@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.plugin.IGoodsCommentsAddEvent;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 商品评论时上传评论相册插件

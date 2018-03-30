@@ -8,8 +8,8 @@ import com.baigu.app.shop.core.goods.model.mapper.SpecValueMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 规格值管理

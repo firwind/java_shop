@@ -1,8 +1,6 @@
 package com.baigu.app.shop.core.goods.model;
 
-import java.util.Date;
-
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 报警实体

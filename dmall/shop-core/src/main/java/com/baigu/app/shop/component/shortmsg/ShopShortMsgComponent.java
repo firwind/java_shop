@@ -2,7 +2,7 @@ package com.baigu.app.shop.component.shortmsg;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 网店消息提醒组件

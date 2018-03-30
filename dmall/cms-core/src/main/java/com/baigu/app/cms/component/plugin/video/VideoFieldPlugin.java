@@ -14,8 +14,8 @@ import net.sf.json.JSONObject;
 
 import com.baigu.app.cms.component.plugin.ImageFieldPlugin;
 import com.baigu.app.cms.core.model.DataField;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 
 import freemarker.template.Configuration;

@@ -5,7 +5,7 @@ import java.util.List;
 import com.baigu.app.shop.core.order.model.DlyType;
 import com.baigu.app.shop.core.order.model.support.DlyTypeConfig;
 import com.baigu.app.shop.core.order.model.support.TypeAreaConfig;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 
 /**

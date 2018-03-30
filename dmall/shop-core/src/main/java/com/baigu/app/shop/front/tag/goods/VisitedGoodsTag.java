@@ -10,10 +10,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.context.webcontext.WebSessionContext;
-import com.enation.framework.directive.ImageUrlDirectiveModel;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.directive.ImageUrlDirectiveModel;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

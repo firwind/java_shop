@@ -12,13 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.order.model.SellBack;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 退换货Api
@@ -58,7 +58,7 @@ public class SellBackApiController {
 			Member member =  UserConext.getCurrentMember();
 			sellBack.setMember_id(member.getMember_id());
 			sellBack.setSndto(member.getName());
-			sellBack.setTradeno(com.enation.framework.util.DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退货单号
+			sellBack.setTradeno(DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退货单号
 			sellBack.setRegoperator("会员["+member.getUname()+"]");
 			sellBack.setTradestatus(0);
 			sellBack.setRegtime(DateUtil.getDateline());
@@ -102,7 +102,7 @@ public class SellBackApiController {
 			Member member =  UserConext.getCurrentMember();
 			sellBack.setMember_id(member.getMember_id());
 			sellBack.setSndto(member.getName());
-			sellBack.setTradeno(com.enation.framework.util.DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退款单号
+			sellBack.setTradeno(DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退款单号
 			sellBack.setRegoperator("会员["+member.getUname()+"]");
 			sellBack.setTradestatus(0);
 			sellBack.setRegtime(DateUtil.getDateline());

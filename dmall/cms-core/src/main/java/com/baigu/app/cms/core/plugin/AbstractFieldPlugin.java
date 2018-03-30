@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.baigu.app.cms.core.model.DataField;
 import com.baigu.app.cms.core.service.impl.DataFieldManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 public abstract class AbstractFieldPlugin extends AutoRegisterPlugin implements
 		IFieldSaveEvent, IFieldDispalyEvent,IFieldValueShowEvent {

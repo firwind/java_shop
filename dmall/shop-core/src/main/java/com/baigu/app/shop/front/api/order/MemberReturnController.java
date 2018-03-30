@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.upload.IUploader;
-import com.enation.app.base.core.upload.UploadFacatory;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.upload.IUploader;
+import com.baigu.app.base.core.upload.UploadFacatory;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 
 
 /**

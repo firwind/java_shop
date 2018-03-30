@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.StringUtil;
  
 
 /**
@@ -31,7 +31,7 @@ public class MemberLvManager implements IMemberLvManager{
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IMemberLvManager#add(com.enation.app.base.core.model.MemberLv)
+	 * @see com.enation.app.shop.core.service.IMemberLvManager#add(MemberLv)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -45,7 +45,7 @@ public class MemberLvManager implements IMemberLvManager{
 	
 	/*
 	 * (non-Javadoc)
-	 * @see IMemberLvManager#edit(com.enation.app.base.core.model.MemberLv)
+	 * @see IMemberLvManager#edit(MemberLv)
 	 */
 	@Override
 	@Log(type=LogType.MEMBER,detail="修改了一个${lv.name}的会员等级")

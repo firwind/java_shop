@@ -9,23 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.SmsMessage;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.app.base.core.service.ISmsManager;
-import com.enation.app.base.core.util.SmsTypeKeyEnum;
-import com.enation.app.base.core.util.SmsUtil;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.jms.EmailProducer;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.SmsMessage;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.ISmsManager;
+import com.baigu.app.base.core.util.SmsTypeKeyEnum;
+import com.baigu.app.base.core.util.SmsUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 找回密码api

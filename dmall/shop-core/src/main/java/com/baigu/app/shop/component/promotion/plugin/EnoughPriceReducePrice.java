@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.plugin.promotion.IPromotionPlugin;
 import com.baigu.app.shop.core.order.service.promotion.PromotionType;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 @Component
 public class EnoughPriceReducePrice extends AutoRegisterPlugin implements
 		IPromotionPlugin {

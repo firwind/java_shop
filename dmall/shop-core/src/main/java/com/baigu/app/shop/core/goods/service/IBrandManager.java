@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.goods.model.Brand;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 品牌管理

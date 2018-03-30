@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.model.PaymentResult;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.RequestUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.RequestUtil;
 
 import freemarker.template.TemplateModelException;
 

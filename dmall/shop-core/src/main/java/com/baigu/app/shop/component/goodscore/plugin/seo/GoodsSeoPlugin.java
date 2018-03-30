@@ -9,7 +9,7 @@ import com.baigu.app.shop.core.goods.plugin.IGoodsTabShowEvent;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 
 
 /**

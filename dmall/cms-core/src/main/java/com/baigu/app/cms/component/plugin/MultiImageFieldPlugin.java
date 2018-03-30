@@ -17,12 +17,12 @@ import net.sf.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.cms.core.model.DataField;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.utils.FreeMarkerUtil;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.utils.FreeMarkerUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 
 import freemarker.template.Configuration;

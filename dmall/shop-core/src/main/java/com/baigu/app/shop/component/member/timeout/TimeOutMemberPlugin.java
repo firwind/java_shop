@@ -2,9 +2,9 @@ package com.baigu.app.shop.component.member.timeout;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.job.IEveryMonthExecuteEvent;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.plugin.job.IEveryMonthExecuteEvent;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 会员等了次数每月清0

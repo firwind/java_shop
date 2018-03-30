@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.goods.model;
 
 import java.io.Serializable;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 public class WarnTask implements Serializable {
 

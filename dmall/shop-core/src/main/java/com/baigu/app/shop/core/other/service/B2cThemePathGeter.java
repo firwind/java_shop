@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import com.enation.eop.SystemSetting;
-import com.enation.eop.processor.facade.IThemePathGeter;
-import com.enation.eop.resource.IThemeManager;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.eop.resource.model.Theme;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.processor.facade.IThemePathGeter;
+import com.baigu.eop.resource.IThemeManager;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.eop.resource.model.Theme;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 /***
  * b2c模板处理器
  * 处理b2b2c不同的店铺模板 访问

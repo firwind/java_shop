@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.component.gallery.model.GoodsGallery;
-import com.enation.eop.SystemSetting;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

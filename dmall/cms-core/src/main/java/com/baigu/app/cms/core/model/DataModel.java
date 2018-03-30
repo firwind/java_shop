@@ -1,6 +1,6 @@
 package com.baigu.app.cms.core.model;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 模型实体

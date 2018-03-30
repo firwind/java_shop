@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.baigu.app.shop.core.goods.model.DepotUser;
 import com.baigu.app.shop.core.goods.service.IDepotUserManager;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 public class DepotUserManager  implements
 		IDepotUserManager {

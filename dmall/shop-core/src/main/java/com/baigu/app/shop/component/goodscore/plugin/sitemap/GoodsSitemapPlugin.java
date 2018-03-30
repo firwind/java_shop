@@ -9,11 +9,11 @@ import com.baigu.app.shop.core.goods.plugin.AbstractGoodsPlugin;
 import com.baigu.app.shop.core.goods.plugin.IGoodsDeleteEvent;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.SiteMapUrl;
-import com.enation.app.base.core.plugin.IRecreateMapEvent;
-import com.enation.app.base.core.service.ISitemapManager;
+import com.baigu.app.base.core.model.SiteMapUrl;
+import com.baigu.app.base.core.plugin.IRecreateMapEvent;
+import com.baigu.app.base.core.service.ISitemapManager;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
-import com.enation.framework.util.DateUtil;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 商品对应Sitemap的插件

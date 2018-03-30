@@ -5,9 +5,9 @@ import java.util.Map;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 /**

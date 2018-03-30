@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.decorate.service.IFloorManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.JsonUtil;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

@@ -24,15 +24,15 @@ import com.baigu.app.shop.core.order.model.SellBackStatus;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.IRefundManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 退货管理Controller
@@ -491,7 +491,7 @@ public class SellBackController extends GridController {
 			Order order=orderManager.get(sellBack.getOrderid());
 			sellBack.setMember_id(order.getMember_id());
 			sellBack.setSndto(name);
-			sellBack.setTradeno(com.enation.framework.util.DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退款单号
+			sellBack.setTradeno(DateUtil.toString(DateUtil.getDateline(),"yyMMddhhmmss"));//退款单号
 			sellBack.setRegoperator("管理员["+name+"]");
 			sellBack.setTradestatus(0);
 			sellBack.setRegtime(DateUtil.getDateline());

@@ -10,9 +10,9 @@ package com.baigu.app.shop.core.decorate;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.enation.eop.processor.facade.ThemePathGeterFactory;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.facade.ThemePathGeterFactory;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /** 
  * 〈一句话功能简述〉

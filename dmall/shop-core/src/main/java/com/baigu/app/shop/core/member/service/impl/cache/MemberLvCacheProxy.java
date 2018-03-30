@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.framework.cache.AbstractCacheProxy;
-import com.enation.framework.cache.CacheFactory;
-import com.enation.framework.cache.ICache;
-import com.enation.framework.database.Page;
+import com.baigu.framework.cache.AbstractCacheProxy;
+import com.baigu.framework.cache.CacheFactory;
+import com.baigu.framework.cache.ICache;
+import com.baigu.framework.database.Page;
 @Service("memberLvManager")
 public class MemberLvCacheProxy extends AbstractCacheProxy<List<MemberLv> > implements IMemberLvManager {
 

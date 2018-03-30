@@ -22,10 +22,10 @@ import com.baigu.app.shop.core.order.plugin.order.IOrderShipEvent;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.goods.service.IProductStoreManager;
 import com.baigu.app.shop.core.goods.service.IStoreLogManager;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 普通商品订单插件
@@ -65,7 +65,7 @@ public class GenericOrderPlugin extends AutoRegisterPlugin implements IOrderShip
 		
 		//记录库存日志
 		StoreLog storeLog = new StoreLog();
-		storeLog.setDateline(  com.enation.framework.util.DateUtil.getDateline());
+		storeLog.setDateline(  DateUtil.getDateline());
 		storeLog.setDepot_type(0);
 		storeLog.setDepotid(depotid);
 		storeLog.setGoodsid(item.getGoods_id());

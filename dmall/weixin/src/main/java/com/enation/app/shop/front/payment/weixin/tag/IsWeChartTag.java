@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

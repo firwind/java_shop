@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.baigu.app.shop.core.goods.service.IGoodsTagManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.JsonResultUtil;
 /**
  * 首页显示和列表推荐的统一管理
  * @author kingapex

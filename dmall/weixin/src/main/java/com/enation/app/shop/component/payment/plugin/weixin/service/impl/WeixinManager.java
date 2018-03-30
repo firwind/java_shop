@@ -15,9 +15,9 @@ import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.enation.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONObject;
 

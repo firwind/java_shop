@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.enation.framework.database.data.INonVariableInsert;
-import com.enation.framework.database.data.entity.Field;
-import com.enation.framework.database.data.entity.Index;
-import com.enation.framework.database.data.xml.SqlServerSqlParser;
+import com.baigu.framework.database.data.INonVariableInsert;
+import com.baigu.framework.database.data.entity.Field;
+import com.baigu.framework.database.data.entity.Index;
+import com.baigu.framework.database.data.xml.SqlServerSqlParser;
  
 
 /**

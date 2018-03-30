@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.component.product.plugin.order.GenericOrderPlugin;
 import com.baigu.app.shop.core.order.model.OrderItem;
 import com.baigu.app.shop.core.order.plugin.order.IOrderItemFilter;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品规格订单插件

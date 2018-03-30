@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.order.model.Promotion;
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.util.CurrencyUtil;
 
 /**
  * 购物项

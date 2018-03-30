@@ -1,6 +1,6 @@
 package com.baigu.app.shop.component.bonus.model;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 红包类型实体

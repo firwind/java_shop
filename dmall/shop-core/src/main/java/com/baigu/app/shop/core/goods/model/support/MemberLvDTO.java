@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.goods.model.support;
 
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.MemberLv;
 
 public class MemberLvDTO extends MemberLv {
 	private int isSelected;

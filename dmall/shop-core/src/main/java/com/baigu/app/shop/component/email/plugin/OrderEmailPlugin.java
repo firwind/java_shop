@@ -9,18 +9,18 @@ import com.baigu.app.shop.core.order.model.support.CartItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.order.plugin.order.IAfterOrderCreateEvent;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.jms.EmailModel;
-import com.enation.framework.jms.EmailProducer;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.RequestUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.jms.EmailModel;
+import com.baigu.framework.jms.EmailProducer;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.RequestUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 订单邮件插件

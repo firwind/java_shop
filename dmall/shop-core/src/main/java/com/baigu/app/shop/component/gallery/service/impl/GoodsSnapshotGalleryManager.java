@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.component.gallery.model.GoodsGallery;
 import com.baigu.app.shop.component.gallery.service.IGoodsSnapshotGalleryManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
 	* @Description:快照相册 

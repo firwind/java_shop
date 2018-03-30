@@ -1,8 +1,5 @@
 package com.baigu.app.shop.core.decorate.action;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.base.core.service.IAdvManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.app.base.core.service.IAdvManager;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 广告选择器controller

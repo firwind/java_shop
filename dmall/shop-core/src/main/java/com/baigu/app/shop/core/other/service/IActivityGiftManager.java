@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baigu.app.shop.core.other.model.ActivityGift;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 促销活动管理接口

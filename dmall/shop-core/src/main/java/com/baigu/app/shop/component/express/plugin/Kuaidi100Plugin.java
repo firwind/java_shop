@@ -6,13 +6,13 @@ import java.util.Map;
 import com.baigu.app.shop.component.express.plugin.util.MD5;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.express.AbstractExpressPlugin;
-import com.enation.app.base.core.plugin.express.IExpressEvent;
+import com.baigu.app.base.core.plugin.express.AbstractExpressPlugin;
+import com.baigu.app.base.core.plugin.express.IExpressEvent;
 import com.baigu.app.shop.component.express.plugin.util.HttpRequest;
-import com.enation.eop.processor.core.RemoteRequest;
-import com.enation.eop.processor.core.Request;
-import com.enation.eop.processor.core.Response;
-import com.enation.framework.util.JsonUtil;
+import com.baigu.eop.processor.core.RemoteRequest;
+import com.baigu.eop.processor.core.Request;
+import com.baigu.eop.processor.core.Response;
+import com.baigu.framework.util.JsonUtil;
 
 /**
  * 快递100插件接口

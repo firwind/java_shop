@@ -15,7 +15,7 @@ import com.baigu.app.shop.core.order.service.IOrderFlowManager;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 标准订单支付成功处理器

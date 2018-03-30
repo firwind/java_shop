@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baigu.app.shop.core.goods.service.IProductStoreManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.IntegerMapper;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.IntegerMapper;
 
 /**
  * 产品库存管理

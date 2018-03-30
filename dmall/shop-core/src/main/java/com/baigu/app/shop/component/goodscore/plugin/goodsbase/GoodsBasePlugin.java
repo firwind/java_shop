@@ -13,10 +13,10 @@ import com.baigu.app.shop.ShopApp;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.AbstractGoodsPlugin;
 import com.baigu.app.shop.core.goods.plugin.IGoodsTabShowEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品基本信息插件

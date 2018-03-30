@@ -21,12 +21,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.Regions;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.app.base.core.service.IRegionsManager;
-import com.enation.app.base.core.service.auth.IPermissionManager;
-import com.enation.app.base.core.service.auth.impl.PermissionConfig;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Regions;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IRegionsManager;
+import com.baigu.app.base.core.service.auth.IPermissionManager;
+import com.baigu.app.base.core.service.auth.impl.PermissionConfig;
 import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.order.model.Order;
 import com.baigu.app.shop.core.order.model.OrderItem;
@@ -41,22 +41,22 @@ import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.app.shop.core.order.service.IRefundManager;
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.ExcelUtil;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.ExcelUtil;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.JsonUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 订单管理
@@ -174,7 +174,7 @@ public class OrderManager implements IOrderManager {
 		orderLog.setMessage(message);
 		orderLog.setOp_id(0);
 		orderLog.setOp_name(op_name);
-		orderLog.setOp_time(com.enation.framework.util.DateUtil.getDateline());
+		orderLog.setOp_time(DateUtil.getDateline());
 		orderLog.setOrder_id(order_id);
 		this.daoSupport.insert("es_order_log", orderLog);
 	}
@@ -593,7 +593,7 @@ public class OrderManager implements IOrderManager {
 		if (!file.exists())
 			file.mkdirs();
 
-		filename = filename + "/order" + com.enation.framework.util.DateUtil.getDateline() + ".xls";
+		filename = filename + "/order" + DateUtil.getDateline() + ".xls";
 		excelUtil.writeToFile(static_server_path + filename);
 		String static_server_domain = SystemSetting.getStatic_server_domain();
 
@@ -1552,12 +1552,12 @@ public class OrderManager implements IOrderManager {
 		}
 
 		if (start_time != null && !StringUtil.isEmpty(start_time)) {
-			long stime = com.enation.framework.util.DateUtil.getDateline(start_time + " 00:00:00",
+			long stime = DateUtil.getDateline(start_time + " 00:00:00",
 					"yyyy-MM-dd HH:mm:ss");
 			sql.append(" and o.create_time>" + stime);
 		}
 		if (end_time != null && !StringUtil.isEmpty(end_time)) {
-			long etime = com.enation.framework.util.DateUtil.getDateline(end_time + " 23:59:59", "yyyy-MM-dd HH:mm:ss");
+			long etime = DateUtil.getDateline(end_time + " 23:59:59", "yyyy-MM-dd HH:mm:ss");
 			sql.append(" and o.create_time<" + etime);
 		}
 		if (!StringUtil.isEmpty(orderstate)) {

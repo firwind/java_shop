@@ -1,7 +1,5 @@
 package com.baigu.app.shop.core.other.model;
 
-import com.enation.framework.database.PrimaryKeyField;
-
 /**
  * 
  * 发票内容实体类

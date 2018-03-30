@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.service.IGoodsSearchManager;
 import com.baigu.app.shop.core.goods.service.SearchEngineFactory;
-import com.enation.framework.database.Page;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 
@@ -23,7 +23,7 @@ public class GoodsSearchTag extends BaseFreeMarkerTag {
 	
 	
 	/* (non-Javadoc)
-	 * @see com.enation.framework.taglib.BaseFreeMarkerTag#exec(java.util.Map)
+	 * @see BaseFreeMarkerTag#exec(java.util.Map)
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {

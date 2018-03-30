@@ -19,9 +19,9 @@ import com.baigu.app.shop.core.statistics.service.IRegionStatisticsManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.service.IRegionsManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.DateUtil;
+import com.baigu.app.base.core.service.IRegionsManager;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.DateUtil;
 
 /**
  * 区域分析

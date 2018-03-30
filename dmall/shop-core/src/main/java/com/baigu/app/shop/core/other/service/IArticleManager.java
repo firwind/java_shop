@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.other.service;
 import java.util.List;
 
 import com.baigu.app.shop.core.other.model.Article;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 文章管理

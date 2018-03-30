@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.order.model;
 
-import com.enation.framework.database.DynamicField;
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.DynamicField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 购物车实体

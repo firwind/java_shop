@@ -20,9 +20,9 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.plugin.search.IGoodsFrontSearchFilter;
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

@@ -16,7 +16,7 @@ import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 @Component("chinaPay")
 public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentEvent {

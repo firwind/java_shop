@@ -16,16 +16,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.order.plugin.payment.PaymentPluginBundle;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.log.LogType;
-import com.enation.framework.plugin.IPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.plugin.IPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 支付方式管理

@@ -18,10 +18,10 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 支付宝即时到账插件

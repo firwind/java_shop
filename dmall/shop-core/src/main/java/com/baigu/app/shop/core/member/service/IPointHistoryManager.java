@@ -3,7 +3,7 @@ package com.baigu.app.shop.core.member.service;
 import java.util.List;
 
 import com.baigu.app.shop.core.member.model.PointHistory;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 会员积分历史管理

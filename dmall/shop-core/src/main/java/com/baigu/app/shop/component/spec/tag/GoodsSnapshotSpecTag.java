@@ -15,8 +15,8 @@ import com.baigu.app.shop.core.goods.model.ProductSnapshot;
 import com.baigu.app.shop.core.goods.model.Specification;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.goods.service.IProductSnapshotManager;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 /**

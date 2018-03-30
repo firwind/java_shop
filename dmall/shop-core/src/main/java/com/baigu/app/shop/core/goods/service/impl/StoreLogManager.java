@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.baigu.app.shop.core.goods.model.StoreLog;
 import com.baigu.app.shop.core.goods.service.IStoreLogManager;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * @author kingapex

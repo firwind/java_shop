@@ -1,6 +1,6 @@
 package com.baigu.app.shop.core.member.model;
 
-import com.enation.framework.database.PrimaryKeyField;
+import com.baigu.framework.database.PrimaryKeyField;
 
 /**
  * 缺货登记表

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.component.bonus.model.Bonus;
 import com.baigu.app.shop.component.bonus.model.MemberBonus;
 import com.baigu.app.shop.component.bonus.service.BonusSession;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

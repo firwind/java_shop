@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.framework.util.CurrencyUtil;
 
 /**
  * 商品视图，对商品图片和属性做了处理,

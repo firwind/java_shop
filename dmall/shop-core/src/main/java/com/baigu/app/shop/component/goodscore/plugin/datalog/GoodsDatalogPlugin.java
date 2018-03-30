@@ -9,12 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.DataLog;
+import com.baigu.app.base.core.model.DataLog;
 import com.baigu.app.shop.core.goods.plugin.IGoodsAfterEditEvent;
-import com.enation.eop.resource.IDataLogManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.resource.IDataLogManager;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品数据日志记录插件 

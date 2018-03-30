@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.ISettingService;
-import com.enation.framework.context.spring.SpringContextHolder;
+import com.baigu.app.base.core.service.ISettingService;
+import com.baigu.framework.context.spring.SpringContextHolder;
 
 /***
  * 订单设置

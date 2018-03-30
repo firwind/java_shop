@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baigu.app.shop.core.statistics.service.IFlowStatisticsManager;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.JsonMessageUtil;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.JsonMessageUtil;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 流量统计

@@ -4,10 +4,10 @@ import com.baigu.app.shop.core.order.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.member.service.IMemberPointManger;
 import com.baigu.app.shop.core.order.plugin.order.IOrderRogconfirmEvent;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 确认收货会员增加促销积分插件

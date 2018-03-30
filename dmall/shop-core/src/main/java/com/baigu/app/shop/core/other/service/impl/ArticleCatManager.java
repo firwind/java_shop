@@ -13,8 +13,8 @@ import com.baigu.app.shop.core.other.model.Article;
 import com.baigu.app.shop.core.other.model.ArticleCat;
 import com.baigu.app.shop.core.other.service.IArticleCatManager;
 import com.baigu.app.shop.core.other.service.IArticleManager;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 文章分类业务类

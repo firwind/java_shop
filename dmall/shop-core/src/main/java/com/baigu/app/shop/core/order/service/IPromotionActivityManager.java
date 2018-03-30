@@ -1,8 +1,8 @@
 package com.baigu.app.shop.core.order.service;
 
 import com.baigu.app.shop.core.order.model.PromotionActivity;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.database.Page;
 
 
 /**

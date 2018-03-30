@@ -8,7 +8,7 @@ import com.baigu.app.shop.core.goods.plugin.IGoodsAfterAddEvent;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.goods.plugin.IGoodsAfterEditEvent;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 @Component
 public class GoodsModifedUpdateCachePlugin extends AutoRegisterPlugin implements
         IGoodsAfterAddEvent, IGoodsAfterEditEvent {

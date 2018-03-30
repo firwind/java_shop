@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.PluginTab;
+import com.baigu.app.base.core.model.PluginTab;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.model.GoodsStores;
@@ -31,14 +31,14 @@ import com.baigu.app.shop.core.goods.service.IDepotMonitorManager;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
 import com.baigu.app.shop.core.order.service.ICartManager;
 import com.baigu.app.shop.core.goods.service.SnDuplicateException;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.annotation.Log;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.log.LogType;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.annotation.Log;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.log.LogType;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 
 /**

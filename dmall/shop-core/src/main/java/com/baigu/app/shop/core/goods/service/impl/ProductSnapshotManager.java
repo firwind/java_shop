@@ -13,15 +13,15 @@ import com.baigu.app.shop.core.member.service.IMemberPriceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.model.MemberLv;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.shop.core.goods.model.GoodsLvPrice;
 import com.baigu.app.shop.core.goods.model.Product;
 import com.baigu.app.shop.core.goods.model.Specification;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 

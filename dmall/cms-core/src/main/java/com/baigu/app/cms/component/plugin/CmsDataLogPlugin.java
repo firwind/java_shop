@@ -6,11 +6,11 @@ import java.util.Map;
 import com.baigu.app.cms.core.model.DataModel;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.DataLog;
+import com.baigu.app.base.core.model.DataLog;
 import com.baigu.app.cms.core.plugin.IDataSaveEvent;
-import com.enation.eop.resource.IDataLogManager;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.eop.resource.IDataLogManager;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * cms数据日志记录插件

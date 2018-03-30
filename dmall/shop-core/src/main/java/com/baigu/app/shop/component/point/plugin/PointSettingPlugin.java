@@ -2,8 +2,8 @@ package com.baigu.app.shop.component.point.plugin;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.plugin.setting.IOnSettingInputShow;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.plugin.setting.IOnSettingInputShow;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 积分设置插件

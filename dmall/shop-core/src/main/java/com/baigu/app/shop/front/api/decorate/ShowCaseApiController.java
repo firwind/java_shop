@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baigu.app.shop.core.decorate.model.ShowCase;
 import com.baigu.app.shop.core.goods.model.Goods;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.util.JsonResultUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.StringUtil;
 /**
  * 
  * 橱窗前台api

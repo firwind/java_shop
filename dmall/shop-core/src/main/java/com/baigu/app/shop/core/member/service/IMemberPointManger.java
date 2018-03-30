@@ -2,7 +2,7 @@ package com.baigu.app.shop.core.member.service;
 
 import java.util.Map;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
  
 /**
  * 会员积分管理接口

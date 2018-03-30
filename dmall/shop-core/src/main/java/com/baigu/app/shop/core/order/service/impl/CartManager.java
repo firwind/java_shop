@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enation.app.base.core.model.Member;
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.goods.model.mapper.CartItemMapper;
 import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
@@ -22,12 +22,12 @@ import com.baigu.app.shop.core.order.service.IDlyTypeManager;
 import com.baigu.app.shop.core.order.service.IPromotionManager;
 import com.baigu.app.shop.core.other.service.IActivityManager;
 import com.baigu.app.shop.front.api.order.publicmethod.CartPublicMethod;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.CurrencyUtil;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 购物车业务实现

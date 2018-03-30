@@ -3,9 +3,9 @@ package com.enation.app.base.test;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enation.eop.resource.IThemeManager;
-import com.enation.eop.resource.model.Theme;
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.eop.resource.IThemeManager;
+import com.baigu.eop.resource.model.Theme;
+import com.baigu.framework.test.SpringTestSupport;
 
 /**
  * theme manager 单元测试

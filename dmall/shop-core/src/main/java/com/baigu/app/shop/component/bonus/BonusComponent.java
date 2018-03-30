@@ -2,7 +2,7 @@ package com.baigu.app.shop.component.bonus;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.framework.component.IComponent;
+import com.baigu.framework.component.IComponent;
 
 /**
  * 红包组件

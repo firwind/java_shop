@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.JsonUtil;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.JsonUtil;
 
 import freemarker.template.TemplateModelException;
 

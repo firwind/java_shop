@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Node;
 
-import com.enation.app.base.core.service.solution.IInstaller;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.app.base.core.service.solution.IInstaller;
+import com.baigu.framework.database.IDaoSupport;
 /**
  * 
  * 装修组件安装器

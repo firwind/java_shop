@@ -6,8 +6,8 @@ import com.baigu.app.shop.core.goods.service.IFreeOfferCategoryManager;
 import com.baigu.app.shop.core.order.model.FreeOfferCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 /**
  * 赠品分类管理

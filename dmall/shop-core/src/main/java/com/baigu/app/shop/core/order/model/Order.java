@@ -6,10 +6,10 @@ import java.util.Map;
 import com.baigu.app.shop.core.member.model.MemberAddress;
 import com.baigu.app.shop.core.order.model.support.OrderPrice;
 import com.baigu.app.shop.core.order.service.OrderStatus;
-import com.enation.framework.database.DynamicField;
-import com.enation.framework.database.NotDbField;
-import com.enation.framework.database.PrimaryKeyField;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.database.DynamicField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;

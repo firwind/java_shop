@@ -14,7 +14,7 @@ import com.baigu.app.shop.core.order.model.PayEnable;
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 

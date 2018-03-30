@@ -10,13 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
-import com.enation.eop.IEopProcessor;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.EncryptionUtil1;
-import com.enation.framework.util.HttpUtil;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.eop.IEopProcessor;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.EncryptionUtil1;
+import com.baigu.framework.util.HttpUtil;
 
 import net.sf.json.JSONObject;
 /**

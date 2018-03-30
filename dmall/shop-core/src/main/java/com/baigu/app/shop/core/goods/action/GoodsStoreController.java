@@ -14,11 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import net.sf.json.JSONArray;
 
 import com.baigu.app.shop.core.goods.service.IGoodsStoreManager;
-import com.enation.framework.action.GridController;
-import com.enation.framework.action.GridJsonResult;
-import com.enation.framework.action.JsonResult;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.JsonResultUtil;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 商品库存管理

@@ -5,8 +5,8 @@ import java.util.List;
 import com.baigu.app.shop.core.decorate.plugin.IDecorateSaveEvent;
 import org.springframework.stereotype.Service;
 
-import com.enation.framework.plugin.AutoRegisterPluginsBundle;
-import com.enation.framework.plugin.IPlugin;
+import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
 
 /**
  * 

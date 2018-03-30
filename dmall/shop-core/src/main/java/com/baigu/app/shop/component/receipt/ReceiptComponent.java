@@ -3,9 +3,8 @@ package com.baigu.app.shop.component.receipt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.dbsolution.DBSolutionFactory;
-import com.enation.framework.component.IComponent;
-import com.enation.framework.database.data.IDataOperation;
+import com.baigu.framework.component.IComponent;
+import com.baigu.framework.database.data.IDataOperation;
 
 /**
  * 发票组件

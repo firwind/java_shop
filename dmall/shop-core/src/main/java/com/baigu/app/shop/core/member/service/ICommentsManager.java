@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.member.model.CommentDTO;
 import com.baigu.app.shop.core.member.model.Comments;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.Page;
 
 /**
  * 评论/咨询接口

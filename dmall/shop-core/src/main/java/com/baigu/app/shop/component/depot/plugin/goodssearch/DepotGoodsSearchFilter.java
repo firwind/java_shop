@@ -6,12 +6,12 @@ import com.baigu.app.shop.core.goods.model.DepotUser;
 import com.baigu.app.shop.core.goods.plugin.IGoodsBackendSearchFilter;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.ISettingService;
-import com.enation.app.base.core.service.auth.IAdminUserManager;
-import com.enation.eop.resource.model.AdminUser;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.service.auth.IAdminUserManager;
+import com.baigu.eop.resource.model.AdminUser;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 仓库搜索过滤器

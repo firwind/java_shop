@@ -2,9 +2,9 @@ package com.baigu.app.shop.component.goodscore;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.service.solution.IInstaller;
-import com.enation.framework.component.IComponent;
-import com.enation.framework.context.spring.SpringContextHolder;
+import com.baigu.app.base.core.service.solution.IInstaller;
+import com.baigu.framework.component.IComponent;
+import com.baigu.framework.context.spring.SpringContextHolder;
 
 @Component
 public class GoodsCoreComponent implements IComponent {

@@ -15,24 +15,24 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.enation.app.base.core.model.ClusterSetting;
-import com.enation.app.base.core.service.ISettingService;
-import com.enation.app.base.core.upload.IUploader;
-import com.enation.app.base.core.upload.UploadFacatory;
+import com.baigu.app.base.core.model.ClusterSetting;
+import com.baigu.app.base.core.service.ISettingService;
+import com.baigu.app.base.core.upload.IUploader;
+import com.baigu.app.base.core.upload.UploadFacatory;
 import com.baigu.app.shop.component.gallery.model.GoodsGallery;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
-import com.enation.eop.SystemSetting;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.eop.sdk.utils.IClusterFileManager;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.spring.SpringContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.image.IThumbnailCreator;
-import com.enation.framework.image.ThumbnailCreatorFactory;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.ImageMagickMaskUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.eop.sdk.utils.IClusterFileManager;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.image.IThumbnailCreator;
+import com.baigu.framework.image.ThumbnailCreatorFactory;
+import com.baigu.framework.util.DateUtil;
+import com.baigu.framework.util.FileUtil;
+import com.baigu.framework.util.ImageMagickMaskUtil;
+import com.baigu.framework.util.StringUtil;
 
 @Service("goodsGalleryManager")
 public class GoodsGalleryManager implements IGoodsGalleryManager {

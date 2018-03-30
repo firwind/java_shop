@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.shop.core.order.plugin.order.IOrderTabShowEvent;
 import com.baigu.app.shop.core.order.plugin.order.IShowOrderDetailHtmlEvent;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.plugin.AutoRegisterPlugin;
-import com.enation.framework.plugin.IAjaxExecuteEnable;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.IAjaxExecuteEnable;
 
 /**
  * 订单详细页发票信息显示插件

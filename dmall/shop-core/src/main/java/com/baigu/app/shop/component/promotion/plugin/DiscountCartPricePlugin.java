@@ -10,7 +10,7 @@ import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.cart.ICartItemFilter;
 import com.baigu.app.shop.core.order.service.IPromotionManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
-import com.enation.framework.plugin.AutoRegisterPlugin;
+import com.baigu.framework.plugin.AutoRegisterPlugin;
 
 /**
  * 购物车优惠价格计算插件

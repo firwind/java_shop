@@ -18,17 +18,17 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.base.core.model.Member;
-import com.enation.app.base.core.service.IMemberManager;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.enation.eop.sdk.context.UserConext;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.JsonUtil;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 

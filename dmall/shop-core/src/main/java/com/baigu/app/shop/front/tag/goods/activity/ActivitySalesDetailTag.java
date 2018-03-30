@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 import com.baigu.app.shop.core.other.model.Activity;
 import com.baigu.app.shop.core.other.model.ActivityDetail;
 import com.baigu.app.shop.core.other.service.IActivityManager;
-import com.enation.framework.database.Page;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;
 

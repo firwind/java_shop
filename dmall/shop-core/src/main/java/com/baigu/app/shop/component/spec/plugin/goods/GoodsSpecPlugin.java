@@ -25,11 +25,11 @@ import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
 import com.baigu.app.shop.core.order.service.ICartManager;
 import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.plugin.IAjaxExecuteEnable;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.plugin.IAjaxExecuteEnable;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品规格插件
@@ -171,7 +171,7 @@ public class GoodsSpecPlugin extends AbstractGoodsPlugin implements IGoodsDelete
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.framework.plugin.IAjaxExecuteEnable#execute()
+	 * @see IAjaxExecuteEnable#execute()
 	 */
 	@Override
 	public String execute() {

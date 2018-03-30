@@ -8,8 +8,8 @@ import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.service.IWarnTaskManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
 
 
 public class WarnTaskManager   implements IWarnTaskManager {

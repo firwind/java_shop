@@ -13,7 +13,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
 
-import com.enation.framework.test.SpringTestSupport;
+import com.baigu.framework.test.SpringTestSupport;
 
 /**
  * 安装测试类<br>

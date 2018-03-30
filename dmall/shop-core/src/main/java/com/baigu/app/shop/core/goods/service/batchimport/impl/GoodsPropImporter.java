@@ -9,7 +9,7 @@ import org.w3c.dom.Element;
 import com.baigu.app.shop.core.goods.model.Attribute;
 import com.baigu.app.shop.core.goods.model.ImportDataSource;
 import com.baigu.app.shop.core.goods.service.batchimport.IGoodsDataImporter;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品属性导入器

@@ -12,7 +12,7 @@ import com.baigu.app.shop.core.goods.model.Product;
 import com.baigu.app.shop.core.goods.service.IDepotManager;
 import com.baigu.app.shop.core.goods.service.IProductManager;
 import com.baigu.app.shop.core.goods.service.batchimport.IGoodsDataImporter;
-import com.enation.framework.database.IDaoSupport;
+import com.baigu.framework.database.IDaoSupport;
 
 /**
  * 商品规格导入器

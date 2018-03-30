@@ -13,10 +13,10 @@ import com.baigu.app.shop.core.goods.service.IFreeOfferManager;
 import com.baigu.app.shop.core.order.model.Promotion;
 import com.baigu.app.shop.core.order.service.promotion.IGiveGiftBehavior;
 import com.baigu.app.shop.core.order.service.promotion.IPromotionMethod;
-import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.util.StringUtil;
 
 import net.sf.json.JSONArray;
 

@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.service.Separator;
 import com.baigu.app.shop.core.goods.plugin.search.SearchSelector;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.util.StringUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * 分类url生成工具

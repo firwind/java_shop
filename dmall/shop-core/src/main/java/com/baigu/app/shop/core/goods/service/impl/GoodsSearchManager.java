@@ -16,11 +16,11 @@ import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsDataFilterBundle;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsSearchPluginBundle;
 import com.baigu.app.shop.core.goods.service.IGoodsSearchManager;
-import com.enation.eop.processor.core.UrlNotFoundException;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.IDaoSupport;
-import com.enation.framework.database.Page;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.Page;
+import com.baigu.framework.util.StringUtil;
 
 /**
  * @version 2016-02-26 修改Manager注入、使商品列表找到此Manager，去掉geter、seter

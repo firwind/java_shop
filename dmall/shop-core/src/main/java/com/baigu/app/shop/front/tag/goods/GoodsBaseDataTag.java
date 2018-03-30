@@ -15,13 +15,13 @@ import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.plugin.GoodsPluginBundle;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsDataFilterBundle;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
-import com.enation.eop.processor.core.UrlNotFoundException;
-import com.enation.eop.sdk.utils.StaticResourcesUtil;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-import com.enation.framework.database.ObjectNotFoundException;
-import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.RequestUtil;
-import com.enation.framework.util.StringUtil;
+import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.RequestUtil;
+import com.baigu.framework.util.StringUtil;
 
 import freemarker.template.TemplateModelException;
 
