@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component name="商品搜索过滤器组件"  version="2.0" javashop_version="3.0.0" author="javashop">
+<component name="商品搜索过滤器组件"  version="2.0" dmall_version="3.0.0" author="dmall">
 
 	<plugins>
 		<plugin name="分类搜索过滤器" id="catSearchFilter">

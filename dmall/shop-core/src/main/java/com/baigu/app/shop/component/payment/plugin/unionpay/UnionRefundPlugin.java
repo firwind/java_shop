@@ -151,7 +151,7 @@ public class UnionRefundPlugin extends AutoRegisterPlugin implements IEveryHourE
 		// 商户号码，请改成自己的商户号
 		data.put("merId", merId);
 		// 商户订单号，8-40位数字字母
-		//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+		//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 		String  orderid = "AAAAAAAAA"+paymentLog.getOrder_id();
 		
 		int length  =  orderid.length();

@@ -203,7 +203,7 @@ public class MemberApiController  {
 						String cookieValue = EncryptionUtil1.authcode(
 								"{username:\"" + username + "\",password:\"" + StringUtil.md5(password) + "\"}",
 								"ENCODE", "", 0);
-						HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 60 * 24 * 14);
+						HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "DmallUser", cookieValue, 60 * 24 * 14);
 					}
 					shiroLogin(username, password);
 					return JsonResultUtil.getSuccessJson("登录成功");
@@ -225,7 +225,7 @@ public class MemberApiController  {
 							String cookieValue = EncryptionUtil1.authcode(
 									"{username:\"" + member.getUname() + "\",password:\"" + StringUtil.md5(member.getPassword()) + "\"}",
 									"ENCODE", "", 0);
-							HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 60 * 60 * 24 * 14);
+							HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "DmallUser", cookieValue, 60 * 60 * 24 * 14);
 						}
 						//手机登录时没有密码
 						shiroLogin(member.getUname(), validcode);
@@ -269,7 +269,7 @@ public class MemberApiController  {
 		/*this.showSuccessJson("注销成功");*/
 		//如果用户注销异常 不返回首页问题
 		try {
-			HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", null, 0);
+			HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "DmallUser", null, 0);
 			this.memberManager.logout();
 			//then shiro subject logout
 			shiroLogout();

@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.baigu.app.shop.component.payment.plugin.alipay.AlipayRefund;
-import com.baigu.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
+import com.baigu.app.shop.component.payment.plugin.alipay.DmallAlipayUtil;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.AlipaySubmit;
 import com.baigu.app.shop.core.order.model.PayCfg;
@@ -133,7 +133,7 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin  implements IPaymentE
 			String buyer_logon_id = new String(request.getParameter("buyer_logon_id").getBytes("ISO-8859-1"),"UTF-8");
 			
 			
-			if(JavashopAlipayUtil.verify(param_encoding)){//验证成功
+			if(DmallAlipayUtil.verify(param_encoding)){//验证成功
 				//////////////////////////////////////////////////////////////////////////////////////////
 //				System.out.println("校验成功");
 				//请在这里加上商户的业务逻辑程序代码
@@ -186,7 +186,7 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin  implements IPaymentE
 				String buyer_logon_id = "支付宝wap在线支付单号"+trade_no;
 				
 				//计算得出通知验证结果
-				boolean verify_result = JavashopAlipayUtil.verify(param_encoding);
+				boolean verify_result = DmallAlipayUtil.verify(param_encoding);
 				if(verify_result){
 					this.paySuccess(out_trade_no,trade_no,buyer_logon_id,ordertype);
 					this.logger.info("同步校验订单["+out_trade_no+"]成功");

@@ -94,7 +94,7 @@ var VersionChecker={
 						$.Loading.hide();
 					}else{
 						$.Loading.hide();
-						alert("您的Javashop已经成功升级至"+self.version+",需要重起应用生效。");
+						alert("您的Dmall已经成功升级至"+self.version+",需要重起应用生效。");
 					}
 				},
 				error:function(){

@@ -1,5 +1,5 @@
 /**
- * Javashop 会员选择器插件
+ * Dmall 会员选择器插件
  * @author:fk
  * @date:2016年11月29日
  * 

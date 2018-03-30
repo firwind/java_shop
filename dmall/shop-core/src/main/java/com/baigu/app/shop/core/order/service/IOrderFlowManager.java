@@ -89,7 +89,7 @@ public interface IOrderFlowManager {
 	 * @throws ObjectNotFoundException 如果要支付的订单不存在
 	 * @throws IllegalStateException 如果订单支付状态为已支付
 	 * @throws RuntimeException  当使用预存款支付，且用户预存款不够支付金额时
-	 * @see com.baigu.app.shop.core.order.service.javashop.service.support.OrderStatus
+	 * @see com.baigu.app.shop.core.order.service.dmall.service.support.OrderStatus
 	 */
 	@Transactional(propagation = Propagation.REQUIRED)
 	public boolean pay(Integer paymentId,Integer orderId,double payMoney,String userName) ;
@@ -108,7 +108,7 @@ public interface IOrderFlowManager {
 	 * <li>发货明细列表中的DeliveryItem对象下列属情有一个为空则抛出异常
 	 *  goods_id, product_id、num
 	 *  </li>
-	 * @see com.baigu.app.shop.core.order.service.javashop.service.support.OrderStatus
+	 * @see com.baigu.app.shop.core.order.service.dmall.service.support.OrderStatus
 	 */
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void shipping(Delivery delivery , List<DeliveryItem> itemList);

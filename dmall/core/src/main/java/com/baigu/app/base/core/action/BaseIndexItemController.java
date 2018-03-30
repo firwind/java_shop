@@ -26,7 +26,7 @@ public class BaseIndexItemController  {
 	@RequestMapping("/base")
 	public ModelAndView base() {
 		ModelAndView view =new ModelAndView();
-		view.addObject("javashopSite", EopSite.getInstance());
+		view.addObject("dmallSite", EopSite.getInstance());
 		view.setViewName("/core/admin/index/base");
 		return view;
 	}

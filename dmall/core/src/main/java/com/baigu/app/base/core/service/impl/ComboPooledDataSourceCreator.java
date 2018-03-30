@@ -40,7 +40,7 @@ public class ComboPooledDataSourceCreator implements IDataSourceCreator {
 	
 	public static void main(String args[]) throws SQLException{
 		IDataSourceCreator creator = new ComboPooledDataSourceCreator();
-		DataSource dataSource = creator.createDataSource("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:XE","javashop", "javashop");
+		DataSource dataSource = creator.createDataSource("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:XE","dmall", "dmall");
 		java.sql.Connection con =  dataSource.getConnection();
 		Statement st = con.createStatement();
 		st.execute("delete from test");

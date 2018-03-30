@@ -77,13 +77,13 @@ public class UnionpayPlugin extends AbstractPaymentPlugin implements IPaymentEve
 			String respCode = request.getParameter("respCode");	//应答码			参考：https://open.unionpay.com/ajweb/help/respCode/respCodeList
 			String respMsg = request.getParameter("respMsg");	//应答信息
 			
-			//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+			//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 			String orderid = request.getParameter("orderId");	//商户订单号
 			String queryId = request.getParameter("queryId");	//流水号
 			String tradeno = request.getParameter("traceNo");	//系统追踪号
 			 
 			
-			//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+			//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 			if(!StringUtil.isEmpty(orderid)){
 				orderid  = orderid.replaceAll("A","");
 			}
@@ -120,14 +120,14 @@ public class UnionpayPlugin extends AbstractPaymentPlugin implements IPaymentEve
 			String respCode = request.getParameter("respCode");	//应答码			参考：https://open.unionpay.com/ajweb/help/respCode/respCodeList
 			String respMsg = request.getParameter("respMsg");	//应答信息
 			
-			//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+			//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 			String orderid = request.getParameter("orderId");	//商户订单号
 			String queryId = request.getParameter("queryId");	//流水号
 			String tradeno = request.getParameter("traceNo");	//系统追踪号
 			
 			if(respCode.equals("00")){	//交易成功
 				if(validaeData()){
-					//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+					//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 					if(!StringUtil.isEmpty(orderid)){
 						orderid  = orderid.replaceAll("A","");
 					}
@@ -302,7 +302,7 @@ public class UnionpayPlugin extends AbstractPaymentPlugin implements IPaymentEve
 		// 商户号码，请改成自己的商户号
 		data.put("merId", merId);
 		// 商户订单号，8-40位数字字母
-		//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
+		//因为 银联要求的订单号不能有-号，在dmall中的子订单是有这个符号的，所以改用orderid
 		String  orderid = "AAAAAAAA"+order.getOrder_id();
 		
 		int length  =  orderid.length();

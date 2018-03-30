@@ -20,7 +20,7 @@ public interface IDataExportEvent {
 	 * 数据导出事件
 	 * <p>
 	 * 事件具体实现者应返回要导出的数据。
-	 * 截止javashop3.1 可通过  {@link DBSolutionFactory#dbExport(String[], boolean, String)}  来得到要出表的数据
+	 * 截止dmall3.1 可通过  {@link DBSolutionFactory#dbExport(String[], boolean, String)}  来得到要出表的数据
 	 * 
 	 * </p>
 	 * @return

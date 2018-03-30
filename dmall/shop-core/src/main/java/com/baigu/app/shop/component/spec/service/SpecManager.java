@@ -93,7 +93,7 @@ public class SpecManager  implements ISpecManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.baigu.javashop.component.spec.service.ISpecManager#checkUsed(java.lang.Integer)
+	 * @see com.baigu.dmall.component.spec.service.ISpecManager#checkUsed(java.lang.Integer)
 	 */
 	@Override
 	public boolean checkUsed(Integer valueid) {
@@ -252,7 +252,7 @@ public class SpecManager  implements ISpecManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.baigu.javashop.component.spec.service.ISpecManager#getProSpecList(int)
+	 * @see com.baigu.dmall.component.spec.service.ISpecManager#getProSpecList(int)
 	 */
 	@Override
 	public List getProSpecList(int productid) {

@@ -148,7 +148,7 @@ public class AlipayRefund  {
 			/**退款结果明细*/
 			String result_details = new String(request.getParameter("result_details").getBytes("ISO-8859-1"),"UTF-8");
 			String[] split = result_details.split("\\^");
-			if(JavashopAlipayUtil.verify(param_encoding)){//验证成功
+			if(DmallAlipayUtil.verify(param_encoding)){//验证成功
 				//////////////////////////////////////////////////////////////////////////////////////////
 				//请在这里加上商户的业务逻辑程序代码
 				//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——

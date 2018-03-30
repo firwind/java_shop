@@ -155,7 +155,7 @@ public class OrderPrintManager implements IOrderPrintManager {
 		freeMarkerPaser.putData("cod_order",order.getShip_no());
 		freeMarkerPaser.putData("dlycenter",center);
 		//定义发货公司名称
-		freeMarkerPaser.putData("shop_name","javashop");
+		freeMarkerPaser.putData("shop_name","dmall");
 		
 		freeMarkerPaser.putData("o_ship_province",this.getregions(order.getShip_provinceid()));
 		freeMarkerPaser.putData("o_ship_city",this.getregions(order.getShip_cityid()));

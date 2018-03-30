@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component name="新相册组件"  version="1.0" javashop_version="3.0.0" author="Javashop">
+<component name="新相册组件"  version="1.0" dmall_version="3.0.0" author="Dmall">
 	<plugins>
 		<plugin id="goodsGalleryAdminPlugin" name="新相册管理插件">
 			<bundle id="goodsPluginBundle"></bundle>

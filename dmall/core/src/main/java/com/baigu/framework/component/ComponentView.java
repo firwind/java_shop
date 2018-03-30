@@ -17,7 +17,7 @@ public class ComponentView implements Cloneable {
 	private int id;
 	private String componentid;
 	private String version;
-	private String javashop_version;
+	private String dmall_version;
 	private String author;
 	private String description;
 
@@ -112,12 +112,12 @@ public class ComponentView implements Cloneable {
 		this.version = version;
 	}
 
-	public String getJavashop_version() {
-		return javashop_version;
+	public String getDmall_version() {
+		return dmall_version;
 	}
 
-	public void setJavashop_version(String javashop_version) {
-		this.javashop_version = javashop_version;
+	public void setDmall_version(String dmall_version) {
+		this.dmall_version = dmall_version;
 	}
 
 	public String getAuthor() {

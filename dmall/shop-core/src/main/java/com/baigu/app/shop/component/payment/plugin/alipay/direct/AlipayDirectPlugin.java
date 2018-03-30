@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.baigu.app.shop.component.payment.plugin.alipay.AlipayRefund;
-import com.baigu.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
+import com.baigu.app.shop.component.payment.plugin.alipay.DmallAlipayUtil;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.AlipaySubmit;
 import com.baigu.app.shop.core.order.model.PayCfg;
@@ -60,7 +60,7 @@ public class AlipayDirectPlugin extends AbstractPaymentPlugin implements IPaymen
 			//买家支付宝账号
 			String buyer_email = new String(request.getParameter("buyer_email").getBytes("ISO-8859-1"), "UTF-8");
 
-			if (JavashopAlipayUtil.verify(param_encoding)) {// 验证成功
+			if (DmallAlipayUtil.verify(param_encoding)) {// 验证成功
 				//////////////////////////////////////////////////////////////////////////////////////////
 				// 请在这里加上商户的业务逻辑程序代码
 				
@@ -196,7 +196,7 @@ public class AlipayDirectPlugin extends AbstractPaymentPlugin implements IPaymen
 			//买家支付宝账号
 			String buyer_email = new String(request.getParameter("buyer_email").getBytes("ISO-8859-1"), "UTF-8");
 			
-			if (JavashopAlipayUtil.verify(param_encoding)) {// 验证成功
+			if (DmallAlipayUtil.verify(param_encoding)) {// 验证成功
 				//////////////////////////////////////////////////////////////////////////////////////////
 				// 请在这里加上商户的业务逻辑程序代码
 				// ——请根据您的业务逻辑来编写程序（以下代码仅作参考）——

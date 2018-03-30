@@ -319,7 +319,7 @@ public class WeixinPayPlugin extends AbstractPaymentPlugin implements
 		params.put("mch_billno", mchid+""+date+""+getRandom());	//商户订单号
 		params.put("mch_id", mchid);					//商户号
 		params.put("wxappid", appid);					//公众账号appid
-		params.put("send_name", "javashop");			//商户名称
+		params.put("send_name", "dmall");			//商户名称
 		params.put("re_openid", member.get("wx_openid").toString());		//用户openid
 		params.put("total_amount", nf.format(money*100)+"");		//付款金额 单位：分
 		params.put("total_num", "1");					//红包发放总人数

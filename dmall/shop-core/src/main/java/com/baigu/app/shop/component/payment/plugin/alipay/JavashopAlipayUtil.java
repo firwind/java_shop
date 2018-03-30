@@ -18,7 +18,7 @@ import com.baigu.framework.util.StringUtil;
  * @version 1.0
  *2015年9月24日下午1:47:42
  */
-public abstract class JavashopAlipayUtil {
+public abstract class DmallAlipayUtil {
 	public static boolean verify(String param_encoding) {
 		try {
 

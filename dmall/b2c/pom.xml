@@ -115,7 +115,7 @@
 			<artifactId>jsonassert</artifactId>
 		</dependency>
 
-		<!-- Javashop 工程依赖 -->
+		<!-- Dmall 工程依赖 -->
 		<dependency>
 			<groupId>com.baigu.app.dmall</groupId>
 			<artifactId>core</artifactId>

@@ -42,7 +42,7 @@ public class AutoLoginProcessor implements IEopProcessor {
 					
 					Member member = UserConext.getCurrentMember();
 					if (member == null) {
-						String cookieValue = HttpUtil.getCookieValue(ThreadContextHolder.getHttpRequest(), "JavaShopUser");
+						String cookieValue = HttpUtil.getCookieValue(ThreadContextHolder.getHttpRequest(), "DmallUser");
 						if (cookieValue != null && !cookieValue.equals("")) {
 							cookieValue = URLDecoder.decode(cookieValue,"UTF-8");
 							cookieValue = EncryptionUtil1.authcode(cookieValue,"DECODE", "", 0);
@@ -54,7 +54,7 @@ public class AutoLoginProcessor implements IEopProcessor {
 									String password = map.get("password").toString();
 									int result = memberManager.loginWithCookie(username,password);
 									if(result != 1) {
-										HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser","", 0);
+										HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "DmallUser","", 0);
 									}
 								}
 

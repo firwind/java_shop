@@ -1,5 +1,5 @@
 /**
- * Javashop 广告选择器插件
+ * Dmall 广告选择器插件
  * @author:kingapex
  * @date:2016-03-21
  * 

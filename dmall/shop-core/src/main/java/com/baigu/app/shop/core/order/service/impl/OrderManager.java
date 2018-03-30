@@ -1016,7 +1016,7 @@ public class OrderManager implements IOrderManager {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.baigu.javashop.core.service.IOrderManager#checkProInOrder(int)
+	 * @see com.baigu.dmall.core.service.IOrderManager#checkProInOrder(int)
 	 */
 	@Override
 	public boolean checkProInOrder(int productid) {
@@ -1028,7 +1028,7 @@ public class OrderManager implements IOrderManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.baigu.javashop.core.service.IOrderManager#checkGoodsInOrder(int)
+	 * com.baigu.dmall.core.service.IOrderManager#checkGoodsInOrder(int)
 	 */
 	@Override
 	public boolean checkGoodsInOrder(int goodsid) {

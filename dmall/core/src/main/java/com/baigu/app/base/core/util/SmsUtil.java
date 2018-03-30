@@ -36,7 +36,7 @@ public class SmsUtil {
 	private static final double SEND_INTERVAL = 60d;
 	
 	// 商标前缀
-	private static final String BRAND_PREFIX = "Javashop";
+	private static final String BRAND_PREFIX = "Dmall";
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SmsUtil.class);
 	

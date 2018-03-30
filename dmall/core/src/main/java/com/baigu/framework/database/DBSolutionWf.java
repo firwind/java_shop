@@ -32,7 +32,7 @@ public class DBSolutionWf   {
 //	@Test	
 //	public void testImport() {
 //		this.daoSupport.execute("SET IDENTITY_INSERT es_auth_action ON");
-//		DBSolutionFactory.dbImport("/Users/kingapex/workspace/trunk/javashop/b2c/src/main/webapp/products/simple/auth.xml","es_");
+//		DBSolutionFactory.dbImport("/Users/kingapex/workspace/trunk/dmall/b2c/src/main/webapp/products/simple/auth.xml","es_");
 //	}
 	
 	
@@ -356,8 +356,8 @@ public class DBSolutionWf   {
 	
 	public static void main(String[] args) {
 		DBSolutionWf test = new DBSolutionWf();
-//		test.doImport("/Users/kingapex/workspace/trunk/javashop/b2c/src/main/webapp/products/simple/auth.xml");
-		test.doImport("/Users/kingapex/workspace/trunk/javashop/b2c/src/main/webapp/products/simple/example_data.xml");
+//		test.doImport("/Users/kingapex/workspace/trunk/dmall/b2c/src/main/webapp/products/simple/auth.xml");
+		test.doImport("/Users/kingapex/workspace/trunk/dmall/b2c/src/main/webapp/products/simple/example_data.xml");
 
 		
 	}

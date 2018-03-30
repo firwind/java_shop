@@ -1,6 +1,6 @@
 
 /**
- * Javashop Tab页面插件
+ * Dmall Tab页面插件
  * 该插件初始化元素之后，会按照指定的格式寻找html，然后自动生成tab页面（需要自定义样式）
  * 
  * @author Sylow

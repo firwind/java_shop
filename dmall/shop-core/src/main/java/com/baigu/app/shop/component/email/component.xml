@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component name="网店邮件组件"  version="1.0" javashop_version="3.0.0" author="javashop">
+<component name="网店邮件组件"  version="1.0" dmall_version="3.0.0" author="dmall">
  
 	<plugins>
 		<plugin name="会员注册发送邮件插件" id="memberRegisterSendEmailPlugin">

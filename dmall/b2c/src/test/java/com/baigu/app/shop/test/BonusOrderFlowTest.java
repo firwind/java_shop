@@ -63,7 +63,7 @@ public class BonusOrderFlowTest extends SpringTestSupport{
 		mockMvc.perform(
 				MockMvcRequestBuilders.post("/shop/admin/bonus-type/save-add.do")
 					.param("min_goods_amount","50.00")
-					.param("recognition","javashop")
+					.param("recognition","dmall")
 					.param("sendTimeEnd","2017-01-12")
 					.param("sendTimeStart","2016-12-12")
 					.param("send_type","0")

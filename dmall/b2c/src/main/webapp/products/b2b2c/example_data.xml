@@ -218,13 +218,13 @@
 		<command>insert</command>
 		<table>es_smtp</table>
 		<fields>id,host,username,password,last_send_time,send_count,max_count,mail_from,port,open_ssl</fields>
-		<values>1,'smtp.exmail.qq.com','service1@javashop.cn','baigu752513',1429599644,1,100,'service1@javashop.cn',0,0</values>
+		<values>1,'smtp.exmail.qq.com','service1@dmall.cn','baigu752513',1429599644,1,100,'service1@dmall.cn',0,0</values>
 	</action>
 	<action>
 		<command>insert</command>
 		<table>es_smtp</table>
 		<fields>id,host,username,password,last_send_time,send_count,max_count,mail_from,port,open_ssl</fields>
-		<values>2,'smtp.exmail.qq.com','service2@javashop.cn','baigu752513',0,0,100,'service2@javashop.cn',0,0</values>
+		<values>2,'smtp.exmail.qq.com','service2@dmall.cn','baigu752513',0,0,100,'service2@dmall.cn',0,0</values>
 	</action>
 	<action>
 		<command>insert</command>
@@ -11485,7 +11485,7 @@ MC型工作坊精制手动上链机械机芯。18K玫瑰K金表壳，圆珠形�
 		<command>insert</command>
 		<table>es_member</table>
 		<fields>member_id,parentid,lv_id,uname,email,password,regtime,name,sex,advance,province_id,city_id,region_id,mobile,point,mp,lastlogin,is_agent,logincount,is_cheked,registerip,recommend_point_state,info_full,face,nickname,midentity,disabled,store_id,is_store</fields>
-		<values>2,0,1,'javashop','2459931371@qq.com','6e189a8bb172b27a71ff6b5a1d4baee0',1421329021,'javashop',1,0.00,1,2816,2862,'',20,20,1436884739,0,3,0,'0:0:0:0:0:0:0:1',0,0,'','javashop',0,0,1,1</values>
+		<values>2,0,1,'dmall','2459931371@qq.com','6e189a8bb172b27a71ff6b5a1d4baee0',1421329021,'dmall',1,0.00,1,2816,2862,'',20,20,1436884739,0,3,0,'0:0:0:0:0:0:0:1',0,0,'','dmall',0,0,1,1</values>
 	</action>
 	<action>
 		<command>insert</command>
@@ -13719,7 +13719,7 @@ $(function(){
 		<command>insert</command>
 		<table>es_store</table>
 		<fields>store_id,store_name,store_provinceid,store_cityid,store_regionid,attr,zip,tel,store_level,member_id,member_name,id_number,id_img,license_img,disabled,create_time,store_logo,description,store_recommend,themes_id,store_credit,praise_rate,store_desccredit,store_servicecredit,store_deliverycredit,store_collect,store_auth,name_auth,store_province,store_city,store_region,goods_num,qq,store_banner,commission,bank_account_name,bank_account_number,bank_name,bank_code,bank_provinceid,bank_cityid,bank_regionid,bank_province,bank_city,bank_region,themes_path,goods_warning_count,goods_management_category,store_level_apply_status,store_space_capacity</fields>
-		<values>15,'食品酒水',1,2816,2862,'北京市密云区','101505','13888888888',1,16,'food','236584795841232584','','',1,1428651347,'http://static.b2b2cv2.javamall.com.cn/attachment/storeLogo/201504101536379315.jpg','&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 易族智汇（北京）科技有限公司成立于2008年，致力提供高质量的电子商务产品和服务，公司集成国内优秀互联网人才!comma;持续耕耘6年!comma;旗下产品Javashop网店系统已经为千家付费企业用户服务。未来我们将继续为客户提供优质而持续的电子商务相关服务。&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 自成立以来，技术创新、服务创新为我们的快速发展提供了持续的动力，经过六年的积累，Javashop形成了一支行有实力、富经验的研发和服务团队，凭借对互联网、电子商务的深 入理解和实战经验，Javashop获得了众多电商客户的肯定。&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 秉承为用户创造价值的理念，Javashop 还推出了面向深入垂直领域的B2B2C产品，这一重要的创新性服务有效的帮助了更多传统企业与互联网的对接，提供 Javashop使用者可与大型电商平台网站相媲美的架构和功能，更好的服务于他们的用户。除了完善的产品解决方案以外，Javashop 还于2015年依托于独有的用户优势，丰富的产品客户资源，为客户提供了一系列创新型电商行业解决方案，这使得电商平台拥有了放大其价值特性、并对相关行业客户提供了极大的便利。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;',0,1,5,0.00,0.00,0.00,0.00,0,0,0,'北京','密云区','城区以外',20,'3012959919','',0.00,'foord','6222520917897909','支行名称','112200',1,2816,2862,'北京','密云区','城区以外','themes1',5,'1!comma;4!comma;35!comma;38!comma;56!comma;79!comma;85!comma;86',0,0.00</values>
+		<values>15,'食品酒水',1,2816,2862,'北京市密云区','101505','13888888888',1,16,'food','236584795841232584','','',1,1428651347,'http://static.b2b2cv2.javamall.com.cn/attachment/storeLogo/201504101536379315.jpg','&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 易族智汇（北京）科技有限公司成立于2008年，致力提供高质量的电子商务产品和服务，公司集成国内优秀互联网人才!comma;持续耕耘6年!comma;旗下产品Dmall网店系统已经为千家付费企业用户服务。未来我们将继续为客户提供优质而持续的电子商务相关服务。&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 自成立以来，技术创新、服务创新为我们的快速发展提供了持续的动力，经过六年的积累，Dmall形成了一支行有实力、富经验的研发和服务团队，凭借对互联网、电子商务的深 入理解和实战经验，Dmall获得了众多电商客户的肯定。&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 秉承为用户创造价值的理念，Dmall 还推出了面向深入垂直领域的B2B2C产品，这一重要的创新性服务有效的帮助了更多传统企业与互联网的对接，提供 Dmall使用者可与大型电商平台网站相媲美的架构和功能，更好的服务于他们的用户。除了完善的产品解决方案以外，Dmall 还于2015年依托于独有的用户优势，丰富的产品客户资源，为客户提供了一系列创新型电商行业解决方案，这使得电商平台拥有了放大其价值特性、并对相关行业客户提供了极大的便利。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;',0,1,5,0.00,0.00,0.00,0.00,0,0,0,'北京','密云区','城区以外',20,'3012959919','',0.00,'foord','6222520917897909','支行名称','112200',1,2816,2862,'北京','密云区','城区以外','themes1',5,'1!comma;4!comma;35!comma;38!comma;56!comma;79!comma;85!comma;86',0,0.00</values>
 	</action>
 	<action>
 		<command>insert</command>

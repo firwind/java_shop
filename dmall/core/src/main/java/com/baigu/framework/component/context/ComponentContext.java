@@ -105,7 +105,7 @@ public class ComponentContext {
 		Document doc = builder.parse(FileUtil.getResourceAsStream(path));
 		Element componentEl = (Element) doc.getFirstChild(); // component节点
 
-		String needVersion = componentEl.getAttribute("javashop_version");
+		String needVersion = componentEl.getAttribute("dmall_version");
 		String currentVersion = EopSetting.VERSION;
 		if(StringUtil.isEmpty(currentVersion)){
 			currentVersion="4.0.0";
@@ -113,14 +113,14 @@ public class ComponentContext {
 		componentView.setName(componentEl.getAttribute("name"));
 		componentView.setAuthor(componentEl.getAttribute("author"));
 		componentView.setVersion(componentEl.getAttribute("version"));
-		componentView.setJavashop_version(needVersion);
+		componentView.setDmall_version(needVersion);
 		componentView.setDescription(componentEl.getAttribute("description"));
 		 	
 		if (!versionLargerThen(currentVersion, needVersion)) {
 			// if(Double.valueOf( needVersion) > Double.valueOf( currentVersion
 			// )){
 			componentView.setInstall_state(2);
-			componentView.setError_message("当前的Javashop版本无法安装此组件，需要的Javashop版本[" + needVersion + "] ，当前版本[" + currentVersion + "]");
+			componentView.setError_message("当前的Dmall版本无法安装此组件，需要的Dmall版本[" + needVersion + "] ，当前版本[" + currentVersion + "]");
 			// }
 		}
 

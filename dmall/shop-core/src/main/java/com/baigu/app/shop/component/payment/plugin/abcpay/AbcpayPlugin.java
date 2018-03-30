@@ -56,7 +56,7 @@ public class AbcpayPlugin extends AbstractPaymentPlugin implements IPaymentEvent
 											 //	0：URL页面通知
 		                                     //	1：服务器通知
 		tPaymentRequest.setResultNotifyURL(callBackUrl); //设定支付结果回传网址 （必要信息）
-		tPaymentRequest.setMerchantRemarks("Javashop abcpayPlugIn"); //设定商户备注信息
+		tPaymentRequest.setMerchantRemarks("Dmall abcpayPlugIn"); //设定商户备注信息
 		tPaymentRequest.setPaymentLinkType("1");//设定支付接入方式
 		
 		//	传送支付请求并取得支付网址

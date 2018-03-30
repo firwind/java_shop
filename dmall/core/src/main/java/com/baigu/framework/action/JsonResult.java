@@ -4,7 +4,7 @@ package com.baigu.framework.action;
 /**
  * 用于生成Json格式 结果对象<br>
  * 一般用于一次http的ajax请求的json返回<br>
- * json格式符合javashop规范：<br>
+ * json格式符合dmall规范：<br>
  * {"result":1,"message":""}或<br>
  * {"result":1,"data":""}或<br>
  *  适用于grid的： {"total":1,"rows":""}<br> 

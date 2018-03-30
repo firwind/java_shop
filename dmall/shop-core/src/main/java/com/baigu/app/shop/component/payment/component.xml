@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component name="支付组件" version="1.0" javashop_version="3.0.0" author="javashop">
+<component name="支付组件" version="1.0" dmall_version="3.0.0" author="dmall">
 	<plugins>
 		<plugin name="支付宝担保交易接口" id="alipayEscowPlugin">
 			<bundle id="paymentPluginBundle"></bundle>

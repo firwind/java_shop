@@ -8,10 +8,10 @@
 		<app id="b2b2c" version="2.2.0"></app>
 	</apps>
 	<site>
-		<field name="sitename" value="Javashop多店铺示例商城" />
-		<field name="title" value="Javashop多店铺示例商城" />
+		<field name="sitename" value="Dmall多店铺示例商城" />
+		<field name="title" value="Dmall多店铺示例商城" />
 		<field name="keywords" value="最好的Java网店系统,Java多用户商城,Java商城定制开发" />
-        <field name="descript" value="Javashop提供优质的电子商务解决方案，提供最好的Java网店系统、Java多用户商城、Java商城定制开发。" />
+        <field name="descript" value="Dmall提供优质的电子商务解决方案，提供最好的Java网店系统、Java多用户商城、Java商城定制开发。" />
         <field name="logofile" value="fs://images/logo.png" />
 	</site>
 	<menus>
