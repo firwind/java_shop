@@ -1,10 +1,11 @@
-package com.enation.app.shop.front.payment.weixin.action;
+package com.baigu.app.shop.front.payment.weixin.action;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.baigu.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
 import net.sf.json.JSONObject;
 
 import org.apache.http.HttpEntity;
@@ -19,7 +20,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.enation.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
 import com.baigu.eop.processor.core.HttpHeaderConstants;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 /**

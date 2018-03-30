@@ -1,4 +1,4 @@
-package com.enation.app.shop.front.payment.weixin.tag;
+package com.baigu.app.shop.front.payment.weixin.tag;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -20,8 +20,8 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.base.core.model.Member;
 import com.baigu.app.base.core.service.IMemberManager;
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.eop.sdk.context.UserConext;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;

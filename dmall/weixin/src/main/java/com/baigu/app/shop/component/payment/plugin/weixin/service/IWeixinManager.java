@@ -1,4 +1,4 @@
-package com.enation.app.shop.component.payment.plugin.weixin.service;
+package com.baigu.app.shop.component.payment.plugin.weixin.service;
 
 public interface IWeixinManager {
 	

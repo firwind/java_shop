@@ -1,16 +1,16 @@
-package com.enation.app.shop.component.plugin;
+package com.baigu.app.shop.component.plugin;
 
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baigu.app.base.core.plugin.job.IEveryHourExecuteEvent;
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.model.SellBackStatus;

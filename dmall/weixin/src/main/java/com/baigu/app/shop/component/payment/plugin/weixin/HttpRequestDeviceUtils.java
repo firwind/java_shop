@@ -1,4 +1,4 @@
-package com.enation.app.shop.component.payment.plugin.weixin;
+package com.baigu.app.shop.component.payment.plugin.weixin;
 
 import javax.servlet.http.HttpServletRequest;
 

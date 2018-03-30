@@ -1,4 +1,4 @@
-package com.enation.app.shop.component.payment.plugin.weixin.service.impl;
+package com.baigu.app.shop.component.payment.plugin.weixin.service.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinUtil;
+import com.baigu.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
-import com.enation.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.baigu.framework.util.DateUtil;

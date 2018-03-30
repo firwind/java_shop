@@ -1,10 +1,11 @@
-package com.enation.app.shop.component.plugin;
+package com.baigu.app.shop.component.plugin;
 
 import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import com.baigu.app.base.core.model.Member;
 import com.baigu.app.base.core.service.IMemberManager;
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.app.shop.core.member.plugin.IMemberLoginEvent;
 import com.baigu.app.shop.core.member.plugin.IMemberRegisterEvent;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;

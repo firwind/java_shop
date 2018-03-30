@@ -1,4 +1,4 @@
-package com.enation.app.shop.front.payment.weixin.tag;
+package com.baigu.app.shop.front.payment.weixin.tag;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

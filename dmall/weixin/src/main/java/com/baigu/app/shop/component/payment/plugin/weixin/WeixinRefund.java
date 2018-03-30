@@ -1,4 +1,4 @@
-package com.enation.app.shop.component.payment.plugin.weixin;
+package com.baigu.app.shop.component.payment.plugin.weixin;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

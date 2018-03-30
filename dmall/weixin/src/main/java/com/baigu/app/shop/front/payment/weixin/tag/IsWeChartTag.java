@@ -1,10 +1,10 @@
-package com.enation.app.shop.front.payment.weixin.tag;
+package com.baigu.app.shop.front.payment.weixin.tag;
 
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
+import com.baigu.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.baigu.framework.taglib.BaseFreeMarkerTag;
 
 import freemarker.template.TemplateModelException;

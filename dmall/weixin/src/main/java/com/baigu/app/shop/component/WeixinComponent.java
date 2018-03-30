@@ -1,4 +1,4 @@
-package com.enation.app.shop.component;
+package com.baigu.app.shop.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
