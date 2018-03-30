@@ -43,7 +43,7 @@ public class ThreadContextHolder  {
 	
 	
 	public static void setHttpResponse(HttpServletResponse response){
-		response = new SafeHttpResponseWraper(response);
+//		response = new SafeHttpResponseWraper(response);
 		HttpResponseThreadLocalHolder.set(response);	
 	}
 	
