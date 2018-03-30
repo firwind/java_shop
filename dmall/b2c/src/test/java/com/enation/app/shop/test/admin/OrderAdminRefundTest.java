@@ -13,11 +13,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.app.shop.core.member.model.MemberAddress;
-import com.enation.app.shop.core.member.service.IMemberAddressManager;
-import com.enation.app.shop.core.order.model.Order;
-import com.enation.app.shop.core.order.service.IOrderManager;
-import com.enation.app.shop.core.order.service.OrderStatus;
+import com.baigu.app.shop.core.member.model.MemberAddress;
+import com.baigu.app.shop.core.member.service.IMemberAddressManager;
+import com.baigu.app.shop.core.order.model.Order;
+import com.baigu.app.shop.core.order.service.IOrderManager;
+import com.baigu.app.shop.core.order.service.OrderStatus;
 import com.enation.framework.database.IDaoSupport;
 import com.enation.framework.test.SpringTestSupport;
 

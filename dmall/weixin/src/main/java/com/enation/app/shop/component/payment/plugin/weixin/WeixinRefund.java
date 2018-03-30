@@ -10,11 +10,10 @@ import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.shop.core.order.model.PayEnable;
-import com.enation.app.shop.core.order.model.PaymentLog;
-import com.enation.app.shop.core.order.model.Refund;
-import com.enation.app.shop.core.order.service.IPaymentManager;
-import com.enation.framework.util.CurrencyUtil;
+import com.baigu.app.shop.core.order.model.PayEnable;
+import com.baigu.app.shop.core.order.model.PaymentLog;
+import com.baigu.app.shop.core.order.model.Refund;
+import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.enation.framework.util.StringUtil;
 
 /**

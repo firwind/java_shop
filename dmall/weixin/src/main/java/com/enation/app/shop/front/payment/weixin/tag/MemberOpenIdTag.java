@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 
 import com.enation.app.base.core.service.IMemberManager;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
-import com.enation.app.shop.core.order.service.IPaymentManager;
+import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.database.IDaoSupport;
 import com.enation.framework.taglib.BaseFreeMarkerTag;

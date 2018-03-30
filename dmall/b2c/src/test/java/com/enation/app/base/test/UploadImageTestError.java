@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.enation.app.shop.core.order.service.OrderStatus;
 import com.enation.eop.SystemSetting;
 import com.enation.framework.test.SpringTestSupport;
 

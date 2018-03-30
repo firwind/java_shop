@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
 import com.enation.app.shop.component.payment.plugin.weixin.service.IWeixinManager;
-import com.enation.app.shop.core.order.service.IPaymentManager;
+import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.enation.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.enation.framework.util.DateUtil;
 import com.enation.framework.util.StringUtil;

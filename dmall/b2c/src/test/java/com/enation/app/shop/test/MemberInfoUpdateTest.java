@@ -1,25 +1,13 @@
 package com.enation.app.shop.test;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.test.web.servlet.request.MockMultipartHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.util.FileSystemUtils;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.enation.app.shop.core.member.model.MemberAddress;
-import com.enation.app.shop.core.member.service.IMemberAddressManager;
 import com.enation.framework.test.SpringTestSupport;
-import com.enation.framework.util.FileUtil;
 
 /** 
 * 会员中心基本资料修改单元测试类

@@ -25,7 +25,7 @@ import com.enation.app.base.core.model.Member;
 import com.enation.app.base.core.service.IMemberManager;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinPayPlugin;
 import com.enation.app.shop.component.payment.plugin.weixin.WeixinUtil;
-import com.enation.app.shop.core.order.service.IPaymentManager;
+import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.enation.eop.sdk.context.UserConext;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.database.IDaoSupport;
