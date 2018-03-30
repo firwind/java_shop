@@ -1,6 +1,6 @@
-var enation={};
-enation.eop={};
-var WidgetConfig = enation.eop.WidgetConfig={};
+var baigu={};
+baigu.eop={};
+var WidgetConfig = baigu.eop.WidgetConfig={};
 WidgetConfig.LAYOUT_TYPE = "auto";//自动式
 WidgetConfig.WIDGET_RESIZE_MINHEIGHT =20;  //挂件缩放时最小高度
 WidgetConfig.WIDGET_RESIZE_MINWIDTH =20;  //挂件缩放时最小宽度
@@ -9,9 +9,9 @@ WidgetConfig.HOST="/eop/";
 
 
 
-var Selector =  enation.eop.WidgetConfig.Selector={};
-var ClassName = enation.eop.WidgetConfig.ClassName={};
-var EopTypes =  enation.eop.WidgetConfig.Types={};
+var Selector =  baigu.eop.WidgetConfig.Selector={};
+var ClassName = baigu.eop.WidgetConfig.ClassName={};
+var EopTypes =  baigu.eop.WidgetConfig.Types={};
 
 
 EopTypes.NAME ="eop_type";

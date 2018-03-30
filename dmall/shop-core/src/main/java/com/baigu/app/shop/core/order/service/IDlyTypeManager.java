@@ -19,7 +19,7 @@ public interface IDlyTypeManager{
 	 * 添加配送方式（统一配置式）
 	 * @param type 配送方式实体
 	 * @param config 配送费用设置
-	 * @see com.enation.test.shop.delivery.DeliveryTest#addSameTest
+	 * @see com.baigu.test.shop.delivery.DeliveryTest#addSameTest
 	 */
 	public Integer add(DlyType type, DlyTypeConfig config );
 	
@@ -28,7 +28,7 @@ public interface IDlyTypeManager{
 	 * @param type 配送方式实体
 	 * @param config 配送费用设置
 	 * @param configArray 地区费用配置数组
-	 * @see com.enation.test.shop.delivery.DeliveryTest#addDiffTest
+	 * @see com.baigu.test.shop.delivery.DeliveryTest#addDiffTest
 	 */
 	public void add(DlyType type, DlyTypeConfig config, TypeAreaConfig[] configArray);
 	
@@ -78,7 +78,7 @@ public interface IDlyTypeManager{
 	 * @param orderPrice 订单价格
 	 * @param regoinStr  地区id字串(联动的第三级)
 	 * @return 可配送此地区的配送方式，此列表中的DlyType是计算好price(需要对订单增加的费用DlyType)的 
-	 * @see com.enation.test.shop.delivery.DeliveryTest#testGetTypeForOrder
+	 * @see com.baigu.test.shop.delivery.DeliveryTest#testGetTypeForOrder
 	 */
 	public List<DlyType> list(Double weight,Double orderPrice,String regoinId );
 	
@@ -99,7 +99,7 @@ public interface IDlyTypeManager{
 	 * @return 返回配送费用，如果保价则返回同时保价费用</br>
 	 * 		数组的第一个元素为配送费用，第二个元素为保价费用</br>
 	 * 	 	不保价时数组保价费用为null
-	 * @see com.enation.shop.delivery.DeliveryTest#
+	 * @see com.baigu.shop.delivery.DeliveryTest#
 	 */
 	public Double[] countPrice(Integer typeId,Double weight,Double orderPrice,String regionId);
 	

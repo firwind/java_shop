@@ -107,7 +107,7 @@ var VersionChecker={
 
 $(function(){ 
 	if(mainpage){
-		if(runmode==2 && domain!='www.enationsoft.com'){
+		if(runmode==2 && domain!='www.baigusoft.com'){
 			$("#check_new_btn").parent().remove();
 		}else{
 			VersionChecker.init();

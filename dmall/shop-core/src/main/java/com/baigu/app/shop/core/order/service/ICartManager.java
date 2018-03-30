@@ -10,7 +10,7 @@ import com.baigu.app.shop.core.order.model.support.OrderPrice;
 /**
  * 购物车业务接口
  * @author kingapex
- * @see com.enation.test.shop.cart.CartTest#testAdd
+ * @see com.baigu.test.shop.cart.CartTest#testAdd
  *2010-3-23下午03:26:12
  */
 public interface ICartManager {

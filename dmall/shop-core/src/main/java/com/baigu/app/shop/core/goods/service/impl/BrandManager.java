@@ -248,7 +248,7 @@ public class BrandManager  implements IBrandManager {
 	 */
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandManager#getGoods(java.lang.Integer, int, int)
+	 * @see com.baigu.app.shop.core.service.IBrandManager#getGoods(java.lang.Integer, int, int)
 	 */
 	public Page getGoods(Integer brand_id, int pageNo, int pageSize) {
 		String sql = "select * from es_goods where brand_id=? and disabled=0";
@@ -260,7 +260,7 @@ public class BrandManager  implements IBrandManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandManager#listBrands(java.lang.Integer, int, int)
+	 * @see com.baigu.app.shop.core.service.IBrandManager#listBrands(java.lang.Integer, int, int)
 	 */
 	public Page listBrands(Integer tag_id,int pageNo,int pageSize){
 		String sql = "select * from es_brand b inner join es_tag_relb r on b.brand_id = r.rel_id where r.tag_id = ? order by r.ordernum desc ";
@@ -271,7 +271,7 @@ public class BrandManager  implements IBrandManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandManager#listBrands(java.lang.Integer)
+	 * @see com.baigu.app.shop.core.service.IBrandManager#listBrands(java.lang.Integer)
 	 */
 	public List<Brand> listBrands(Integer tag_id){
 		String sql = "select b.* from es_brand b inner join es_tag_relb r on b.brand_id = r.rel_id where r.tag_id = ? order by r.ordernum desc ";
@@ -383,7 +383,7 @@ public class BrandManager  implements IBrandManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandManager#saveOrder(int[], int[])
+	 * @see com.baigu.app.shop.core.service.IBrandManager#saveOrder(int[], int[])
 	 */
 	@Override
 	public void saveOrder(int[] ordernums, int[] ids) {
@@ -394,7 +394,7 @@ public class BrandManager  implements IBrandManager {
 	}
 	
 	private void deleteOldLogo(String logo){
-		if(!logo.equals("http://static.enationsfot.com")){
+		if(!logo.equals("http://static.baigusfot.com")){
 			logo  =StaticResourcesUtil.convertToUrl(logo);
 			FileUtil.delete(logo);
 		}

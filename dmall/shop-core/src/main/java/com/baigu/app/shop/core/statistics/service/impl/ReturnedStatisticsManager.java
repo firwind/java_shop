@@ -26,7 +26,7 @@ public class ReturnedStatisticsManager implements IReturnedStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IReturnedStatisticsManager#statisticsMonth_Amount(long, long)
+	 * @see com.baigu.app.shop.core.service.statistics.IReturnedStatisticsManager#statisticsMonth_Amount(long, long)
 	 */
 	@Override
 	public List<Map> statisticsMonth_Amount(long year,long month){
@@ -38,7 +38,7 @@ public class ReturnedStatisticsManager implements IReturnedStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IReturnedStatisticsManager#statisticsYear_Amount(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IReturnedStatisticsManager#statisticsYear_Amount(int)
 	 */
 	@Override
 	public List<Map> statisticsYear_Amount(int year) {

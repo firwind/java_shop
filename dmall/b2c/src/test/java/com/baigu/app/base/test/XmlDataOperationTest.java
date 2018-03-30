@@ -74,14 +74,14 @@ public class XmlDataOperationTest extends SpringTestSupport {
 	
 	//@Test
 	public void testCreate(){
-		String createFilePath = "file:com/enation/app/base/test/create.xml";
+		String createFilePath = "file:com/baigu/app/base/test/create.xml";
 		xmlDataOperation.imported(createFilePath);
 	}
 	
 	
 	//@Test
 	public void testInsert(){
-		String insertFilePath = "file:com/enation/app/base/test/insert.xml";
+		String insertFilePath = "file:com/baigu/app/base/test/insert.xml";
 
 		xmlDataOperation.imported(insertFilePath);
 	}
@@ -89,7 +89,7 @@ public class XmlDataOperationTest extends SpringTestSupport {
 	
 	//@Test
 	public void testAlter(){
-		String insertFilePath = "file:com/enation/app/base/test/alter.xml";
+		String insertFilePath = "file:com/baigu/app/base/test/alter.xml";
 		xmlDataOperation.imported(insertFilePath);
 	}
 	
@@ -97,7 +97,7 @@ public class XmlDataOperationTest extends SpringTestSupport {
 
 	//@Test
 	public void testIndex(){
-		String insertFilePath = "file:com/enation/app/base/test/index.xml";
+		String insertFilePath = "file:com/baigu/app/base/test/index.xml";
 		xmlDataOperation.imported(insertFilePath);
 	}
 	

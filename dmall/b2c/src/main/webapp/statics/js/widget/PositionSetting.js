@@ -1,5 +1,5 @@
-enation.eop.WidgetSetting.PositionSetting=$.extend({},
-enation.eop.WidgetSetting.Setting,	
+baigu.eop.WidgetSetting.PositionSetting=$.extend({},
+baigu.eop.WidgetSetting.Setting,
 {
 	init:function(invoker,widget){
 		this.operator = invoker;

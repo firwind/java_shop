@@ -19,8 +19,8 @@ var Widgeter = {
 	createSuccess:false,
 	created:false,
 	init:function(){
-		var Eop =enation.eop;	
-		var Config =  enation.eop.WidgetConfig;
+		var Eop =baigu.eop;
+		var Config =  baigu.eop.WidgetConfig;
 		Eop.WidgetController.init($(Config.Selector.WIDGET));
 		Eop.ContainerController.init($(Config.Selector.LAYOUT));	
 	},
@@ -52,7 +52,7 @@ var Widgeter = {
 					"widgetSetting/?appid=" + appId + "&widgettype=" + widgetType+"&act=create"
 							+ "",{a:1},function(){
 							
-			    enation.eop.WidgetSettingController.init();
+			    baigu.eop.WidgetSettingController.init();
 			    WidgetDialog.doOpen();
  
 			});
@@ -87,14 +87,14 @@ var Widgeter = {
 			type : "POST",
 			success : function(result) {
 				var newWidget = $("<div class='widget'>"+result.content+"</div>");
-				enation.eop.WidgetController.HandleController.init( 
+				baigu.eop.WidgetController.HandleController.init(
 						newWidget.children("div.handle").children("span").children("a.edit"),
 						newWidget.children("div.handle").children("span").children("a.delete")
 				);
 
 				//保存挂件的属性及样式
 				GhostPlayer.comTrueStart=function(widget){
-					enation.eop.WidgetSettingController.saveWidget( widget);
+					baigu.eop.WidgetSettingController.saveWidget( widget);
 				};
 				
 				GhostPlayer.incarnation(newWidget,thatPanel);
@@ -146,7 +146,7 @@ var Widgeter = {
 				postData,
 				//设置对话框打开后绑定事件
 				function(){ 
-					 enation.eop.WidgetSettingController.init(widgetEl);
+					 baigu.eop.WidgetSettingController.init(widgetEl);
 					 WidgetDialog.doOpen();
 				});
 				
@@ -162,7 +162,7 @@ var Widgeter = {
 	 * 保存挂件
 	 */
 	saveWidget:function(widgetEl){
-		//enation.eop.WidgetSettingController.saveWidget();
+		//baigu.eop.WidgetSettingController.saveWidget();
 		
 		var paramJson={}; 
 		$("[eop_type=widget_params]").each(function(){
@@ -179,8 +179,8 @@ var Widgeter = {
 					var newContent = $(result.content);
 					widgetEl.empty();
 					widgetEl.append(newContent);
-					enation.eop.WidgetSettingController.saveWidget(); //保存持件的设置
-					enation.eop.WidgetController.init(widgetEl);  //初始化挂件的事件
+					baigu.eop.WidgetSettingController.saveWidget(); //保存持件的设置
+					baigu.eop.WidgetController.init(widgetEl);  //初始化挂件的事件
 				},
 				error : function(e) {
 					alert("出现错误 " + e);

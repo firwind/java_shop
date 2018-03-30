@@ -17,12 +17,12 @@ public class ReceiptComponent implements IComponent {
 	private IDataOperation dataOperation;
 	@Override
 	public void install() {
-		this.dataOperation.imported("file:com/enation/app/shop/component/receipt/receipt_install.xml");
+		this.dataOperation.imported("file:com/baigu/app/shop/component/receipt/receipt_install.xml");
 	}
 
 	@Override
 	public void unInstall() {
-		this.dataOperation.imported("file:com/enation/app/shop/component/receipt/receipt_uninstall.xml");
+		this.dataOperation.imported("file:com/baigu/app/shop/component/receipt/receipt_uninstall.xml");
 
 	}
 }

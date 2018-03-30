@@ -72,7 +72,7 @@ public class SettingService implements ISettingService  {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.enation.app.setting.service.ISettingService#save()
+	 * @see com.baigu.app.setting.service.ISettingService#save()
 	 */
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Log(type=LogType.SETTING,detail="更新所有系统设置")
@@ -104,7 +104,7 @@ public class SettingService implements ISettingService  {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.enation.app.setting.service.ISettingService#getSetting()
+	 * @see com.baigu.app.setting.service.ISettingService#getSetting()
 	 */
 	@Override
 	public Map<String,Map<String ,String>>  getSetting() {

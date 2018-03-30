@@ -45,7 +45,7 @@ public class IndustryStatisticsManager  implements
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_price(int, int, int)
+	 * @see com.baigu.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_price(int, int, int)
 	 */
 	@Override
 	public List<Map> statistics_price(int type, int year, int month) {
@@ -86,7 +86,7 @@ public class IndustryStatisticsManager  implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_order(int, int, int)
+	 * @see com.baigu.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_order(int, int, int)
 	 */
 	@Override
 	public List<Map> statistics_order(int type, int year, int month) {
@@ -127,7 +127,7 @@ public class IndustryStatisticsManager  implements
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_goods(int, int, int)
+	 * @see com.baigu.app.shop.core.service.statistics.IIndustryStatisticsManager#statistics_goods(int, int, int)
 	 */
 	@Override
 	public List<Map> statistics_goods(int type, int year, int month) {
@@ -168,7 +168,7 @@ public class IndustryStatisticsManager  implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IIndustryStatisticsManager#getAllRootMenu()
+	 * @see com.baigu.app.shop.core.service.statistics.IIndustryStatisticsManager#getAllRootMenu()
 	 */
 	@Override
 	public List<Map> getAllRootMenu() { 
@@ -177,7 +177,7 @@ public class IndustryStatisticsManager  implements
 	 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IIndustryStatisticsManager#listCollect(int, java.util.List)
+	 * @see com.baigu.app.shop.core.service.statistics.IIndustryStatisticsManager#listCollect(int, java.util.List)
 	 */
 	@Override
 	public List<Collect> listCollect(int cat_id,List<Cat> cats) {

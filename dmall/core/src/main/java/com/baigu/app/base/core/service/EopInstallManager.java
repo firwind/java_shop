@@ -38,7 +38,7 @@ public class EopInstallManager {
 		
 		long s= DateUtil.getDateline();
 	    long start  = this.log("开始安装");
-	    dataOperation.imported("file:com/enation/app/base/init.xml");
+	    dataOperation.imported("file:com/baigu/app/base/init.xml");
 	    
 		long end =this.logEnd("init xml安装完成",start);		
 		 

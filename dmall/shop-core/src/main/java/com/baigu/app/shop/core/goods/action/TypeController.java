@@ -411,7 +411,7 @@ public class TypeController extends GridController {
 	public String disPropsInput(Integer typeId) {
 		List attrList = this.goodsTypeManager.getAttrListByTypeId(typeId);
 		attrList =attrList==null || attrList.isEmpty() ?null:attrList;
-		return "/com/enation/app/shop/plugin/standard/type/props_input"; 
+		return "/com/baigu/app/shop/plugin/standard/type/props_input";
 	}
 
 	//
@@ -419,14 +419,14 @@ public class TypeController extends GridController {
 	// 被ajax抓取用
 	public String disParamsInput(Integer typeId) {
 		ParamGroup[] paramAr = this.goodsTypeManager.getParamArByTypeId(typeId);
-		return "/com/enation/app/shop/plugin/standard/type/params_input";
+		return "/com/baigu/app/shop/plugin/standard/type/params_input";
 	}
 
 
 	//添加或修改商品时异步读取品牌列表
 	public String listBrand(Integer typeId){
 		List brandlist = this.goodsTypeManager.listByTypeId(typeId);
-		return "/com/enation/app/shop/plugin/standard/type/brand_input";
+		return "/com/baigu/app/shop/plugin/standard/type/brand_input";
 	}	
 
 	private GoodsTypeDTO getTypeFromSession() {

@@ -2,7 +2,7 @@
 /**
  *挂件容器操作者
  */
-enation.eop.ContainerOperator={
+baigu.eop.ContainerOperator={
 	
 	/*
 	 * v1.0

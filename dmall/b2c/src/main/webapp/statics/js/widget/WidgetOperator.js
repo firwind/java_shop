@@ -3,7 +3,7 @@
  * 挂件操作者
  * 包含了挂件的各种事件响应、属性改变
  */
-enation.eop.WidgetOperator={
+baigu.eop.WidgetOperator={
 		
 	
 	
@@ -58,7 +58,7 @@ enation.eop.WidgetOperator={
 	 * 作用实现handle动态效果
 	 */
 	hoverInEvent:function(){
-		var handleAble = enation.eop.WidgetController.handleAble;
+		var handleAble = baigu.eop.WidgetController.handleAble;
 		
 		if(!handleAble) return; //防止其它快速的操作事件响应
 		//debug("show..");
@@ -73,7 +73,7 @@ enation.eop.WidgetOperator={
 			});
 		});	
 		
-		enation.eop.WidgetOperator.showWrapHelper(wdgs);
+		baigu.eop.WidgetOperator.showWrapHelper(wdgs);
 		//wdgs.addClass(ClassName.WIDGET_HOVER);		
 	},
 	
@@ -84,7 +84,7 @@ enation.eop.WidgetOperator={
 	 * 作用:实现handle动态效果
 	 */
 	hoverOutEvent:function(){
-		var handleAble = enation.eop.WidgetController.handleAble;
+		var handleAble = baigu.eop.WidgetController.handleAble;
 		
 		if(!handleAble) return; //防止其它快速的操作事件响应
 	
@@ -96,7 +96,7 @@ enation.eop.WidgetOperator={
 			handle.attr("hideAble","0"); //修补鼠标移动太快，动画延迟事件的问题,强制告诉Hover事件，要hide
 			handle.hide();
 		});	
-		enation.eop.WidgetOperator.hideWrapHelper(wdgs);
+		baigu.eop.WidgetOperator.hideWrapHelper(wdgs);
 	//	wdgs.removeClass(ClassName.WIDGET_HOVER);		
 	},
 	

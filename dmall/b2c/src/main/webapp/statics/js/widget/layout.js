@@ -1,6 +1,6 @@
 	$(function() {
 
-		var ContainerOperator = parent.enation.eop.ContainerOperator;
+		var ContainerOperator = parent.baigu.eop.ContainerOperator;
 		var layouts = $("[eop_type='layout']");
 
 		/**
@@ -39,8 +39,8 @@
 
 		});
 		
-		var Eop = enation.eop;
-		var Config = enation.eop.WidgetConfig;
+		var Eop = baigu.eop;
+		var Config = baigu.eop.WidgetConfig;
 		$(".ui-resizable-handle").remove();
 		$("[eop_type='widget']").draggable( 'destroy' );
  

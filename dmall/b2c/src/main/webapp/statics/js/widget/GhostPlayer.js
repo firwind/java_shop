@@ -3,7 +3,7 @@
  * v1.0
  * 鬼魂演员:)
  */
-var GhostPlayer=enation.eop.GhostPlayer = {
+var GhostPlayer=baigu.eop.GhostPlayer = {
 
 
 	/*
@@ -179,7 +179,7 @@ var GhostPlayer=enation.eop.GhostPlayer = {
 	newWidget:function(newWidget){
 		if(this.ghost){
 			this.ghost.replaceWith(newWidget);
-			enation.eop.WidgetController.init(newWidget);  //初始化挂件的事件		
+			baigu.eop.WidgetController.init(newWidget);  //初始化挂件的事件
 		}
 	}
 	,
@@ -209,7 +209,7 @@ var GhostPlayer=enation.eop.GhostPlayer = {
 			this.ghost.css("height","");//清除掉当新创建时造成的在ie下高是定死的，使
 			
 		
-			enation.eop.WidgetController.init(this.ghost);
+			baigu.eop.WidgetController.init(this.ghost);
 			if (!$.browser.msie) {  //如果是兼容性浏览器
 				this.ghost.css("height","auto");
 				var borderwidth =WidgetConfig.WIDGET_WRAPHELPER_BORDERWIDTH *2;

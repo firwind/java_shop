@@ -14,7 +14,7 @@ import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 
 /**
  * 商品SEO优化插件
- * @author enation
+ * @author baigu
  *
  */
 @Component 

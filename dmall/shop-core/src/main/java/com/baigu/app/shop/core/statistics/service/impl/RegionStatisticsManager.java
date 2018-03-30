@@ -42,7 +42,7 @@ public class RegionStatisticsManager implements IRegionStatisticsManager {
 	/*
 	 * (non-Javadoc)
 	 * @see
-	 * com.enation.app.shop.core.service.statistics.IRegionStatisticsManager
+	 * com.baigu.app.shop.core.service.statistics.IRegionStatisticsManager
 	 * #getRegionStatistics()
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class RegionStatisticsManager implements IRegionStatisticsManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.app.shop.core.service.statistics.IRegionStatisticsManager
+	 * com.baigu.app.shop.core.service.statistics.IRegionStatisticsManager
 	 * #regionStatisticsList(java.lang.String, java.lang.String)
 	 */
 	@Override

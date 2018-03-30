@@ -72,7 +72,7 @@ public class GnotifyManager  implements IGnotifyManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IGnotifyManager#getGnotifyBymember(java.lang.Integer, java.lang.Integer)
+	 * @see com.baigu.app.shop.core.service.IGnotifyManager#getGnotifyBymember(java.lang.Integer, java.lang.Integer)
 	 */
 	@Override
 	public int getGnotifyBymember(Integer goodsid, Integer productid) {

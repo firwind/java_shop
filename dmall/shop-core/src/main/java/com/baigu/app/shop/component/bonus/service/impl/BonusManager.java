@@ -81,7 +81,7 @@ public class BonusManager  implements IBonusManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.component.bonus.service.IBronusManager#sendForMember(int, java.lang.Integer[])
+	 * @see com.baigu.app.shop.component.bonus.service.IBronusManager#sendForMember(int, java.lang.Integer[])
 	 */
 	
 	@Override
@@ -101,7 +101,7 @@ public class BonusManager  implements IBonusManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.component.bonus.service.IBronusManager#sendForGoods(int, java.lang.Integer[])
+	 * @see com.baigu.app.shop.component.bonus.service.IBronusManager#sendForGoods(int, java.lang.Integer[])
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -264,7 +264,7 @@ public class BonusManager  implements IBonusManager {
 		
 		String app_apth = StringUtil.getRootPath();
 
-		InputStream in = new FileInputStream(new File(app_apth+"/excel/bonus.xls")) ;// FileUtil.getResourceAsStream("com/enation/app/shop/component/bonus/service/impl/bonus_list.xls");
+		InputStream in = new FileInputStream(new File(app_apth+"/excel/bonus.xls")) ;// FileUtil.getResourceAsStream("com/baigu/app/shop/component/bonus/service/impl/bonus_list.xls");
 		
 		excelUtil.openModal( in );
 		int i=1;

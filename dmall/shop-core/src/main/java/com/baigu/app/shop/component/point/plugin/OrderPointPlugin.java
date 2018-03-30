@@ -48,7 +48,7 @@ public class OrderPointPlugin extends AutoRegisterPlugin
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.app.shop.core.plugin.order.IConfirmReceiptEvent#confirm(java.
+	 * com.baigu.app.shop.core.plugin.order.IConfirmReceiptEvent#confirm(java.
 	 * lang.Integer, double)
 	 */
 	@Override
@@ -82,8 +82,8 @@ public class OrderPointPlugin extends AutoRegisterPlugin
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.app.shop.core.plugin.order.IOrderRogconfirmEvent#rogConfirm(
-	 * com.enation.app.shop.core.model.Order)
+	 * com.baigu.app.shop.core.plugin.order.IOrderRogconfirmEvent#rogConfirm(
+	 * com.baigu.app.shop.core.model.Order)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)

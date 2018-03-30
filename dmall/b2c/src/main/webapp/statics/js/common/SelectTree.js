@@ -7,7 +7,7 @@
  * 	[htmlCode]
  * 		<select id="test"/>
  * 		$(function(){
- * 			var s='[{"siteid":1,"parentid":0,"code":1,"name":"北京","domain":"peking.enationsoft.com","children":[{"siteid":2,"parentid":1,"code":2,"name":"朝阳站","domain":"chaoyan.enationsoft.com"}]}]';
+ * 			var s='[{"siteid":1,"parentid":0,"code":1,"name":"北京","domain":"peking.baigusoft.com","children":[{"siteid":2,"parentid":1,"code":2,"name":"朝阳站","domain":"chaoyan.baigusoft.com"}]}]';
  * 			$("#test").selectTree(s);
  * 		});
  * 	[/htmlCode]

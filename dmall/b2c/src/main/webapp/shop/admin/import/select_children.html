@@ -1,4 +1,4 @@
-<#assign repeat = "com.enation.eop.processor.core.freemarker.RepeatDirective"?new()>
+<#assign repeat = "com.baigu.eop.processor.core.freemarker.RepeatDirective"?new()>
 <#list children as child> 
 <option value="${child.cat_id}" typeid="${child.type_id}"><@repeat count=level>&nbsp;&nbsp;</@repeat>${child.name}</option>
 	<#if child.hasChildren>

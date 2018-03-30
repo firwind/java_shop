@@ -24,7 +24,7 @@ import com.baigu.framework.util.StringUtil;
 
 /**
  * 相册后台管理
- * @author enation
+ * @author baigu
  *
  */
 @Component
@@ -44,7 +44,7 @@ public class GoodsGalleryAdminPlugin extends AbstractGoodsPlugin implements	IGoo
 	 * 处理图片，包括商品新增时和修改时的图片数据<br/>
 	 * 处理原则为向页面输出为全地址，保存在库里的为相对地址，以fs:开头，以区分网络远程图片。<br/>
 	 * 在显示的时候将fs:替换为静态资源服务器地址 页面中传递过来的图片地址为:http://<staticserver>/<image path>如:<br/>
-	 * http://static.enationsoft.com/attachment/goods/1.jpg<br/>
+	 * http://static.baigusoft.com/attachment/goods/1.jpg<br/>
 	 * 存在库中的为/attachment/goods/1.jpg
 	 */
  

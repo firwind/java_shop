@@ -152,12 +152,12 @@ public class ShopApp extends App {
 		/**
 		 * 安装网店数据库表结构
 		 */
-		this.doInstall("file:com/enation/app/shop/shop.xml");
+		this.doInstall("file:com/baigu/app/shop/shop.xml");
 		
 		/**
 		 * 安装网店数据库索引
 		 */
-		this.doInstall("file:com/enation/app/shop/shop_index.xml");
+		this.doInstall("file:com/baigu/app/shop/shop_index.xml");
 	}
 
 	/**

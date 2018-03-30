@@ -249,7 +249,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#orderStatByPayment()
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#orderStatByPayment()
 	 */
 	public List<Map> orderStatByPayment(){
 		String sql ="select count(0) num,sum(order_amount) amount,max(payment_name) payment_name from es_order where disabled=0 group by shipping_id";
@@ -260,7 +260,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#orderStatByShip()
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#orderStatByShip()
 	 */
 	public List<Map> orderStatByShip(){
 		String sql ="select count(0) num,sum(order_amount) amount,max(shipping_type) shipping_type from es_order where disabled=0 group by shipping_id";
@@ -269,7 +269,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#statisticsYear_Amount(java.lang.Integer, int)
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#statisticsYear_Amount(java.lang.Integer, int)
 	 */
 	@Override
 	public List<Map> statisticsYear_Amount(Integer status, int year) {
@@ -287,7 +287,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#statisticsMonth_Amount(java.lang.Integer, long, long)
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#statisticsMonth_Amount(java.lang.Integer, long, long)
 	 */
 	@Override
 	public List<Map> statisticsMonth_Amount(Integer status, int year,int month) {
@@ -305,7 +305,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IStatisticsManager#hotGoodsTop_Money()
+	 * @see com.baigu.app.shop.core.service.IStatisticsManager#hotGoodsTop_Money()
 	 */
 	@Override
 	public List<Map> hotGoodsTop_Money() {
@@ -318,7 +318,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IStatisticsManager#hotGoodsTop_Num()
+	 * @see com.baigu.app.shop.core.service.IStatisticsManager#hotGoodsTop_Num()
 	 */
 	@Override
 	public List<Map> hotGoodsTop_Num() {
@@ -368,7 +368,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#getSalesIncome(long, long, int, int, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#getSalesIncome(long, long, int, int, java.util.Map)
 	 */
 	@Override
 	public Page getSalesIncome(int year, int month, int page, int pageSize,
@@ -392,7 +392,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#getReceivables(long, long, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#getReceivables(long, long, java.util.Map)
 	 */
 	@Override
 	public Double getReceivables(int year, int month, Map parames) {
@@ -413,7 +413,7 @@ public class SalesStatisticsManager  implements ISalesStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISalesStatisticsManager#getRefund(long, long, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.ISalesStatisticsManager#getRefund(long, long, java.util.Map)
 	 */
 	@Override
 	public Double getRefund(int year, int month, Map parames) {

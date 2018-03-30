@@ -218,13 +218,13 @@
 		<command>insert</command>
 		<table>es_smtp</table>
 		<fields>id,host,username,password,last_send_time,send_count,max_count,mail_from,port,open_ssl</fields>
-		<values>1,'smtp.exmail.qq.com','service1@javashop.cn','enation752513',1429599644,1,100,'service1@javashop.cn',0,0</values>
+		<values>1,'smtp.exmail.qq.com','service1@javashop.cn','baigu752513',1429599644,1,100,'service1@javashop.cn',0,0</values>
 	</action>
 	<action>
 		<command>insert</command>
 		<table>es_smtp</table>
 		<fields>id,host,username,password,last_send_time,send_count,max_count,mail_from,port,open_ssl</fields>
-		<values>2,'smtp.exmail.qq.com','service2@javashop.cn','enation752513',0,0,100,'service2@javashop.cn',0,0</values>
+		<values>2,'smtp.exmail.qq.com','service2@javashop.cn','baigu752513',0,0,100,'service2@javashop.cn',0,0</values>
 	</action>
 	<action>
 		<command>insert</command>

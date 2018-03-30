@@ -17,7 +17,7 @@ var WidgetDialog={
 	}
 };
 
-enation.eop.WidgetSettingController={
+baigu.eop.WidgetSettingController={
 		
 		pWidget:undefined,
 		pTitle:undefined,
@@ -31,7 +31,7 @@ enation.eop.WidgetSettingController={
 			 * 初始化参数操作
 			 * 主要是使控件的值选中
 			
-			//enation.eop.WidgetSettingOperator.ParamsSettingOp.init(widget);
+			//baigu.eop.WidgetSettingOperator.ParamsSettingOp.init(widget);
 			
 			this.pWidget = $("#widget_setting_con #wgt_preview>div");
 			this.pTitle  =  this.pWidget.children(".title");
@@ -113,8 +113,8 @@ enation.eop.WidgetSettingController={
 		 * 同步挂件属性
 		 */
 		syncWidgetAttr:function(){
-			enation.eop.WidgetSettingOperator.ParamsSettingOp.setWidget(this.widget);
-			enation.eop.WidgetSettingOperator.ParamsSettingOp.syncWidgetAttr();
+			baigu.eop.WidgetSettingOperator.ParamsSettingOp.setWidget(this.widget);
+			baigu.eop.WidgetSettingOperator.ParamsSettingOp.syncWidgetAttr();
 		}
 		
 		,
@@ -195,7 +195,7 @@ enation.eop.WidgetSettingController={
 					 function(){
 						 //初始化区块设置的tabs
 						 var widget  = $("#widget_setting_con #wgt_preview>div");
-						 enation.eop.WidgetSettingOperator.BlockSettingOp.initTabs(widget,'yes');
+						 baigu.eop.WidgetSettingOperator.BlockSettingOp.initTabs(widget,'yes');
 					 }
 				 );
 			},
@@ -208,7 +208,7 @@ enation.eop.WidgetSettingController={
 						 function(){
 							 //初始化title设置的tabs
 							 var widget  = $("#widget_setting_con #wgt_preview>div .title");
-							 enation.eop.WidgetSettingOperator.TitleSettingOp.initTabs(widget,'no');
+							 baigu.eop.WidgetSettingOperator.TitleSettingOp.initTabs(widget,'no');
 						 }
 					 );				
 			},
@@ -221,7 +221,7 @@ enation.eop.WidgetSettingController={
 						 function(){
 							 //初始化title设置的tabs
 							 var widget  = $("#widget_setting_con #wgt_preview>div .content");
-							 enation.eop.WidgetSettingOperator.ContentSettingOp.initTabs(widget,'no');
+							 baigu.eop.WidgetSettingOperator.ContentSettingOp.initTabs(widget,'no');
 						 }
 					 );						
 			},
@@ -230,7 +230,7 @@ enation.eop.WidgetSettingController={
 						 "eop/border.do",
 						 {},
 						 function(){
-							  enation.eop.WidgetSettingOperator.TemplateOp.init();
+							  baigu.eop.WidgetSettingOperator.TemplateOp.init();
 						 }
 				 );					
 			},			
@@ -240,7 +240,7 @@ enation.eop.WidgetSettingController={
 						 "eop/setting/templatelist.jsp",
 						 {},
 						 function(){
-							 enation.eop.WidgetSettingOperator.TemplateOp.init();
+							 baigu.eop.WidgetSettingOperator.TemplateOp.init();
 						 }
 				 );		*/			
 			}
@@ -259,7 +259,7 @@ enation.eop.WidgetSettingController={
 			this.syncWidgetStyle();
 			this.syncWidgetAttr();
 			////因3.0架构去掉了挂件模板的操作，改变边框了
-			//enation.eop.WidgetSettingOperator.TemplateOp.saveWidget();
+			//baigu.eop.WidgetSettingOperator.TemplateOp.saveWidget();
 			$(".colorpicker").remove();
 		}
 		

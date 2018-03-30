@@ -673,7 +673,7 @@ function log() {
  * validate- jQuery Plug-in
  * @version 1.0
  * @author kingapex
- * Copyright 2009 enation  
+ * Copyright 2009 baigu
  */
 (function($){
 	$.Validator={};
@@ -3288,7 +3288,7 @@ function log() {
  * validate- jQuery Plug-in
  * @version 1.0
  * @author kingapex
- * Copyright 2009 enation  
+ * Copyright 2009 baigu
  */
 (function($){
 	$.Validator={};

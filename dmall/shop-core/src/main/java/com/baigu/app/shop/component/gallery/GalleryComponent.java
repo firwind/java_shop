@@ -26,12 +26,12 @@ public class GalleryComponent implements IComponent {
 	
 	@Override
 	public void install() {
-		dataOperation.imported("file:com/enation/app/shop/component/gallery/gallery_install.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/gallery/gallery_install.xml");
 	}
 
 	@Override
 	public void unInstall() {
-		dataOperation.imported("file:com/enation/app/shop/component/gallery/gallery_install.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/gallery/gallery_install.xml");
 
 	}
 

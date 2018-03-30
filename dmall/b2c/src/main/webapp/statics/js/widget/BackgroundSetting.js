@@ -1,7 +1,7 @@
 
 /*背景设置*/
-enation.eop.WidgetSetting.BackgroundSetting=$.extend({},
-enation.eop.WidgetSetting.Setting,		
+baigu.eop.WidgetSetting.BackgroundSetting=$.extend({},
+baigu.eop.WidgetSetting.Setting,
 {
 	init:function(invoker,widget){
 		this.operator = invoker;

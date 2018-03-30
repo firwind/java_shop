@@ -82,7 +82,7 @@ public class SellBackManager implements ISellBackManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#list(int, int, java.lang.Integer)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#list(int, int, java.lang.Integer)
 	 */
 	@Override
 	public Page list(Integer page, Integer pageSize,Integer status,Integer type) {
@@ -99,7 +99,7 @@ public class SellBackManager implements ISellBackManager {
 	}
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#list(java.lang.Integer, int, int)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#list(java.lang.Integer, int, int)
 	 */
 	@Override
 	public Page list(Integer member_id,Integer page, Integer pageSize) {
@@ -112,7 +112,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#editStatus(java.lang.Integer, java.lang.Integer, int, double, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#editStatus(java.lang.Integer, java.lang.Integer, int, double, java.lang.String)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -192,7 +192,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#search(java.lang.String, int, int)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#search(java.lang.String, int, int)
 	 */
 	@Override
 	public Page search(String keyword, int page, int pageSize) {
@@ -232,7 +232,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see ISellBackManager#addSellBack(com.enation.app.shop.core.order.model.SellBackList, java.util.List)
+	 * @see ISellBackManager#addSellBack(com.baigu.app.shop.core.order.model.SellBackList, java.util.List)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -317,7 +317,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#addSellBackAdmin(com.enation.app.shop.core.model.SellBackList, java.util.List)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#addSellBackAdmin(com.baigu.app.shop.core.model.SellBackList, java.util.List)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -391,7 +391,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see ISellBackManager#apply(com.enation.app.shop.core.order.model.SellBackList)
+	 * @see ISellBackManager#apply(com.baigu.app.shop.core.order.model.SellBackList)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -405,7 +405,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see ISellBackManager#cancle(com.enation.app.shop.core.order.model.SellBackList)
+	 * @see ISellBackManager#cancle(com.baigu.app.shop.core.order.model.SellBackList)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -558,7 +558,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ISellBackManager#getSellbackChilds(int, int)
+	 * @see com.baigu.app.shop.core.service.ISellBackManager#getSellbackChilds(int, int)
 	 */
 	@Override
 	public List getSellbackChilds(int orderId ,int parentGoodsId){
@@ -674,7 +674,7 @@ public class SellBackManager implements ISellBackManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see ISellBackManager#addRetund(com.enation.app.shop.core.order.model.SellBackList)
+	 * @see ISellBackManager#addRetund(com.baigu.app.shop.core.order.model.SellBackList)
 	 */
 	@Override
 	@Log(type=LogType.ORDER,detail="订单ID为${sellBackList.ordersn}由${sellBackList.regoperator}申请退款,金额：${sellBackList.apply_alltotal}")

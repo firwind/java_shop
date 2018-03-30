@@ -16,7 +16,7 @@ public class BrandsTagManager implements IBrandsTagManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandsTagManager#del(int, int)
+	 * @see com.baigu.app.shop.core.service.IBrandsTagManager#del(int, int)
 	 */
 	@Override
 	@Log(type=LogType.GOODS,detail="删除关联品牌")
@@ -26,7 +26,7 @@ public class BrandsTagManager implements IBrandsTagManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandsTagManager#add(int, int[])
+	 * @see com.baigu.app.shop.core.service.IBrandsTagManager#add(int, int[])
 	 */
 	@Override
 	@Log(type=LogType.GOODS,detail="添加品牌")
@@ -37,7 +37,7 @@ public class BrandsTagManager implements IBrandsTagManager {
 	}
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IBrandsTagManager#saveOrder(int, int[], int[])
+	 * @see com.baigu.app.shop.core.service.IBrandsTagManager#saveOrder(int, int[], int[])
 	 */
 	@Override
 	@Log(type=LogType.GOODS,detail="保存排序")

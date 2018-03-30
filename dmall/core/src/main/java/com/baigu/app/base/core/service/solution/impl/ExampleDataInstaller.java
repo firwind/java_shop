@@ -98,7 +98,7 @@ public class ExampleDataInstaller implements IInstaller {
 			loggerPrint("安装datasqlPath:" + dataSqlPath);
 			
 			if(!"base".equals(productId)){
-				InstallUtil.putMessaage("正在安装示例数据，可能要花费较长时间，请稍后 <img src='resource/com/enation/app/saas/component/widget/product/loading.gif'");
+				InstallUtil.putMessaage("正在安装示例数据，可能要花费较长时间，请稍后 <img src='resource/com/baigu/app/saas/component/widget/product/loading.gif'");
 			}else{
 				InstallUtil.putMessaage("正在安装基础数据...");
 			}

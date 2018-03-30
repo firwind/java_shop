@@ -218,7 +218,7 @@ public class ActivityGiftController extends GridController{
 	
 	/**
 	 * 页面中传递过来的图片地址为:http://<staticserver>/<image path>
-	 * 如:http://static.enationsoft.com/attachment/goods/1.jpg
+	 * 如:http://static.baigusoft.com/attachment/goods/1.jpg
 	 * 存在库中的为fs:/attachment/goods/1.jpg 生成fs式路径
 	 * @param path 原地址路径
 	 * @return

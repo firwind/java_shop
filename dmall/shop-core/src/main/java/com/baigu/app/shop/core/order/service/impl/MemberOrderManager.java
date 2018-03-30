@@ -152,7 +152,7 @@ public class MemberOrderManager implements IMemberOrderManager {
 	}
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.b2b2c.core.order.service.IStoreOrderManager#getSubOrderPayStatus(java.lang.Integer)
+	 * @see com.baigu.app.b2b2c.core.order.service.IStoreOrderManager#getSubOrderPayStatus(java.lang.Integer)
 	 */
 	@Override
 	public Page pageCommentOrders(int pageNo, int pageSize) {

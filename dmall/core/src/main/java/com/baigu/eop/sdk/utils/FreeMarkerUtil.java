@@ -86,7 +86,7 @@ public class FreeMarkerUtil {
 		Configuration cfg;
 		try {
 			cfg = FreeMarkerUtil
-					.getFolderCfg("D:/workspace/eopnew/eop/WebContent/WEB-INF/classes/com/enation/app/shop/core/widget/goodscat");
+					.getFolderCfg("D:/workspace/eopnew/eop/WebContent/WEB-INF/classes/com/baigu/app/shop/core/widget/goodscat");
 			Template temp = cfg.getTemplate("GoodsCat.html");
 			ByteOutputStream stream = new ByteOutputStream();
 
@@ -106,7 +106,7 @@ public class FreeMarkerUtil {
 	public static void main(String[] args) throws IOException,
 			TemplateException {
 		Configuration cfg = FreeMarkerUtil
-				.getFolderCfg("D:/workspace/eopnew/eop/WebContent/WEB-INF/classes/com/enation/app/shop/core/widget/goodscat");
+				.getFolderCfg("D:/workspace/eopnew/eop/WebContent/WEB-INF/classes/com/baigu/app/shop/core/widget/goodscat");
 		Template temp = cfg.getTemplate("GoodsCat.html");
 		ByteOutputStream stream = new ByteOutputStream();
 

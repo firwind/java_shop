@@ -39,7 +39,7 @@
 	<#assign receiptTag = newTag("receiptTag")>
 	<#-- 调用发票标签 -->
 	<#assign orderreceipt = receiptTag("{'orderid':${orderDetail.order_id}}")>
-	<#assign orderstatus= "com.enation.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
+	<#assign orderstatus= "com.baigu.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
     <#assign memberOrderIsCommentTag= newTag("memberOrderIsCommentTag") />
 	<div class="header-tools">
 		<div class="go-back">

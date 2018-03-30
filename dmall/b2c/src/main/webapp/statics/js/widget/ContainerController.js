@@ -2,12 +2,12 @@
 /**
  *容器控制器
  */
-enation.eop.ContainerController={
+baigu.eop.ContainerController={
 	container:undefined,
 	containerOperator:{},
 	
 	init:function(container){
-		this.containerOperator = enation.eop.ContainerOperator;
+		this.containerOperator = baigu.eop.ContainerOperator;
 		this.container = container;
 		
 		this.initContainer();

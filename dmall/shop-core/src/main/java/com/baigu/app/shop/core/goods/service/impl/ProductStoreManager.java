@@ -128,7 +128,7 @@ public class ProductStoreManager implements IProductStoreManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IProductStoreManager#getStroe(int, int)
+	 * @see com.baigu.app.shop.core.service.IProductStoreManager#getStroe(int, int)
 	 */
 	@Override
 	public int getEnableStroe(int goodsid, int depotid) {

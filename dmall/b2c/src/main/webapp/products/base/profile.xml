@@ -2,8 +2,8 @@
 <product>
 	<menus>
 	
-		<!-- <menu text="更多方案" type="sys" url="http://www.enationsoft.com/solution_download.html"  target="_blank"/>-->
-		<!-- <menu text="访问易邦" type="sys" url="http://www.enationsoft.com"  target="_blank"/> -->
+		<!-- <menu text="更多方案" type="sys" url="http://www.baigusoft.com/solution_download.html"  target="_blank"/>-->
+		<!-- <menu text="访问易邦" type="sys" url="http://www.baigusoft.com"  target="_blank"/> -->
 		<menu text="浏览网站" type="sys" url="../"  target="_blank"/>
 		<!--menu text="我的账户" type="sys" url="/core/admin/user/baseInfo.do" />
 		<menu text="站点设置" type="sys" url="/core/admin/user/userSite.do" />

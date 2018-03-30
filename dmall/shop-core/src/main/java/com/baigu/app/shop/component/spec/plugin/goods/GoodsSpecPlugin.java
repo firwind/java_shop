@@ -33,7 +33,7 @@ import com.baigu.framework.util.StringUtil;
 
 /**
  * 商品规格插件
- * @author enation
+ * @author baigu
  *
  */
 @Component

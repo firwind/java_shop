@@ -15,7 +15,7 @@
     <label class="layui-form-label" style="width: 150">API密钥(key)：</label>
     <div class="layui-input-block">
       	<input type="text"  name="key" id="key"  value="${key!''}"  lay-verify="required" autocomplete="off" class="layui-input" style="width: 480">
-      	<script src="${ctx}/resource/com/enation/app/shop/component/payment/plugin/weixin/md5.js"></script>
+      	<script src="${ctx}/resource/com/baigu/app/shop/component/payment/plugin/weixin/md5.js"></script>
  
  	 <a href="javascript:;" onclick="javascript:var hash = hex_md5( 't'+new Date().getTime() ); $('#key').val(hash); ">点击生成</a>
     </div>

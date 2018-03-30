@@ -30,7 +30,7 @@
 <#assign receiptTag = newTag("receiptTag")>
 <!-- 调用发票标签 -->
 <#assign orderreceipt = receiptTag("{'orderid':${orderDetail.order_id}}")>
-<#assign orderstatus= "com.enation.app.shop.core.taglib.OrderStatusDirectiveModel"?new()>
+<#assign orderstatus= "com.baigu.app.shop.core.taglib.OrderStatusDirectiveModel"?new()>
 <script  src="${ctx}/themes/default/js/Order.js" ></script>
 
 <style>

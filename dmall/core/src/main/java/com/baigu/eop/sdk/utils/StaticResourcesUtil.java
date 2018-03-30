@@ -46,7 +46,7 @@ public class StaticResourcesUtil {
 	/**
 	 * 将图片路径转换为静态资源路径
 	 * 页面中传递过来的图片地址为:http://<staticserver>/<image path>
-	 * 如:http://static.enationsoft.com/attachment/goods/1.jpg
+	 * 如:http://static.baigusoft.com/attachment/goods/1.jpg
 	 * 存在库中的为fs:/attachment/goods/1.jpg 生成fs式路径
 	 * @author DMRain
 	 * @date 2016-8-29

@@ -54,7 +54,7 @@ public class BaseApp extends App {
 	 * 系统初始化安装时安装base的sql脚本
 	 */
 	public void install() {
-		this.doInstall("file:com/enation/app/base/base.xml");
+		this.doInstall("file:com/baigu/app/base/base.xml");
 	}
 
 	protected void cleanCache() {

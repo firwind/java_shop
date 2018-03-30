@@ -259,7 +259,7 @@ public class GoodsGalleryProcessor implements IJmsProcessor {
 
 	/**
 	 * 页面中传递过来的图片地址为:http://<staticserver>/<image path>如:
-	 * http://static.enationsoft.com/attachment/goods/1.jpg
+	 * http://static.baigusoft.com/attachment/goods/1.jpg
 	 * 存在库中的为fs:/attachment/goods/1.jpg 生成fs式路径
 	 * 
 	 * @param path

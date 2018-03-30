@@ -22,7 +22,7 @@ public interface ICommentsManager {
 	 * 
 	 * @param comment_id
 	 * @return CommentDTO,
-	 * @see com.enation.com.enation.app.shop.core.member.model.model.support.CommentDTO
+	 * @see com.baigu.com.baigu.app.shop.core.member.model.model.support.CommentDTO
 	 */
 	public CommentDTO getComments(Integer comment_id);
 

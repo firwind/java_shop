@@ -1,7 +1,7 @@
 $(function() {
 	Widgeter.init();
 	Widgeter.initDialog();
-	enation.eop.WidgetTool.init();
+	baigu.eop.WidgetTool.init();
 
 	//为了修复挂件helper appendto pagemain 后造成的 helper不显示的问题
 	// overflow:visable时会显示
@@ -22,7 +22,7 @@ $(function() {
 	});
 });
 
-enation.eop.WidgetTool = {
+baigu.eop.WidgetTool = {
 	bundleAr:undefined,	 //挂件束数组
 	layoutDlg:undefined,
 	init:function(){
@@ -129,7 +129,7 @@ enation.eop.WidgetTool = {
 				$("#systemwidgetLayout").append(bundleEl );	
 		});
 		//初始化挂件束的事件
-		enation.eop.WidgetBundleController.init($("#eop_widget_tool .widget_types>li"));
+		baigu.eop.WidgetBundleController.init($("#eop_widget_tool .widget_types>li"));
 	},
 	//显示某个应用下的挂件
 	showBundle:function(appid){

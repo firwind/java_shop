@@ -20,7 +20,7 @@ public class OrderSnapshotManager implements IOrderSnapshotManager {
 	private IDaoSupport daoSupport;
 	/*
 	 * (non-Javadoc)
-	 * @see IOrderSnapshotManager#addSnapshot(com.enation.app.shop.core.order.model.OrderSnapshot)
+	 * @see IOrderSnapshotManager#addSnapshot(com.baigu.app.shop.core.order.model.OrderSnapshot)
 	 */
 	@Override
 	public void addSnapshot(GoodsSnapshot orderSnapshot) {

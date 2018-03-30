@@ -3,7 +3,7 @@
  * 挂件控制器
  * 使挂件具有可拖拽、可缩放等功能
  */
-enation.eop.WidgetController={
+baigu.eop.WidgetController={
 		
 	widgets:undefined,  //挂件集合
 	handleAble:true,//是允许handle效果,为了防治reize时的怪癖
@@ -15,7 +15,7 @@ enation.eop.WidgetController={
 	init:function(widgets){
 		this.widgets= widgets;
 		
-		this.widgetOperator = enation.eop.WidgetOperator;
+		this.widgetOperator = baigu.eop.WidgetOperator;
 		this.initWidget();
 		this.dragAble();
 		this.resizeAble();
@@ -194,7 +194,7 @@ enation.eop.WidgetController={
 	HandleController:{
 		widgetOperator:undefined,
 		init:function(settingSpan,deleteSpan){
-			this.widgetOperator = enation.eop.WidgetOperator;
+			this.widgetOperator = baigu.eop.WidgetOperator;
 			settingSpan.click(this.widgetOperator.handleSettingEvent);
 			deleteSpan.click(this.widgetOperator.handleDeleteEvent);
 			$(Selector.WIDGET_HANDLE).disableSelection();
@@ -209,7 +209,7 @@ enation.eop.WidgetController={
 /**
  * 挂件束控制器
  */
-enation.eop.WidgetBundleController={
+baigu.eop.WidgetBundleController={
 	bundle:{},	
 	init:function(bundle){
 		this.bundle = bundle;
@@ -241,7 +241,7 @@ enation.eop.WidgetBundleController={
 				//为了修复挂件helper appendto pagemain 后造成的 helper不显示的问题
 				// overflow:visable时会显示
 				$("#pagemain").css("overflow","visible");
-				enation.eop.WidgetController.handleAble=false; //防止拖动时挂件handle还出现
+				baigu.eop.WidgetController.handleAble=false; //防止拖动时挂件handle还出现
 				
 			},
 			stop:function(){
@@ -249,7 +249,7 @@ enation.eop.WidgetBundleController={
 				// overflow:visable时会显示
 				$("#pagemain").css("overflow","auto");
 				GhostPlayer.destroy();
-				enation.eop.WidgetController.handleAble=true;
+				baigu.eop.WidgetController.handleAble=true;
 			}
 		});	 
 	}

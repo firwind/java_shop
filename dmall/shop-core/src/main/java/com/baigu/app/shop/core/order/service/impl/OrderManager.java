@@ -469,7 +469,7 @@ public class OrderManager implements IOrderManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * IOrderManager#edit(com.enation.
+	 * IOrderManager#edit(com.baigu.
 	 * app.shop.core.order.model.Order)
 	 */
 	@Override
@@ -567,7 +567,7 @@ public class OrderManager implements IOrderManager {
 		ExcelUtil excelUtil = new ExcelUtil();
 
 		// 流量报表excel模板在类包中，转为流给excelutil
-		InputStream in = FileUtil.getResourceAsStream("com/enation/app/shop/core/service/impl/order.xls");
+		InputStream in = FileUtil.getResourceAsStream("com/baigu/app/shop/core/service/impl/order.xls");
 
 		excelUtil.openModal(in);
 		int i = 1;
@@ -1016,7 +1016,7 @@ public class OrderManager implements IOrderManager {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.enation.javashop.core.service.IOrderManager#checkProInOrder(int)
+	 * @see com.baigu.javashop.core.service.IOrderManager#checkProInOrder(int)
 	 */
 	@Override
 	public boolean checkProInOrder(int productid) {
@@ -1028,7 +1028,7 @@ public class OrderManager implements IOrderManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.javashop.core.service.IOrderManager#checkGoodsInOrder(int)
+	 * com.baigu.javashop.core.service.IOrderManager#checkGoodsInOrder(int)
 	 */
 	@Override
 	public boolean checkGoodsInOrder(int goodsid) {
@@ -1188,7 +1188,7 @@ public class OrderManager implements IOrderManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * IOrderManager#add(com.enation.app
+	 * IOrderManager#add(com.baigu.app
 	 * .shop.core.order.model.Order)
 	 */
 	@Override

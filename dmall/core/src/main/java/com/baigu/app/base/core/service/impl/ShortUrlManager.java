@@ -13,7 +13,7 @@ import com.baigu.framework.database.IDaoSupport;
 /**
  * 短链接manager实现类
  * @author Sylow
- * @see com.enation.app.distribution.core.service.IShortUrlManager
+ * @see com.baigu.app.distribution.core.service.IShortUrlManager
  */
 @Component
 public class ShortUrlManager  implements IShortUrlManager {
@@ -24,7 +24,7 @@ public class ShortUrlManager  implements IShortUrlManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.distribution.core.service.IShortUrlManager#getShortUrl(java.lang.String)
+	 * @see com.baigu.app.distribution.core.service.IShortUrlManager#getShortUrl(java.lang.String)
 	 */
 	@Override
 	public String createShortUrl(String url) {
@@ -67,7 +67,7 @@ public class ShortUrlManager  implements IShortUrlManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.distribution.core.service.IShortUrlManager#getLongUrl(java.lang.String)
+	 * @see com.baigu.app.distribution.core.service.IShortUrlManager#getLongUrl(java.lang.String)
 	 */
 	@Override
 	public String getLongUrl(String shortUrl) {

@@ -30,7 +30,7 @@ public class DecorateComponent implements IComponent,IComponentStartAble,ICompon
 	private IDaoSupport daoSupport;
 	
 	public void install() {
-		dataOperation.imported("file:com/enation/app/shop/component/decorate/decorate_install.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/decorate/decorate_install.xml");
 	
 		if("b2b2c".equals(EopSetting.PRODUCT)){
 			this.installSubjectSiteMenu();
@@ -39,7 +39,7 @@ public class DecorateComponent implements IComponent,IComponentStartAble,ICompon
 	}
 
 	public void unInstall() {
-		dataOperation.imported("file:com/enation/app/shop/component/decorate/decorate_uninstall.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/decorate/decorate_uninstall.xml");
 	}
 	
 	

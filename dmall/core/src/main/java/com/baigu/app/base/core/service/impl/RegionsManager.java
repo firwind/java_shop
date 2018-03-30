@@ -257,7 +257,7 @@ public class RegionsManager implements IRegionsManager {
 			e.printStackTrace();
 		}
 		
-		String xmlFile = "file:com/enation/app/base/city.xml";
+		String xmlFile = "file:com/baigu/app/base/city.xml";
 		 dataOperation.imported(xmlFile);
 	}
 

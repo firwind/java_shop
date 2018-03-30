@@ -879,7 +879,7 @@ public class GoodsManager  implements IGoodsManager {
 	}
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IGoodsManager#startChange(java.util.Map)
+	 * @see com.baigu.app.shop.core.service.IGoodsManager#startChange(java.util.Map)
 	 */
 	public void startChange(Map goods){
 		goodsPluginBundle.onStartchange(goods);

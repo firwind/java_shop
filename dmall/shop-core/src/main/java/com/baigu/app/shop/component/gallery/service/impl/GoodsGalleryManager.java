@@ -156,7 +156,7 @@ public class GoodsGalleryManager implements IGoodsGalleryManager {
 	 * 生成商品图片名称，并且在用户上下文的目录里生成图片<br>
 	 * 返回以静态资源服务器地址开头+用户上下文路径的全路径<br>
 	 * 在保存入数据库时应该将静态资源服务器地址替换为fs:开头，并去掉上下文路径,如:<br>
-	 * http://static.enationsoft.com/user/1/1/attachment/goods/1.jpg，存库应该为:
+	 * http://static.baigusoft.com/user/1/1/attachment/goods/1.jpg，存库应该为:
 	 * fs:/attachment/goods/1.jpg
 	 */
 	public String upload(MultipartFile file) {

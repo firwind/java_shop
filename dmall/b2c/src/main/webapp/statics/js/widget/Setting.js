@@ -1,9 +1,9 @@
 
-enation.eop.WidgetSetting ={};
+baigu.eop.WidgetSetting ={};
 /**
  * 共用设置
  */ 
-enation.eop.WidgetSetting.Setting={
+baigu.eop.WidgetSetting.Setting={
 		operator:undefined,
 		
 		/*

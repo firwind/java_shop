@@ -27,7 +27,7 @@ public class LogsManager  implements ILogsManager{
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.other.service.ILogManager#getAllLogs(java.util.Map, int, int, java.lang.String, java.lang.String)
+	 * @see com.baigu.app.shop.core.other.service.ILogManager#getAllLogs(java.util.Map, int, int, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public Page getAllLogs(Map logsMap, int page, int pageSize, String sort, String order) {

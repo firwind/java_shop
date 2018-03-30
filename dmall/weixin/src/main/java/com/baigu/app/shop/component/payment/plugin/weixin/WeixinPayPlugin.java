@@ -296,7 +296,7 @@ public class WeixinPayPlugin extends AbstractPaymentPlugin implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.plugin.payment.IPaymentRedPackEvent#sendRedPack(Member, java.util.Map)
+	 * @see com.baigu.app.shop.core.plugin.payment.IPaymentRedPackEvent#sendRedPack(Member, java.util.Map)
 	 */
 	@Override
 	public String sendRedPack(Map member,Double money,PayCfg payCfg, Map other) {

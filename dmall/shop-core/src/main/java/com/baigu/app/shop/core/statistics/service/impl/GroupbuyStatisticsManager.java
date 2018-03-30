@@ -23,7 +23,7 @@ public class GroupbuyStatisticsManager implements IGroupbuyStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IGroupbuyStatisticsManager#groupbuyStatisticsList(java.lang.String, java.lang.Integer, java.lang.Integer)
+	 * @see com.baigu.app.shop.core.service.statistics.IGroupbuyStatisticsManager#groupbuyStatisticsList(java.lang.String, java.lang.Integer, java.lang.Integer)
 	 */
 	@Override
 	public Page groupbuyStatisticsList(String keyword, Integer pageNo,Integer pageSize) {

@@ -1,6 +1,6 @@
 
-enation.eop.WidgetSetting.BorderSetting =$.extend(
-{},enation.eop.WidgetSetting.Setting,
+baigu.eop.WidgetSetting.BorderSetting =$.extend(
+{},baigu.eop.WidgetSetting.Setting,
 {
 	
 	pos:['top','bottom','left','right'],

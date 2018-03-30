@@ -47,7 +47,7 @@ public class ThemeManagerImpl  implements IThemeManager {
 	/*
 	 * 取得主站的theme列表 (non-Javadoc)
 	 * 
-	 * @see com.enation.eop.core.resource.IThemeManager#getMainThemeList()
+	 * @see com.baigu.eop.core.resource.IThemeManager#getMainThemeList()
 	 */
 	public List<Theme> list(int siteid) {
 		return daoSupport.queryForList("select * from es_theme where siteid = 0", Theme.class);

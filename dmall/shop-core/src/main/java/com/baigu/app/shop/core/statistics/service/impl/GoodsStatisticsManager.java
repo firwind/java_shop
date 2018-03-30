@@ -30,7 +30,7 @@ public class GoodsStatisticsManager  implements IGoodsStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IGoodsStatisticsManager#getPriceSalesList(int, int, int, java.util.List, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.statistics.IGoodsStatisticsManager#getPriceSalesList(int, int, int, java.util.List, java.util.Map)
 	 */
 	@Override
 	public List getPriceSalesList(long startTime,long endTime, Integer catid,
@@ -73,7 +73,7 @@ public class GoodsStatisticsManager  implements IGoodsStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IGoodsStatisticsManager#getHotGoodsMoney(long, long, java.lang.Integer, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.statistics.IGoodsStatisticsManager#getHotGoodsMoney(long, long, java.lang.Integer, java.util.Map)
 	 */
 	@Override
 	public Page getHotGoodsMoney(long startTime, long endTime, int page, int pageSize, Integer catid, Map map) {
@@ -103,7 +103,7 @@ public class GoodsStatisticsManager  implements IGoodsStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IGoodsStatisticsManager#getHotGoodsNum(long, long, int, int, java.lang.Integer, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.statistics.IGoodsStatisticsManager#getHotGoodsNum(long, long, int, int, java.lang.Integer, java.util.Map)
 	 */
 	@Override
 	public Page getHotGoodsNum(long startTime, long endTime, int page, int pageSize, Integer catid, Map map) {
@@ -145,7 +145,7 @@ public class GoodsStatisticsManager  implements IGoodsStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IGoodsStatisticsManager#getgoodsSalesDetail(long, long, int, int, java.lang.Integer, java.lang.String, java.util.Map)
+	 * @see com.baigu.app.shop.core.service.statistics.IGoodsStatisticsManager#getgoodsSalesDetail(long, long, int, int, java.lang.Integer, java.lang.String, java.util.Map)
 	 */
 	@Override
 	public Page getgoodsSalesDetail(long startTime, long endTime, int page,

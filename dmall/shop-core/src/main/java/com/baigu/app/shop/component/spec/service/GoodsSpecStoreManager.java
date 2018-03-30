@@ -46,7 +46,7 @@ public class GoodsSpecStoreManager   implements IGoodsSpecStoreManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.javashop.component.spec.service.IGoodsSpecStoreManager#listGoodsStore()
+	 * @see com.baigu.javashop.component.spec.service.IGoodsSpecStoreManager#listGoodsStore()
 	 */
 	@Override
 	public List<Map> listGoodsStore(int goodsid) {
@@ -105,7 +105,7 @@ public class GoodsSpecStoreManager   implements IGoodsSpecStoreManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.javashop.component.spec.service.IGoodsSpecStoreManager#stock(int, java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[])
+	 * @see com.baigu.javashop.component.spec.service.IGoodsSpecStoreManager#stock(int, java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[])
 	 */
 	@Override
 	public int stock(int goodsid, String[] storeidAr, String[] productidAr,

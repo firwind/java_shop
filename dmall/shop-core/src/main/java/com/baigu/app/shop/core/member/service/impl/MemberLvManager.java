@@ -31,7 +31,7 @@ public class MemberLvManager implements IMemberLvManager{
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IMemberLvManager#add(MemberLv)
+	 * @see com.baigu.app.shop.core.service.IMemberLvManager#add(MemberLv)
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)

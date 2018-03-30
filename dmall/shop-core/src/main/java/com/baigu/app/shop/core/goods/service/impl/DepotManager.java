@@ -72,7 +72,7 @@ public class DepotManager  implements IDepotManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IDepotManager#getDefault()
+	 * @see com.baigu.app.shop.core.service.IDepotManager#getDefault()
 	 */
 	@Override
 	public Depot getDefault() { 

@@ -298,7 +298,7 @@ public class CartManager implements ICartManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ICartManager#clean(java.lang.String)
+	 * @see com.baigu.app.shop.core.service.ICartManager#clean(java.lang.String)
 	 */
 	public void clean(String sessionid){
 		
@@ -442,7 +442,7 @@ public class CartManager implements ICartManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ICartManager#countPrice(java.util.List, java.lang.Integer, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.ICartManager#countPrice(java.util.List, java.lang.Integer, java.lang.String)
 	 */
 	@Override
 	public OrderPrice countPrice(List<CartItem> cartItemList, Integer shippingid, String regionid) {

@@ -1,4 +1,4 @@
-package com.enation.app.shop.test;
+package com.baigu.app.shop.test;
 
 import java.util.Map;
 

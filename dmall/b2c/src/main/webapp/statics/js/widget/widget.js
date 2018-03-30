@@ -22,8 +22,8 @@ var Widgeter = {
 	pageId:undefined,
 	init:function(){
 	    var self= this;
-		var Eop =enation.eop;	
-		var Config =  enation.eop.WidgetConfig;
+		var Eop =baigu.eop;
+		var Config =  baigu.eop.WidgetConfig;
 		Eop.WidgetController.init($(Config.Selector.WIDGET));
 		Eop.ContainerController.init($(Config.Selector.LAYOUT));
 		this.initWidgetParams();
@@ -93,7 +93,7 @@ var Widgeter = {
 					"widgetSetting/?act=create",
 					{'id':newWidgetId,'type':type},function(){
 							
-			    enation.eop.WidgetSettingController.init();
+			    baigu.eop.WidgetSettingController.init();
 			    WidgetDialog.doOpen();
  
 			});
@@ -207,7 +207,7 @@ var Widgeter = {
 				postData,
 				//设置对话框打开后绑定事件
 				function(){ 
-					enation.eop.WidgetSettingController.init(widgetEl);
+					baigu.eop.WidgetSettingController.init(widgetEl);
 					WidgetDialog.doOpen();
 				});
 				
@@ -223,7 +223,7 @@ var Widgeter = {
 	 * 保存挂件
 	 */
 	saveWidget:function(widgetEl){
-		//enation.eop.WidgetSettingController.saveWidget();
+		//baigu.eop.WidgetSettingController.saveWidget();
 		if(!this.widgetParams){ alert("挂件参数初始化异常");return ;}
 		var paramJson={}; 
 		$("[eop_type=widget_params]").each(function(){
@@ -243,8 +243,8 @@ var Widgeter = {
 			   success: function(newContent){
 				    var newWidget =$(newContent);
 					widgetEl.replaceWith(newWidget);
-					enation.eop.WidgetController.init(newWidget);  //初始化挂件的事件
-					//enation.eop.WidgetSettingController.saveWidget(); //保存持件的设置//架构3.0后去掉，待整理
+					baigu.eop.WidgetController.init(newWidget);  //初始化挂件的事件
+					//baigu.eop.WidgetSettingController.saveWidget(); //保存持件的设置//架构3.0后去掉，待整理
 				   
 			   },
 			   error:function(){

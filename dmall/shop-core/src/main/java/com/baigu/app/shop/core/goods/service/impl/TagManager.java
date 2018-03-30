@@ -95,7 +95,7 @@ public class TagManager implements ITagManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ITagManager#list(int, int)
+	 * @see com.baigu.app.shop.core.service.ITagManager#list(int, int)
 	 */
 	public Page list(int pageNo, int pageSize) {
 		return this.daoSupport.queryForPage("select * from es_tags order by tag_id", pageNo, pageSize);
@@ -103,7 +103,7 @@ public class TagManager implements ITagManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.ITagManager#list(int, int, int)
+	 * @see com.baigu.app.shop.core.service.ITagManager#list(int, int, int)
 	 */
 	public Page list(int pageNo, int pageSize,int type) {
 		return this.daoSupport.queryForPage("select * from es_tags where type = ? order by tag_id ", pageNo, pageSize,type);

@@ -30,13 +30,13 @@ public class GoodsSpecComponent implements IComponent {
 	@Override
 	public void install() {
 		this.installMenu();
-		this.dataOperation.imported("file:com/enation/app/shop/component/spec/spec_install.xml");
+		this.dataOperation.imported("file:com/baigu/app/shop/component/spec/spec_install.xml");
 	}
 
 	@Override
 	public void unInstall() {
 		unInstallMenu();
-		this.dataOperation.imported("file:com/enation/app/shop/component/spec/spec_uninstall.xml");
+		this.dataOperation.imported("file:com/baigu/app/shop/component/spec/spec_uninstall.xml");
 	}
 
 	private void unInstallMenu() {

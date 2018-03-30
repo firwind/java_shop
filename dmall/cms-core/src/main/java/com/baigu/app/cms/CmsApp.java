@@ -71,7 +71,7 @@ public class CmsApp extends App {
 
 	
 	public void install() {
-		this.doInstall("file:com/enation/app/cms/cms.xml");
+		this.doInstall("file:com/baigu/app/cms/cms.xml");
 	}
 
 	protected void cleanCache(){

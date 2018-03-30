@@ -6,7 +6,7 @@
 <!-- 调用会员订单列表标签 -->
 <#assign memberOrderList = memberOrderListTag("{'keyword':'${keyword!''}'}")>
 <#assign order = memberOrderList.ordersList>
-<#assign orderstatus= "com.enation.app.shop.core.taglib.OrderStatusDirectiveModel"?new()>
+<#assign orderstatus= "com.baigu.app.shop.core.taglib.OrderStatusDirectiveModel"?new()>
 <!-- 获取订单状态标签 -->
 <#assign orderStautsTag = newTag("orderStautsTag")>
 <!-- 调用订单状态标签 -->

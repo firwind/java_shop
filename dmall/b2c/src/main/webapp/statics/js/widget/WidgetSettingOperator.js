@@ -1,4 +1,4 @@
-enation.eop.WidgetSettingOperator ={
+baigu.eop.WidgetSettingOperator ={
 		syncTarget:undefined,		
 		
 		initTabs:function(widget,isbox){
@@ -8,17 +8,17 @@ enation.eop.WidgetSettingOperator ={
 			
 			//加载border的设置界面
 			$("#tab-border").load("eop/setting/border.jsp",{},function(){
-				enation.eop.WidgetSetting.BorderSetting.init(that,widget);				
+				baigu.eop.WidgetSetting.BorderSetting.init(that,widget);
 			});
 			
 			//加载背景的设置界面
 			$("#tab-background").load("eop/setting/background.jsp",{},function(){
-				enation.eop.WidgetSetting.BackgroundSetting.init(that,widget);
+				baigu.eop.WidgetSetting.BackgroundSetting.init(that,widget);
 			});
 
 			//加载位置的设置界面
 			$("#tab-position").load("eop/setting/position.jsp",{'isbox':isbox},function(){
-				enation.eop.WidgetSetting.PositionSetting.init(that,widget);
+				baigu.eop.WidgetSetting.PositionSetting.init(that,widget);
 			});	
 
 		}		
@@ -27,8 +27,8 @@ enation.eop.WidgetSettingOperator ={
 /**
  * 区块设置操作者
  */
-enation.eop.WidgetSettingOperator.BlockSettingOp=$.extend({},
-enation.eop.WidgetSettingOperator
+baigu.eop.WidgetSettingOperator.BlockSettingOp=$.extend({},
+baigu.eop.WidgetSettingOperator
 ,{
 		
 	getSyncTarget:function(){ 
@@ -44,8 +44,8 @@ enation.eop.WidgetSettingOperator
 /**
  * 标题设置操作者
  */
-enation.eop.WidgetSettingOperator.TitleSettingOp=$.extend({},
-enation.eop.WidgetSettingOperator,
+baigu.eop.WidgetSettingOperator.TitleSettingOp=$.extend({},
+baigu.eop.WidgetSettingOperator,
 {
  
 	getSyncTarget:function(){ 
@@ -62,8 +62,8 @@ enation.eop.WidgetSettingOperator,
 /**
  * 内容设置操作者
  */
-enation.eop.WidgetSettingOperator.ContentSettingOp=$.extend({},
-enation.eop.WidgetSettingOperator,
+baigu.eop.WidgetSettingOperator.ContentSettingOp=$.extend({},
+baigu.eop.WidgetSettingOperator,
 {
 	getSyncTarget:function(){ 
 		if(!this.syncTarget) {
@@ -77,7 +77,7 @@ enation.eop.WidgetSettingOperator,
 /**
  * 参数设置操作者
  */
-enation.eop.WidgetSettingOperator.ParamsSettingOp={
+baigu.eop.WidgetSettingOperator.ParamsSettingOp={
 		
 	widget:undefined,
 	setWidget:function(widget){
@@ -135,7 +135,7 @@ enation.eop.WidgetSettingOperator.ParamsSettingOp={
 };
 
 
-enation.eop.WidgetSettingOperator.TemplateOp={
+baigu.eop.WidgetSettingOperator.TemplateOp={
 	pWidget:undefined,
 	init:function()	{
 		this.bindChangeEvent();

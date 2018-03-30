@@ -9,12 +9,12 @@
 <#assign memberOrderListTag = newTag("memberOrderListTag")>
 <#assign memberOrderList = memberOrderListTag("{'keyword':'${keyword!''}'}")>
 <#assign order = memberOrderList.ordersList>
-<#assign orderstatus= "com.enation.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
+<#assign orderstatus= "com.baigu.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
 <!-- 获取订单状态标签 -->
 <#assign orderStautsTag = newTag("orderStautsTag")>
 <!-- 调用订单状态标签 -->
 <#assign orderState = orderStautsTag()>
-<#assign orderstatus= "com.enation.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
+<#assign orderstatus= "com.baigu.app.shop.front.tag.order.OrderStatusDirectiveModel"?new()>
 <script src="themes/wap/js/Order.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="themes/wap/css/member.css" />
 

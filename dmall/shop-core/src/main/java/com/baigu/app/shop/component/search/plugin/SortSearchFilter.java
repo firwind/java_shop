@@ -19,7 +19,7 @@ public class SortSearchFilter extends AutoRegisterPlugin implements
         IGoodsFrontSearchFilter {
 
 	/* (non-Javadoc)
-	 * @see com.enation.app.shop.core.plugin.search.IGoodsSearchFilter#createSelectorList(java.util.Map, com.enation.app.shop.core.model.Cat)
+	 * @see com.baigu.app.shop.core.plugin.search.IGoodsSearchFilter#createSelectorList(java.util.Map, com.baigu.app.shop.core.model.Cat)
 	 */
 	@Override
 	public void createSelectorList(Map map, Cat cat) {
@@ -46,7 +46,7 @@ public class SortSearchFilter extends AutoRegisterPlugin implements
 	}
 
 	/* (non-Javadoc)
-	 * @see com.enation.app.shop.core.plugin.search.IGoodsSearchFilter#filter(java.lang.StringBuffer, com.enation.app.shop.core.model.Cat)
+	 * @see com.baigu.app.shop.core.plugin.search.IGoodsSearchFilter#filter(java.lang.StringBuffer, com.baigu.app.shop.core.model.Cat)
 	 */
 	@Override
 	public void filter(StringBuffer sql, Cat cat) {

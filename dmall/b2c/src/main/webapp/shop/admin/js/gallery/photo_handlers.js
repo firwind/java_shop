@@ -125,7 +125,7 @@ function deletePic(delBtn){
 function initUpload(ctx,ext){
  
 	var settings = {
-		flash_url :  ctx+"/resource/com/enation/app/shop/component/gallery/plugin/js/swfupload.swf",
+		flash_url :  ctx+"/resource/com/baigu/app/shop/component/gallery/plugin/js/swfupload.swf",
 		upload_url: ctx+"/api/shop/goodsGallery/upload.do",	// Relative to the SWF file
 		post_params: {"ajax" : 'yes'},
 		file_size_limit : "10 MB",
@@ -140,7 +140,7 @@ function initUpload(ctx,ext){
 		debug: false,
 
 		// Button settings
-		button_image_url: ctx+"/resource/com/enation/app/shop/component/gallery/plugin/images/XPButtonUploadText_61x22.png",	// Relative to the Flash file
+		button_image_url: ctx+"/resource/com/baigu/app/shop/component/gallery/plugin/images/XPButtonUploadText_61x22.png",	// Relative to the Flash file
 		button_width: "61",
 		button_height: "22",
 		button_placeholder_id: "spanButtonPlaceHolder",

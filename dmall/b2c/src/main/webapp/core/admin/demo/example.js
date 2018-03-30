@@ -1,6 +1,6 @@
 $(function(){
 	$("#btnAdd").click(function(){
-		enation.control.dialog('dlgAdd',
+		baigu.control.dialog('dlgAdd',
 			{
 				title:'新增域名',
 				url:'/eop_test2/admin/core/user/baseInfo.do',
@@ -14,7 +14,7 @@ $(function(){
 	});
 	
 	$("#btnDel").click(function(){
-		enation.control.dialog('dlgDel',
+		baigu.control.dialog('dlgDel',
 			{
 				title:'删除',
 				url:'/eop_test2/admin/core/user/userDetail.do',

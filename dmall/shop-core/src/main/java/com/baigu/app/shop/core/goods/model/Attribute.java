@@ -17,7 +17,7 @@ public class Attribute {
 	
 	private String name;
 	private String options;
-	/**属性类型 <br> @see com.enation.app.shop.core.service.AttributeType */
+	/**属性类型 <br> @see com.baigu.app.shop.core.service.AttributeType */
 	private int type;
 	private String value;
 	private List valueList;

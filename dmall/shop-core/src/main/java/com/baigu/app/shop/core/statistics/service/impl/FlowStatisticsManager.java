@@ -19,7 +19,7 @@ public class FlowStatisticsManager  implements IFlowStatisticsManager {
 	private IDaoSupport daoSupport;
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IFlowStatisticsManager#addFlowLog(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IFlowStatisticsManager#addFlowLog(int)
 	 */
 	@Override
 	public void addFlowLog(int goodsId,int store_id) {
@@ -37,7 +37,7 @@ public class FlowStatisticsManager  implements IFlowStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IFlowStatisticsManager#getFlowStatistics(java.lang.String, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.statistics.IFlowStatisticsManager#getFlowStatistics(java.lang.String, java.lang.String)
 	 */
 	@Override
 	public List<Map<String, Object>> getFlowStatistics(String statisticsType, String startDate,
@@ -105,7 +105,7 @@ public class FlowStatisticsManager  implements IFlowStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IFlowStatisticsManager#getGoodsFlowStatistics(int, java.lang.String, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.statistics.IFlowStatisticsManager#getGoodsFlowStatistics(int, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public List<Map<String, Object>> getGoodsFlowStatistics(int topNum, String startDate,

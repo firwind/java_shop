@@ -32,7 +32,7 @@ public class MemberPriceManager   implements IMemberPriceManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.IMemberPriceManager#listPriceByPid(int)
+	 * @see com.baigu.app.shop.core.service.IMemberPriceManager#listPriceByPid(int)
 	 */
 	public List<GoodsLvPrice> listPriceByPid(int productid){
 		String sql  ="select * from es_goods_lv_price where productid =?";

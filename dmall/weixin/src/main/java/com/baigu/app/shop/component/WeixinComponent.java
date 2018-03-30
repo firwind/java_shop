@@ -17,11 +17,11 @@ public class WeixinComponent implements IComponent {
 	private IDataOperation dataOperation;
 	@Override
 	public void install() {
-		dataOperation.imported("file:com/enation/app/shop/component/weixin_install.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/weixin_install.xml");
 	}
 
 	@Override
 	public void unInstall() {
-		dataOperation.imported("file:com/enation/app/shop/component/weixin_uninstall.xml");
+		dataOperation.imported("file:com/baigu/app/shop/component/weixin_uninstall.xml");
 	}
 }

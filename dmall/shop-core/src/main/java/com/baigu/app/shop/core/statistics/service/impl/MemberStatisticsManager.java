@@ -40,7 +40,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.app.shop.core.service.statistics.IMemberStatisticsManager
+	 * com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager
 	 * #getOrderNumTop(int)
 	 */
 	@Override
@@ -90,7 +90,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.enation.app.shop.core.service.statistics.IMemberStatisticsManager
+	 * com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager
 	 * #getGoodsNumTop(int)
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getOrderPriceTop(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getOrderPriceTop(int)
 	 */
 	@Override
 	public List<Map<String, Object>> getOrderPriceTop(int topNum, String startDate, String endDate) {
@@ -179,7 +179,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getOrderPriceDis(java.util.List, java.lang.String, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getOrderPriceDis(java.util.List, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public List<Map<String, Object>> getOrderPriceDis(List<Integer> sections,
@@ -298,7 +298,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getBuyFre(int, java.lang.String, java.lang.String)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getBuyFre(int, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public List<Map<String, Object>> getBuyFre(String startDate, String endDate) {
@@ -377,7 +377,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
 	 */
 	@Override
 	public List<Map<String, Object>> getAddMemberNum(String startDate, String endDate) {
@@ -432,7 +432,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
 	 */
 	@Override
 	public List<Map<String, Object>> getLastAddMemberNum(String lastStartDate, String lastEndDate) {
@@ -477,7 +477,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
 	 */
 	@Override
 	public List<Map<String, Object>> getAddYearMemberNum(String startDate, String endDate) {
@@ -520,7 +520,7 @@ public class MemberStatisticsManager  implements IMemberStatisticsManager {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.enation.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
+	 * @see com.baigu.app.shop.core.service.statistics.IMemberStatisticsManager#getAddMemberNum(int)
 	 */
 	@Override
 	public List<Map<String, Object>> getLastAddYearMemberNum(String lastStartDate, String lastEndDate) {
