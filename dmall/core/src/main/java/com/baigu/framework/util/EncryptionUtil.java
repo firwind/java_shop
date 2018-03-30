@@ -97,7 +97,7 @@ public class EncryptionUtil {
 //			//System.out.println();
 //		}
 		long start  = System.currentTimeMillis();
-		//System.out.println(authCode("http://www.javamall.com.cn/version4/api/base/record-installer.do", "ENCODE"));
+		//System.out.println(authCode("http://www.dmall.com.cn/version4/api/base/record-installer.do", "ENCODE"));
 		////System.out.println(authCode("VAEGGVIdBhxX", "DECODE"));
 		//System.out.println( System.currentTimeMillis()-start);
 		////System.out.println(authCode("CUFS", "DECODE"));

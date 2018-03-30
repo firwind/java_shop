@@ -83,10 +83,10 @@ public class ShortUrlGenerator {
 	//测试函数
 	public static void main(String[] args) {
 
-		// 长连接： http://www.javamall.com.cn
+		// 长连接： http://www.dmall.com.cn
 		// 解析后的短链接为： http://**/Afeyae
 
-		String sLongUrl = "http://www.javamall.com.cn"; 
+		String sLongUrl = "http://www.dmall.com.cn";
 		String[] aResult = getShortUrl(sLongUrl);
 
 		// 打印出结果

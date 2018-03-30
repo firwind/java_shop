@@ -2,7 +2,7 @@
 
  @Name jquery-eajax v1.0
  @Author Sylow
- @Site http://www.javamall.com.cn/
+ @Site http://www.dmall.com.cn/
  @License Commercial
  @version v1.0 2016-02-23
  */

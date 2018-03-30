@@ -94,11 +94,11 @@ public class DmallEncrypt {
 	public static void main(String[] args) {
 		
 		//加密
-		String md5Str = DmallEncrypt.md5("http://www.javamall.com.cn");
+		String md5Str = DmallEncrypt.md5("http://www.dmall.com.cn");
 		System.out.println(md5Str);
 		
 		//验证
-		boolean result = DmallEncrypt.authenticatePassword(md5Str, "http://www.javamall.com.cn");
+		boolean result = DmallEncrypt.authenticatePassword(md5Str, "http://www.dmall.com.cn");
 		System.out.println(result);
 	}
 

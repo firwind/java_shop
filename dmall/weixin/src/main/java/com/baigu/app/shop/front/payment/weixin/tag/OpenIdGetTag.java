@@ -218,7 +218,7 @@ public class OpenIdGetTag extends BaseFreeMarkerTag {
 	
 	
 	public static void main(String[] args) {
-		String url="http://weixin.javamall.com.cn/javamall/weChatOpenId.html";
+		String url="http://weixin.dmall.com.cn/dmall/weChatOpenId.html";
 		try {
 			url = URLEncoder.encode(url,"UTF-8");
 			System.out.println(url);

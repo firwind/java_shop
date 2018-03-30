@@ -288,8 +288,8 @@ public class EopInstallController {
 			//连接库，测试是否连接成功
 			DataSource dataSource= newDataSource;
 			this.jdbcTemplate.setDataSource(newDataSource);
-			this.jdbcTemplate.execute("CREATE TABLE JAVAMALLTESTTABLE (ID INT not null)");
-			this.jdbcTemplate.execute("DROP TABLE JAVAMALLTESTTABLE");
+			this.jdbcTemplate.execute("CREATE TABLE DMALLTESTTABLE (ID INT not null)");
+			this.jdbcTemplate.execute("DROP TABLE DMALLTESTTABLE");
 
 			return true;
 			

@@ -303,7 +303,7 @@ public class FacadePageParser  {
 
 
 	public static void main1(String[] args) throws IOException, TemplateException {
-		Configuration cfg = FreeMarkerUtil.getFolderCfg("/Users/kingapex/workspace/v40/javamall/WebContent/themes/default/");
+		Configuration cfg = FreeMarkerUtil.getFolderCfg("/Users/kingapex/workspace/v40/dmall/WebContent/themes/default/");
 		Template temp = cfg.getTemplate("test.html");
 		Map  widgetData = new HashMap();
 		Writer writer =  new PrintWriter(System.out) ;
