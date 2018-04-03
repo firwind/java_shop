@@ -26,8 +26,8 @@ public class FacadeProcessor implements IEopProcessor {
 
 		String uri =httpRequest.getServletPath();
 		ThreadContextHolder.getHttpResponse().setContentType("text/html;charset=UTF-8");
-		SsoProcessor processor = new SsoProcessor();
-		processor.parse(); 
+//		SsoProcessor processor = new SsoProcessor();
+//		processor.parse();
 
 		if(uri.startsWith("/docs")){
 			DocsPageParser docsPageParser = new DocsPageParser();
