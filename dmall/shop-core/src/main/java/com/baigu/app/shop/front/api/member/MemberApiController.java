@@ -1,31 +1,5 @@
 package com.baigu.app.shop.front.api.member;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import net.sf.json.JSONObject;
-
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.baigu.app.base.core.model.Member;
 import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.base.core.service.ISmsManager;
@@ -42,14 +16,30 @@ import com.baigu.framework.action.JsonResult;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.jms.EmailModel;
 import com.baigu.framework.jms.EmailProducer;
-import com.baigu.framework.util.DateUtil;
-import com.baigu.framework.util.EncryptionUtil1;
-import com.baigu.framework.util.FileUtil;
-import com.baigu.framework.util.HttpUtil;
-import com.baigu.framework.util.JsonResultUtil;
-import com.baigu.framework.util.RequestUtil;
-import com.baigu.framework.util.StringUtil;
-import com.baigu.framework.util.TestUtil;
+import com.baigu.framework.util.*;
+import net.sf.json.JSONObject;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /**
  * 会员API
  * @author Sylow
@@ -555,6 +545,20 @@ public class MemberApiController  {
 	}
 
 	/**
+	 * 检测inviteCode是否存在，并生成json返回给客户端
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/checkInviteCode", produces = MediaType.APPLICATION_JSON_VALUE)
+	public JsonResult checkInviteCode(String invite_code) {
+		int result = this.memberManager.checkInviteCode(invite_code);
+		if (result == 1) {
+			return JsonResultUtil.getSuccessJson("邀请码校验通过！");
+		} else {
+			return JsonResultUtil.getErrorJson("邀请码不正确！");
+		}
+	}
+
+	/**
 	 * 检测mobile是否存在，并生成json返回给客户端
 	 * @author add_by DMRain 2016-7-6
 	 * @param mobile 手机号
@@ -593,13 +597,13 @@ public class MemberApiController  {
 	
 	@ResponseBody
 	@RequestMapping(value="/reg-mobile",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult regMobile(String validcode, String license, String email, String username, String password, String mobile,String type){
-		if(type!=null&&type.equals("1")){
-			if(this.validcode(validcode,"memberreg")==0){
-				return JsonResultUtil.getErrorJson("验证码输入错误!");				
+	public JsonResult regMobile(String validcode, String license, String email, String username, String password, String mobile, String type, String invite_code) {
+		if (type != null && type.equals("1")) {
+			if (this.validcode(validcode, "memberreg") == 0) {
+				return JsonResultUtil.getErrorJson("验证码输入错误!");
 			}
 			
-			try {
+			/*try {
 				// 适配b2c 的注册/ V62 PC注册流程改版
 				HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 				String smsCode = request.getParameter("sms_code").toString();
@@ -610,7 +614,7 @@ public class MemberApiController  {
 				}
 			} catch(RuntimeException e) {
 				return JsonResultUtil.getErrorJson(e.getMessage());
-			}
+			}*/
 		}
 		
 
@@ -631,7 +635,7 @@ public class MemberApiController  {
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		String registerip = request.getRemoteAddr();
 
-
+		member.setInvite_agent_code(invite_code);
 		member.setMobile(mobile);
 		member.setUname(username);
 		member.setName(username);       //会员的uname及name分不清楚，暂时这2个字段在注册的时候使用同一个值
@@ -646,8 +650,12 @@ public class MemberApiController  {
 			ThreadContextHolder.getSession().removeAttribute("mobileCode");
 			ThreadContextHolder.getSession().removeAttribute("account_info");
 			return JsonResultUtil.getSuccessJson("注册成功");
+		} else if (result == 0) {
+			return JsonResultUtil.getErrorJson("用户名[" + member.getUname() + "]已存在!");
+		} else if (result == -1) {
+			return JsonResultUtil.getErrorJson("邀请码不正确!");
 		} else {
-			return JsonResultUtil.getErrorJson("用户名[" + member.getUname() + "]已存在!");				
+			return JsonResultUtil.getErrorJson("未知错误!");
 		}
 	}
 

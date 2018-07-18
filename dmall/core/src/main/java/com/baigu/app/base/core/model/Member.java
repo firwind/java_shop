@@ -48,7 +48,14 @@ public class Member implements java.io.Serializable {
 	
 	private String lvname;		// 会员等级名称，非数据库字段
 	private Integer parentid; 	// 父代理商id
+	private String parentids;   // 所有父代理商id，逗号分隔
 	private Integer agentid; 	// 代理商id
+	private Integer is_agent;   // 是否代理商
+	private String agent_code;  // 代理商code
+	private Integer agent_status; // 代理商状态 0-待审核  1-审核通过  2-审核不通过
+	private String agent_remark; // 审核不通过原因
+	private Long review_time; // 审核日期
+	private String invite_agent_code; // 上级代理商code，非数据库字段
 	private Integer is_cheked; 	// 是否已验证
 	private String registerip; 	// 注册IP
  
@@ -313,6 +320,14 @@ public class Member implements java.io.Serializable {
 		this.parentid = parentid;
 	}
 
+	public String getParentids() {
+		return parentids;
+	}
+
+	public void setParentids(String parentids) {
+		this.parentids = parentids;
+	}
+
 	public Integer getIs_cheked() {
 		return is_cheked;
 	}
@@ -396,5 +411,52 @@ public class Member implements java.io.Serializable {
 		this.recommend_point_state = recommend_point_state;
 	}
 
-	
+	public Integer getIs_agent() {
+		return is_agent;
+	}
+
+	public void setIs_agent(Integer is_agent) {
+		this.is_agent = is_agent;
+	}
+
+	public String getAgent_code() {
+		return agent_code;
+	}
+
+	public void setAgent_code(String agent_code) {
+		this.agent_code = agent_code;
+	}
+
+	@NotDbField
+	public String getInvite_agent_code() {
+		return invite_agent_code;
+	}
+
+	public void setInvite_agent_code(String invite_agent_code) {
+		this.invite_agent_code = invite_agent_code;
+	}
+
+	public Integer getAgent_status() {
+		return agent_status;
+	}
+
+	public void setAgent_status(Integer agent_status) {
+		this.agent_status = agent_status;
+	}
+
+	public String getAgent_remark() {
+		return agent_remark;
+	}
+
+	public void setAgent_remark(String agent_remark) {
+		this.agent_remark = agent_remark;
+	}
+
+	public Long getReview_time() {
+		return review_time;
+	}
+
+	public void setReview_time(Long review_time) {
+		this.review_time = review_time;
+	}
 }

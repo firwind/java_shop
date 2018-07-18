@@ -34,9 +34,15 @@ public interface IMemberManager {
 	@Transactional(propagation = Propagation.REQUIRED)  
 	public int register(Member member);
 
-	
-	
+
 	/**
+	 * 根据邀请码获取会员
+	 * @param agentCode
+	 * @return
+	 */
+    Member getMemberByAgentCode(String agentCode);
+
+    /**
 	 * 某个会员邮件注册验证成功
 	 * 此方法会更新为验证成功，并激发验证成功事件
 	 * @param 会员实体
@@ -316,5 +322,12 @@ public interface IMemberManager {
 	 * @param img			fs地址
 	 */
 	public void editMemberImg(Integer member_id,String img);
-	
+
+	/**
+	 * 检测邀请码是否存在
+	 *
+	 * @param inviteCode
+	 * @return 存在返回1，否则返回0
+	 */
+	int checkInviteCode(String inviteCode);
 }

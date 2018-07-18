@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbsolution>
+	<!-- 创建代理月销量统计表 -->
+	<action>
+		<command>create</command>
+		<table>month_sale</table>
+		<field><name>member_id</name><type>int</type><size>11</size><option>21</option></field>
+		<field><name>month</name><type>varchar</type><size>20</size><option>21</option></field>
+		<field><name>person_sale</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>team_sale</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>update_time</name><type>datetime</type><size>11</size><option>01</option><default>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</default></field>
+	</action>
+	<!-- 创建代理月奖金表 -->
+	<action>
+		<command>create</command>
+		<table>month_bonus</table>
+		<field><name>member_id</name><type>int</type><size>11</size><option>21</option></field>
+		<field><name>month</name><type>varchar</type><size>20</size><option>21</option></field>
+		<field><name>person_bonus</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>team_bonus</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>person_sale</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>team_sale</name><type>decimal</type><size>10,2</size><option>00</option><default>0.00</default></field>
+		<field><name>update_time</name><type>datetime</type><size>11</size><option>01</option><default>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</default></field>
+	</action>
+	<!-- 创建奖金规则配置表 -->
+	<action>
+		<command>create</command>
+		<table>bonus_rule</table>
+		<field><name>id</name><type>int</type><size>11</size><option>11</option></field>
+		<field><name>begin_money</name><type>int</type><size>11</size><option>00</option></field>
+		<field><name>end_money</name><type>int</type><size>11</size><option>00</option></field>
+		<field><name>percentage</name><type>varchar</type><size>64</size><option>01</option></field>
+		<field><name>create_time</name><type>datetime</type><size>11</size><option>01</option></field>
+		<field><name>update_time</name><type>datetime</type><size>11</size><option>01</option><default>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</default></field>
+	</action>
+</dbsolution>

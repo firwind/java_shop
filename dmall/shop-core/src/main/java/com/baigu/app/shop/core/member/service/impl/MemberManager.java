@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.baigu.app.shop.core.member.plugin.MemberPluginBundle;
 import com.baigu.app.shop.core.member.service.IMemberLvManager;
+import com.baigu.framework.util.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -23,6 +24,7 @@ import com.baigu.framework.database.Page;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.DateUtil;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.util.StringUtils;
 
 /**
  * 会员管理
@@ -90,10 +92,18 @@ public class MemberManager  implements IMemberManager {
 			throw new IllegalArgumentException("member' uname is null");
 		if (member.getPassword() == null)
 			throw new IllegalArgumentException("member' password is null");
+		if (StringUtils.isEmpty(member.getInvite_agent_code()))
+			throw new IllegalArgumentException("member' invite_code is null");
 
 		if (this.checkname(member.getUname()) == 1) {
 			return 0;
 		}
+
+		Member upLineMember = this.getMemberByAgentCode(member.getInvite_agent_code());
+		if(upLineMember == null) {
+			return -1;
+		}
+
 		if(member.getLv_id()==null||member.getLv_id()==0){
 			Integer lvid = memberLvManager.getDefaultLv();
 			member.setLv_id(lvid);
@@ -124,12 +134,25 @@ public class MemberManager  implements IMemberManager {
 			member.setSex(1);	//新注册用户性别默认为'男'
 		}
 
+		// 代理商相关
+		member.setIs_agent(1);
+		member.setAgent_code(new RandomString(8).nextString().toLowerCase());  // 随机生成一个代理商code
+		member.setParentid(upLineMember.getMember_id());
+		member.setParentids(upLineMember.getParentids() == null ? upLineMember.getMember_id().toString() :
+				upLineMember.getParentids() + "," + upLineMember.getMember_id());
 
 		this.daoSupport.insert("es_member", member);
 		int memberid = this.daoSupport.getLastId("es_member");
 		member.setMember_id(memberid);
 
 		return 1;
+	}
+
+	@Override
+	public Member getMemberByAgentCode(String agentCode) {
+		String sql="select * from es_member where agent_code = ?";
+		Member member=this.daoSupport.queryForObject(sql, Member.class, agentCode);
+		return member;
 	}
 
 	/*
@@ -826,6 +849,18 @@ public class MemberManager  implements IMemberManager {
 		.append("left join es_goods g on m.store_id = g.store_id ")
 		.append("where g.goods_id = ?");
 		return (Member) this.daoSupport.queryForObject(sql.toString(), Member.class, goodsId);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see IMemberManager#checkInviteCode(java.lang.String)
+	 */
+	@Override
+	public int checkInviteCode(String inviteCode) {
+		String sql = "select count(0) from es_member where agent_code = ?";
+		int count = this.daoSupport.queryForInt(sql, inviteCode);
+		count = count > 0 ? 1 : 0;
+		return count;
 	}
 
 	/* (non-Javadoc)

@@ -7,7 +7,6 @@
 <#include 'common/header.html'/>
 <#include 'common/reception_header.html'/>
 <script src="${ctx}${themes_path}/js/slider.js" type="text/javascript"></script>
-
 <link rel="stylesheet" href="${ctx}/themes/kaben/css/dialog.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${ctx}${themes_path}/css/decorate.css" />
 <!-- 获取商品列表标签 -->
@@ -15,7 +14,7 @@
 <!-- 调用广告标签 -->
 <#assign advListTag= newTag("advListTag")>
 <!-- 调用广告信息,传递参数acid:1 -->
-<#assign adv = advListTag("'acid':'12'")!'' >
+<#assign adv = advListTag("'acid':'1'")!'' >
 <!-- 获取广告列表 -->
 <#assign advList = adv.advList /> 
 <#assign n = 1 />

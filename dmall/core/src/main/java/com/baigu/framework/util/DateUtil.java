@@ -205,7 +205,7 @@ public class DateUtil {
 		   String lastDay = "" + year + "-" + months + "-" + days;
 
 		   Long[] lastMonth = new Long[2];
-		   lastMonth[0] =DateUtil.getDateline(firstDay);
+		   lastMonth[0] = DateUtil.getDateline(firstDay);
 		   lastMonth[1] = DateUtil.getDateline(lastDay);
 
 		 //  //System.out.println(lastMonth[0] + "||" + lastMonth[1]);
@@ -249,7 +249,7 @@ public class DateUtil {
 		   String firstDay = "" + year + "-" + months + "-01";
 		   String lastDay=	""+year+"-"+nextMonths+"-01";
 		   Long[] currentMonth = new Long[2]; 
-		   currentMonth[0] =DateUtil.getDateline(firstDay);
+		   currentMonth[0] = DateUtil.getDateline(firstDay);
 		   currentMonth[1] = DateUtil.getDateline(lastDay);
 
 		 //  //System.out.println(lastMonth[0] + "||" + lastMonth[1]);
@@ -298,5 +298,22 @@ public class DateUtil {
 		
 		//System.out.println( new Date(1320205608000l));
 		//System.out.println( DateUtil.toString( new Date(1320205608000l),"yyyy-MM-dd HH:mm:ss"));
+	}
+
+	/**
+	 * 转换为yyyyMM
+	 * @param milliseconds
+	 * @return
+	 */
+	public static String toMonthString(Long milliseconds) {
+		return DateUtil.toString(milliseconds, "yyyyMM");
+	}
+
+	/**
+	 * 获取当前时间的yyyyMM
+	 * @return
+	 */
+	public static String getCurrentMonthString() {
+		return toMonthString(System.currentTimeMillis());
 	}
 }

@@ -315,7 +315,7 @@ public class ComponentManager implements IComponentManager {
 	 * @return 组件列表
 	 */
 	private List<ComponentView> getDbList() {
-		String sql = "select * from es_component ";
+		String sql = "select * from es_component where enable_state = 1";
 		return this.daoSupport.queryForList(sql, ComponentView.class);
 	}
 	/**

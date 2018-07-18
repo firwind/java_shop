@@ -1,0 +1,73 @@
+<#assign  title="会员登录" />
+<#include '/common/header.html'/>
+<script type="text/javascript">var forward = '${forward!''}'</script>
+<link rel="stylesheet" type="text/css" href="${ctx}${themes_path}/css/login.css" />
+<script type="text/javascript" src="${ctx}${themes_path}/js/login.js"></script>
+<div class="login-tab">
+    <div class="item ordinary selected">
+        <a href="javascript:;">普通登录</a>
+    </div>
+    <div class="item mobile">
+        <a href="javascript:;">手机登录</a>
+    </div>
+</div>
+<div class="login-form">
+    <div class="form ordinary-form show">
+        <div class="inner-form">
+            <div class="item ordinary" id="ordinary">
+                <div class="inner-item">
+                    <i></i>
+                    <input type="text" id="input-ordinary" maxlength="30" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="item password">
+                <div class="inner-item">
+                    <i></i>
+                    <input type="text" id="password-ordinary" maxlength="16" placeholder="请输入密码">
+                    <div class="operate"></div>
+                </div>
+            </div>
+            <div class="item validcode">
+                <div class="inner-item">
+                    <i></i>
+                    <input type="text" id="validcode-ordinary" maxlength="6" placeholder="请输入图片验证码">
+                    <img class="validcode-img" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form mobile-form">
+        <div class="inner-form">
+            <div class="item mobile" id="mobile">
+                <div class="inner-item">
+                    <i></i>
+                    <input type="tel" id="input-mobile" maxlength="11" placeholder="请输入11位手机号">
+                </div>
+            </div>
+            <div class="item validcode">
+                <div class="inner-item">
+                    <i></i>
+                    <input type="tel" id="validcode-mobile" maxlength="6" placeholder="请输入验证码">
+                    <button type="button" class="get-validcode-mobile">获取手机验证码</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="warm-tips show">
+    <div class="inner">
+        温馨提示: 请使用您自己的用户名或手机号登录，以免无法累计销量和积分<a href="javascript:;" class="show-user-agreement" style="color: #0a89c7;">《用户服务协议》</a>
+    </div>
+</div>
+
+<div class="login">
+    <button type="button" class="login-btn" id="login-btn">立即登录</button>
+    <a href="${ctx}/findpasswordByEmail.html" class="found_password">找回密码</a>
+</div>
+
+<div class="oauth-wrapper">
+	<h3 class="title-wrapper"><span class="title">盐传天下，卤味人生</span></h3>
+</div>
+</body>
+</html>

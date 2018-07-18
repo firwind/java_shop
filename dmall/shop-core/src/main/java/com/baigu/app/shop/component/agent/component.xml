@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="代理组件"  version="1.0" dmall_version="3.0.0" author="dmall">
+ 
+	<plugins>
+		<plugin name="统计代理销量插件" id="statAgentSalePlugin">
+			<bundle id="orderPluginBundle"></bundle>
+		</plugin>
+	</plugins>
+	
+</component>
