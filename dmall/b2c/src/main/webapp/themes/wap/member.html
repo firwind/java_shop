@@ -6,6 +6,10 @@
 <#assign memberSaleTag = newTag("memberSaleTag")>
 <!-- 调用会员销量标签 -->
 <#assign ms = memberSaleTag()>
+<!-- 获取会员奖金标签 -->
+<#assign memberBonusTag = newTag("memberBonusTag")>
+<!-- 调用会员奖金标签 -->
+<#assign mb = memberBonusTag()>
 <link rel="stylesheet" type="text/css" href="themes/wap/css/member.css" />
 
 <div class="member-box">
@@ -55,17 +59,27 @@
 			<p>个人日销量</p>
 			<p>${ms.person_daily_sale}元</p>
 		</div>
-		<div class="member-tools-btn member-btn2">
-			<p>个人月销量</p>
-			<p>${ms.person_sale}元</p>
-		</div>
 		<div class="member-tools-btn member-btn3">
 			<p>团队日销量</p>
 			<p>${ms.team_daily_sale}元</p>
 		</div>
+		<div class="member-tools-btn member-btn3">
+			<p>个人月奖金</p>
+			<p>${mb.person_bonus}元</p>
+		</div>
+	</div>
+	<div class="member-tools-btn-box">
+		<div class="member-tools-btn member-btn2">
+			<p>个人月销量</p>
+			<p>${ms.person_sale}元</p>
+		</div>
 		<div class="member-tools-btn member-btn4" style="border:0px none">
 			<p>团队月销量</p>
 			<p>${ms.team_sale}元</p>
+		</div>
+		<div class="member-tools-btn member-btn4" style="border:0px none">
+			<p>团队月奖金</p>
+			<p>${mb.team_bonus}元</p>
 		</div>
 	</div>
 
