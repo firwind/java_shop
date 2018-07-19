@@ -2,6 +2,7 @@ package com.baigu.app.base.core.model;
 
 import com.baigu.framework.database.NotDbField;
 import com.baigu.framework.database.PrimaryKeyField;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 会员实体
@@ -322,7 +323,17 @@ public class Member implements java.io.Serializable {
 	}
 
 	public String getParentids() {
-		return parentids;
+		StringBuilder clearParentIds = new StringBuilder();//不带[]的parentIds
+		if (StringUtils.isNotBlank(parentids)) {
+			for (String id : parentids.split(",")) {
+				clearParentIds.append(id.replace("[", "").replace("]", ""));
+				clearParentIds.append(",");
+			}
+			if (clearParentIds.length() > 0) {
+				clearParentIds.deleteCharAt(clearParentIds.length() - 1);
+			}
+		}
+		return clearParentIds.toString();
 	}
 
 	public void setParentids(String parentids) {

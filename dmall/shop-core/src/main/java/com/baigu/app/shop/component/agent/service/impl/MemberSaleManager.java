@@ -67,6 +67,7 @@ public class MemberSaleManager implements IMemberSaleManager {
                 "LEFT JOIN es_member m ON o.member_id = m.member_id " +
                 "WHERE 1=1 AND m.parentids LIKE '%[" + memberId + "]%' AND o.create_time >= ? AND o.create_time <=?", sTime, eTime);
         return personDailySale.add(BigDecimal.valueOf(subPersonSale));
+
     }
 
     @Override
