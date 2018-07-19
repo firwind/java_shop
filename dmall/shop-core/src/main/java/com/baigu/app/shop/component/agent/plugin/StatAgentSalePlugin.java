@@ -9,6 +9,7 @@ import com.baigu.eop.sdk.context.UserConext;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.plugin.AutoRegisterPlugin;
 import com.baigu.framework.util.DateUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,38 +38,41 @@ public class StatAgentSalePlugin extends AutoRegisterPlugin implements
 	@Override
 	public void onAfterOrderCreate(Order order, List<CartItem>   itemList, String sessionid) {
 		Member member = UserConext.getCurrentMember();
-		Double amount = order.getGoods_amount();
+		Double personSale = order.getGoods_amount();
 		String month = DateUtil.toMonthString(order.getCreate_time() * 1000);
 		daoSupport.execute("insert into es_month_sale(member_id, month, person_sale, team_sale) values(?, ?, ?, ?) " +
-				"on duplicate key update person_sale = person_sale + ?, " +
-				"team_sale = team_sale + ?", member.getMember_id(), month,
-				amount, amount, amount, amount);
+						"on duplicate key update person_sale = person_sale + ?, " +
+						"team_sale = team_sale + ?", member.getMember_id(), month,
+				personSale, personSale, personSale, personSale);
 
 		// 所有父级的团队销量也要增加
 		String parentIds = member.getParentids();
-		// 先确保所有父级都有销量记录
-		List<MonthSale> monthSales = daoSupport.queryForList("select * from es_month_sale where month = ? " +
-				"and member_id in (?)", MonthSale.class, month, parentIds);
-		String[] parentMemberIds = parentIds.split(",");
-		if(monthSales.size() < parentMemberIds.length) {
-			for(String parentMemberId : parentMemberIds) {
-				boolean exists = false;
-				for(MonthSale ms : monthSales) {
-					if(parentMemberId.equals(ms.getMember_id())) {
-						exists = true;
-						break;
+		if (StringUtils.isNotBlank(parentIds)) {
+			// 先确保所有父级都有销量记录
+			List<MonthSale> monthSales = daoSupport.queryForList("select * from es_month_sale where month = ? " +
+					"and member_id in (?)", MonthSale.class, month, parentIds);
+			String[] parentMemberIds = parentIds.split(",");
+			if (monthSales.size() < parentMemberIds.length) {
+				for (String parentMemberId : parentMemberIds) {
+					boolean exists = false;
+					for (MonthSale ms : monthSales) {
+						if (parentMemberId.equals(ms.getMember_id())) {
+							exists = true;
+							break;
+						}
+					}
+					if (!exists) {
+						daoSupport.execute("insert into es_month_sale(member_id, month, person_sale, team_sale) values(?, ?, ?, ?) " +
+										"on duplicate key update person_sale = person_sale",
+								parentMemberId, month, 0, 0);
 					}
 				}
-				if(!exists) {
-					daoSupport.execute("insert into es_month_sale(member_id, month, person_sale, team_sale) values(?, ?, ?, ?) " +
-									"on duplicate key update person_sale = person_sale",
-							parentMemberId, month, 0, 0);
-				}
 			}
+			// 更新父级团队销量
+			daoSupport.execute("update es_month_sale set team_sale = team_sale + " + personSale + " where month = " + month + "  and member_id in (" + parentIds + ")");
 		}
-		// 更新父级团队销量
-		daoSupport.execute("update es_month_sale set team_sale = team_sale + ? " +
-				"where month = ? and member_id in (?)", parentIds,month,amount);
-	}
 
+		//更新奖金表使重新计算奖金
+		daoSupport.execute("INSERT INTO es_month_bonus (member_id, `month`) VALUES (?, ?) ON DUPLICATE KEY UPDATE recount = 1", member.getMember_id(), month);
+	}
 }

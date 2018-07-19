@@ -1,0 +1,30 @@
+<#assign  title="我的邀请码" />
+<#include 'common/header.html'>
+<link rel="stylesheet" type="text/css" href="themes/wap/css/member.css" />
+<#assign memberLoginCheckTag = newTag("memberLoginCheckTag") />
+<#assign member = memberLoginCheckTag() />
+<#if member ??>
+    <style>
+        body{background:#F5F5F5;}
+    </style>
+    <div class="header-tools">
+        <div class="go-back">
+            <a href="javascript:" onclick="window.history.go(-1)"></a>
+        </div>
+        <div class="common-title">
+            我的邀请码
+        </div>
+        <div class="go-search">
+        </div>
+    </div>
+    <div class="collect_list">
+        <div class="bonus_empty">
+            ${member.agent_code}
+        </div>
+    </div>
+    <script>
+    </script>
+
+    <#include 'common/float_footer.html'/>
+</#if>
+<#include 'common/footer.html'/>

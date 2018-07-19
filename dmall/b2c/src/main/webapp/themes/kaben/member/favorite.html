@@ -35,8 +35,6 @@
 </div>
 <script>
 $(function(){
-	otherMenu(3);
-	
 	$(".del_favorite").click(function(){
 		var favoriteid = $(this).attr("rel");
 		$.post("${ctx}/api/shop/favorite/delete.do",{"favorite_id":favoriteid},function(result){
@@ -58,7 +56,7 @@ $(function(){
 </div>
 </div>
 <script>
-otherMenu(3);
+otherMenu(6);
 </script>
 <#include '../common/footer.html'/>
 

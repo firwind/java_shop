@@ -97,20 +97,20 @@
 </div>
 <script>
 $(function(){
-	otherMenu(1);	
+	otherMenu(4);
 	
 	//选项卡切换
 	$(".mine-comment").click(function(){
-		$(this).addClass("selected");
-		$(".member-comment-tab ul li").removeClass("selected");
-		$(".member-comment-list").show();
-		$(".member-comment-wait").hide();
-		$(".point-upward").css("left","35px");
+        $(".member-comment-tab ul li").removeClass("selected");
+        $(this).addClass("selected");
+        $(".member-comment-list").show();
+        $(".member-comment-wait").hide();
+        $(".point-upward").css("left","35px");
 	})
 		$(".mine-wait-comment").click(function(){
-		$(this).addClass("selected");
 		$(".member-comment-tab ul li").removeClass("selected");
-		$(".member-comment-list").hide();
+            $(this).addClass("selected");
+            $(".member-comment-list").hide();
 		$(".member-comment-wait").empty();
 		loadWaitCommentList(1);
 		

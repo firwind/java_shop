@@ -23,12 +23,12 @@ public class Member implements java.io.Serializable {
 	private Integer city_id;		//市ID
 	private Integer region_id;		//区ID
 	private Integer town_id;        //城镇ID
-	
 
-	private String province;	//省	
-	private String city;		//市
-	private String region;		//区
-	private String town;        //城镇ID  
+
+    private String province;    //省
+    private String city;        //市
+    private String region;        //区
+    private String town;        //城镇ID
 
 	private String address;		//联系地址
 	private String zip;			//邮编
@@ -45,7 +45,7 @@ public class Member implements java.io.Serializable {
 	private Long lastlogin;	//最后登录时间
 	private Integer logincount;	//当月登录次数
 	private Integer mp; // 消费积分
-	
+
 	private String lvname;		// 会员等级名称，非数据库字段
 	private Integer parentid; 	// 父代理商id
 	private String parentids;   // 所有父代理商id，逗号分隔
@@ -58,30 +58,30 @@ public class Member implements java.io.Serializable {
 	private String invite_agent_code; // 上级代理商code，非数据库字段
 	private Integer is_cheked; 	// 是否已验证
 	private String registerip; 	// 注册IP
- 
-	private String nickname;	//昵称
-	private String face;		//头像
-	private Integer midentity;	//身份
-	private Long last_send_email; //最后发送激活邮件的时间
-	private String find_code;	//找回密码代码
-	
 
-	@PrimaryKeyField
-	public Integer getMember_id() {
-		return member_id;
-	}
+    private String nickname;    //昵称
+    private String face;        //头像
+    private Integer midentity;    //身份
+    private Long last_send_email; //最后发送激活邮件的时间
+    private String find_code;    //找回密码代码
+
+
+    @PrimaryKeyField
+    public Integer getMember_id() {
+        return member_id;
+    }
 
 	public void setMember_id(Integer memberId) {
 		member_id = memberId;
 	}
-	
-	public String getTown() {
-		return town;
-	}
-	
-	public void setTown(String town) {
-		this.town = town;
-	}
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
 
 	public Integer getLv_id() {
 		// lv_id = lv_id==null?0:lv_id;
@@ -165,9 +165,9 @@ public class Member implements java.io.Serializable {
 	}
 
 	public Integer getProvince_id() {
-		
-		return province_id;
-	}
+
+        return province_id;
+    }
 
 	public void setProvince_id(Integer provinceId) {
 		province_id = provinceId;
@@ -246,10 +246,11 @@ public class Member implements java.io.Serializable {
 	}
 
 	public Integer getPoint() {
-		if (point == null)
-			point = 0;
-		return point;
-	}
+        if (point == null) {
+            point = 0;
+        }
+        return point;
+    }
 
 	public void setPoint(Integer point) {
 		this.point = point;
@@ -358,7 +359,7 @@ public class Member implements java.io.Serializable {
 
 	public void setRegisterip(String registerip) {
 		this.registerip = registerip;
-	} 
+    }
 
 	public String getNickname() {
 		return nickname;

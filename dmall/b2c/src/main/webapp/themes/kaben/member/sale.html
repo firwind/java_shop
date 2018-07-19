@@ -1,0 +1,92 @@
+<#assign  title="我的销量" />
+<#include 'member_header.html' />
+<!-- 获取会员销量标签 -->
+<#assign memberSaleTag = newTag("memberSaleTag")>
+<!-- 调用会员销量标签 -->
+<#assign ms = memberSaleTag()>
+<!-- 获取会员奖金标签 -->
+<#assign memberBonusTag = newTag("memberBonusTag")>
+<!-- 调用会员奖金标签 -->
+<#assign mb = memberBonusTag()>
+<div  class="member-point">
+	<h1>我的销量<span>这里查看本月销量及奖金</span></h1>
+	<div class="member-point-tab">
+		<ul>
+			<li style="border:0px none;" class="point-mine selected">我的销量</li>
+			<li class="point-intro">团队成员销量</li>
+		</ul>
+	</div>
+	<div class="member-point-box">
+		<div class="member-point-intro">
+			<div class="point-intro-same" >
+				<h2>本月销量</h2>
+				<h3>个人销量：<span>${ms.person_sale}</span></h3>
+				<h3>团队销量：<span>${ms.team_sale}</span></h3>
+				<h3>个人奖金：<span>${mb.person_bonus}</span></h3>
+				<h3>团队奖金：<span>${mb.team_bonus}</span></h3>
+			</div>
+			<div class="point-intro-same">
+				<h2 style="color:#999">奖金规则</h2>
+				<p>奖金规则描述</p>
+			</div>
+			<div class="point-intro-same">
+				<h2 style="color:#999">奖金发放</h2>
+				<p>每个月10号之前</p>
+			</div>		
+		</div>
+		<div class="member-point-list point-same-table">
+			
+		</div>
+		<div class="member-point-freeze point-same-table">
+		</div>
+		<!-- 箭头指向 -->
+		<em class="point-upward"></em>
+	</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+$(function(){
+
+    otherMenu(3);
+	
+	//我的销量
+	$(".point-mine").click(function(){
+		$(".member-point-tab ul li").removeClass("selected");
+		$(this).addClass("selected");
+		$(".member-point-intro").show();
+		$(".member-point-list").hide();
+		$(".member-point-freeze").hide();
+		$(".point-upward").css("left","35px");
+	})
+	
+	// 团队成员销量
+	$(".point-intro").click(function(){
+		$(".member-point-tab ul li").removeClass("selected");
+		$(this).addClass("selected");
+		$(".member-point-intro").hide();
+	//	$(".member-point-list").load("point_list.html?action=list");
+		point_list(1);
+		$(".member-point-list").show();
+		$(".member-point-freeze").hide();
+		$(".point-upward").css("left","140px");
+	})
+})
+function point_list(page,memberId){
+    if(!memberId)memberId = "";
+    $(".member-point-list").load("team_sale_list.html?memberId="+memberId+"&page="+page,function(){
+        $(".pager_border .page li a").click(function(){
+            var pageno= $(this).attr("page");
+            point_list(pageno);
+        });
+    });
+}
+</script>
+
+<#include '../common/footer.html'/>

@@ -23,10 +23,10 @@
 
 <div class="mmember_index">
 	<div class="member_face" style="width: 154px; height: 154px; border-radius: 100%;">
-		<#if member.face?exists && member.face != ''> 
+		<#if member.face?exists && member.face != ''>
 		<img src="<@imgurl pic='${member.face}'/>" style="width:150px;height:150px;" />
-		<#else> 
-			<@image src="${ctx}${themes_path}/images/photo.jpg" style="width:150px;height:150px;" /> 
+		<#else>
+			<@image src="${ctx}${themes_path}/images/photo.jpg" style="width:150px;height:150px;" />
 		</#if>
 	</div>
 	<div class="member_intro">
@@ -44,30 +44,30 @@
 		<#assign orderNumberTag = newTag("orderNumberTag")>
 		<#assign orderNumberPay = orderNumberTag()!''>
 		<li>
-			<@image src="${ctx}${themes_path}/images/m1.png" /> 
+			<@image src="${ctx}${themes_path}/images/m1.png" />
 				<h3>待支付的订单：<span>${orderNumberPay["0"]!'0'}</span></h3>
 				<a href="order.html?status=0">查看待支付订单></a>
 		</li>
-		
+
 		<li>
-			<@image src="${ctx}${themes_path}/images/m2.png" /> 
+			<@image src="${ctx}${themes_path}/images/m2.png" />
 				<h3>已发货的订单：<span>${orderNumberPay["3"]!'0'}</span></h3>
 				<a href="order.html?status=3">查看已发货订单></a>
 		</li>
-		
+
 		<li>
-			<@image src="${ctx}${themes_path}/images/m3.png" /> 
+			<@image src="${ctx}${themes_path}/images/m3.png" />
 				<h3>已评价商品数：<span>${memberCommentList.totalCount}</span></h3>
 				<a href="${ctx}/member/comments.html">查看我的评论></a>
 		</li>
-		
+
 		<li>
-			<@image src="${ctx}${themes_path}/images/m4.png" /> 
+			<@image src="${ctx}${themes_path}/images/m4.png" />
 				<h3>喜欢的商品数：<span>${collect.totalCount}</span></h3>
 				<a href="${ctx}/member/favorite.html">查看我的收藏></a>
 		</li>
 	</ul>
-</div>	
+</div>
 
 
 </div>

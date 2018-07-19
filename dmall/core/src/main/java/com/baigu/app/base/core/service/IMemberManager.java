@@ -1,13 +1,12 @@
 package com.baigu.app.base.core.service;
 
-import java.util.List;
-import java.util.Map;
-
+import com.baigu.app.base.core.model.Member;
+import com.baigu.framework.database.Page;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baigu.app.base.core.model.Member;
-import com.baigu.framework.database.Page;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 会员管理接口
@@ -330,4 +329,26 @@ public interface IMemberManager {
 	 * @return 存在返回1，否则返回0
 	 */
 	int checkInviteCode(String inviteCode);
+
+	/**
+	 * 获取邀请列表
+	 *
+	 * @param page
+	 * @param pageSize
+	 * @param agentStatus
+	 * @param memberId
+	 * @return
+	 */
+	public Page getInviteList(Integer page, Integer pageSize, Integer agentStatus, int memberId);
+
+	/**
+	 * 邀请审核
+	 *
+	 * @param reviewerId 审核人memberId
+	 * @param memberId   被审核人id
+	 * @param pass       是否通过
+	 * @param reason     原因
+	 * @return
+	 */
+	int inviteReview(Integer reviewerId, Integer memberId, boolean pass, String reason);
 }

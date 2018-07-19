@@ -1,0 +1,149 @@
+<#assign title="我的审核" /> <#include 'member_header.html' />
+<#assign memberInviteListTag = newTag("memberInviteListTag")>
+<#assign inviteList = memberInviteListTag("{'agentStatus':'0'}")>
+<div class="member-commen">
+	<h1>我的审核</h1>
+	 <div class="member-comment-tab">
+	 	<ul>
+	 		<li style="border:0px none" class="review-wait-tab selected">待审核</li>
+	 		<li class="review-passed-tab">已审核</li>
+			<li class="review-refused-tab">审核不通过</li>
+	 	</ul>
+	 </div>
+	 <div class="member-invite-box">
+	 	<div class="review-wait-list" >
+	 		<#if inviteList.inviteList?size gt 0 >
+	 		<ul class="member-invite-outside">
+	 			<#list inviteList.inviteList as invite>
+	 				<li>
+	 					<div class="member-info">
+							<div>${invite.uname}</div>
+							<div><@dateformat time="${invite.regtime?c}" pattern="yyyy-MM-dd HH:mm"/></div>
+							<div>
+								<#if invite.agent_status == 0>
+									待审核
+								<#elseif invite.agent_status== 1>
+									审核通过
+								<#else>
+									审核不通过
+								</#if>
+							</div>
+						</div>
+						<div class="review-form">
+							<textarea placeholder="不通过原因，最多100个字" maxlength="100">${invite.agent_remark!}</textarea>
+							<a style="color: #005ea7;" href="#" data-action="pass" data-id="${invite.member_id}">通过</a>&nbsp;&nbsp;
+							<a style="color: #005ea7;" href="#" data-action="refuse" data-id="${invite.member_id}">不通过</a>
+						</div>
+	 				</li>
+	 			</#list>
+	 		</ul>
+	 		<@pager pageno="${page!'1'}" pagesize="${inviteList.pageSize}" totalcount="${inviteList.totalCount}" />
+	 		<#else>
+				<p class="member-right-blank">抱歉，暂时没有符合数据</p>
+	 		</#if>
+	 	</div>
+	 	<!-- 已审核 -->
+	 	<div class="review-passed-list" style="display:none;">
+	 	</div>
+	 	<!-- 审核不通过 -->
+	 	<div class="review-refused-list" style="display: none;">
+		</div>
+	 	<em class="point-upward"></em>
+	 </div>
+</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+<script>
+$(function(){
+	otherMenu(2);
+	
+	//选项卡切换
+	$(".review-wait-tab").click(function(){
+        $(".member-comment-tab ul li").removeClass("selected");
+        $(this).addClass("selected");
+		$(".review-wait-list").show();
+		$(".review-passed-list").hide();
+        $(".review-refused-list").hide();
+		$(".point-upward").css("left","35px");
+	});
+	$(".review-passed-tab").click(function(){
+        $(".member-comment-tab ul li").removeClass("selected");
+        $(this).addClass("selected");
+		$(".review-wait-list").hide();
+        $(".review-refused-list").hide();
+		$(".review-passed-list").empty();
+		loadPassedList(1);
+		
+		$(".review-passed-list").show();
+		$(".point-upward").css("left","125px");
+	});
+    $(".review-refused-tab").click(function(){
+        $(".member-comment-tab ul li").removeClass("selected");
+        $(this).addClass("selected");
+        $(".review-wait-list").hide();
+        $(".review-passed-list").hide();
+        $(".review-refused-list").empty();
+        loadRefusedList(1);
+
+        $(".review-refused-list").show();
+        $(".point-upward").css("left","225px");
+    });
+	
+	//已审核列表
+	function loadPassedList(page){
+        $(".review-passed-list").load("invite_list_passed.html?page="+page,function(){
+            $(".review-passed-list .page li a").click(function(){
+                if($(this).hasClass('selected')) {
+                    return;
+				}
+                var pageno= $(this).attr("page");
+                loadPassedList(pageno);
+            });
+        });
+    }
+
+    // 审核不通过列表
+    function loadRefusedList(page){
+        $(".review-refused-list").load("invite_list_refused.html?page="+page,function(){
+            $(".review-refused-list .page li a").click(function(){
+                if($(this).hasClass('selected')) {
+                    return;
+                }
+                var pageno= $(this).attr("page");
+                loadRefusedList(pageno);
+            });
+        });
+    }
+
+    // 通过/不通过
+	$('[data-action]').click(function() {
+	    var action = $(this).data('action');
+	    var desc = action == 'pass' ? '确定通过审核？' : '确定不通过审核？';
+	    if(!window.confirm(desc)) {
+	        return;
+		}
+		var id = $(this).data('id');
+	    var reason = $(this).siblings('textarea').val();
+        $.ajax({
+            url:"${ctx}/api/shop/member/inviteReview.do",
+            type:"POST",
+            data:{
+                memberId: id,
+				pass: action == 'pass' ? true : false,
+				reason: reason
+			},
+            dataType:"json",
+            success:function(json){
+                window.location.href = 'invite_list.html';
+            }
+        });
+	});
+})
+
+</script>
+
+<!--尾部-->
+<#include '../common/footer.html'/>

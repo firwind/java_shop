@@ -1,15 +1,10 @@
 package com.baigu.framework.database.impl;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.framework.database.DBRuntimeException;
 import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.database.ObjectNotFoundException;
+import com.baigu.framework.database.Page;
 import com.baigu.framework.util.ReflectionUtil;
 import com.baigu.framework.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -19,10 +14,15 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.util.Assert;
 
-import com.baigu.framework.database.ObjectNotFoundException;
-import com.baigu.framework.database.Page;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * jdbc数据库操作支撑
@@ -36,8 +36,14 @@ public class JdbcDaoSupport implements IDaoSupport {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	protected final Logger logger = Logger.getLogger(getClass());
-	
- 
+
+
+	@Override
+	public void namedExecuteUpdate(String sql, Map<String, Object> map) {
+		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+		namedParameterJdbcTemplate.update(sql, map);
+	}
+
 	@Override
 	public void execute(String sql, Object... args) {
 		try {
@@ -247,8 +253,9 @@ public class JdbcDaoSupport implements IDaoSupport {
 					newMap.put(key.toLowerCase(), value);
 				}
 				return newMap;
-			} else
+			} else {
 				return map;
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			throw new ObjectNotFoundException(ex, sql);
@@ -342,8 +349,9 @@ public class JdbcDaoSupport implements IDaoSupport {
 			try {
 //				where = where.replaceAll(" ", "");
 				key = StringUtils.split(where, "=")[0];
-				if (key != null)
+				if (key != null) {
 					value = fields.get(key);
+				}
 				fields.remove(key);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -401,10 +409,11 @@ public class JdbcDaoSupport implements IDaoSupport {
 			String order = SqlPaser.findOrderStr(sql);
 
 			// 剔除order by 子句
-			if (order != null)
+			if (order != null) {
 				sql = removeOrders(sql);
-			else
+			} else {
 				order = "order by id desc"; // SQLServer分页必需有order by
+			}
 											// 子句，如果默认语句不包含order
 											// by，自动以id降序，如果没有id字段会报错
 

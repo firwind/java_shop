@@ -1,9 +1,9 @@
 package com.baigu.framework.database;
 
+import org.springframework.jdbc.core.RowMapper;
+
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.jdbc.core.RowMapper;
 
 /**
  * 数据库操作支撑接口
@@ -12,6 +12,8 @@ import org.springframework.jdbc.core.RowMapper;
  * @param <T>
  */
 public interface IDaoSupport  {
+
+	public void namedExecuteUpdate(String sql, Map<String, Object> map);
 	
 	/**执行sql语句**/
 	public void execute(String sql, Object... args) ;

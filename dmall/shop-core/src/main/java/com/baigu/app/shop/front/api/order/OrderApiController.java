@@ -97,7 +97,7 @@ public class OrderApiController {
 			Order order  = this.createOrder();
 			return JsonResultUtil.getObjectJson(order, "order");
 		}catch(RuntimeException e){
-			//e.printStackTrace();
+			e.printStackTrace();
 			this.logger.error("创建订单出错", e);
 			return JsonResultUtil.getErrorJson("创建订单出错:" + e.getMessage());
 		}

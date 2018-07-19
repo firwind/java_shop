@@ -17,6 +17,10 @@ public class MonthBonus implements Serializable {
     private BigDecimal person_sale = BigDecimal.ZERO;  // 个人月销量
     private BigDecimal team_sale = BigDecimal.ZERO;  // 团队月销量
     private Date update_time;  // 记录更新时间
+    private Integer recount; //是否重新计算奖金
+
+    public static final int RECOUNT = 1;
+    public static final int NOTRECOUNT = 0;
 
     public Integer getMember_id() {
         return member_id;
@@ -72,5 +76,13 @@ public class MonthBonus implements Serializable {
 
     public void setUpdate_time(Date update_time) {
         this.update_time = update_time;
+    }
+
+    public Integer getRecount() {
+        return recount;
+    }
+
+    public void setRecount(Integer recount) {
+        this.recount = recount;
     }
 }

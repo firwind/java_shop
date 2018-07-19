@@ -1,6 +1,7 @@
 package com.baigu.app.shop.core.agent.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -10,9 +11,9 @@ import java.util.Date;
 public class BonusRule implements Serializable {
 
     private Integer id;
-    private Integer begin_money;
-    private Integer end_money;
-    private String percentage;
+    private BigDecimal begin_money;
+    private BigDecimal end_money;
+    private BigDecimal percentage;
     private Date create_time;
     private Date update_time;
 
@@ -24,32 +25,32 @@ public class BonusRule implements Serializable {
         this.id = id;
     }
 
-    public Integer getBegin_money() {
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public BigDecimal getBegin_money() {
         return begin_money;
     }
 
-    public void setBegin_money(Integer begin_money) {
+    public void setBegin_money(BigDecimal begin_money) {
         this.begin_money = begin_money;
     }
 
-    public Integer getEnd_money() {
+    public BigDecimal getEnd_money() {
         return end_money;
     }
 
-    public void setEnd_money(Integer end_money) {
+    public void setEnd_money(BigDecimal end_money) {
         this.end_money = end_money;
     }
 
-    public String getPercentage() {
+    public BigDecimal getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(String percentage) {
+    public void setPercentage(BigDecimal percentage) {
         this.percentage = percentage;
-    }
-
-    public Date getCreate_time() {
-        return create_time;
     }
 
     public void setCreate_time(Date create_time) {

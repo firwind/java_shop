@@ -2,6 +2,10 @@
 <#include 'common/header.html'>
 <#assign memberLoginCheckTag = newTag("memberLoginCheckTag") />
 <#assign memberInfo = memberLoginCheckTag()!'' />
+<!-- 获取会员销量标签 -->
+<#assign memberSaleTag = newTag("memberSaleTag")>
+<!-- 调用会员销量标签 -->
+<#assign ms = memberSaleTag()>
 <link rel="stylesheet" type="text/css" href="themes/wap/css/member.css" />
 
 <div class="member-box">
@@ -49,25 +53,25 @@
 	<div class="member-tools-btn-box">
 		<div class="member-tools-btn member-btn1">
 			<p>个人日销量</p>
-			<p>1000.00元</p>
+			<p>${ms.person_daily_sale}元</p>
 		</div>
 		<div class="member-tools-btn member-btn2">
 			<p>个人月销量</p>
-			<p>20000.00元</p>
+			<p>${ms.person_sale}元</p>
 		</div>
 		<div class="member-tools-btn member-btn3">
 			<p>团队日销量</p>
-			<p>100000.00元</p>
+			<p>${ms.team_daily_sale}元</p>
 		</div>
 		<div class="member-tools-btn member-btn4" style="border:0px none">
 			<p>团队月销量</p>
-			<p>10000.00元</p>
+			<p>${ms.team_sale}元</p>
 		</div>
 	</div>
 
 	<div class="go-member-other-box">
 		<ul>
-			<li><a href="collect.html" class="member_collec">我的邀请码</a></li>
+			<li><a href="invite_code.html" class="member_collec">我的邀请码</a></li>
 			<li><a href="collect.html" class="member_collec">我的团队</a></li>
 			<li><a href="collect.html" class="member_collec">我的历史奖金</a></li>
 			<li><a href="collect.html" class="member_collec">我的收藏</a></li>

@@ -1,16 +1,16 @@
 package com.baigu.framework.util;
 
+import com.baigu.app.base.core.model.Member;
+import com.baigu.framework.database.DynamicField;
+import com.baigu.framework.database.NotDbField;
+import com.baigu.framework.database.PrimaryKeyField;
+import org.apache.commons.beanutils.BeanUtils;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.baigu.framework.database.DynamicField;
-import com.baigu.framework.database.PrimaryKeyField;
-import org.apache.commons.beanutils.BeanUtils;
-
-import com.baigu.framework.database.NotDbField;
 
 public class ReflectionUtil {
 		
@@ -146,9 +146,18 @@ public class ReflectionUtil {
 	}
 	
 	public static void main(String[] args){
-		String methodName = "getWidgetList";
+		/*String methodName = "getWidgetList";
 		methodName = methodName.substring(3);
 		methodName = methodName.substring(0, 1).toLowerCase() + methodName.substring(1);
-		//System.out.println(methodName);
+		//System.out.println(methodName);*/
+
+		Member m = new Member();
+		m.setMember_id(123);
+		Map map = new HashMap();
+		try {
+			map = BeanUtils.describe(m);
+			System.out.println(map.get("member_id"));
+		} catch (Exception ex) {
+		}
 	}
 }

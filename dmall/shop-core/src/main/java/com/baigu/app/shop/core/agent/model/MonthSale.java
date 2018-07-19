@@ -13,6 +13,8 @@ public class MonthSale implements java.io.Serializable {
     private String month;  // 奖金月份 yyyyMM
     private BigDecimal person_sale = BigDecimal.ZERO;  // 个人月销量
     private BigDecimal team_sale = BigDecimal.ZERO;  // 团队月销量
+    private BigDecimal person_daily_sale; //个人日销量，非数据库字段
+    private BigDecimal team_daily_sale; //团队日销量，非数据库字段
     private Date update_time;  // 记录更新时间
 
     public Integer getMember_id() {
@@ -53,5 +55,21 @@ public class MonthSale implements java.io.Serializable {
 
     public void setUpdate_time(Date update_time) {
         this.update_time = update_time;
+    }
+
+    public BigDecimal getPerson_daily_sale() {
+        return person_daily_sale;
+    }
+
+    public void setPerson_daily_sale(BigDecimal person_daily_sale) {
+        this.person_daily_sale = person_daily_sale;
+    }
+
+    public BigDecimal getTeam_daily_sale() {
+        return team_daily_sale;
+    }
+
+    public void setTeam_daily_sale(BigDecimal team_daily_sale) {
+        this.team_daily_sale = team_daily_sale;
     }
 }

@@ -4,8 +4,11 @@ import com.baigu.app.shop.component.agent.service.IMemberSaleManager;
 import com.baigu.app.shop.core.agent.model.MonthSale;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
+import com.baigu.framework.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 /**
  * Created by lzg on 2018/4/10.
@@ -18,16 +21,61 @@ public class MemberSaleManager implements IMemberSaleManager {
 
     @Override
     public MonthSale getMemberMonthSale(String month, Integer memberId) {
-        return daoSupport.queryForObject("select * from es_month_sale where member_id = ? and month = ?",
+        MonthSale ms = daoSupport.queryForObject("select * from es_month_sale where member_id = ? and month = ?",
                 MonthSale.class, memberId, month);
+        if (ms == null) {
+            ms = new MonthSale();
+            ms.setMember_id(memberId);
+            ms.setMonth(DateUtil.getCurrentMonthString());
+            ms.setPerson_sale(BigDecimal.ZERO);
+            ms.setTeam_sale(BigDecimal.ZERO);
+            ms.setPerson_daily_sale(BigDecimal.ZERO);
+            ms.setTeam_daily_sale(BigDecimal.ZERO);
+        } else {
+            ms.setPerson_daily_sale(getPersonDailySale(memberId));
+            ms.setTeam_daily_sale(getTeamDailySal(memberId, ms.getPerson_daily_sale()));
+        }
+        return ms;
+    }
+
+    /**
+     * 获取会员个人日销量
+     *
+     * @param memberId
+     * @return
+     */
+    private BigDecimal getPersonDailySale(Integer memberId) {
+        long sTime = DateUtil.startOfSomeDay(0);//当天开始
+        long eTime = DateUtil.startOfSomeDay(-1);//当天结束
+        long personDailySale = this.daoSupport.queryForLong("SELECT IFNULL(SUM(o.goods_amount),0) FROM es_order o " +
+                "LEFT JOIN es_member m ON o.member_id = m.member_id " +
+                "WHERE 1=1 AND o.member_id = ?  AND o.create_time >= ? AND o.create_time <=?", memberId, sTime, eTime);
+        return BigDecimal.valueOf(personDailySale);
+    }
+
+    /**
+     * 获取会员团队日销量
+     *
+     * @param memberId
+     * @param personDailySale
+     * @return
+     */
+    private BigDecimal getTeamDailySal(Integer memberId, BigDecimal personDailySale) {
+        long sTime = DateUtil.startOfSomeDay(0);//当天开始
+        long eTime = DateUtil.startOfSomeDay(-1);//当天结束
+        long subPersonSale = this.daoSupport.queryForLong("SELECT IFNULL(SUM(o.goods_amount),0) FROM es_order o " +
+                "LEFT JOIN es_member m ON o.member_id = m.member_id " +
+                "WHERE 1=1 AND m.parentids LIKE '%[" + memberId + "]%' AND o.create_time >= ? AND o.create_time <=?", sTime, eTime);
+        return personDailySale.add(BigDecimal.valueOf(subPersonSale));
     }
 
     @Override
     public Page getTeamSaleList(Integer page, Integer pageSize, String month, Integer memberId) {
-        return this.daoSupport.queryForPage("SELECT m.member_id, m.uname, s.`month`, IFNULL(s.person_sale, 0) as person_sale, " +
-                        "IFNULL(s.team_sale, 0) as team_sale from es_member m " +
-                        "left join es_month_sale s on m.member_id = s.member_id and s.`month` = ? " +
-                        "where m.parentid = ? order by team_sale desc",
+        return this.daoSupport.queryForPage("SELECT " +
+                        "b.member_id, b.uname, a.`month`, IFNULL(a.person_sale, 0) AS person_sale, " +
+                        "IFNULL(a.team_sale, 0) AS team_sale, IFNULL(a.person_bonus, 0) AS person_bonus, IFNULL(a.team_bonus, 0) AS team_bonus " +
+                        "FROM es_month_bonus a LEFT JOIN es_member b ON a.member_id = b.member_id " +
+                        "WHERE a.`month` = ? AND b.parentid = ? order by a.team_sale desc",
                 page, pageSize, month, memberId);
     }
 }

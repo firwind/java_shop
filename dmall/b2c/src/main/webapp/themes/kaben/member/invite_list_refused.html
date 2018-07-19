@@ -1,0 +1,29 @@
+<#assign memberInviteListTag = newTag("memberInviteListTag")>
+<#assign inviteList = memberInviteListTag("{'agentStatus':'2'}")>
+<#if inviteList.inviteList?size gt 0 >
+<ul class="member-invite-outside">
+	<#list inviteList.inviteList as invite>
+		<li>
+			<div class="member-info">
+				<div>${invite.uname}</div>
+				<div><@dateformat time="${invite.review_time?c}" pattern="yyyy-MM-dd HH:mm"/></div>
+				<div>
+					<#if invite.agent_status == 0>
+						待审核
+					<#elseif invite.agent_status== 1>
+						审核通过
+					<#else>
+						审核不通过
+					</#if>
+				</div>
+			</div>
+			<div class="review-form">
+				<textarea placeholder="不通过原因，最多100个字" maxlength="100" readonly="readonly">${invite.agent_remark!}</textarea>
+			</div>
+		</li>
+	</#list>
+</ul>
+<@ajaxpager pageno="${page!'1'}" pagesize="${inviteList.pageSize}" totalcount="${inviteList.totalCount}" />
+<#else>
+	<p class="member-right-blank">抱歉，暂时没有符合数据</p>
+</#if>

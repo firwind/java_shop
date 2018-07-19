@@ -41,7 +41,9 @@
 			})
 			.mouseup(function(){
 				$(this).removeClass("active");
-				if(parseInt(input.val()) < 100){
+                var enableStore = $("#enableStore").html();
+                if(isNaN(enableStore))enableStore = 0;
+				if(parseInt(input.val()) < enableStore){
 					input.val(parseInt(input.val())+1);
 					fireEvent(input);
 				}
@@ -56,9 +58,9 @@
 				input.val( parseInt(input.val())== opts.min ? opts.min :parseInt(input.val()) -1);
 				fireEvent(input);
 			});
-			
-			input.keypress(function(event) {  
-			         if (!$.browser.mozilla) {  
+
+            input.keypress(function (event) {
+                if ($.browser && !$.browser.mozilla) {
 				             if (event.keyCode && (event.keyCode < 48 || event.keyCode > 57)) {  
 				                 event.preventDefault();  
 				             }  
@@ -86,7 +88,9 @@
 					return false;
 				}
 				//数量大于库存 而不是固定数字100
-				if(result && parseInt($.trim(value)) > 100){
+				var enableStore = $("#enableStore").html();
+				if(isNaN(enableStore))enableStore = 0;
+				if(result && parseInt($.trim(value)) > enableStore){
 					alert("数量不能大于库存！");
 					input.val($this.attr("oldValue"));
 					return false;

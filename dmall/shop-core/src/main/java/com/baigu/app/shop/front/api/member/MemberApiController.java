@@ -50,77 +50,77 @@ import java.util.Map;
 @Scope("prototype")
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class MemberApiController  {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(MemberApiController.class);
-	
+
 	@Autowired
 	private IMemberManager memberManager;
-	@Autowired	
-	private EmailProducer mailMessageProducer;
-	@Autowired
-	private IMemberPointManger memberPointManger;
-	@Autowired
-	private ISmsManager smsManager;
-	
-	
+    @Autowired
+    private EmailProducer mailMessageProducer;
+    @Autowired
+    private IMemberPointManger memberPointManger;
+    @Autowired
+    private ISmsManager smsManager;
 
-	/**
-	 * 判断当前用户是否登录
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/is-login",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult isLogin() {
-		Member member = UserConext.getCurrentMember();
-		Map<String, Object> result = new HashMap<String, Object>();
-		if (member != null) {
-			
+
+    /**
+     * 判断当前用户是否登录
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/is-login", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult isLogin() {
+        Member member = UserConext.getCurrentMember();
+        Map<String, Object> result = new HashMap<String, Object>();
+        if (member != null) {
+
 			result.put("state", 1);
 			result.put("msg", "已经登录");
 		} else {
 			result.put("state", 0);
 			result.put("msg", "未登录");
 		}
-		
+
 		return JsonResultUtil.getObjectJson(result);
 	}
-	
+
 	/**
 	 * 新版登录逻辑，验证手机号成功以后若已注册则登录，若没登录跳转到填充资料页面
 	 * @param mobile 手机号
 	 * @param code 验证码
-	 * @return 
-	 */
-	@ResponseBody
-	@RequestMapping(value="/sms-login",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult smsLogin(String mobile, String validcode) {
-		try {
-			
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/sms-login", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult smsLogin(String mobile, String validcode) {
+        try {
+
 			boolean checkResult = SmsUtil.validSmsCode(validcode, mobile, SmsTypeKeyEnum.CHECK.toString());
-			
+
 			// 验证结果
 			if (checkResult) {
-				
+
 				boolean isRegister = SmsUtil.validMobileIsRegister(mobile);
-				
+
 				Map<String, Object> result = new HashMap<String, Object>();
-				
+
 				// 如果注册了
 				if (isRegister) {
 					Member member = this.memberManager.loginByMobile(mobile);
 					//手机登录时没有密码
 					shiroLogin(member.getUname(), validcode);
-					
+
 					result.put("check_type", "login");
-					
+
 				// 如果没注册,加密账户信息，返回给前端跳转到填充信息页面
 				} else {
-					
+
 					// 把注册信息 加密  放到session当中
 					String ciphertext = EncryptionUtil1.authcode("{\"account_type\" : \"mobile\",\"account\" : \"" + mobile + "\"}", "ENCODE", "", 0);
 					HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 					request.getSession().setAttribute("account_info", ciphertext);
-					
+
 					result.put("check_type", "register");
 				}
 				return JsonResultUtil.getObjectJson(result);
@@ -131,28 +131,29 @@ public class MemberApiController  {
 			TestUtil.print(e);
 			LOGGER.debug(e.getMessage());
 			return JsonResultUtil.getErrorJson(e.getMessage());
-		}
+        }
 
-	}
-	
-	
-	/**
-	 * 验证注册短信验证码
-	 * @param mobile 手机号
-	 * @param smsCode 验证码
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/vali-register-sms-code",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult valiRegisterSmsCode(String mobile, String smsCode){
-		try {
-			HttpServletRequest request = ThreadContextHolder.getHttpRequest();
-			if (SmsUtil.validSmsCode(smsCode, mobile, SmsTypeKeyEnum.REGISTER.toString())) {
-				
+    }
+
+
+    /**
+     * 验证注册短信验证码
+     *
+     * @param mobile  手机号
+     * @param smsCode 验证码
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/vali-register-sms-code", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult valiRegisterSmsCode(String mobile, String smsCode) {
+        try {
+            HttpServletRequest request = ThreadContextHolder.getHttpRequest();
+            if (SmsUtil.validSmsCode(smsCode, mobile, SmsTypeKeyEnum.REGISTER.toString())) {
+
 				// 把注册信息 加密  放到session当中
 				String ciphertext = EncryptionUtil1.authcode("{\"account_type\" : \"mobile\",\"account\" : \"" + mobile + "\"}", "ENCODE", "", 0);
 				request.getSession().setAttribute("account_info", ciphertext);
-				
+
 				return JsonResultUtil.getSuccessJson("验证成功");
 			} else {
 				return JsonResultUtil.getErrorJson("验证失败：验证码错误");
@@ -197,19 +198,19 @@ public class MemberApiController  {
 					}
 					shiroLogin(username, password);
 					return JsonResultUtil.getSuccessJson("登录成功");
-				}else{
-					return JsonResultUtil.getErrorJson("账号密码错误");				
-				}
-			} 
-			return JsonResultUtil.getErrorJson("验证码错误！");	
-		}else{
-			try {
-				if (SmsUtil.validSmsCode(validcode, mobile, SmsTypeKeyEnum.LOGIN.toString())) {
-					Member member = this.memberManager.loginByMobile(mobile);
-					if (member!=null) {
-						
+                } else {
+                    return JsonResultUtil.getErrorJson("账号密码错误");
+                }
+            }
+            return JsonResultUtil.getErrorJson("验证码错误！");
+        } else {
+            try {
+                if (SmsUtil.validSmsCode(validcode, mobile, SmsTypeKeyEnum.LOGIN.toString())) {
+                    Member member = this.memberManager.loginByMobile(mobile);
+                    if (member != null) {
+
 						remember = "1"; //add_by Sylow 默认支持两周免登录
-						
+
 						// 两周内免登录
 						if (remember != null && remember.equals("1")) {
 							String cookieValue = EncryptionUtil1.authcode(
@@ -220,16 +221,16 @@ public class MemberApiController  {
 						//手机登录时没有密码
 						shiroLogin(member.getUname(), validcode);
 						return JsonResultUtil.getSuccessJson("登录成功");
-					}else{
-						return JsonResultUtil.getErrorJson("账号密码错误");				
-					}
-				} 
-			} catch (Exception e) {
-				return JsonResultUtil.getErrorJson(e.getMessage());	
-			}
-			return JsonResultUtil.getErrorJson("验证码错误！");	
-		}
-	}
+                    } else {
+                        return JsonResultUtil.getErrorJson("账号密码错误");
+                    }
+                }
+            } catch (Exception e) {
+                return JsonResultUtil.getErrorJson(e.getMessage());
+            }
+            return JsonResultUtil.getErrorJson("验证码错误！");
+        }
+    }
 
 	/**
 	 * 通过Shiro登录，Shiro权限过滤器才能生效。
@@ -292,8 +293,8 @@ public class MemberApiController  {
 	@RequestMapping(value="/change-password",produces = MediaType.APPLICATION_JSON_VALUE)
 	public JsonResult changePassword(String oldpassword, String newpassword, String re_passwd) {
 		Member member = UserConext.getCurrentMember();
-		if(member==null){
-			return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");				
+        if (member == null) {
+            return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");
 
 		}
 		String oldPassword = oldpassword;
@@ -303,27 +304,27 @@ public class MemberApiController  {
 			String passwd_re = re_passwd;
 			if(StringUtil.isEmpty(password)){
 				return JsonResultUtil.getErrorJson("新密码不能为空");
-			}
-			if(oldpassword.equals(password)){ 				
-				return JsonResultUtil.getErrorJson("您输入新旧密相同，请重新输入"); 			
-				}
-			if (passwd_re.equals(password)) {
-				try {
-					memberManager.updatePassword(password);
-					return JsonResultUtil.getSuccessJson("修改密码成功");
+            }
+            if (oldpassword.equals(password)) {
+                return JsonResultUtil.getErrorJson("您输入新旧密相同，请重新输入");
+            }
+            if (passwd_re.equals(password)) {
+                try {
+                    memberManager.updatePassword(password);
+                    return JsonResultUtil.getSuccessJson("修改密码成功");
 
 				} catch (Exception e) {
 					LOGGER.error("修改密码失败", e);
-					return JsonResultUtil.getErrorJson("修改密码失败");				
-				}
-			} else {
-				return JsonResultUtil.getErrorJson("修改失败！两次输入的密码不一致");				
+                    return JsonResultUtil.getErrorJson("修改密码失败");
+                }
+            } else {
+                return JsonResultUtil.getErrorJson("修改失败！两次输入的密码不一致");
 
 			}
 		} else {
-			return JsonResultUtil.getErrorJson("修改失败！原始密码不符");							
-		}
-	}
+            return JsonResultUtil.getErrorJson("修改失败！原始密码不符");
+        }
+    }
 
 	/**
 	 * 修改会员登陆密码
@@ -339,51 +340,51 @@ public class MemberApiController  {
 		Member member = UserConext.getCurrentMember();
 		//会员信息不能为空
 		if (member == null) {
-			return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");				
-		}
-		
+            return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");
+        }
+
 		String password = newpassword;
 		String passwd_re = re_passwd;
-		
+
 		//新密码不能为空
 		if(StringUtil.isEmpty(password)){
 			return JsonResultUtil.getErrorJson("新密码不能为空");
 		}
-		
+
 		//输入的新密码与原密码相同
 		if (member.getPassword().equals(StringUtil.md5(password))) {
 			return JsonResultUtil.getErrorJson("输入的新密码与原密码相同");
 		}
-		
+
 		//再一次输入密码不能为空
 		if(StringUtil.isEmpty(re_passwd)){
 			return JsonResultUtil.getErrorJson("请再一次输入密码");
 		}
-		
+
 		//两次输入的密码必须一致
 		if (!passwd_re.equals(password)) {
-			return JsonResultUtil.getErrorJson("两次输入的密码不一致");	
-		}
-		
+            return JsonResultUtil.getErrorJson("两次输入的密码不一致");
+        }
+
 		//验证码不能为空
 		if(StringUtil.isEmpty(authCode)){
 			return JsonResultUtil.getErrorJson("请输入验证码");
 		}
-		
+
 		//验证验证码输入的是否正确
 		if (this.validcode(authCode, "membervalid") == 0) {
 			return JsonResultUtil.getErrorJson("验证码输入错误");
 		}
-		
+
 		try {
 			memberManager.updatePassword(password);
 			return JsonResultUtil.getSuccessJson("修改密码成功");
 
 		} catch (Exception e) {
 			LOGGER.error("修改密码失败", e);
-			return JsonResultUtil.getErrorJson("修改密码失败");				
-		}
-	}
+            return JsonResultUtil.getErrorJson("修改密码失败");
+        }
+    }
 
 	/**
 	 * 会员手机验证
@@ -398,87 +399,88 @@ public class MemberApiController  {
 	@RequestMapping(value="/member-mobile-validate", produces = MediaType.APPLICATION_JSON_VALUE)
 	public JsonResult memberMobileValidate(String mobileCode, String validcode, String mobile, String key){
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
-		
+
 		Member member = UserConext.getCurrentMember();
 		try {
-			
+
 			//会员信息不能为空
 			if (member == null) {
-				return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");				
-			}
-			
+                return JsonResultUtil.getErrorJson("尚未登录，无权使用此api");
+            }
+
 			//手机校验码不能为空
 			if(StringUtil.isEmpty(mobileCode)){
 				return JsonResultUtil.getErrorJson("手机校验码不能为空");
 			}
-			
+
 			//手机号不能为空
 			if (StringUtil.isEmpty(mobile)) {
-				return JsonResultUtil.getErrorJson("手机号不能为空");	
-			}
-			
+                return JsonResultUtil.getErrorJson("手机号不能为空");
+            }
+
 			//验证手机校验码的key值不能为空
 			if(StringUtil.isEmpty(key)){
 				return JsonResultUtil.getErrorJson("出现错误，请重试！");
 			}
-			
+
 			//验证码不能为空
 			if(StringUtil.isEmpty(validcode)){
 				return JsonResultUtil.getErrorJson("验证码不能为空");
 			}
-			
+
 			if (this.validcode(validcode, "membervalid") == 0) {
 				return JsonResultUtil.getErrorJson("验证码输入错误");
-			}
-			
-			boolean result = SmsUtil.validSmsCode(mobileCode, mobile, key);
-			
-			//如果手机校验码错误
-			if (!result) {
-				return JsonResultUtil.getErrorJson("短信验证码错误");
-			} else {
-				
-				//如果验证码输入错误
-	//			if (this.validcode(validcode, "membervalid") == 0) {
-	//				return JsonResultUtil.getErrorJson("验证码输入错误");
-	//			} else {
-	//				
-					// 把注册信息 加密  放到session当中
-					String ciphertext = EncryptionUtil1.authcode("{\"account_type\" : \"mobile\",\"account\" : \"" + mobile + "\"}", "ENCODE", "", 0);
-					request.getSession().setAttribute("account_detail", ciphertext);
-					
-					//如果手机校验码的key值为binding
-					if (key.equals("binding")) {
-						this.memberManager.changeMobile(member.getMember_id(), mobile);
-					}
-					
-					return JsonResultUtil.getSuccessJson("验证成功");
-	//			}
-			}
-		} catch (Exception e) {
-			return JsonResultUtil.getErrorJson(e.getMessage());
-		}
-	}
-	
-	/**
-	 * 验证原密码输入是否正确
-	 * @param oldpassword:密码，String型
-	 * @return json字串
-	 * result  为1表示原密码正确，0表示失败 ，int型
-	 * message 为提示信息 ，String型
-	 */
-	@ResponseBody
-	@RequestMapping(value="/password",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult password(String oldpassword){
-		Member member = UserConext.getCurrentMember();
-		String old = oldpassword;
-		String oldPassword = StringUtil.md5(old);
-		if (oldPassword.equals(member.getPassword())){
-			return JsonResultUtil.getSuccessJson("正确");
-		}else{
-			return JsonResultUtil.getErrorJson("输入原始密码错误");				
-		}
-	}
+            }
+
+            boolean result = SmsUtil.validSmsCode(mobileCode, mobile, key);
+
+            //如果手机校验码错误
+            if (!result) {
+                return JsonResultUtil.getErrorJson("短信验证码错误");
+            } else {
+
+                //如果验证码输入错误
+                //			if (this.validcode(validcode, "membervalid") == 0) {
+                //				return JsonResultUtil.getErrorJson("验证码输入错误");
+                //			} else {
+                //
+                // 把注册信息 加密  放到session当中
+                String ciphertext = EncryptionUtil1.authcode("{\"account_type\" : \"mobile\",\"account\" : \"" + mobile + "\"}", "ENCODE", "", 0);
+                request.getSession().setAttribute("account_detail", ciphertext);
+
+                //如果手机校验码的key值为binding
+                if (key.equals("binding")) {
+                    this.memberManager.changeMobile(member.getMember_id(), mobile);
+                }
+
+                return JsonResultUtil.getSuccessJson("验证成功");
+                //			}
+            }
+        } catch (Exception e) {
+            return JsonResultUtil.getErrorJson(e.getMessage());
+        }
+    }
+
+    /**
+     * 验证原密码输入是否正确
+     *
+     * @param oldpassword:密码，String型
+     * @return json字串
+     * result  为1表示原密码正确，0表示失败 ，int型
+     * message 为提示信息 ，String型
+     */
+    @ResponseBody
+    @RequestMapping(value = "/password", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult password(String oldpassword) {
+        Member member = UserConext.getCurrentMember();
+        String old = oldpassword;
+        String oldPassword = StringUtil.md5(old);
+        if (oldPassword.equals(member.getPassword())) {
+            return JsonResultUtil.getSuccessJson("正确");
+        } else {
+            return JsonResultUtil.getErrorJson("输入原始密码错误");
+        }
+    }
 
 
 
@@ -493,10 +495,10 @@ public class MemberApiController  {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/search",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult search(Map memberMap, Integer lvid , String keyword){
-		try{
-			if(UserConext.getCurrentAdminUser()==null){
-				return JsonResultUtil.getErrorJson("无权访问此api");				
+    public JsonResult search(Map memberMap, Integer lvid, String keyword) {
+        try {
+            if (UserConext.getCurrentAdminUser() == null) {
+                return JsonResultUtil.getErrorJson("无权访问此api");
 
 			}
 			memberMap = new HashMap();
@@ -511,9 +513,9 @@ public class MemberApiController  {
 			}
 		}catch(Throwable e){
 			LOGGER.error("搜索会员出错", e);
-			return JsonResultUtil.getErrorJson("搜索会员出错");						
-		}
-	}
+            return JsonResultUtil.getErrorJson("搜索会员出错");
+        }
+    }
 
 	/**
 	 * 检测username是否存在，并生成json返回给客户端
@@ -524,10 +526,10 @@ public class MemberApiController  {
 		int result = this.memberManager.checkname(username);
 		if(result==0){
 			return JsonResultUtil.getSuccessJson("会员名称可以使用！");
-		}else{
-			return JsonResultUtil.getErrorJson("该会员名称已经存在！");						
-		}
-	}
+        } else {
+            return JsonResultUtil.getErrorJson("该会员名称已经存在！");
+        }
+    }
 
 	/**
 	 * 检测email是否存在，并生成json返回给客户端
@@ -538,9 +540,9 @@ public class MemberApiController  {
 		int result = this.memberManager.checkemail(email);
 		if(result==0){
 			return JsonResultUtil.getSuccessJson("邮箱不存在，可以使用");
-		}else{
-			return JsonResultUtil.getErrorJson("该邮箱已经存在！");	
-		}
+        } else {
+            return JsonResultUtil.getErrorJson("该邮箱已经存在！");
+        }
 
 	}
 
@@ -570,44 +572,45 @@ public class MemberApiController  {
 		int result = this.memberManager.checkMobile(mobile);
 		if(result == 0){
 			return JsonResultUtil.getSuccessJson("手机号不存在，可以使用");
-		}else{
-			return JsonResultUtil.getErrorJson("该手机号已经存在！");	
-		}
+        } else {
+            return JsonResultUtil.getErrorJson("该手机号已经存在！");
+        }
 
-	}
-	
-	/**
-	 * 用户登录修改信息检测邮箱是否存在
-	 * 检测email是否存在，并生成json返回给客户端
-	 * @param email
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/checkemailInEdit",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult checkemailInEdit(String email) {
-		Member member = UserConext.getCurrentMember();
-		boolean	flag = this.memberManager.checkemailInEdit(email, member.getMember_id());//true为可用，false不可用
-		if(flag){
-			return JsonResultUtil.getSuccessJson("邮箱不存在，可以使用");
-		}else{
-			return JsonResultUtil.getErrorJson("该邮箱已经存在！");	
-		}
-		
-	}
-	
+    }
+
+    /**
+     * 用户登录修改信息检测邮箱是否存在
+     * 检测email是否存在，并生成json返回给客户端
+     *
+     * @param email
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/checkemailInEdit", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult checkemailInEdit(String email) {
+        Member member = UserConext.getCurrentMember();
+        boolean flag = this.memberManager.checkemailInEdit(email, member.getMember_id());//true为可用，false不可用
+        if (flag) {
+            return JsonResultUtil.getSuccessJson("邮箱不存在，可以使用");
+        } else {
+            return JsonResultUtil.getErrorJson("该邮箱已经存在！");
+        }
+
+    }
+
 	@ResponseBody
 	@RequestMapping(value="/reg-mobile",produces = MediaType.APPLICATION_JSON_VALUE)
 	public JsonResult regMobile(String validcode, String license, String email, String username, String password, String mobile, String type, String invite_code) {
 		if (type != null && type.equals("1")) {
 			if (this.validcode(validcode, "memberreg") == 0) {
 				return JsonResultUtil.getErrorJson("验证码输入错误!");
-			}
-			
+            }
+
 			/*try {
-				// 适配b2c 的注册/ V62 PC注册流程改版
+                // 适配b2c 的注册/ V62 PC注册流程改版
 				HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 				String smsCode = request.getParameter("sms_code").toString();
-				
+
 				// 校验失败
 				if (!SmsUtil.validSmsCode(smsCode, mobile, SmsTypeKeyEnum.REGISTER.toString())) {
 					return JsonResultUtil.getErrorJson("短信验证码错误");
@@ -615,21 +618,21 @@ public class MemberApiController  {
 			} catch(RuntimeException e) {
 				return JsonResultUtil.getErrorJson(e.getMessage());
 			}*/
-		}
-		
+        }
 
-		if(this.memberManager.checkMobile(mobile)==1){
-			return JsonResultUtil.getErrorJson("此手机号已注册，请更换手机号!");				
+
+        if (this.memberManager.checkMobile(mobile) == 1) {
+            return JsonResultUtil.getErrorJson("此手机号已注册，请更换手机号!");
 
 		}
 
 		if (!"agree".equals(license)) {
-			return JsonResultUtil.getErrorJson("同意注册协议才可以注册!");							
-		}
+            return JsonResultUtil.getErrorJson("同意注册协议才可以注册!");
+        }
 
 		if (StringUtil.isEmpty(password)) {
-			return JsonResultUtil.getErrorJson("密码不能为空！");							
-		}
+            return JsonResultUtil.getErrorJson("密码不能为空！");
+        }
 
 		Member member = new Member();
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
@@ -667,43 +670,43 @@ public class MemberApiController  {
 	@RequestMapping(value="/register",produces = MediaType.APPLICATION_JSON_VALUE)
 	public JsonResult register(String validcode, String license, String email, String username, String password, String mobile, String friendid) {
 		if (this.validcode(validcode,"memberreg") == 0) {
-			return JsonResultUtil.getErrorJson("验证码输入错误!");				
-		}
-		if (!"agree".equals(license)) {
-			return JsonResultUtil.getErrorJson("同意注册协议才可以注册!");				
-		}
+            return JsonResultUtil.getErrorJson("验证码输入错误!");
+        }
+        if (!"agree".equals(license)) {
+            return JsonResultUtil.getErrorJson("同意注册协议才可以注册!");
+        }
 
 		Member member = new Member();
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		String registerip = request.getRemoteAddr();
 
 		if (StringUtil.isEmpty(username)) {
-			return JsonResultUtil.getErrorJson("用户名不能为空！");				
-		}
+            return JsonResultUtil.getErrorJson("用户名不能为空！");
+        }
 //		if (StringUtil.isEmpty(mobile)) {
-//			return JsonResultUtil.getErrorJson("手机号码不能为空！");				
+//			return JsonResultUtil.getErrorJson("手机号码不能为空！");
 //		}
 		if (username.length() < 4 || username.length() > 20) {
-			return JsonResultUtil.getErrorJson("用户名的长度为4-20个字符！");				
-		}
-		if (username.contains("@")) {
-			return JsonResultUtil.getErrorJson("用户名中不能包含@等特殊字符！");				
-		}
-		if (StringUtil.isEmpty(email)) {
-			return JsonResultUtil.getErrorJson("注册邮箱不能为空！");				
-		}
-		if (!StringUtil.validEmail(email)) {
-			return JsonResultUtil.getErrorJson("注册邮箱格式不正确！");
-		}
-		if (StringUtil.isEmpty(password)) {
-			return JsonResultUtil.getErrorJson("密码不能为空！");
-		}
-		if (memberManager.checkname(username) > 0) {
-			return JsonResultUtil.getErrorJson("此用户名已经存在，请您选择另外的用户名!");
-		}
-		if (memberManager.checkemail(email) > 0) {
-			return JsonResultUtil.getErrorJson("此邮箱已经注册过，请您选择另外的邮箱!");
-		}
+            return JsonResultUtil.getErrorJson("用户名的长度为4-20个字符！");
+        }
+        if (username.contains("@")) {
+            return JsonResultUtil.getErrorJson("用户名中不能包含@等特殊字符！");
+        }
+        if (StringUtil.isEmpty(email)) {
+            return JsonResultUtil.getErrorJson("注册邮箱不能为空！");
+        }
+        if (!StringUtil.validEmail(email)) {
+            return JsonResultUtil.getErrorJson("注册邮箱格式不正确！");
+        }
+        if (StringUtil.isEmpty(password)) {
+            return JsonResultUtil.getErrorJson("密码不能为空！");
+        }
+        if (memberManager.checkname(username) > 0) {
+            return JsonResultUtil.getErrorJson("此用户名已经存在，请您选择另外的用户名!");
+        }
+        if (memberManager.checkemail(email) > 0) {
+            return JsonResultUtil.getErrorJson("此邮箱已经注册过，请您选择另外的邮箱!");
+        }
 
 		member.setMobile(mobile);
 		member.setUname(username);
@@ -737,29 +740,30 @@ public class MemberApiController  {
 			this.memberManager.login(username, password);
 			return JsonResultUtil.getObjectJson("注册成功");
 
-		} else {
-			return JsonResultUtil.getErrorJson("用户名[" + member.getUname() + "]已存在!");				
-		}
-	}
-	/**
-	 * 重新发送激活邮件
-	 */
-	@ResponseBody
-	@RequestMapping(value="/re-send-reg-mail",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult reSendRegMail(){
-		try{
-			//重新发送激活邮件
-			Member member = UserConext.getCurrentMember();
-			if(member == null){
-				return JsonResultUtil.getErrorJson("请您先登录再重新发送激活邮件!");				
-			}
-			member = memberManager.get(member.getMember_id());
-			if(member == null){
-				return JsonResultUtil.getErrorJson("用户不存在,请您先登录再重新发送激活邮件!");				
+        } else {
+            return JsonResultUtil.getErrorJson("用户名[" + member.getUname() + "]已存在!");
+        }
+    }
 
-			}
-			if(member.getLast_send_email() != null && System.currentTimeMillis() / 1000 - member.getLast_send_email().intValue() < 2 * 60 * 60){
-				return JsonResultUtil.getErrorJson("对不起，两小时之内只能重新发送一次激活邮件!");				
+    /**
+     * 重新发送激活邮件
+     */
+    @ResponseBody
+    @RequestMapping(value = "/re-send-reg-mail", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult reSendRegMail() {
+        try {
+            //重新发送激活邮件
+            Member member = UserConext.getCurrentMember();
+            if (member == null) {
+                return JsonResultUtil.getErrorJson("请您先登录再重新发送激活邮件!");
+            }
+            member = memberManager.get(member.getMember_id());
+            if (member == null) {
+                return JsonResultUtil.getErrorJson("用户不存在,请您先登录再重新发送激活邮件!");
+
+            }
+            if (member.getLast_send_email() != null && System.currentTimeMillis() / 1000 - member.getLast_send_email().intValue() < 2 * 60 * 60) {
+                return JsonResultUtil.getErrorJson("对不起，两小时之内只能重新发送一次激活邮件!");
 
 			}
 
@@ -787,8 +791,8 @@ public class MemberApiController  {
 			memberManager.edit(member);
 			return JsonResultUtil.getSuccessJson("激活邮件发送成功，请登录您的邮箱 " + member.getEmail() + " 进行查收！");
 
-		}catch(RuntimeException e){
-			return JsonResultUtil.getErrorJson(e.getMessage());				
+        } catch (RuntimeException e) {
+            return JsonResultUtil.getErrorJson(e.getMessage());
 
 		}
 	}
@@ -811,21 +815,21 @@ public class MemberApiController  {
 	 * @param region_id   // 区ID
 	 * @param town_id     //城镇
 	 * @param province    // 省份
-	 * @return
-	 * 修改人：whj 
-	 * 修改时间：2016-09-18 
-	 * 修改内容：对（mobile）字段为空的校验
-	 */
-	
-	@ResponseBody
-	@RequestMapping(value="/save-info",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult saveInfo(
-			@RequestParam(value = "tel",  required = false) String tel,
-			@RequestParam(value = "file", required = false) MultipartFile file, String truename, 
-			@RequestParam(value = "zip",  required = false) String zip, String mobile, String sex, 
-			String city, String region,String town, String email, String address, String mybirthday, Integer province_id, 
-			Integer city_id, Integer region_id, Integer town_id,String province){
-		Member member = UserConext.getCurrentMember();
+     * @return
+     * 修改人：whj
+     * 修改时间：2016-09-18
+     * 修改内容：对（mobile）字段为空的校验
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/save-info", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult saveInfo(
+            @RequestParam(value = "tel", required = false) String tel,
+            @RequestParam(value = "file", required = false) MultipartFile file, String truename,
+            @RequestParam(value = "zip", required = false) String zip, String mobile, String sex,
+            String city, String region, String town, String email, String address, String mybirthday, Integer province_id,
+            Integer city_id, Integer region_id, Integer town_id, String province) {
+        Member member = UserConext.getCurrentMember();
 
 		member = memberManager.get(member.getMember_id());
 
@@ -839,10 +843,10 @@ public class MemberApiController  {
 				return JsonResultUtil.getErrorJson("不允许上传的文件格式，请上传gif,jpg,bmp格式文件。");
 			}
 
-			//判断文件大小
+            //判断文件大小
 
-			if(file.getSize() > 200 * 1024){
-				return JsonResultUtil.getErrorJson("'对不起,图片不能大于200K！");				
+            if (file.getSize() > 200 * 1024) {
+                return JsonResultUtil.getErrorJson("'对不起,图片不能大于200K！");
 
 			}
 			InputStream stream=null;
@@ -876,20 +880,20 @@ public class MemberApiController  {
 		member.setEmail(email);
 		member.setAddress(address);
 		member.setZip(zip);
-		
-		/** 修改个人信息时，不允许直接修改手机号了 add_by DMRain 2016-7-21 */
+
+        /** 修改个人信息时，不允许直接修改手机号了 add_by DMRain 2016-7-21 */
 //		if(mobile!=null){
 //			member.setMobile(mobile);
 //		}
-		
-		//判断会员电话字段是否为空
-		if(StringUtil.isEmpty(member.getMobile())){
-			if(!StringUtil.isEmpty(mobile)){
-				member.setMobile(mobile);
-			}
-		}
-		
-		member.setTel(tel);
+
+        //判断会员电话字段是否为空
+        if (StringUtil.isEmpty(member.getMobile())) {
+            if (!StringUtil.isEmpty(mobile)) {
+                member.setMobile(mobile);
+            }
+        }
+
+        member.setTel(tel);
 
 		//如果会员真实姓名不为空
 		if(truename != null){
@@ -905,48 +909,48 @@ public class MemberApiController  {
 			member.setMidentity(StringUtil.toInt(midentity));
 		} else {
 			member.setMidentity(0);
-		}
-		
-		try {
-			// 判断否需要增加积分
-			boolean addPoint = false;
-			if (member.getInfo_full() == 0 && !StringUtil.isEmpty(member.getName())&&!StringUtil.isEmpty(member.getNickname()) && !StringUtil.isEmpty(member.getProvince())&& !StringUtil.isEmpty(member.getCity()) && !StringUtil.isEmpty(member.getRegion()) && !StringUtil.isEmpty(member.getTel())) {
-				addPoint = true;
-			}
-			// 增加积分
-			if (addPoint) {
-				member.setInfo_full(1);
-				memberManager.edit(member);
-				if (memberPointManger.checkIsOpen(IMemberPointManger.TYPE_FINISH_PROFILE)) {
-					int point = memberPointManger.getItemPoint(IMemberPointManger.TYPE_FINISH_PROFILE + "_num");
-					int mp = memberPointManger.getItemPoint(IMemberPointManger.TYPE_FINISH_PROFILE + "_num_mp");
-					//添加会员的等级积分和消费积分 dongxin改
-					memberPointManger.add(member, point,	"完善个人资料", null, 0,0);
-					memberPointManger.add(member, 0,	"完善个人资料", null, mp,1);
-				}
-			} else {
-				memberManager.edit(member);
-			}
-			return JsonResultUtil.getSuccessJson("编辑个人资料成功！");
+        }
+
+        try {
+            // 判断否需要增加积分
+            boolean addPoint = false;
+            if (member.getInfo_full() == 0 && !StringUtil.isEmpty(member.getName()) && !StringUtil.isEmpty(member.getNickname()) && !StringUtil.isEmpty(member.getProvince()) && !StringUtil.isEmpty(member.getCity()) && !StringUtil.isEmpty(member.getRegion()) && !StringUtil.isEmpty(member.getTel())) {
+                addPoint = true;
+            }
+            // 增加积分
+            if (addPoint) {
+                member.setInfo_full(1);
+                memberManager.edit(member);
+                if (memberPointManger.checkIsOpen(IMemberPointManger.TYPE_FINISH_PROFILE)) {
+                    int point = memberPointManger.getItemPoint(IMemberPointManger.TYPE_FINISH_PROFILE + "_num");
+                    int mp = memberPointManger.getItemPoint(IMemberPointManger.TYPE_FINISH_PROFILE + "_num_mp");
+                    //添加会员的等级积分和消费积分 dongxin改
+                    memberPointManger.add(member, point, "完善个人资料", null, 0, 0);
+                    memberPointManger.add(member, 0, "完善个人资料", null, mp, 1);
+                }
+            } else {
+                memberManager.edit(member);
+            }
+            return JsonResultUtil.getSuccessJson("编辑个人资料成功！");
 
 		} catch (Exception e) {
 			LOGGER.error("编辑个人资料失败！", e);
-			return JsonResultUtil.getErrorJson("编辑个人资料失败！");				
-		}
-	} 
+            return JsonResultUtil.getErrorJson("编辑个人资料失败！");
+        }
+    }
 
 
 
 
 	/**
 	 * 保存从Flash编辑后返回的头像，保存二次，一大一小两个头像
-	 * 
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/save-avatar",produces = MediaType.APPLICATION_JSON_VALUE)
-	public String saveAvatar(String photoServer, String photoId, String type) {
-		String targetFile = makeFilename("avatar",photoServer,photoId,type);
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/save-avatar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String saveAvatar(String photoServer, String photoId, String type) {
+        String targetFile = makeFilename("avatar", photoServer, photoId, type);
 
 		int potPos = targetFile.lastIndexOf('/') + 1;
 		String folderPath = targetFile.substring(0, potPos);
@@ -986,42 +990,56 @@ public class MemberApiController  {
 	}
 
 	/**
-	 * 上传头像文件
-	 * 
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/upload-avatar",produces = MediaType.APPLICATION_JSON_VALUE)
-	public String uploadAvatar(File faceFile, String faceFileName, @RequestParam(value = "face", required = false) MultipartFile face) {
-		JSONObject jsonObject = new JSONObject();
-		try {
-			if (faceFile != null) {
-				IUploader uploader=UploadFacatory.getUploaer();
-				String file = uploader.upload(face.getInputStream(), "avatar",face.getOriginalFilename());
-				Member member = UserConext.getCurrentMember();
-				jsonObject.put("result", 1);
-				jsonObject.put("member_id", member.getMember_id());
-				jsonObject.put("url", toUrl(file));
-				jsonObject.put("message", "操作成功！");
-			}
-		} catch (Exception e) {
-			jsonObject.put("result", 0);
-			jsonObject.put("message", "操作失败！");
-		}
+     * 上传头像文件
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/upload-avatar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String uploadAvatar(File faceFile, String faceFileName, @RequestParam(value = "face", required = false) MultipartFile face) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            if (faceFile != null) {
+                IUploader uploader = UploadFacatory.getUploaer();
+                String file = uploader.upload(face.getInputStream(), "avatar", face.getOriginalFilename());
+                Member member = UserConext.getCurrentMember();
+                jsonObject.put("result", 1);
+                jsonObject.put("member_id", member.getMember_id());
+                jsonObject.put("url", toUrl(file));
+                jsonObject.put("message", "操作成功！");
+            }
+        } catch (Exception e) {
+            jsonObject.put("result", 0);
+            jsonObject.put("message", "操作失败！");
+        }
 
 		/*this.json = jsonObject.toString();
 
 		return WWAction.JSON_MESSAGE;*/
-		String json =jsonObject.toString();
-		return json;
-	}
+        String json = jsonObject.toString();
+        return json;
+    }
 
-	//************to宏俊：以api先不用书写文档****************/
-	protected String toUrl(String path) {
-		String static_server_domain= SystemSetting.getStatic_server_domain();
-		String urlBase = static_server_domain;
-		return path.replaceAll("fs:", urlBase);
-	}
+    /**
+     * 邀请审核
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/inviteReview", produces = MediaType.APPLICATION_JSON_VALUE)
+    public JsonResult inviteReview(Integer memberId, Boolean pass, @RequestParam(required = false) String reason) {
+        Member member = UserConext.getCurrentMember();
+        memberManager.inviteReview(member.getMember_id(), memberId, pass, reason);
+        return JsonResultUtil.getSuccessJson("操作成功");
+    }
+
+
+    //************to宏俊：以api先不用书写文档****************/
+    protected String toUrl(String path) {
+        String static_server_domain = SystemSetting.getStatic_server_domain();
+        String urlBase = static_server_domain;
+        return path.replaceAll("fs:", urlBase);
+    }
 
 	protected String makeFilename(String subFolder, String photoServer, String photoId, String type ) {
 		String ext = FileUtil.getFileExt(photoServer);
@@ -1035,19 +1053,19 @@ public class MemberApiController  {
 
 		filePath += fileName;
 		return filePath;
-	}
+    }
 
-	/**
-	 * 校验验证码
-	 * 
-	 * @param validcode
-	 * @param name (1、memberlogin:会员登录  2、memberreg:会员注册 3、membervalid:会员手机验证)
-	 * @return 1成功 0失败
-	 */
-	private int validcode(String validcode,String name) {
-		if (validcode == null) {
-			return 0;
-		}
+    /**
+     * 校验验证码
+     *
+     * @param validcode
+     * @param name      (1、memberlogin:会员登录  2、memberreg:会员注册 3、membervalid:会员手机验证)
+     * @return 1成功 0失败
+     */
+    private int validcode(String validcode, String name) {
+        if (validcode == null) {
+            return 0;
+        }
 
 		String code = (String) ThreadContextHolder.getSession().getAttribute(ValidCodeServlet.SESSION_VALID_CODE + name);
 
@@ -1056,12 +1074,12 @@ public class MemberApiController  {
 		} else {
 			if (!code.equalsIgnoreCase(validcode)) {
 				return 0;
-			}
-		}
-		return 1;
-	}
+            }
+        }
+        return 1;
+    }
 
-	
-	// 
-	
+
+    //
+
 }
