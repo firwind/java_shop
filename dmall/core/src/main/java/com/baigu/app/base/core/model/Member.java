@@ -323,6 +323,10 @@ public class Member implements java.io.Serializable {
 	}
 
 	public String getParentids() {
+		return parentids;
+	}
+
+	public String cleanParentids() {
 		StringBuilder clearParentIds = new StringBuilder();//不带[]的parentIds
 		if (StringUtils.isNotBlank(parentids)) {
 			for (String id : parentids.split(",")) {

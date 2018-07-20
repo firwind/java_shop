@@ -8,7 +8,6 @@ import com.baigu.app.shop.core.agent.model.MonthBonus;
 import com.baigu.app.shop.core.agent.model.MonthSale;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
-import com.baigu.framework.util.DateUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +46,7 @@ public class MemberBonusManager implements IMemberBonusManager {
 
     @Override
     public void reCountMonthBonus(MonthBonus bonus) {
-        MonthSale ms = memberSaleManager.getMemberMonthSale(DateUtil.getCurrentMonthString(), bonus.getMember_id());
+        MonthSale ms = memberSaleManager.getMemberMonthSale(bonus.getMonth(), bonus.getMember_id());
         List<BonusRule> bonusRules = this.daoSupport.queryForList("SELECT * FROM `es_bonus_rule`", BonusRule.class);
         bonus.setPerson_sale(ms.getPerson_sale());
         bonus.setTeam_sale(ms.getTeam_sale());

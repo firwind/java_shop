@@ -2,9 +2,11 @@ package com.baigu.app.shop.component.agent.service.impl;
 
 import com.baigu.app.shop.component.agent.service.IMemberSaleManager;
 import com.baigu.app.shop.core.agent.model.MonthSale;
+import com.baigu.app.shop.core.order.service.OrderStatus;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
 import com.baigu.framework.util.DateUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +51,7 @@ public class MemberSaleManager implements IMemberSaleManager {
         long eTime = DateUtil.startOfSomeDay(-1);//当天结束
         long personDailySale = this.daoSupport.queryForLong("SELECT IFNULL(SUM(o.goods_amount),0) FROM es_order o " +
                 "LEFT JOIN es_member m ON o.member_id = m.member_id " +
-                "WHERE 1=1 AND o.member_id = ?  AND o.create_time >= ? AND o.create_time <=?", memberId, sTime, eTime);
+                "WHERE 1=1 AND (o.status = " + OrderStatus.PAY_YES + " OR o.status = " + OrderStatus.ORDER_COMPLETE + ") AND o.member_id = ?  AND o.create_time >= ? AND o.create_time <=?", memberId, sTime, eTime);
         return BigDecimal.valueOf(personDailySale);
     }
 
@@ -65,7 +67,7 @@ public class MemberSaleManager implements IMemberSaleManager {
         long eTime = DateUtil.startOfSomeDay(-1);//当天结束
         long subPersonSale = this.daoSupport.queryForLong("SELECT IFNULL(SUM(o.goods_amount),0) FROM es_order o " +
                 "LEFT JOIN es_member m ON o.member_id = m.member_id " +
-                "WHERE 1=1 AND m.parentids LIKE '%[" + memberId + "]%' AND o.create_time >= ? AND o.create_time <=?", sTime, eTime);
+                "WHERE 1=1 AND (o.status = " + OrderStatus.PAY_YES + " OR o.status = " + OrderStatus.ORDER_COMPLETE + ") AND m.parentids LIKE '%[" + memberId + "]%' AND o.create_time >= ? AND o.create_time <=?", sTime, eTime);
         return personDailySale.add(BigDecimal.valueOf(subPersonSale));
 
     }
@@ -78,5 +80,17 @@ public class MemberSaleManager implements IMemberSaleManager {
                         "FROM es_month_bonus a LEFT JOIN es_member b ON a.member_id = b.member_id " +
                         "WHERE a.`month` = ? AND b.parentid = ? order by a.team_sale desc",
                 page, pageSize, month, memberId);
+    }
+
+    @Override
+    public void reduceMonthSale(Double amount, String month, Integer memberId) {
+        this.daoSupport.execute("update es_month_sale set person_sale = person_sale - " + amount + ",team_sale = team_sale - " + amount + " where `month` = " + month + " and member_id = " + memberId + " and person_sale >= " + amount + " and team_sale >= " + amount);
+        String parentIds = this.daoSupport.queryForString("SELECT parentids FROM es_member WHERE member_id = " + memberId);
+        if (StringUtils.isNotBlank(parentIds)) {
+            for (String parentId : parentIds.split(",")) {
+                parentId = parentId.replace("[", "").replace("]", "");
+                this.daoSupport.execute("update es_month_sale set team_sale = team_sale - " + amount + " where `month` = " + month + " and member_id = " + parentId + " and team_sale >= " + amount);
+            }
+        }
     }
 }

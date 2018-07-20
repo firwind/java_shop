@@ -317,8 +317,7 @@ public class DateUtil {
         //System.out.println( new Date(1320205608000l));
         //System.out.println( DateUtil.toString( new Date(1320205608000l),"yyyy-MM-dd HH:mm:ss"));
 
-        System.out.println(startOfSomeDay(0));
-        System.out.println(new Date(startOfSomeDay(-1) * 1000).toLocaleString());
+        System.out.println(getMonthString(-1));
     }
 
     /**
@@ -329,6 +328,18 @@ public class DateUtil {
      */
     public static String toMonthString(Long milliseconds) {
         return DateUtil.toString(milliseconds, "yyyyMM");
+    }
+
+    /**
+     * 获取距离本月offset的月份字符串
+     *
+     * @param offset
+     * @return
+     */
+    public static String getMonthString(int offset) {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, offset);
+        return DateUtil.toString(c.getTimeInMillis() / 1000, "yyyyMM");
     }
 
     /**

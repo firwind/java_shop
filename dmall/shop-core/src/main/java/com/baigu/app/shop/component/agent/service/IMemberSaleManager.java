@@ -26,4 +26,12 @@ public interface IMemberSaleManager {
      * @return
      */
     Page getTeamSaleList(Integer page, Integer pageSize, String month, Integer memberId);
+
+    /**
+     * 扣减月销量
+     *
+     * @param amount
+     * @param memberId
+     */
+    void reduceMonthSale(Double amount, String month, Integer memberId);
 }

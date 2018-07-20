@@ -1,33 +1,14 @@
 package com.baigu.app.shop.core.order.service.impl;
 
-import java.util.List;
-import java.util.Map;
-
-import com.baigu.app.shop.ShopApp;
-import com.baigu.app.shop.core.goods.service.IGoodsStoreManager;
-import com.baigu.app.shop.core.order.plugin.order.OrderPluginBundle;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.baigu.app.base.core.service.IMemberManager;
+import com.baigu.app.shop.ShopApp;
+import com.baigu.app.shop.component.agent.service.IMemberSaleManager;
 import com.baigu.app.shop.core.goods.plugin.GoodsStorePluginBundle;
+import com.baigu.app.shop.core.goods.service.IGoodsStoreManager;
 import com.baigu.app.shop.core.member.service.IMemberPointManger;
-import com.baigu.app.shop.core.order.model.Order;
-import com.baigu.app.shop.core.order.model.OrderItem;
-import com.baigu.app.shop.core.order.model.Refund;
-import com.baigu.app.shop.core.order.model.SellBack;
-import com.baigu.app.shop.core.order.model.SellBackChild;
-import com.baigu.app.shop.core.order.model.SellBackGoodsList;
-import com.baigu.app.shop.core.order.model.SellBackLog;
-import com.baigu.app.shop.core.order.model.SellBackStatus;
-import com.baigu.app.shop.core.order.service.IOrderGiftManager;
-import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.baigu.app.shop.core.order.service.IRefundManager;
-import com.baigu.app.shop.core.order.service.ISellBackManager;
-import com.baigu.app.shop.core.order.service.OrderItemStatus;
-import com.baigu.app.shop.core.order.service.OrderStatus;
+import com.baigu.app.shop.core.order.model.*;
+import com.baigu.app.shop.core.order.plugin.order.OrderPluginBundle;
+import com.baigu.app.shop.core.order.service.*;
 import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.eop.sdk.context.UserConext;
@@ -38,6 +19,13 @@ import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.DateUtil;
 import com.baigu.framework.util.JsonUtil;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 退货manager
@@ -53,6 +41,8 @@ public class SellBackManager implements ISellBackManager {
 	private IDaoSupport daoSupport;	
 	@Autowired
 	private IOrderManager orderManager;
+	@Autowired
+	private IMemberSaleManager memberSaleManager;
 	@Autowired
 	private IRefundManager refundManager;
 	@Autowired
@@ -179,9 +169,13 @@ public class SellBackManager implements ISellBackManager {
 			//纪录订单日志
 			this.orderManager.addLog(sellBackList.getOrderid(),"拒绝退货申请");
 		}else{
-			
 			//纪录订单日志
 			this.orderManager.addLog(sellBackList.getOrderid(),"通过退货申请");
+			//扣减月销量
+			Order order = orderManager.get(sellBackList.getOrderid());
+			if (order != null) {
+				this.memberSaleManager.reduceMonthSale(sellBackList.getApply_alltotal(), DateUtil.toMonthString(order.getCreate_time()), sellBackList.getMember_id());
+			}
 		}
 
 		/**
@@ -768,7 +762,13 @@ public class SellBackManager implements ISellBackManager {
 			} else if (type == 2) {
 				log = "申请退货，通过，申请退款金额："+sellBackList.getApply_alltotal();
 			}
-			
+
+			Order order = orderManager.get(sellBackList.getOrderid());
+			if (order != null) {
+				//扣减月销量
+				this.memberSaleManager.reduceMonthSale(sellBackList.getApply_alltotal(), DateUtil.toMonthString(order.getCreate_time()), sellBackList.getMember_id());
+			}
+
 			//后台审核后，如果是单店系统，就创建退款单，多店系统不创建退货单，add_by DMRain 2016-7-21
 			if (EopSetting.PRODUCT.equals("b2c")) {
 				this.addRefund(id);
@@ -785,7 +785,6 @@ public class SellBackManager implements ISellBackManager {
 			}
 			//退款分为发货前退款和发货后退款，所以发货前退款，可用库存回归
 			if(type == 1){
-				Order order = orderManager.get(sellBackList.getOrderid());
 				if(order.getSigning_time()==null||order.getSigning_time()==0){//发货前退款
 					List<Map<String, Object>> goodsList = order.getItemList();
 					if(goodsList!=null){
@@ -843,7 +842,6 @@ public class SellBackManager implements ISellBackManager {
 		this.saveLog(id, log);
 	}
 
-
 	/*
 	 * (non-Javadoc)
 	 * @see IOrderReportManager#inStorage(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer)
@@ -893,7 +891,6 @@ public class SellBackManager implements ISellBackManager {
 
 	/**
 	 * 检测货物状态，是否可以申请退货
-	 * @param orderid 订单id
 	 * @throws RuntimeException 如果存在不能退货的状态抛出此异常
 	 */
 	private void checkItemStateForApply(List<Map> itemList){
@@ -921,7 +918,7 @@ public class SellBackManager implements ISellBackManager {
 	 * 检查入库状态
 	 * 判断退货单是否已经全部入库
 	 * 循环退货商品列表判断退货数量是否等于入库数量
-	 * @param id退货单id
+	 * @param id 退货单id
 	 */
 	private void examination(Integer id){
 
@@ -977,7 +974,6 @@ public class SellBackManager implements ISellBackManager {
 	
 	/**
 	 * 添加退款单
-	 * @param sellBackList
 	 */
 	private void addRefund(Integer id){
 		//如果审核通过，创建退款单

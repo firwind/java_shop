@@ -1,0 +1,55 @@
+<#assign  title="历史奖金" />
+<#include 'common/header.html'>
+<#assign memberLoginCheckTag = newTag("memberLoginCheckTag") />
+<#assign memberInfo = memberLoginCheckTag()!'' />
+<!-- 获取会员历史奖金标签 -->
+<#assign memberHistoryBonusTag = newTag("memberHistoryBonusTag")>
+<!-- 调用会员历史奖金标签 -->
+<#assign mhb = memberHistoryBonusTag()>
+<link rel="stylesheet" type="text/css" href="themes/wap/css/member.css" />
+
+<#if member ??>
+	<style>
+		body{background:#F5F5F5;}
+	</style>
+	<div class="header-tools">
+		<div class="go-back">
+			<a href="javascript:" onclick="window.history.go(-1)"></a>
+		</div>
+		<div class="common-title">
+			我的历史奖金
+		</div>
+		<div class="go-search">
+		</div>
+	</div>
+	<#list mhb as mb>
+		<h2 style="text-indent: 2em; margin-top: 1em;">${mb.month}</h2>
+		<div class="member-box">
+			<div class="member-tools-btn-box">
+				<div class="member-tools-btn member-btn1">
+					<p>个人销量</p>
+					<p>${mb.person_sale}元</p>
+				</div>
+				<div class="member-tools-btn member-btn3">
+					<p>团队销量</p>
+					<p>${mb.team_sale}元</p>
+				</div>
+				<div class="member-tools-btn member-btn3">
+					<p>个人奖金</p>
+					<p>${mb.person_bonus}元</p>
+				</div>
+				<div class="member-tools-btn member-btn3">
+					<p>团队奖金</p>
+					<p>${mb.team_bonus}元</p>
+				</div>
+			</div>
+		</div>
+	</#list>
+	<script>
+	</script>
+
+	<#include 'common/float_footer.html'/>
+</#if>
+
+<#include 'common/float_footer.html'/>
+<#include 'common/footer.html'/>
