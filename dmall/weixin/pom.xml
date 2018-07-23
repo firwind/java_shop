@@ -51,10 +51,5 @@
 			<artifactId>shop-core</artifactId>
 			<version>6.3.1</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>3.0.1</version>
-		</dependency>
 	</dependencies>
 </project>

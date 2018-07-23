@@ -1,5 +1,28 @@
 package com.baigu.eop.processor.facade;
 
+import com.baigu.app.base.core.model.ClusterSetting;
+import com.baigu.app.base.core.model.Member;
+import com.baigu.eop.SystemSetting;
+import com.baigu.eop.processor.core.HttpHeaderConstants;
+import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
+import com.baigu.eop.resource.IThemeUriManager;
+import com.baigu.eop.resource.model.EopSite;
+import com.baigu.eop.resource.model.ThemeUri;
+import com.baigu.eop.sdk.HeaderConstants;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.eop.sdk.utils.FreeMarkerUtil;
+import com.baigu.framework.context.spring.SpringContextHolder;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.TagCreator;
+import com.baigu.framework.util.StringUtil;
+import freemarker.core.StopException;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,31 +32,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.baigu.app.base.core.model.ClusterSetting;
-import com.baigu.eop.processor.core.HttpHeaderConstants;
-import com.baigu.eop.resource.model.EopSite;
-import com.baigu.eop.sdk.context.UserConext;
-import com.baigu.eop.sdk.utils.FreeMarkerUtil;
-import com.baigu.framework.context.webcontext.ThreadContextHolder;
-import com.baigu.framework.util.StringUtil;
-import com.baigu.app.base.core.model.Member;
-import com.baigu.eop.SystemSetting;
-import com.baigu.eop.processor.core.UrlNotFoundException;
-import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
-import com.baigu.eop.resource.IThemeUriManager;
-import com.baigu.eop.resource.model.ThemeUri;
-import com.baigu.eop.sdk.HeaderConstants;
-import com.baigu.framework.context.spring.SpringContextHolder;
-import com.baigu.framework.taglib.TagCreator;
-
-import freemarker.core.StopException;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 /**
  * 前台页面解析器<br>
@@ -157,13 +155,17 @@ public class FacadePageParser  {
 
 				if (!StringUtil.isEmpty(themeUri.getPagename()))
 
-					freeMarkerPaser.putData(HeaderConstants.title, themeUri.getPagename()+"-"+(StringUtil.isEmpty(site.getTitle())?site.getSitename():site.getTitle()));
+				{
+					freeMarkerPaser.putData(HeaderConstants.title, themeUri.getPagename() + "-" + (StringUtil.isEmpty(site.getTitle()) ? site.getSitename() : site.getTitle()));
+				}
 
-				if (!StringUtil.isEmpty(themeUri.getKeywords()))
+				if (!StringUtil.isEmpty(themeUri.getKeywords())) {
 					freeMarkerPaser.putData(HeaderConstants.keywords, themeUri.getKeywords());
+				}
 
-				if (!StringUtil.isEmpty(themeUri.getDescription()))
+				if (!StringUtil.isEmpty(themeUri.getDescription())) {
 					freeMarkerPaser.putData(HeaderConstants.description, themeUri.getDescription());
+				}
 			}
 		}
 
@@ -265,9 +267,13 @@ public class FacadePageParser  {
 	private static boolean isMobile(){
 
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
-		if(request==null) return false;
+		if (request == null) {
+			return false;
+		}
 		String user_agent = request.getHeader("user-agent");
-		if(StringUtil.isEmpty(user_agent)) return false;
+		if (StringUtil.isEmpty(user_agent)) {
+			return false;
+		}
 
 		String userAgent = user_agent.toLowerCase();
 

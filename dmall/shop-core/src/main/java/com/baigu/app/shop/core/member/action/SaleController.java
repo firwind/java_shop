@@ -36,7 +36,6 @@ public class SaleController extends GridController {
     @Autowired
     private MemberBonusManager memberBonusManager;
 
-
     @RequestMapping(value = "/list")
     public ModelAndView list() {
         ModelAndView view = getGridModelAndView();
