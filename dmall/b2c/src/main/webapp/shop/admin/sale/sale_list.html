@@ -35,37 +35,46 @@
                 <!--按钮操作  -->
                 <div class="table_control">
                     <div class="table_opera">
-                        <button type="button" class="layui-btn layui-btn-primary " title="删除" onclick="delOrder();"><i class="icon iconfont icon-guanbi1"></i></button>
-                        <button type="button" class="layui-btn layui-btn-primary " title="回收站" onclick='newTab("回收站","${ctx}/shop/admin/sale/trash-list.do");'><i class="icon iconfont icon-caogaoxiang"></i></button>
-                        <button type="button" class="layui-btn layui-btn-primary " title="提示" id="explain"><i class="icon iconfont icon-tishi1"></i></button>
+                        <button type="button" class="layui-btn layui-btn-primary " title="导出选中为Excel" onclick="exportSelectExcel();"><i class="icon iconfont icon-addressbook"></i></button>
+                        <button type="button" class="layui-btn layui-btn-primary " title="导出高级条件为Excel" onclick="exportConditionExcel();"><i class="icon iconfont icon-activity"></i></button>
+                        <!--<button type="button" class="layui-btn layui-btn-primary " title="提示" id="explain"><i class="icon iconfont icon-tishi1"></i></button>-->
                     </div>
                     <!--搜索区域  -->
                     <div class="table_search">
-                        <input type="text" id="_search" placeholder="请输入订单号,收货人" style="height:25px;">
+                        <input type="text" id="_search" placeholder="请输入会员名" style="height:25px;">
                         <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
                         <button type="button" class="layui-btn layui-btn-primary layui-btn-small" id="high_search">高级搜索</button>
                         <!--高级搜索区域  -->
                         <div class="high_searchcontent">
-                            <div class="layui-form-item" style="width:100%;">
-                                <label class="layui-form-label" >下单时间</label>
-                                <div class="layui-input-inline " >
-                                    <input class="layui-input" placeholder="开始日" id="start_time">
-                                </div>
-                                <div class="layui-input-inline">
-                                    <input class="layui-input" placeholder="截止日" id="end_time">
-                                </div>
-                            </div>
-
-                            <ul>
-                                <li class="reset">
-                                    <button type="reset" id="reset_btn" class="layui-btn  layui-btn-primary">重置</button>
-                                </li>
-                                <li class="submit">
-                                    <button type="button"  class="layui-btn layui-btn-primary"  onclick="highSearchOrder()" lay-submit="" lay-filter="highsearch" >开始搜索</button>
-                                </li>
-                            </ul>
                             <div class="content_title"><span>高级搜索</span></div>
                             <form id="search_form" class="layui-form" action="post">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">会员名查询:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" id="uname" maxlength="20" lay-verify="title" autocomplete="off" placeholder="会员名" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">月份查询:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" value="${defaultSmonth!''}" id="start_month" maxlength="6" lay-verify="title" autocomplete="off" placeholder="开始月份" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <input type="text" value="${defaultEmonth!''}" id="end_month" maxlength="6" lay-verify="title" autocomplete="off" placeholder="结束月份" class="layui-input">
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="reset">
+                                        <button type="reset" id="reset_btn" class="layui-btn  layui-btn-primary">重置</button>
+                                    </li>
+                                    <li class="submit">
+                                        <button type="button"  class="layui-btn layui-btn-primary"  onclick="highSearchOrder()" lay-submit="" lay-filter="highsearch" >开始搜索</button>
+                                    </li>
+                                </ul>
                             </form>
                         </div>
                     </div>
@@ -79,32 +88,54 @@
             <div class="kelong" style="display:none;">
                 <ul  class="search_conditions " style="width:98%; ">
                     <li>
-                        <div class="layui-form-item  ">
-                            <label class="layui-form-label _select">下单时间</label>
-                            <div class="layui-input-inline _inline" >
-                                <input type="text" id="start_time_one" readonly="true" class="layui-input">
-                            </div>
-                            <div class="layui-input-inline _inline" >
-                                <input type="text" id="end_time_one"   readonly="true" class="layui-input">
+                        <div class="layui-form-item _select">
+                            <label class="layui-form-label  _label">会员名查询:</label>
+                            <div class="layui-input-block _layui-input-block">
+                                <input type="text" id="uname_one" readonly="true" placeholder="会员名" class="layui-input">
                             </div>
                         </div>
-                        <span style="float:right;margin-top:-43px;">
-	                  	<a class="closeSelf" href="javascript:void (0)">
-	                  		<i class="layui-icon" style="color: #5f8bca;">&#x1006;</i>
-	                 	</a>
-                  </span>
+                        <span>
+                            <a class="closeSelf" href="javascript:void (0)">
+                                <i class="layui-icon" style="color: #5f8bca;">&#x1006;</i>
+                            </a>
+                      </span>
                     </li>
-
+                    <li>
+                        <div class="layui-form-item _select">
+                            <label class="layui-form-label  _label">月份查询:</label>
+                            <div class="layui-input-block _layui-input-block">
+                                <input type="text" id="start_month_one" readonly="true" placeholder="开始月份" class="layui-input">
+                            </div>
+                        </div>
+                        <span>
+                            <a class="closeSelf" href="javascript:void (0)">
+                                <i class="layui-icon" style="color: #5f8bca;">&#x1006;</i>
+                            </a>
+                      </span>
+                    </li>
+                    <li>
+                        <div class="layui-form-item _select">
+                            <div class="layui-input-block _layui-input-block">
+                                <input type="text" id="end_month_one" readonly="true" placeholder="结束月份" class="layui-input">
+                            </div>
+                        </div>
+                        <span>
+                            <a class="closeSelf" href="javascript:void (0)">
+                                <i class="layui-icon" style="color: #5f8bca;">&#x1006;</i>
+                            </a>
+                      </span>
+                    </li>
                 </ul>
             </div>
 
 
             <!--表格区域  -->
-            <form id="orderform">
+            <form id="saleform">
                 <table id="orderdata" class="layui-table site-table table-hover" width="100%" lay-skin="line" >
                     <thead>
                     <tr>
                         <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
+                        <th>会员</th>
                         <th>月份</th>
                         <th>个人销量</th>
                         <th>团队销量</th>
@@ -135,25 +166,13 @@
                     $(".high_search").css("display","block");
                     var kelo=$(".kelong ul").clone();
                     kelo.appendTo($(".high_search form"));
-                    /* 赋值 */
-                    var gjsn=$("#sn").val();
-                    $("#sn_one").val(gjsn);
-                    var gjship=$("#ship_name").val();
-                    $("#ship_name_one").val(gjship);
-                    var gjstatus=$("#status").find("option:selected").text();
-                    $("#status_one").val(gjstatus);
-                    var gjpay=$("#paystatus").find("option:selected").text();
-                    $("#paystatus_one").val(gjpay);
-                    var gjships=$("#shipstatus").find("option:selected").text();
-                    $("#shipstatus_one").val(gjships);
-                    var gjpay=$("#payment_id").find("option:selected").text();
-                    $("#payment_id_one").val(gjpay);
-                    var gjshipp=$("#shipping_type").find("option:selected").text();
-                    $("#shipping_type_one").val(gjshipp);
-                    var gjstart=$("#start_time").val();
-                    $("#start_time_one").val(gjstart);
-                    var gjend=$("#end_time").val();
-                    $("#end_time_one").val(gjend);
+                    /!* 赋值 *!/
+                    var sMonth=$("#start_month").val();
+                    $("#start_month_one").val(sMonth);
+                    var eMonth=$("#end_month").val();
+                    $("#end_month_one").val(eMonth);
+                    var uname=$("#uname").val();
+                    $("#uname_one").val(uname);
 
                     $(".closeSelf").click(function(){
                         $(this).parent().parent().detach();
@@ -162,7 +181,6 @@
             });
             var table;
             $(function(){
-
 
                 //高级搜索框的显示隐藏
                 $("#high_search").on("click",function(event){
@@ -184,12 +202,13 @@
                     ajax: {
                         //指定数据源
                         type:"post",
-                        url: '${ctx}/shop/admin/sale/list-json.do?order_state=${orderstate!''}',
+                        url: '${ctx}/shop/admin/sale/list-json.do',
                     },
                     columns: [ //定义列
                         {"data": function (obj) {
-                            return '<input type="checkbox" name="order_id" class="fly-checkbox" value=' + obj.order_id + '>';
+                            return '<input type="checkbox" name="groupIds" class="fly-checkbox" value=' + obj.member_id + '_'+obj.month+'>';
                         }},
+                        {data: "uname"},
                         {data: "month"},
                         /*{data: function(sale_time) {
                             if(sale_time.sale_cmpl_time==null){
@@ -204,7 +223,7 @@
                         {data: "team_bonus"},
                         {data: null,"render": function(data, type, row) {
                             if(data['recount']=='1'){
-                                return "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick=''>重新计算奖金</a>";		//获取值:data["brand_id"]
+                                return "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='recountBonus(\""+data['member_id']+"\",\""+data['month']+"\")'>重新计算奖金</a>";		//获取值:data["brand_id"]
                             }
                             return "";
                         }}
@@ -214,7 +233,7 @@
 
 
                 //layui日期控件配置
-                layui.use('laydate', function(){
+               /* layui.use('laydate', function(){
                     var laydate = layui.laydate;
 
                     var start = {
@@ -236,49 +255,71 @@
                         }
                     };
 
-                    document.getElementById('start_time').onclick = function(){
+                    document.getElementById('start_month').onclick = function(){
                         start.elem = this;
                         laydate(start);
                     }
-                    document.getElementById('end_time').onclick = function(){
+                    document.getElementById('end_month').onclick = function(){
                         end.elem = this
                         laydate(end);
                     }
 
-                });
+                });*/
             });
-            //状态
-            function getType(exMap,value){
-                var val;
-                $.each(exMap,function(key,values){
-                    if(value==values.key){
-                        val=values.value;
-                        return val;
+
+
+            //重新计算奖金
+            function recountBonus(memberId,month){
+                alert(memberId+","+month);
+                var options = {
+                    url:ctx+"/shop/admin/sale/recountBonus.do",
+                    type:"post",
+                    data:{
+                        memberId : memberId,
+                        month : month
+                    },
+                    dataType:"json",
+                    success:function(data){
+                        if(data.result==1){
+                            $.Loading.success(data.message);
+                            highSearchOrder();
+//                            table.ajax.url(ctx+"/shop/admin/sale/list-json.do").load();
+                        }
+                        if (data.result == 0) {
+                            $.Loading.error(data.message);
+                        }
                     }
-                });
-                return val;
-            }
-            //消费积分
-            function formatExchangePoint(value,row,index){
-                if(value==null){
-                    value=0
-                }
-                var val=value+"积分"
-                return val;
+                };
+                $("#saleform").ajaxSubmit(options);
             }
 
-            //删除订单
-            function delOrder(){
-                var check = $("input[name='order_id']").is("input:checked");
+            //导出条件为Excel
+            function exportConditionExcel(){
+                var sMonth = $("#start_month").val();
+                var eMonth = $('#end_month').val();
+                var uname = $('#uname').val();
+                var param = "uname="+uname+"&sMonth="+sMonth+"&eMonth="+eMonth
+                var tempForm = $("<form/>");
+                tempForm.attr("action",ctx+"/shop/admin/sale/exportConditionExcel.do?"+param);
+                tempForm.attr("method","post");
+                tempForm.attr("target","_blank");
+                tempForm.appendTo('body');
+                tempForm.submit();
+                tempForm.remove();
+            }
+
+            //导出选中记录为EXCEl
+            function exportSelectExcel(){
+                var check = $("input[name='groupIds']").is("input:checked");
                 if(check == false){
-                    alert("请选择要放入回收站的订单");
+                    alert("请选择要导出的记录");
                     return false;
                 }
-                if (!confirm("确认要将这些订单放入回收站？")) {
+                if (!confirm("确认要导出这些记录吗？")) {
                     return;
                 }
-                var options = {
-                    url:ctx+"/shop/admin/sale/delete.do",
+                /*var options = {
+                    url:ctx+"/shop/admin/sale/exportExcel.do",
                     type:"post",
                     dataType:"json",
                     success:function(data){
@@ -290,29 +331,26 @@
                             $.Loading.error(data.message);
                         }
                     }
-                };
-                $("#orderform").ajaxSubmit(options);
+                };*/
+                $("#saleform").attr("action",ctx+"/shop/admin/sale/exportExcel.do");
+                $("#saleform").attr("method","post");
+                $("#saleform").attr("target","_blank");
+                $("#saleform").submit();
             }
 
             //普通搜索
             function searchOrder(){
                 var keyword = $("#_search").val();
-                table.ajax.url(ctx+"/shop/admin/sale/list-json.do?order_state=${orderstate!''}"+"&keyword="+keyword+"&stype="+0).load();
+                table.ajax.url(ctx+"/shop/admin/sale/list-json.do?keyword="+keyword).load();
             }
 
             //高级搜索
             function highSearchOrder(){
-                var start_time = $("#start_time").val();
-                var end_time = $('#end_time').val();
-                var sn = $("#sn").val();
-                var ship_name = $("#ship_name").val();
-                var status = $("#status").val();
-                var paystatus = $("#paystatus").val();
-                var shipstatus = $("#shipstatus").val();
-                var shipping_type = $("#shipping_type").val();
-                var payment_id = $("#payment_id").val();
-                var param = "&start_time="+start_time+"&end_time="+end_time+"&sn="+sn+"&ship_name="+ship_name+"&status="+status+"&paystatus="+paystatus+"&shipstatus="+shipstatus+"&shipping_type="+shipping_type+"&payment_id="+payment_id;
-                table.ajax.url(ctx+"/shop/admin/sale/list-json.do?order_state=${orderstate!''}"+param+"&stype="+1).load();
+                var sMonth = $("#start_month").val();
+                var eMonth = $('#end_month').val();
+                var uname = $('#uname').val();
+                var param = "uname="+uname+"&sMonth="+sMonth+"&eMonth="+eMonth
+                table.ajax.url(ctx+"/shop/admin/sale/list-json.do?"+param).load();
             }
 
 

@@ -2,6 +2,7 @@ package com.baigu.app.shop.core.member.service;
 
 import com.baigu.framework.database.Page;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -12,4 +13,24 @@ import java.util.Map;
 public interface ISaleManager {
 
     Page pageSale(Map map, int page, int pageSize, String other, String order);
+
+    /**
+     * 导出数据到Excel
+     *
+     * @param groupIds (memberId + month) 组合id集合
+     * @param response
+     * @param fileName
+     * @return
+     */
+    boolean exportExcel(String[] groupIds, HttpServletResponse response, String fileName);
+
+    /**
+     * 导出查询条件数据到Excel
+     *
+     * @param map
+     * @param response
+     * @param fileName
+     * @return
+     */
+    boolean exportExcel(Map map, HttpServletResponse response, String fileName);
 }

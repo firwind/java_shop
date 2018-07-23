@@ -1,14 +1,11 @@
 package com.baigu.framework.util;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
+import com.baigu.eop.SystemSetting;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import org.springframework.web.util.WebUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,13 +16,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.util.WebUtils;
-
-import com.baigu.eop.SystemSetting;
-import com.baigu.framework.context.webcontext.ThreadContextHolder;
 
 /**
  * 字串工具类
@@ -58,16 +48,17 @@ public class StringUtil {
 	 */
 	public static boolean checkFloat(String num, String type) {
 		String eL = "";
-		if (type.equals("0+"))
+		if (type.equals("0+")) {
 			eL = "^\\d+(\\.\\d+)?$";// 非负浮点数
-		else if (type.equals("+"))
+		} else if (type.equals("+")) {
 			eL = "^((\\d+\\.\\d*[1-9]\\d*)|(\\d*[1-9]\\d*\\.\\d+)|(\\d*[1-9]\\d*))$";// 正浮点数
-		else if (type.equals("-0"))
+		} else if (type.equals("-0")) {
 			eL = "^((-\\d+(\\.\\d+)?)|(0+(\\.0+)?))$";// 非正浮点数
-		else if (type.equals("-"))
+		} else if (type.equals("-")) {
 			eL = "^(-((\\d+\\.\\d*[1-9]\\d*)|(\\d*[1-9]\\d*\\.\\d+)|(\\d*[1-9]\\d*)))$";// 负浮点数
-		else
+		} else {
 			eL = "^(-?\\d+)(\\.\\d+)?$";// 浮点数
+		}
 		Pattern p = Pattern.compile(eL);
 		Matcher m = p.matcher(num);
 		boolean b = m.matches();
@@ -82,22 +73,26 @@ public class StringUtil {
 	 * @return 存在返回真，不存在返回假
 	 */
 	public static boolean isInArray(String value, String[] array) {
-		if (array == null)
+		if (array == null) {
 			return false;
+		}
 		for (String v : array) {
-			if (v.equals(value))
+			if (v.equals(value)) {
 				return true;
+			}
 		}
 		return false;
 
 	}
 
 	public static boolean isInArray(int value, String[] array) {
-		if (array == null)
+		if (array == null) {
 			return false;
+		}
 		for (String v : array) {
-			if (Integer.valueOf(v).intValue() == value)
+			if (Integer.valueOf(v).intValue() == value) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -162,8 +157,9 @@ public class StringUtil {
 		StringBuffer result = new StringBuffer();
 		for (int i = 0; i < resultByte.length; ++i) {
 			int v = 0xFF & resultByte[i];
-			if(v<16 && zero)
+			if (v < 16 && zero) {
 				result.append("0");
+			}
 			result.append(Integer.toHexString(v));
 		}
 		return result.toString();
@@ -372,10 +368,11 @@ public class StringUtil {
 		try {
 			value = Double.valueOf(str);
 		} catch (Exception ex) {
-			if (checked)
+			if (checked) {
 				throw new RuntimeException("数字格式不正确");
-			else
+			} else {
 				return 0D;
+			}
 		}
 		return value;
 	}
@@ -391,18 +388,20 @@ public class StringUtil {
 	public static Double toDouble(Object obj, boolean checked) {
 		Double value = 0d;
 		if (obj == null ) {
-			if (checked)
+			if (checked) {
 				throw new RuntimeException("数字格式不正确");
-			else
+			} else {
 				return 0D;
+			}
 		}
 		try {
 			value = Double.valueOf(obj.toString());
 		} catch (Exception ex) {
-			if (checked)
+			if (checked) {
 				throw new RuntimeException("数字格式不正确");
-			else
+			} else {
 				return 0D;
+			}
 		}
 		return value;
 	}
@@ -444,6 +443,28 @@ public class StringUtil {
 	}
 
 	/**
+	 * 把数组转换成String，并在每个元素前后加单引号
+	 *
+	 * @param array
+	 * @return
+	 */
+	public static String arrayToStringAddSingleQuote(Object[] array, String split) {
+		if (array == null) {
+			return "";
+		}
+		String str = "";
+		for (int i = 0; i < array.length; i++) {
+			String target = "'" + array[i].toString() + "'";
+			if (i != array.length - 1) {
+				str += target + split;
+			} else {
+				str += target;
+			}
+		}
+		return str;
+	}
+
+	/**
 	 * 将一个list转为以split分隔的string
 	 * 
 	 * @param list
@@ -451,8 +472,9 @@ public class StringUtil {
 	 * @return
 	 */
 	public static String listToString(List list, String split) {
-		if (list == null || list.isEmpty())
+		if (list == null || list.isEmpty()) {
 			return "";
+		}
 		StringBuffer sb = new StringBuffer();
 		for (Object obj : list) {
 			if (sb.length() != 0) {
@@ -480,8 +502,9 @@ public class StringUtil {
 		if (System.getProperty("os.name").toLowerCase().indexOf("window") < 0) {
 			filePath = "/" + filePath;
 		}
-		if (!filePath.endsWith("/"))
+		if (!filePath.endsWith("/")) {
 			filePath += "/";
+		}
 		return filePath;
 	}
 
@@ -535,8 +558,9 @@ public class StringUtil {
 			filePath = "/" + filePath;
 		}
 
-		if (filePath.endsWith("/"))
+		if (filePath.endsWith("/")) {
 			filePath = filePath.substring(0, filePath.length() - 1);
+		}
 //		//System.out.println("getRoot path is "+filePath );
 		return filePath;
 	}
@@ -665,8 +689,9 @@ public class StringUtil {
 	}
 
 	public static String replaceEnter(String str) {
-		if (str == null)
+		if (str == null) {
 			return null;
+		}
 		return str.replaceAll("\r", "").replaceAll("\n", "");
 	}
 
@@ -750,8 +775,9 @@ public class StringUtil {
 	}
 
 	public static String compressHtml(String html) {
-		if (html == null)
+		if (html == null) {
 			return null;
+		}
 
 		html = html.replaceAll("[\\t\\n\\f\\r]", "");
 		return html;
@@ -823,8 +849,9 @@ public class StringUtil {
 			array[i - 1] = tmp;
 		}
 		int result = 0;
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 6; i++) {
 			result = result * 10 + array[i];
+		}
 
 		return "" + result;
 	}
@@ -950,12 +977,14 @@ public class StringUtil {
 		String result = "";
 		if (table.length() > prefix.length()) {
 			if (table.substring(0, prefix.length()).toLowerCase()
-					.equals(prefix.toLowerCase()))
+					.equals(prefix.toLowerCase())) {
 				result = table;
-			else
+			} else {
 				result = prefix + table;
-		} else
+			}
+		} else {
 			result = prefix + table;
+		}
 
 		return result;
 	}
@@ -966,12 +995,14 @@ public class StringUtil {
 			int start = table.length() - suffix.length();
 			int end = start + suffix.length();
 			if (table.substring(start, end).toLowerCase()
-					.equals(suffix.toLowerCase()))
+					.equals(suffix.toLowerCase())) {
 				result = table;
-			else
+			} else {
 				result = table + suffix;
-		} else
+			}
+		} else {
 			result = table + suffix;
+		}
 
 		return result;
 	}

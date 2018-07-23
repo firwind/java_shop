@@ -22,6 +22,14 @@ public class MonthBonus implements Serializable {
     public static final int RECOUNT = 1;
     public static final int NOTRECOUNT = 0;
 
+    public MonthBonus() {
+    }
+
+    public MonthBonus(Integer member_id, String month) {
+        this.member_id = member_id;
+        this.month = month;
+    }
+
     public Integer getMember_id() {
         return member_id;
     }
