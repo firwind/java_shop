@@ -19,6 +19,7 @@
 				<directory>src/main/java</directory>
 				<includes>
 					<include>**/*.xml</include>
+					<include>**/*.xls</include>
 					<include>**/*.html</include>
 					<include>**/*.css</include>
 				</includes>
