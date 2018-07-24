@@ -1,26 +1,25 @@
 package com.baigu.app.shop.core.goods.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
-import com.baigu.app.shop.core.goods.service.Separator;
-import com.baigu.app.shop.core.goods.utils.SortContainer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsDataFilterBundle;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsSearchPluginBundle;
+import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
 import com.baigu.app.shop.core.goods.service.IGoodsSearchManager;
+import com.baigu.app.shop.core.goods.service.Separator;
+import com.baigu.app.shop.core.goods.utils.SortContainer;
 import com.baigu.eop.processor.core.UrlNotFoundException;
+import com.baigu.eop.sdk.context.UserConext;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @version 2016-02-26 修改Manager注入、使商品列表找到此Manager，去掉geter、seter
@@ -113,8 +112,13 @@ public class GoodsSearchManager  implements IGoodsSearchManager{
 		this.filterTerm(sql);
 		sql.append( this.getSort());
 		//System.out.println(sql);
-		
-		List goodslist = this.daoSupport.queryForListPage(sql.toString(), pageNo, pageSize); 
+
+		List<Map> goodslist = this.daoSupport.queryForListPage(sql.toString(), pageNo, pageSize);
+		for (Map goods : goodslist) {
+			if (UserConext.getCurrentMember() == null && goods.get("price") != null && goods.get("mktprice") != null) {
+				goods.put("price", goods.get("mktprice"));
+			}
+		}
 		
 		this.goodsDataFilterBundle.filterGoodsData(goodslist);
 		return goodslist;
@@ -159,8 +163,9 @@ public class GoodsSearchManager  implements IGoodsSearchManager{
 		String s[] = text.split(" ");
 		String r = "";
 		for(int i=0;i<s.length;i++){
-			if(!"".equals(s[i]))
+			if (!"".equals(s[i])) {
 				r = r + s[i];
+			}
 		}
 		return r;
 	}

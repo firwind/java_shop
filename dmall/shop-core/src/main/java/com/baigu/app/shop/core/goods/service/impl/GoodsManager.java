@@ -1,25 +1,5 @@
 package com.baigu.app.shop.core.goods.service.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
-import com.baigu.app.shop.core.goods.service.ITagManager;
-import com.baigu.app.shop.core.order.service.ISellBackManager;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.baigu.app.base.core.model.PluginTab;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.model.Goods;
@@ -27,10 +7,9 @@ import com.baigu.app.shop.core.goods.model.GoodsStores;
 import com.baigu.app.shop.core.goods.model.support.GoodsEditDTO;
 import com.baigu.app.shop.core.goods.plugin.GoodsPluginBundle;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsDataFilterBundle;
-import com.baigu.app.shop.core.goods.service.IDepotMonitorManager;
-import com.baigu.app.shop.core.goods.service.IGoodsManager;
+import com.baigu.app.shop.core.goods.service.*;
 import com.baigu.app.shop.core.order.service.ICartManager;
-import com.baigu.app.shop.core.goods.service.SnDuplicateException;
+import com.baigu.app.shop.core.order.service.ISellBackManager;
 import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 import com.baigu.framework.annotation.Log;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
@@ -39,6 +18,21 @@ import com.baigu.framework.database.Page;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.DateUtil;
 import com.baigu.framework.util.StringUtil;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.servlet.http.HttpServletRequest;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -235,7 +229,8 @@ public class GoodsManager  implements IGoodsManager {
 				goods.put("big", big);
 			}
 		}
- 
+		//用户未登录展示市场价
+//		GoodsUtils.handleGoodsMap(goods);
 		return goods;
 	}
 
@@ -379,8 +374,9 @@ public class GoodsManager  implements IGoodsManager {
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Log(type=LogType.GOODS,detail="删除商品")
 	public void delete(Integer[] ids) {
-		if (ids == null)
+		if (ids == null) {
 			return;
+		}
 
 		for (Integer id : ids) {
 			this.tagManager.saveRels(id, null);
@@ -419,8 +415,9 @@ public class GoodsManager  implements IGoodsManager {
 	 */
 	@Log(type=LogType.GOODS,detail="还原回收站商品")
 	public void revert(Integer[] ids) {
-		if (ids == null)
+		if (ids == null) {
 			return;
+		}
 		String id_str = StringUtil.arrayToString(ids, ",");
 		String sql = "update  es_goods set disabled=0  where goods_id in ("
 				+ id_str + ")";
@@ -439,8 +436,9 @@ public class GoodsManager  implements IGoodsManager {
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Log(type=LogType.GOODS,detail="清除回收站商品数据")
 	public void clean(Integer[] ids) {
-		if (ids == null)
+		if (ids == null) {
 			return;
+		}
 		for (Integer id : ids) {
 			this.tagManager.saveRels(id, null);
 		}
@@ -455,8 +453,9 @@ public class GoodsManager  implements IGoodsManager {
 	}
 
 	public List list(Integer[] ids) {
-		if (ids == null || ids.length == 0)
+		if (ids == null || ids.length == 0) {
 			return new ArrayList();
+		}
 		String idstr = StringUtil.arrayToString(ids, ",");
 		String sql = "select * from es_goods where goods_id in(" + idstr + ")";
 		return this.daoSupport.queryForList(sql);
@@ -513,44 +512,50 @@ public class GoodsManager  implements IGoodsManager {
 			sql = "";
 			if (names != null && names.length > 0) {
 				if (!StringUtil.isEmpty(names[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " name='" + names[i] + "'";
 				}
 			}
 
 			if (prices != null && prices.length > 0) {
 				if (!StringUtil.isEmpty(prices[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " price=" + prices[i];
 				}
 			}
 			if (cats != null && cats.length > 0) {
 				if (!StringUtil.isEmpty(cats[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " cat_id=" + cats[i];
 				}
 			}
 			if (store != null && store.length > 0) {
 				if (!StringUtil.isEmpty(store[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " store=" + store[i];
 				}
 			}
 			if (market_enable != null && market_enable.length > 0) {
 				if (!StringUtil.isEmpty(market_enable[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " market_enable=" + market_enable[i];
 				}
 			}
 			if (sord != null && sord.length > 0) {
 				if (!StringUtil.isEmpty(sord[i])) {
-					if (!sql.equals(""))
+					if (!sql.equals("")) {
 						sql += ",";
+					}
 					sql += " sord=" + sord[i];
 				}
 			}

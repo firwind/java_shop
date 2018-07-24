@@ -1,16 +1,5 @@
 package com.baigu.app.shop.front.tag.goods;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.plugin.GoodsPluginBundle;
 import com.baigu.app.shop.core.goods.plugin.search.GoodsDataFilterBundle;
@@ -22,8 +11,16 @@ import com.baigu.framework.database.ObjectNotFoundException;
 import com.baigu.framework.taglib.BaseFreeMarkerTag;
 import com.baigu.framework.util.RequestUtil;
 import com.baigu.framework.util.StringUtil;
-
 import freemarker.template.TemplateModelException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 商品详细标签
@@ -66,7 +63,10 @@ public class GoodsBaseDataTag extends BaseFreeMarkerTag {
 	                goodsMap.put("goods_off", -1);
 	                return goodsMap;
 				 }
-				 
+
+				//用户未登录展示市场价
+//				GoodsUtils.handleGoodsMap(goodsMap);
+
 				 goodsMap.put("goods_off", 0);//默认商品没有下架
 				 /**
 				  * 如果已下架抛出页面找不到异常 

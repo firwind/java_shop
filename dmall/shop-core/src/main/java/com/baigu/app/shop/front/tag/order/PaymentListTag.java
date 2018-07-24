@@ -1,18 +1,16 @@
 package com.baigu.app.shop.front.tag.order;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import com.baigu.app.shop.core.order.model.PayCfg;
+import com.baigu.app.shop.core.order.service.IPaymentManager;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import freemarker.template.TemplateModelException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.baigu.framework.taglib.BaseFreeMarkerTag;
-
-import freemarker.template.TemplateModelException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 读取支付方式
@@ -35,7 +33,7 @@ public class PaymentListTag extends BaseFreeMarkerTag {
 			List<PayCfg> list = this.paymentManager.getListByIsOnline(1);
 			for (PayCfg cfg : list) {
 				if(cfg.getIs_online()==1){
-					if(!cfg.getType().equals("alipayWapPlugin")&&!cfg.getType().equals("alipayMobilePlugin")
+					if (!cfg.getType().equals("alipayMobilePlugin")
 							&&!cfg.getType().equals("wechatMobilePlugin")&&!cfg.getType().equals("alipayEscowPlugin")){
 						paymentList.add(cfg);
 					}

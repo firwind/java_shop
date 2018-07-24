@@ -1,24 +1,11 @@
 package com.baigu.app.shop.front.api.order;
 
-import java.io.IOException;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.baigu.app.shop.core.order.model.Order;
-import com.baigu.app.shop.core.order.model.PayCfg;
-import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.baigu.app.base.core.service.IRegionsManager;
 import com.baigu.app.shop.core.member.model.MemberAddress;
 import com.baigu.app.shop.core.member.service.IMemberAddressManager;
+import com.baigu.app.shop.core.order.model.Order;
+import com.baigu.app.shop.core.order.model.PayCfg;
+import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.baigu.app.shop.core.order.service.IOrderManager;
 import com.baigu.app.shop.core.order.service.IPaymentManager;
 import com.baigu.framework.action.GridController;
@@ -33,6 +20,17 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 /**
@@ -63,8 +61,8 @@ public class PaymentApiController extends GridController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="/execute",produces=MediaType.TEXT_HTML_VALUE)
-	public String execute(){
+	@RequestMapping(value = "/execute", produces = "text/html;charset=UTF-8")
+	public String execute(HttpServletResponse response) {
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		
 		//订单id参数
@@ -93,11 +91,11 @@ public class PaymentApiController extends GridController {
 		
 		IPaymentEvent paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
 		String payhtml = paymentPlugin.onPay(payCfg, order);
-
 		// 用户更换了支付方式，更新订单的数据
 		if (order.getPayment_id().intValue() != paymentId.intValue()) {
 			this.orderManager.updatePayMethod(orderId, paymentId, payCfg.getType(), payCfg.getName());
 		}
+		response.setContentType("text/html;charset=UTF-8");
 		return payhtml;
 	}
 	

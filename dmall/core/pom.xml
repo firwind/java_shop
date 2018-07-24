@@ -414,7 +414,7 @@
 			<artifactId>sdk-java</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/alipay-sdk-java20170615110434.jar</systemPath>
+			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/alipay-sdk-java20171201160035.jar</systemPath>
 		</dependency>
 
 	</dependencies>

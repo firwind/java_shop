@@ -1,19 +1,17 @@
 package com.baigu.app.shop.front.tag.goods;
 
-import java.util.List;
-import java.util.Map;
-
 import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
 import com.baigu.app.shop.core.goods.service.IGoodsManager;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import freemarker.template.TemplateModelException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.baigu.framework.context.webcontext.ThreadContextHolder;
-import com.baigu.framework.taglib.BaseFreeMarkerTag;
-
-import freemarker.template.TemplateModelException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品列表标签
@@ -50,7 +48,7 @@ public class GoodsListTag extends BaseFreeMarkerTag {
 		}
 		
 		List goodsList  = goodsManager.listGoods(catid, tagid, goodsnum);
-		 
+//		GoodsUtils.handleGoodsMap(goodsList);
 		return goodsList;
 	}
 	

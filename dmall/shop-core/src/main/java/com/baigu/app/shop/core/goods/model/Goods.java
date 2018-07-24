@@ -44,8 +44,9 @@ public class Goods implements java.io.Serializable {
 	private Double 	commission;	//商品佣金比例
 	
 	public Integer getBrand_id() {
-		if (brand_id == null)
+		if (brand_id == null) {
 			brand_id = 0;
+		}
 		return brand_id;
 	}
 

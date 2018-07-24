@@ -1,24 +1,29 @@
 package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.httpclient.NameValuePair;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
-
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.domain.AlipayTradeWapPayModel;
+import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.sign.MD5;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpProtocolHandler;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpRequest;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpResponse;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpResultType;
+import org.apache.commons.httpclient.NameValuePair;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Node;
+import org.dom4j.io.SAXReader;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /* *
  *类名：AlipaySubmit
@@ -32,12 +37,12 @@ import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.
  */
 
 public class AlipaySubmit {
-    
+
     /**
      * 支付宝提供给商户的服务接入网关URL(新)
      */
-    private static final String ALIPAY_GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?";
-	
+    private static final String ALIPAY_GATEWAY_NEW = "https://openapi.alipay.com/gateway.do";
+
     /**
      * 生成签名结果
      * @param sPara 要签名的数组
@@ -78,7 +83,42 @@ public class AlipaySubmit {
      * @return 提交表单HTML文本
      */
     public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName) {
-        //待请求参数数组
+        StringBuffer sbHtml = new StringBuffer();
+        String app_id = "2017122101048371";
+        String private_key = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVmhwZcQ4GoYdbT8b/PUobRx9LgMTAzTcVr1kV1iXqaYgG7XAuFImc8nhe9CnxizgLaKXM/IHLxWTswHhUPQ/prEEAAhlHTzR2czaDI5DMKPbuv6yS28aokYIPWRNwLvYguUJndqLcnHf0A5M9z/uZtzhIlYA9PpknD9kWhaXINlytY8gFbauGatc840tNfNyAyZYOv8Le1WzZE4Uk83eP6c5H2WjPBz24HsX1uvA/qZqWDkVteCEBEuSnLzXj5uP2I3hpSLQorsWe3t8q+rPizgakQo1BPacsCqW0uS7UsP/x5eKYcpwPmMGGZ7c2TwOZirGZMlqTO05fttGQKyvnAgMBAAECggEAOeW/4BWI27tE2TdSlTSjtakdjnWk3y3A1Jvm5chaFqPsPxR058ihVG1Uu0grZlF6K31+E4YOGJG0vYeeFhdHDOun4ryu5WlOqxynlfw571zbMfO6b0QrIN3wBwD6B9py1IPiv/CkTHANA5NEgeiyJgRHuUTssa0aDkB5c2VeflnfDdqbYaY4g5vyml9RlOyWWf4gTHuclZCA/q9pSB5auzux8Urv6lr7WJhSpP2MIuqajTKqbCFl/BkCzQCMcIoIonrVHVP7LPj2Ew1HwkfXz5DPEeZBzaOlq7bkHSX1Vru4c1LDDBkxXC6b9C9RHoKojntn8YuQfyU7e3JW5fX+AQKBgQDv0Daskm2oWcdt6GGDXEBj51SgLZ+MapFlcqhnjj/gsJ3dPR9rGpM81qfEMv7HT6Cfcx14dNT0BLsWzO7zRZg8bX2hRn/9DsHh6HUlUglyRhpCPyMrB/+egNURo9MJ/s9Id2XnE2He0GHbAQq6jYzmaCjmENp6/2ZXPwcwCETFJwKBgQDkBPwXaQ/kIpn7xZP/VdpBR/C/il8z9V/G2Ydram+HDgLyS7yu1A7thKlmN2exuMWhgHr6/TGkk6y7CAe/Z0dRDzK61Hyd9FbL57Vfd4dVOEa5HYI/o2ck+0UHldr7jUqzDbxcJhBBz1ObBhgj8lDp0KegHMkO3VyQva8UEQYbQQKBgQDb2yS0083KwPxP6/KyTnoN3UA9VXZnci/4NMTlo4k2glVIRkgulf+UkCrgeewQaBUW+Z90FpBBYrDu91S+HPiztaGuoIaoRsZDSS1U2MAmTtS2FVI1mjCkbPJqKKpLCJuakTQQRDm+34ZHFM50N1+MwMN2IM9cYhe+Nt9tDreVkwKBgQDO4Ebn5oZocYxLhaMVEouGlwKyhZSCy6kt/MaEinjNi8TYmCaEaBlzHd2jw7js4btNIAh0F6wmqWUZ+9srqURnIubf41F87eah8YP5LbU3eGuSIFe/7TzzrJWgoDGh8TtI4Ll40YAGdVhhWlIkqwEGYizzc6pnNid5mt9x0VA9AQKBgEtuNBt/3EhSI6H1D2h2jR5DhPOA+0DoIL5YVbvco8rBBeFvD5m+4TaUVQc4FORx/7vG+q4DNiawy9ljZWVYRGyujpYrBsiHogGWBirIFBQz9ZQr/sTuwDKteQbKBGYz0E354q5EozgyYAuf3LiYZ4AT0hIaw7lUvbHwIwX1kotK";
+        String public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjARolrGTe1oOtdO1lNszeA0csbcGWMV6pd8szbCgdUjVt2lxc9WxWAh4eUPS6FJUT2rPjs7FEPzAwYcYv7By9nHu0pVHxl8CM8jMaxcsXZHNtcZCpyU+9f+UrSfByDtNPgY3m5BcspxsM7HDSax44eC9mHEDa0lp1gvWwOWqq19B2UdZAPRRSqv3HQP7n1hFi6WZht03FLmgeRTMi2nZhQX05R1gqjA+OMgegTfPeuruce52/X04EJBrgPdmGv3jNuX9BnXuBdh0KYmgOGSZVTw2FxD2Yebnda4ZuOoobS33JkKJK6pUovKDhaHHFv77kl3qmyoMP1DPjGQ/k0emKQIDAQAB";
+        AlipayClient alipayClient = new DefaultAlipayClient(ALIPAY_GATEWAY_NEW, app_id, private_key, "json", "UTF-8", public_key, "RSA2");
+        AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
+        request.setNotifyUrl(sParaTemp.get("notify_url"));
+        request.setReturnUrl(sParaTemp.get("return_url"));
+        //model
+        AlipayTradeWapPayModel model = new AlipayTradeWapPayModel();
+        model.setOutTradeNo(sParaTemp.get("out_trade_no"));
+        model.setSubject(sParaTemp.get("subject"));
+        model.setTotalAmount(sParaTemp.get("total_fee"));
+        model.setBody(sParaTemp.get("body"));
+//        model.setTimeoutExpress(timeout_express);
+        model.setProductCode("QUICK_WAP_WAY");
+        request.setBizModel(model);
+        /*String bizContent = "{" +
+                "    \"body\":\" " + sParaTemp.get("body") + "\"," +
+                "    \"subject\":\"" + sParaTemp.get("subject") + "\"," +
+                "    \"out_trade_no\":\"" + sParaTemp.get("out_trade_no") + "\"," +
+                "    \"total_amount\":+" + sParaTemp.get("total_fee") + "," +
+                "    \"product_code\":\"QUICK_WAP_WAY\"" +
+                "  }";
+        request.setBizContent(bizContent);*/
+        AlipayTradeWapPayResponse response = null;
+        try {
+            response = alipayClient.pageExecute(request);
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        String form = response.getBody();
+        response.setBody(form);
+        sbHtml.append(form);
+        return sbHtml.toString();
+        /*//待请求参数数组
         Map<String, String> sPara = buildRequestPara(sParaTemp);
         List<String> keys = new ArrayList<String>(sPara.keySet());
 
@@ -99,7 +139,91 @@ public class AlipaySubmit {
         sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style=\"display:none;\"></form>");
         sbHtml.append("<script>document.forms['alipaysubmit'].submit();</script>");
 
-        return sbHtml.toString();
+        return sbHtml.toString();*/
+    }
+
+    public static void main(String[] args) throws AlipayApiException {
+        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "2017122101048371", "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVmhwZcQ4GoYdbT8b/PUobRx9LgMTAzTcVr1kV1iXqaYgG7XAuFImc8nhe9CnxizgLaKXM/IHLxWTswHhUPQ/prEEAAhlHTzR2czaDI5DMKPbuv6yS28aokYIPWRNwLvYguUJndqLcnHf0A5M9z/uZtzhIlYA9PpknD9kWhaXINlytY8gFbauGatc840tNfNyAyZYOv8Le1WzZE4Uk83eP6c5H2WjPBz24HsX1uvA/qZqWDkVteCEBEuSnLzXj5uP2I3hpSLQorsWe3t8q+rPizgakQo1BPacsCqW0uS7UsP/x5eKYcpwPmMGGZ7c2TwOZirGZMlqTO05fttGQKyvnAgMBAAECggEAOeW/4BWI27tE2TdSlTSjtakdjnWk3y3A1Jvm5chaFqPsPxR058ihVG1Uu0grZlF6K31+E4YOGJG0vYeeFhdHDOun4ryu5WlOqxynlfw571zbMfO6b0QrIN3wBwD6B9py1IPiv/CkTHANA5NEgeiyJgRHuUTssa0aDkB5c2VeflnfDdqbYaY4g5vyml9RlOyWWf4gTHuclZCA/q9pSB5auzux8Urv6lr7WJhSpP2MIuqajTKqbCFl/BkCzQCMcIoIonrVHVP7LPj2Ew1HwkfXz5DPEeZBzaOlq7bkHSX1Vru4c1LDDBkxXC6b9C9RHoKojntn8YuQfyU7e3JW5fX+AQKBgQDv0Daskm2oWcdt6GGDXEBj51SgLZ+MapFlcqhnjj/gsJ3dPR9rGpM81qfEMv7HT6Cfcx14dNT0BLsWzO7zRZg8bX2hRn/9DsHh6HUlUglyRhpCPyMrB/+egNURo9MJ/s9Id2XnE2He0GHbAQq6jYzmaCjmENp6/2ZXPwcwCETFJwKBgQDkBPwXaQ/kIpn7xZP/VdpBR/C/il8z9V/G2Ydram+HDgLyS7yu1A7thKlmN2exuMWhgHr6/TGkk6y7CAe/Z0dRDzK61Hyd9FbL57Vfd4dVOEa5HYI/o2ck+0UHldr7jUqzDbxcJhBBz1ObBhgj8lDp0KegHMkO3VyQva8UEQYbQQKBgQDb2yS0083KwPxP6/KyTnoN3UA9VXZnci/4NMTlo4k2glVIRkgulf+UkCrgeewQaBUW+Z90FpBBYrDu91S+HPiztaGuoIaoRsZDSS1U2MAmTtS2FVI1mjCkbPJqKKpLCJuakTQQRDm+34ZHFM50N1+MwMN2IM9cYhe+Nt9tDreVkwKBgQDO4Ebn5oZocYxLhaMVEouGlwKyhZSCy6kt/MaEinjNi8TYmCaEaBlzHd2jw7js4btNIAh0F6wmqWUZ+9srqURnIubf41F87eah8YP5LbU3eGuSIFe/7TzzrJWgoDGh8TtI4Ll40YAGdVhhWlIkqwEGYizzc6pnNid5mt9x0VA9AQKBgEtuNBt/3EhSI6H1D2h2jR5DhPOA+0DoIL5YVbvco8rBBeFvD5m+4TaUVQc4FORx/7vG+q4DNiawy9ljZWVYRGyujpYrBsiHogGWBirIFBQz9ZQr/sTuwDKteQbKBGYz0E354q5EozgyYAuf3LiYZ4AT0hIaw7lUvbHwIwX1kotK", "json", "GBK", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjARolrGTe1oOtdO1lNszeA0csbcGWMV6pd8szbCgdUjVt2lxc9WxWAh4eUPS6FJUT2rPjs7FEPzAwYcYv7By9nHu0pVHxl8CM8jMaxcsXZHNtcZCpyU+9f+UrSfByDtNPgY3m5BcspxsM7HDSax44eC9mHEDa0lp1gvWwOWqq19B2UdZAPRRSqv3HQP7n1hFi6WZht03FLmgeRTMi2nZhQX05R1gqjA+OMgegTfPeuruce52/X04EJBrgPdmGv3jNuX9BnXuBdh0KYmgOGSZVTw2FxD2Yebnda4ZuOoobS33JkKJK6pUovKDhaHHFv77kl3qmyoMP1DPjGQ/k0emKQIDAQAB", "RSA2");
+        AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
+        request.setNotifyUrl("http://localhost/api/shop/s_alipayWapPlugin_payment-callback/execute.do");
+        request.setReturnUrl("http://localhost/s_alipayWapPlugin_payment-wap-result.html");
+        request.setBizContent("{" +
+                "\"body\":\"对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body。\"," +
+                "\"subject\":\"大乐透\"," +
+                "\"out_trade_no\":\"70501111111S001111119\"," +
+                "\"timeout_express\":\"90m\"," +
+                "\"time_expire\":\"2016-12-31 10:05\"," +
+                "\"total_amount\":9.00," +
+                "\"seller_id\":\"2088102147948060\"," +
+                "\"auth_token\":\"appopenBb64d181d0146481ab6a762c00714cC27\"," +
+                "\"goods_type\":\"0\"," +
+                "\"passback_params\":\"merchantBizType%3d3C%26merchantBizNo%3d2016010101111\"," +
+                "\"quit_url\":\"http://www.taobao.com/product/113714.html\"," +
+                "\"product_code\":\"QUICK_WAP_WAY\"," +
+                "\"promo_params\":\"{\\\"storeIdType\\\":\\\"1\\\"}\"," +
+                "\"royalty_info\":{" +
+                "\"royalty_type\":\"ROYALTY\"," +
+                "        \"royalty_detail_infos\":[{" +
+                "          \"serial_no\":1," +
+                "\"trans_in_type\":\"userId\"," +
+                "\"batch_no\":\"123\"," +
+                "\"out_relation_id\":\"20131124001\"," +
+                "\"trans_out_type\":\"userId\"," +
+                "\"trans_out\":\"2088101126765726\"," +
+                "\"trans_in\":\"2088101126708402\"," +
+                "\"amount\":0.1," +
+                "\"desc\":\"分账测试1\"," +
+                "\"amount_percentage\":\"100\"" +
+                "          }]" +
+                "    }," +
+                "\"extend_params\":{" +
+                "\"sys_service_provider_id\":\"2088511833207846\"," +
+                "\"hb_fq_num\":\"3\"," +
+                "\"hb_fq_seller_percent\":\"100\"," +
+                "\"industry_reflux_info\":\"{\\\\\\\"scene_code\\\\\\\":\\\\\\\"metro_tradeorder\\\\\\\",\\\\\\\"channel\\\\\\\":\\\\\\\"xxxx\\\\\\\",\\\\\\\"scene_data\\\\\\\":{\\\\\\\"asset_name\\\\\\\":\\\\\\\"ALIPAY\\\\\\\"}}\"," +
+                "\"card_type\":\"S0JP0000\"" +
+                "    }," +
+                "\"sub_merchant\":{" +
+                "\"merchant_id\":\"19023454\"," +
+                "\"merchant_type\":\"alipay: 支付宝分配的间连商户编号, merchant: 商户端的间连商户编号\"" +
+                "    }," +
+                "\"enable_pay_channels\":\"pcredit,moneyFund,debitCardExpress\"," +
+                "\"disable_pay_channels\":\"pcredit,moneyFund,debitCardExpress\"," +
+                "\"store_id\":\"NJ_001\"," +
+                "\"settle_info\":{" +
+                "        \"settle_detail_infos\":[{" +
+                "          \"trans_in_type\":\"cardSerialNo\"," +
+                "\"trans_in\":\"A0001\"," +
+                "\"summary_dimension\":\"A0001\"," +
+                "\"amount\":0.1" +
+                "          }]" +
+                "    }," +
+                "\"invoice_info\":{" +
+                "\"key_info\":{" +
+                "\"is_support_invoice\":true," +
+                "\"invoice_merchant_name\":\"ABC|003\"," +
+                "\"tax_num\":\"1464888883494\"" +
+                "      }," +
+                "\"details\":\"[{\\\"code\\\":\\\"100294400\\\",\\\"name\\\":\\\"服饰\\\",\\\"num\\\":\\\"2\\\",\\\"sumPrice\\\":\\\"200.00\\\",\\\"taxRate\\\":\\\"6%\\\"}]\"" +
+                "    }," +
+                "\"specified_channel\":\"pcredit\"," +
+                "\"business_params\":\"{\\\"data\\\":\\\"123\\\"}\"," +
+                "\"ext_user_info\":{" +
+                "\"name\":\"李明\"," +
+                "\"mobile\":\"16587658765\"," +
+                "\"cert_type\":\"IDENTITY_CARD\"," +
+                "\"cert_no\":\"362334768769238881\"," +
+                "\"min_age\":\"18\"," +
+                "\"fix_buyer\":\"F\"," +
+                "\"need_check_info\":\"F\"" +
+                "    }" +
+                "  }");
+        AlipayTradeWapPayResponse response = alipayClient.pageExecute(request);
+        if (response.isSuccess()) {
+            System.out.println("调用成功");
+        } else {
+            System.out.println("调用失败");
+        }
     }
     
     /**
