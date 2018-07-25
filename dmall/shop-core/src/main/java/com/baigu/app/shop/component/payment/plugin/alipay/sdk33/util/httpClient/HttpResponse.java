@@ -1,9 +1,9 @@
 package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient;
 
-import java.io.UnsupportedEncodingException;
-
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
 import org.apache.commons.httpclient.Header;
+
+import java.io.UnsupportedEncodingException;
 
 /* *
  *类名：HttpResponse
@@ -60,7 +60,7 @@ public class HttpResponse {
             return stringResult;
         }
         if (byteResult != null) {
-            return new String(byteResult, AlipayConfig.input_charset);
+            return new String(byteResult, AlipayConfig.charset);
         }
         return null;
     }

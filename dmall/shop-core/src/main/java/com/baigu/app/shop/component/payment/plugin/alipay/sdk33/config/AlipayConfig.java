@@ -22,26 +22,25 @@ package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config;
  */
 
 public class AlipayConfig {
-	
-	//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-	// 合作身份者ID，以2088开头由16位纯数字组成的字符串
-	public static String partner = "";
-	
-	// 收款支付宝账号
-	public static String seller_email = "";
-	// 商户的私钥
-	public static String key = "";
 
-	//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-	
+    //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    // app_id
+    public static String app_id = "";
 
-	// 调试用，创建TXT日志文件夹路径
-	public static String log_path = "D:\\";
+    // 私钥
+    public static String private_key = "";
+    // 公钥
+    public static String public_key = "";
 
-	// 字符编码格式 目前支持 gbk 或 utf-8
-	public static String input_charset = "utf-8";
-	
-	// 签名方式 不需修改
-	public static String sign_type = "MD5";
+    //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+    //数据格式
+    public static String format = "json";
+
+    // 签名方式 不需修改
+    public static String sign_type = "RSA2";
+
+    // 字符编码格式 目前支持 gbk 或 utf-8
+    public static String charset = "UTF-8";
 
 }

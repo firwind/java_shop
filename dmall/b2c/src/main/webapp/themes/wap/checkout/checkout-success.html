@@ -39,7 +39,7 @@
                     </div>
                     <div class="payment-online">
                         <#list paymentList as payment>
-                            <#if (payment.type == "alipayDirectPlugin") || (payment.type == "alipayWapPlugin") >
+                            <#if payment.type == "alipayWapPlugin" >
                                 <div class="eui-item-vh icon hr-bottom to-pay" order-id="${order.order_id}" payment-id="${payment.id}" plugin-id="${payment.type}" >
                                     <i class="eui-item-vh-icon alipay-icon">
                                         <img src="${ctx}${themes_path}/images/alipay-icon.jpeg" alt="">

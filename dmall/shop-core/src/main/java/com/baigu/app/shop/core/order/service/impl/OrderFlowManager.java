@@ -1,43 +1,14 @@
 package com.baigu.app.shop.core.order.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.decorate.service.ISettingManager;
 import com.baigu.app.shop.core.goods.model.Product;
 import com.baigu.app.shop.core.goods.service.impl.ProductManager;
+import com.baigu.app.shop.core.order.model.*;
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.order.OrderPluginBundle;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.baigu.app.base.core.model.Member;
-import com.baigu.app.base.core.service.IMemberManager;
-import com.baigu.app.shop.core.order.model.Delivery;
-import com.baigu.app.shop.core.order.model.DeliveryItem;
-import com.baigu.app.shop.core.order.model.DlyType;
-import com.baigu.app.shop.core.order.model.Logi;
-import com.baigu.app.shop.core.order.model.Order;
-import com.baigu.app.shop.core.order.model.OrderItem;
-import com.baigu.app.shop.core.order.model.PayCfg;
-import com.baigu.app.shop.core.order.model.PaymentDetail;
-import com.baigu.app.shop.core.order.model.PaymentLog;
-import com.baigu.app.shop.core.order.model.PaymentLogType;
-import com.baigu.app.shop.core.order.service.ICartManager;
-import com.baigu.app.shop.core.order.service.IDlyTypeManager;
-import com.baigu.app.shop.core.order.service.ILogiManager;
-import com.baigu.app.shop.core.order.service.IOrderFlowManager;
-import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.baigu.app.shop.core.order.service.IOrderReportManager;
-import com.baigu.app.shop.core.order.service.IPaymentManager;
-import com.baigu.app.shop.core.order.service.OrderPaymentType;
-import com.baigu.app.shop.core.order.service.OrderStatus;
+import com.baigu.app.shop.core.order.service.*;
 import com.baigu.eop.resource.model.AdminUser;
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.eop.sdk.context.UserConext;
@@ -47,9 +18,15 @@ import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.CurrencyUtil;
 import com.baigu.framework.util.DateUtil;
 import com.baigu.framework.util.StringUtil;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
 
 /**
  * 订单业务流程
@@ -93,8 +70,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	public Order add(Order order, List<CartItem> itemList, String sessionid) {
 		String opname = "游客";
 
-		if (order == null)
+		if (order == null) {
 			throw new RuntimeException("error: order is null");
+		}
 
 		/************************** 用户信息 ****************************/
 		Member member = UserConext.getCurrentMember();
@@ -261,13 +239,23 @@ public class OrderFlowManager implements IOrderFlowManager {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void shipping(Delivery delivery, List<DeliveryItem> itemList) {
-		
-		if(delivery== null) throw new  IllegalArgumentException("param delivery is NULL");
-		if(itemList== null) throw new  IllegalArgumentException("param itemList is NULL");
-		if(delivery.getOrder_id()== null )  throw new IllegalArgumentException("param order id is null");
-		
-		if(delivery.getMoney()== null ) delivery.setMoney(0D);
-		if(delivery.getProtect_price()==null) delivery.setProtect_price(0D);
+
+		if (delivery == null) {
+			throw new IllegalArgumentException("param delivery is NULL");
+		}
+		if (itemList == null) {
+			throw new IllegalArgumentException("param itemList is NULL");
+		}
+		if (delivery.getOrder_id() == null) {
+			throw new IllegalArgumentException("param order id is null");
+		}
+
+		if (delivery.getMoney() == null) {
+			delivery.setMoney(0D);
+		}
+		if (delivery.getProtect_price() == null) {
+			delivery.setProtect_price(0D);
+		}
 		
 		if(logger.isDebugEnabled()){
 			logger.debug("订单["+delivery.getOrder_id()+"]发货");
@@ -338,7 +326,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void complete(Integer orderId) {
-		if(orderId== null ) throw new  IllegalArgumentException("param orderId is NULL");
+		if (orderId == null) {
+			throw new IllegalArgumentException("param orderId is NULL");
+		}
 		this.daoSupport.execute("update es_order set status=? where order_id=?", OrderStatus.ORDER_COMPLETE,orderId);
 		this.daoSupport.execute("update es_order set complete_time=? where order_id=?", DateUtil.getDateline(),orderId);
 		orderManager.addLog(orderId, "订单完成");
@@ -351,7 +341,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void cancel(Integer orderId,String cancel_reason) {
-		if(orderId== null ) throw new  IllegalArgumentException("param orderId is NULL");
+		if (orderId == null) {
+			throw new IllegalArgumentException("param orderId is NULL");
+		}
 		Order order  = this.orderManager.get(orderId);
 		//判断订单是否发货，如果已发货无法取消订单
 		if(order.getShip_status()==OrderStatus.SHIP_NO){
@@ -370,7 +362,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	@Override
 	@Log(type=LogType.ORDER,detail="订单ID为${orderId}，确认订单")
 	public void confirmOrder(Integer orderId) {
-		if(orderId== null ) throw new  IllegalArgumentException("param orderId is NULL");
+		if (orderId == null) {
+			throw new IllegalArgumentException("param orderId is NULL");
+		}
 		Order order = orderManager.get(orderId);
 		Member member = this.memberManager.get(order.getMember_id());
 		
@@ -610,10 +604,16 @@ public class OrderFlowManager implements IOrderFlowManager {
 		int shipStatus = OrderStatus.SHIP_YES;
 		
 		for(DeliveryItem item: itemList){
-			
-			if(item.getGoods_id() == null) throw new IllegalArgumentException(item.getName()+" goods id is  NULL");
-			if(item.getProduct_id() == null) throw new IllegalArgumentException(item.getName()+" product id is  NULL");
-			if(item.getNum()== null) throw new IllegalArgumentException(item.getName()+" num id is  NULL");
+
+			if (item.getGoods_id() == null) {
+				throw new IllegalArgumentException(item.getName() + " goods id is  NULL");
+			}
+			if (item.getProduct_id() == null) {
+				throw new IllegalArgumentException(item.getName() + " product id is  NULL");
+			}
+			if (item.getNum() == null) {
+				throw new IllegalArgumentException(item.getName() + " num id is  NULL");
+			}
 			
 			if(logger.isDebugEnabled()){
 				logger.debug("检测item["+item.getName()+"]发货数量是否合法");
@@ -732,8 +732,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	 * @throws IllegalStateException 如果订单是完成或作废状态
 	 */
 	private void checkDisabled(Order order){
-		if(order.getStatus().intValue() ==  OrderStatus.ORDER_COMPLETE || order.getStatus().intValue() ==  OrderStatus.ORDER_CANCELLATION)
+		if (order.getStatus().intValue() == OrderStatus.ORDER_COMPLETE || order.getStatus().intValue() == OrderStatus.ORDER_CANCELLATION) {
 			throw new IllegalStateException("订单已经完成或作废，不能完成操作");
+		}
 	}
 
 

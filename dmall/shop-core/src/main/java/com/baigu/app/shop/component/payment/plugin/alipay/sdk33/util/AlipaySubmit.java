@@ -3,24 +3,19 @@ package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.domain.AlipayTradeRefundModel;
 import com.alipay.api.domain.AlipayTradeWapPayModel;
+import com.alipay.api.request.AlipayTradeRefundRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
-import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.sign.MD5;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpProtocolHandler;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpRequest;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpResponse;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.httpClient.HttpResultType;
 import org.apache.commons.httpclient.NameValuePair;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -44,50 +39,63 @@ public class AlipaySubmit {
     private static final String ALIPAY_GATEWAY_NEW = "https://openapi.alipay.com/gateway.do";
 
     /**
-     * 生成签名结果
-     * @param sPara 要签名的数组
-     * @return 签名结果字符串
-     */
-	public static String buildRequestMysign(Map<String, String> sPara) {
-    	String prestr = AlipayCore.createLinkString(sPara); //把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
-        String mysign = "";
-        if(AlipayConfig.sign_type.equals("MD5") ) {
-        	mysign = MD5.sign(prestr, AlipayConfig.key, AlipayConfig.input_charset);
-        }
-        return mysign;
-    }
-	
-    /**
      * 生成要请求给支付宝的参数数组
+     *
      * @param sParaTemp 请求前的参数数组
      * @return 要请求的参数数组
      */
     private static Map<String, String> buildRequestPara(Map<String, String> sParaTemp) {
         //除去数组中的空值和签名参数
         Map<String, String> sPara = AlipayCore.paraFilter(sParaTemp);
-        //生成签名结果
-        String mysign = buildRequestMysign(sPara);
-
-        //签名结果与签名方式加入请求提交参数组中
-        sPara.put("sign", mysign);
         sPara.put("sign_type", AlipayConfig.sign_type);
-
         return sPara;
     }
 
     /**
+     * 构造退款表单html
+     *
+     * @param sParaTemp
+     * @return
+     */
+    public static String buildRefundRequest(Map<String, String> sParaTemp) {
+        StringBuffer sbHtml = new StringBuffer();
+        String app_id = sParaTemp.get("app_id");
+        String private_key = sParaTemp.get("private_key");
+        String public_key = sParaTemp.get("public_key");
+        AlipayClient alipayClient = new DefaultAlipayClient(ALIPAY_GATEWAY_NEW, app_id, private_key, AlipayConfig.format, AlipayConfig.charset, public_key, AlipayConfig.sign_type);
+        AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
+        AlipayTradeRefundModel model = new AlipayTradeRefundModel();
+        model.setOutTradeNo(sParaTemp.get("out_trade_no"));
+        model.setTradeNo(sParaTemp.get("trade_no"));
+        model.setRefundAmount(sParaTemp.get("refund_amount"));
+        model.setRefundReason(sParaTemp.get("refund_reason"));
+        model.setOutRequestNo(sParaTemp.get("out_request_no"));
+        request.setBizModel(model);
+
+        AlipayTradeRefundResponse response = null;
+        try {
+            response = alipayClient.execute(request);
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        String form = response.getBody();
+        sbHtml.append(form);
+        return sbHtml.toString();
+    }
+
+    /**
      * 建立请求，以表单HTML形式构造（默认）
-     * @param sParaTemp 请求参数数组
-     * @param strMethod 提交方式。两个值可选：post、get
-     * @param strButtonName 确认按钮显示文字
+     *
+     * @param sParaTemp     请求参数数组
      * @return 提交表单HTML文本
      */
-    public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName) {
+    public static String buildRequest(Map<String, String> sParaTemp) {
         StringBuffer sbHtml = new StringBuffer();
-        String app_id = "2017122101048371";
-        String private_key = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVmhwZcQ4GoYdbT8b/PUobRx9LgMTAzTcVr1kV1iXqaYgG7XAuFImc8nhe9CnxizgLaKXM/IHLxWTswHhUPQ/prEEAAhlHTzR2czaDI5DMKPbuv6yS28aokYIPWRNwLvYguUJndqLcnHf0A5M9z/uZtzhIlYA9PpknD9kWhaXINlytY8gFbauGatc840tNfNyAyZYOv8Le1WzZE4Uk83eP6c5H2WjPBz24HsX1uvA/qZqWDkVteCEBEuSnLzXj5uP2I3hpSLQorsWe3t8q+rPizgakQo1BPacsCqW0uS7UsP/x5eKYcpwPmMGGZ7c2TwOZirGZMlqTO05fttGQKyvnAgMBAAECggEAOeW/4BWI27tE2TdSlTSjtakdjnWk3y3A1Jvm5chaFqPsPxR058ihVG1Uu0grZlF6K31+E4YOGJG0vYeeFhdHDOun4ryu5WlOqxynlfw571zbMfO6b0QrIN3wBwD6B9py1IPiv/CkTHANA5NEgeiyJgRHuUTssa0aDkB5c2VeflnfDdqbYaY4g5vyml9RlOyWWf4gTHuclZCA/q9pSB5auzux8Urv6lr7WJhSpP2MIuqajTKqbCFl/BkCzQCMcIoIonrVHVP7LPj2Ew1HwkfXz5DPEeZBzaOlq7bkHSX1Vru4c1LDDBkxXC6b9C9RHoKojntn8YuQfyU7e3JW5fX+AQKBgQDv0Daskm2oWcdt6GGDXEBj51SgLZ+MapFlcqhnjj/gsJ3dPR9rGpM81qfEMv7HT6Cfcx14dNT0BLsWzO7zRZg8bX2hRn/9DsHh6HUlUglyRhpCPyMrB/+egNURo9MJ/s9Id2XnE2He0GHbAQq6jYzmaCjmENp6/2ZXPwcwCETFJwKBgQDkBPwXaQ/kIpn7xZP/VdpBR/C/il8z9V/G2Ydram+HDgLyS7yu1A7thKlmN2exuMWhgHr6/TGkk6y7CAe/Z0dRDzK61Hyd9FbL57Vfd4dVOEa5HYI/o2ck+0UHldr7jUqzDbxcJhBBz1ObBhgj8lDp0KegHMkO3VyQva8UEQYbQQKBgQDb2yS0083KwPxP6/KyTnoN3UA9VXZnci/4NMTlo4k2glVIRkgulf+UkCrgeewQaBUW+Z90FpBBYrDu91S+HPiztaGuoIaoRsZDSS1U2MAmTtS2FVI1mjCkbPJqKKpLCJuakTQQRDm+34ZHFM50N1+MwMN2IM9cYhe+Nt9tDreVkwKBgQDO4Ebn5oZocYxLhaMVEouGlwKyhZSCy6kt/MaEinjNi8TYmCaEaBlzHd2jw7js4btNIAh0F6wmqWUZ+9srqURnIubf41F87eah8YP5LbU3eGuSIFe/7TzzrJWgoDGh8TtI4Ll40YAGdVhhWlIkqwEGYizzc6pnNid5mt9x0VA9AQKBgEtuNBt/3EhSI6H1D2h2jR5DhPOA+0DoIL5YVbvco8rBBeFvD5m+4TaUVQc4FORx/7vG+q4DNiawy9ljZWVYRGyujpYrBsiHogGWBirIFBQz9ZQr/sTuwDKteQbKBGYz0E354q5EozgyYAuf3LiYZ4AT0hIaw7lUvbHwIwX1kotK";
-        String public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjARolrGTe1oOtdO1lNszeA0csbcGWMV6pd8szbCgdUjVt2lxc9WxWAh4eUPS6FJUT2rPjs7FEPzAwYcYv7By9nHu0pVHxl8CM8jMaxcsXZHNtcZCpyU+9f+UrSfByDtNPgY3m5BcspxsM7HDSax44eC9mHEDa0lp1gvWwOWqq19B2UdZAPRRSqv3HQP7n1hFi6WZht03FLmgeRTMi2nZhQX05R1gqjA+OMgegTfPeuruce52/X04EJBrgPdmGv3jNuX9BnXuBdh0KYmgOGSZVTw2FxD2Yebnda4ZuOoobS33JkKJK6pUovKDhaHHFv77kl3qmyoMP1DPjGQ/k0emKQIDAQAB";
-        AlipayClient alipayClient = new DefaultAlipayClient(ALIPAY_GATEWAY_NEW, app_id, private_key, "json", "UTF-8", public_key, "RSA2");
+        String app_id = sParaTemp.get("app_id");
+        String private_key = sParaTemp.get("private_key");
+        String public_key = sParaTemp.get("public_key");
+        AlipayClient alipayClient = new DefaultAlipayClient(ALIPAY_GATEWAY_NEW, app_id, private_key, AlipayConfig.format, AlipayConfig.charset, public_key, AlipayConfig.sign_type);
+
         AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
         request.setNotifyUrl(sParaTemp.get("notify_url"));
         request.setReturnUrl(sParaTemp.get("return_url"));
@@ -100,14 +108,6 @@ public class AlipaySubmit {
 //        model.setTimeoutExpress(timeout_express);
         model.setProductCode("QUICK_WAP_WAY");
         request.setBizModel(model);
-        /*String bizContent = "{" +
-                "    \"body\":\" " + sParaTemp.get("body") + "\"," +
-                "    \"subject\":\"" + sParaTemp.get("subject") + "\"," +
-                "    \"out_trade_no\":\"" + sParaTemp.get("out_trade_no") + "\"," +
-                "    \"total_amount\":+" + sParaTemp.get("total_fee") + "," +
-                "    \"product_code\":\"QUICK_WAP_WAY\"" +
-                "  }";
-        request.setBizContent(bizContent);*/
         AlipayTradeWapPayResponse response = null;
         try {
             response = alipayClient.pageExecute(request);
@@ -115,35 +115,12 @@ public class AlipaySubmit {
             e.printStackTrace();
         }
         String form = response.getBody();
-        response.setBody(form);
         sbHtml.append(form);
         return sbHtml.toString();
-        /*//待请求参数数组
-        Map<String, String> sPara = buildRequestPara(sParaTemp);
-        List<String> keys = new ArrayList<String>(sPara.keySet());
-
-        StringBuffer sbHtml = new StringBuffer();
-
-        sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
-                      + "\">");
-
-        for (int i = 0; i < keys.size(); i++) {
-            String name = (String) keys.get(i);
-            String value = (String) sPara.get(name);
-
-            sbHtml.append("<input type=\"hidden\" name=\"" + name + "\" value=\"" + value + "\"/>");
-        }
-
-        //submit按钮控件请不要含有name属性
-        sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style=\"display:none;\"></form>");
-        sbHtml.append("<script>document.forms['alipaysubmit'].submit();</script>");
-
-        return sbHtml.toString();*/
     }
 
     public static void main(String[] args) throws AlipayApiException {
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "2017122101048371", "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVmhwZcQ4GoYdbT8b/PUobRx9LgMTAzTcVr1kV1iXqaYgG7XAuFImc8nhe9CnxizgLaKXM/IHLxWTswHhUPQ/prEEAAhlHTzR2czaDI5DMKPbuv6yS28aokYIPWRNwLvYguUJndqLcnHf0A5M9z/uZtzhIlYA9PpknD9kWhaXINlytY8gFbauGatc840tNfNyAyZYOv8Le1WzZE4Uk83eP6c5H2WjPBz24HsX1uvA/qZqWDkVteCEBEuSnLzXj5uP2I3hpSLQorsWe3t8q+rPizgakQo1BPacsCqW0uS7UsP/x5eKYcpwPmMGGZ7c2TwOZirGZMlqTO05fttGQKyvnAgMBAAECggEAOeW/4BWI27tE2TdSlTSjtakdjnWk3y3A1Jvm5chaFqPsPxR058ihVG1Uu0grZlF6K31+E4YOGJG0vYeeFhdHDOun4ryu5WlOqxynlfw571zbMfO6b0QrIN3wBwD6B9py1IPiv/CkTHANA5NEgeiyJgRHuUTssa0aDkB5c2VeflnfDdqbYaY4g5vyml9RlOyWWf4gTHuclZCA/q9pSB5auzux8Urv6lr7WJhSpP2MIuqajTKqbCFl/BkCzQCMcIoIonrVHVP7LPj2Ew1HwkfXz5DPEeZBzaOlq7bkHSX1Vru4c1LDDBkxXC6b9C9RHoKojntn8YuQfyU7e3JW5fX+AQKBgQDv0Daskm2oWcdt6GGDXEBj51SgLZ+MapFlcqhnjj/gsJ3dPR9rGpM81qfEMv7HT6Cfcx14dNT0BLsWzO7zRZg8bX2hRn/9DsHh6HUlUglyRhpCPyMrB/+egNURo9MJ/s9Id2XnE2He0GHbAQq6jYzmaCjmENp6/2ZXPwcwCETFJwKBgQDkBPwXaQ/kIpn7xZP/VdpBR/C/il8z9V/G2Ydram+HDgLyS7yu1A7thKlmN2exuMWhgHr6/TGkk6y7CAe/Z0dRDzK61Hyd9FbL57Vfd4dVOEa5HYI/o2ck+0UHldr7jUqzDbxcJhBBz1ObBhgj8lDp0KegHMkO3VyQva8UEQYbQQKBgQDb2yS0083KwPxP6/KyTnoN3UA9VXZnci/4NMTlo4k2glVIRkgulf+UkCrgeewQaBUW+Z90FpBBYrDu91S+HPiztaGuoIaoRsZDSS1U2MAmTtS2FVI1mjCkbPJqKKpLCJuakTQQRDm+34ZHFM50N1+MwMN2IM9cYhe+Nt9tDreVkwKBgQDO4Ebn5oZocYxLhaMVEouGlwKyhZSCy6kt/MaEinjNi8TYmCaEaBlzHd2jw7js4btNIAh0F6wmqWUZ+9srqURnIubf41F87eah8YP5LbU3eGuSIFe/7TzzrJWgoDGh8TtI4Ll40YAGdVhhWlIkqwEGYizzc6pnNid5mt9x0VA9AQKBgEtuNBt/3EhSI6H1D2h2jR5DhPOA+0DoIL5YVbvco8rBBeFvD5m+4TaUVQc4FORx/7vG+q4DNiawy9ljZWVYRGyujpYrBsiHogGWBirIFBQz9ZQr/sTuwDKteQbKBGYz0E354q5EozgyYAuf3LiYZ4AT0hIaw7lUvbHwIwX1kotK", "json", "GBK", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjARolrGTe1oOtdO1lNszeA0csbcGWMV6pd8szbCgdUjVt2lxc9WxWAh4eUPS6FJUT2rPjs7FEPzAwYcYv7By9nHu0pVHxl8CM8jMaxcsXZHNtcZCpyU+9f+UrSfByDtNPgY3m5BcspxsM7HDSax44eC9mHEDa0lp1gvWwOWqq19B2UdZAPRRSqv3HQP7n1hFi6WZht03FLmgeRTMi2nZhQX05R1gqjA+OMgegTfPeuruce52/X04EJBrgPdmGv3jNuX9BnXuBdh0KYmgOGSZVTw2FxD2Yebnda4ZuOoobS33JkKJK6pUovKDhaHHFv77kl3qmyoMP1DPjGQ/k0emKQIDAQAB", "RSA2");
+        /*AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "2017122101048371", "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVmhwZcQ4GoYdbT8b/PUobRx9LgMTAzTcVr1kV1iXqaYgG7XAuFImc8nhe9CnxizgLaKXM/IHLxWTswHhUPQ/prEEAAhlHTzR2czaDI5DMKPbuv6yS28aokYIPWRNwLvYguUJndqLcnHf0A5M9z/uZtzhIlYA9PpknD9kWhaXINlytY8gFbauGatc840tNfNyAyZYOv8Le1WzZE4Uk83eP6c5H2WjPBz24HsX1uvA/qZqWDkVteCEBEuSnLzXj5uP2I3hpSLQorsWe3t8q+rPizgakQo1BPacsCqW0uS7UsP/x5eKYcpwPmMGGZ7c2TwOZirGZMlqTO05fttGQKyvnAgMBAAECggEAOeW/4BWI27tE2TdSlTSjtakdjnWk3y3A1Jvm5chaFqPsPxR058ihVG1Uu0grZlF6K31+E4YOGJG0vYeeFhdHDOun4ryu5WlOqxynlfw571zbMfO6b0QrIN3wBwD6B9py1IPiv/CkTHANA5NEgeiyJgRHuUTssa0aDkB5c2VeflnfDdqbYaY4g5vyml9RlOyWWf4gTHuclZCA/q9pSB5auzux8Urv6lr7WJhSpP2MIuqajTKqbCFl/BkCzQCMcIoIonrVHVP7LPj2Ew1HwkfXz5DPEeZBzaOlq7bkHSX1Vru4c1LDDBkxXC6b9C9RHoKojntn8YuQfyU7e3JW5fX+AQKBgQDv0Daskm2oWcdt6GGDXEBj51SgLZ+MapFlcqhnjj/gsJ3dPR9rGpM81qfEMv7HT6Cfcx14dNT0BLsWzO7zRZg8bX2hRn/9DsHh6HUlUglyRhpCPyMrB/+egNURo9MJ/s9Id2XnE2He0GHbAQq6jYzmaCjmENp6/2ZXPwcwCETFJwKBgQDkBPwXaQ/kIpn7xZP/VdpBR/C/il8z9V/G2Ydram+HDgLyS7yu1A7thKlmN2exuMWhgHr6/TGkk6y7CAe/Z0dRDzK61Hyd9FbL57Vfd4dVOEa5HYI/o2ck+0UHldr7jUqzDbxcJhBBz1ObBhgj8lDp0KegHMkO3VyQva8UEQYbQQKBgQDb2yS0083KwPxP6/KyTnoN3UA9VXZnci/4NMTlo4k2glVIRkgulf+UkCrgeewQaBUW+Z90FpBBYrDu91S+HPiztaGuoIaoRsZDSS1U2MAmTtS2FVI1mjCkbPJqKKpLCJuakTQQRDm+34ZHFM50N1+MwMN2IM9cYhe+Nt9tDreVkwKBgQDO4Ebn5oZocYxLhaMVEouGlwKyhZSCy6kt/MaEinjNi8TYmCaEaBlzHd2jw7js4btNIAh0F6wmqWUZ+9srqURnIubf41F87eah8YP5LbU3eGuSIFe/7TzzrJWgoDGh8TtI4Ll40YAGdVhhWlIkqwEGYizzc6pnNid5mt9x0VA9AQKBgEtuNBt/3EhSI6H1D2h2jR5DhPOA+0DoIL5YVbvco8rBBeFvD5m+4TaUVQc4FORx/7vG+q4DNiawy9ljZWVYRGyujpYrBsiHogGWBirIFBQz9ZQr/sTuwDKteQbKBGYz0E354q5EozgyYAuf3LiYZ4AT0hIaw7lUvbHwIwX1kotK", "json", "GBK", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjARolrGTe1oOtdO1lNszeA0csbcGWMV6pd8szbCgdUjVt2lxc9WxWAh4eUPS6FJUT2rPjs7FEPzAwYcYv7By9nHu0pVHxl8CM8jMaxcsXZHNtcZCpyU+9f+UrSfByDtNPgY3m5BcspxsM7HDSax44eC9mHEDa0lp1gvWwOWqq19B2UdZAPRRSqv3HQP7n1hFi6WZht03FLmgeRTMi2nZhQX05R1gqjA+OMgegTfPeuruce52/X04EJBrgPdmGv3jNuX9BnXuBdh0KYmgOGSZVTw2FxD2Yebnda4ZuOoobS33JkKJK6pUovKDhaHHFv77kl3qmyoMP1DPjGQ/k0emKQIDAQAB", "RSA2");
         AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
         request.setNotifyUrl("http://localhost/api/shop/s_alipayWapPlugin_payment-callback/execute.do");
         request.setReturnUrl("http://localhost/s_alipayWapPlugin_payment-wap-result.html");
@@ -223,14 +200,15 @@ public class AlipaySubmit {
             System.out.println("调用成功");
         } else {
             System.out.println("调用失败");
-        }
+        }*/
     }
-    
+
     /**
      * 建立请求，以表单HTML形式构造，带文件上传功能
-     * @param sParaTemp 请求参数数组
-     * @param strMethod 提交方式。两个值可选：post、get
-     * @param strButtonName 确认按钮显示文字
+     *
+     * @param sParaTemp       请求参数数组
+     * @param strMethod       提交方式。两个值可选：post、get
+     * @param strButtonName   确认按钮显示文字
      * @param strParaFileName 文件上传的参数名
      * @return 提交表单HTML文本
      */
@@ -242,8 +220,8 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\"  enctype=\"multipart/form-data\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
-                      + "\">");
+                + "_input_charset=" + AlipayConfig.charset + "\" method=\"" + strMethod
+                + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
             String name = (String) keys.get(i);
@@ -251,7 +229,7 @@ public class AlipaySubmit {
 
             sbHtml.append("<input type=\"hidden\" name=\"" + name + "\" value=\"" + value + "\"/>");
         }
-        
+
         sbHtml.append("<input type=\"file\" name=\"" + strParaFileName + "\" />");
 
         //submit按钮控件请不要含有name属性
@@ -259,18 +237,19 @@ public class AlipaySubmit {
 
         return sbHtml.toString();
     }
-    
+
     /**
      * 建立请求，以模拟远程HTTP的POST请求方式构造并获取支付宝的处理结果
      * 如果接口中没有上传文件参数，那么strParaFileName与strFilePath设置为空值
      * 如：buildRequest("", "",sParaTemp)
+     *
      * @param strParaFileName 文件类型的参数名
-     * @param strFilePath 文件路径
-     * @param sParaTemp 请求参数数组
+     * @param strFilePath     文件路径
+     * @param sParaTemp       请求参数数组
      * @return 支付宝处理结果
      * @throws Exception
      */
-    public static String buildRequest(String strParaFileName, String strFilePath,Map<String, String> sParaTemp) throws Exception {
+    public static String buildRequest(String strParaFileName, String strFilePath, Map<String, String> sParaTemp) throws Exception {
         //待请求参数数组
         Map<String, String> sPara = buildRequestPara(sParaTemp);
 
@@ -278,16 +257,16 @@ public class AlipaySubmit {
 
         HttpRequest request = new HttpRequest(HttpResultType.BYTES);
         //设置编码集
-        request.setCharset(AlipayConfig.input_charset);
+        request.setCharset(AlipayConfig.charset);
 
         request.setParameters(generatNameValuePair(sPara));
-        request.setUrl(ALIPAY_GATEWAY_NEW+"_input_charset="+AlipayConfig.input_charset);
+        request.setUrl(ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.charset);
 
-        HttpResponse response = httpProtocolHandler.execute(request,strParaFileName,strFilePath);
+        HttpResponse response = httpProtocolHandler.execute(request, strParaFileName, strFilePath);
         if (response == null) {
             return null;
         }
-        
+
         String strResult = response.getStringResult();
 
         return strResult;
@@ -295,7 +274,8 @@ public class AlipaySubmit {
 
     /**
      * MAP类型数组转换成NameValuePair类型
-     * @param properties  MAP类型数组
+     *
+     * @param properties MAP类型数组
      * @return NameValuePair类型数组
      */
     private static NameValuePair[] generatNameValuePair(Map<String, String> properties) {
@@ -306,39 +286,5 @@ public class AlipaySubmit {
         }
 
         return nameValuePair;
-    }
-    
-    /**
-     * 用于防钓鱼，调用接口query_timestamp来获取时间戳的处理函数
-     * 注意：远程解析XML出错，与服务器是否支持SSL等配置有关
-     * @return 时间戳字符串
-     * @throws IOException
-     * @throws DocumentException
-     * @throws MalformedURLException
-     */
-	public static String query_timestamp() throws MalformedURLException,
-                                                        DocumentException, IOException {
-
-        //构造访问query_timestamp接口的URL串
-        String strUrl = ALIPAY_GATEWAY_NEW + "service=query_timestamp&partner=" + AlipayConfig.partner + "&_input_charset" +AlipayConfig.input_charset;
-        StringBuffer result = new StringBuffer();
-
-        SAXReader reader = new SAXReader();
-        Document doc = reader.read(new URL(strUrl).openStream());
-
-        List<Node> nodeList = doc.selectNodes("//alipay/*");
-
-        for (Node node : nodeList) {
-            // 截取部分不需要解析的信息
-            if (node.getName().equals("is_success") && node.getText().equals("T")) {
-                // 判断是否有成功标示
-                List<Node> nodeList1 = doc.selectNodes("//response/timestamp/*");
-                for (Node node1 : nodeList1) {
-                    result.append(node1.getText());
-                }
-            }
-        }
-
-        return result.toString();
     }
 }

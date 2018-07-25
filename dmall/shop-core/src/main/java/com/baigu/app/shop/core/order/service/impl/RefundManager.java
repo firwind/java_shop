@@ -1,26 +1,20 @@
 package com.baigu.app.shop.core.order.service.impl;
 
-import com.baigu.app.shop.core.order.model.Order;
-import com.baigu.app.shop.core.order.model.PayCfg;
-import com.baigu.app.shop.core.order.model.SellBackStatus;
+import com.baigu.app.shop.component.agent.service.IMemberSaleManager;
+import com.baigu.app.shop.core.order.model.*;
 import com.baigu.app.shop.core.order.plugin.order.OrderPluginBundle;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
-import com.baigu.app.shop.core.order.service.IPaymentLogManager;
-import com.baigu.app.shop.core.order.service.IRefundManager;
-import com.baigu.app.shop.core.order.service.ISellBackManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.baigu.app.shop.core.order.model.PaymentLog;
-import com.baigu.app.shop.core.order.model.Refund;
-import com.baigu.app.shop.core.order.service.IOrderManager;
-import com.baigu.app.shop.core.order.service.IPaymentManager;
+import com.baigu.app.shop.core.order.service.*;
 import com.baigu.framework.annotation.Log;
 import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 退款单管理类
@@ -38,6 +32,9 @@ public class RefundManager implements IRefundManager {
 
 	@Autowired
 	private ISellBackManager sellBackManager;
+
+	@Autowired
+	private IMemberSaleManager memberSaleManager;
 
 	@Autowired
 	private IOrderManager orderManager;
@@ -60,6 +57,7 @@ public class RefundManager implements IRefundManager {
 	 * @see IRefundManager#editRefund(java.lang.Integer, java.lang.Integer)
 	 */
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Log(type=LogType.ORDER,detail="退款单ID为${id}的退款单由${username}已确认退款,退款金额：${refund_money}")
 	public String editRefund(Integer id, Integer status,Double refund_money,String username) {
 
@@ -99,6 +97,8 @@ public class RefundManager implements IRefundManager {
 				 * 修改退款单状态，修改退款单金额
 				 */
 				daoSupport.execute("update es_refund set status=?,refund_user=?,refund_time=?,refund_money=? where id=?", status,username,DateUtil.getDateline(),refund_money,id);
+				//扣减月销量
+				this.memberSaleManager.reduceMonthSale(refund.getRefund_money(), DateUtil.toMonthString(order.getCreate_time()), order.getMember_id());
 			}else{
 				/**
 				 * 提交申请失败 视为退款失败

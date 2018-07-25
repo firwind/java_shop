@@ -1,27 +1,25 @@
 package com.baigu.app.shop.component.payment.plugin.alipay.escow;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import com.baigu.app.shop.component.payment.plugin.alipay.AlipayRefund;
 import com.baigu.app.shop.component.payment.plugin.alipay.DmallAlipayUtil;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util.AlipaySubmit;
 import com.baigu.app.shop.core.order.model.PayCfg;
 import com.baigu.app.shop.core.order.model.PayEnable;
+import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.app.shop.core.order.model.Refund;
 import com.baigu.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
 import com.baigu.app.shop.core.order.plugin.payment.IPaymentEvent;
-import org.springframework.stereotype.Component;
-
-import com.baigu.app.shop.core.order.model.PaymentLog;
 import com.baigu.eop.resource.model.EopSite;
 import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 支付宝担保交易支付插件
@@ -42,11 +40,13 @@ public class AlipayEscowPlugin extends AbstractPaymentPlugin implements IPayment
 			
 			
 			Map<String,String> cfgparams = paymentManager.getConfigParams(this.getId());
-			
-			String key =cfgparams.get("key");
-			String partner =cfgparams.get("partner");
-			AlipayConfig.key=key;
-			AlipayConfig.partner=partner;
+
+			String app_id = cfgparams.get("app_id");
+			String private_key = cfgparams.get("private_key");
+			String public_key = cfgparams.get("public_key");
+			AlipayConfig.app_id = app_id;
+			AlipayConfig.private_key = private_key;
+			AlipayConfig.public_key = public_key;
 			String param_encoding = cfgparams.get("param_encoding");  
 
 			
@@ -106,17 +106,14 @@ public class AlipayEscowPlugin extends AbstractPaymentPlugin implements IPayment
 			Map<String,String> params = this.getConfigParams();
 			
 			String out_trade_no = order.getSn(); // 商户网站订单
-			String partner =params.get("partner");  // 支付宝合作伙伴id (账户内提取)
-			String key =  params.get("key");  // 支付宝安全校验码(账户内提取)
-			String seller_email = params.get("seller_email"); // 卖家支付宝帐户
+			String app_id = params.get("app_id");
+			String private_key = params.get("private_key");
+			String public_key = params.get("public_key");
+			AlipayConfig.app_id = app_id;
+			AlipayConfig.private_key = private_key;
+			AlipayConfig.public_key = public_key;
 			String content_encoding = params.get("content_encoding"); // 卖家支付宝帐户
-			
-			
-			AlipayConfig.key=key;
-			AlipayConfig.partner=partner;
-			AlipayConfig.seller_email=seller_email;
-		 
-		 
+
 			//支付类型
 			String payment_type = "1";
 			//必填，不能修改
@@ -194,9 +191,9 @@ public class AlipayEscowPlugin extends AbstractPaymentPlugin implements IPayment
 			//把请求参数打包成数组
 			Map<String, String> sParaTemp = new HashMap<String, String>();
 			sParaTemp.put("service", "create_partner_trade_by_buyer");
-	        sParaTemp.put("partner", AlipayConfig.partner);
-	        sParaTemp.put("seller_email", AlipayConfig.seller_email);
-	        sParaTemp.put("_input_charset", AlipayConfig.input_charset);
+			sParaTemp.put("partner", AlipayConfig.app_id);
+			sParaTemp.put("seller_email", AlipayConfig.app_id);
+			sParaTemp.put("_input_charset", AlipayConfig.charset);
 			sParaTemp.put("payment_type", payment_type);
 			sParaTemp.put("notify_url", notify_url);
 			sParaTemp.put("return_url", return_url);
@@ -217,9 +214,9 @@ public class AlipayEscowPlugin extends AbstractPaymentPlugin implements IPayment
 			
 			//建立请求
 			//String sHtmlText = AlipaySubmit.buildRequest(sParaTemp,"get","确认");
-			
-			
-			return AlipaySubmit.buildRequest(sParaTemp,"POST","确认");
+
+
+			return AlipaySubmit.buildRequest(sParaTemp);
 
 		 
 		} catch (UnsupportedEncodingException e) {
@@ -258,11 +255,12 @@ public class AlipayEscowPlugin extends AbstractPaymentPlugin implements IPayment
 			
 			Map<String,String> cfgparams = paymentManager.getConfigParams(this.getId());
 			HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
-			String key =cfgparams.get("key");
-			String partner =cfgparams.get("partner");
-			
-			AlipayConfig.key=key;
-			AlipayConfig.partner=partner;
+			String app_id = cfgparams.get("app_id");
+			String private_key = cfgparams.get("private_key");
+			String public_key = cfgparams.get("public_key");
+			AlipayConfig.app_id = app_id;
+			AlipayConfig.private_key = private_key;
+			AlipayConfig.public_key = public_key;
 			String param_encoding = cfgparams.get("param_encoding");  
 			 
 			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以下仅供参考)//

@@ -9,6 +9,8 @@ import com.baigu.framework.util.DateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -83,6 +85,7 @@ public class MemberSaleManager implements IMemberSaleManager {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void reduceMonthSale(Double amount, String month, Integer memberId) {
         this.daoSupport.execute("update es_month_sale set person_sale = person_sale - " + amount + ",team_sale = team_sale - " + amount + " where `month` = " + month + " and member_id = " + memberId + " and person_sale >= " + amount + " and team_sale >= " + amount);
         String parentIds = this.daoSupport.queryForString("SELECT parentids FROM es_member WHERE member_id = " + memberId);

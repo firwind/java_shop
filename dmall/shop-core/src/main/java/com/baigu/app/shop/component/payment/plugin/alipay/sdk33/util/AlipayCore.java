@@ -1,16 +1,12 @@
 package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.methods.multipart.FilePartSource;
 import org.apache.commons.httpclient.methods.multipart.PartSource;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 /* *
  *类名：AlipayFunction
@@ -40,8 +36,7 @@ public class AlipayCore {
 
         for (String key : sArray.keySet()) {
             String value = sArray.get(key);
-            if (value == null || value.equals("") || key.equalsIgnoreCase("sign")
-                || key.equalsIgnoreCase("sign_type")) {
+            if (value == null || value.equals("")) {
                 continue;
             }
             result.put(key, value);

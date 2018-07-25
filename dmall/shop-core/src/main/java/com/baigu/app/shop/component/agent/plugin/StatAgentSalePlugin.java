@@ -1,15 +1,10 @@
 package com.baigu.app.shop.component.agent.plugin;
 
-import com.baigu.app.base.core.model.Member;
-import com.baigu.app.shop.core.agent.model.MonthSale;
 import com.baigu.app.shop.core.order.model.Order;
 import com.baigu.app.shop.core.order.model.support.CartItem;
 import com.baigu.app.shop.core.order.plugin.order.IAfterOrderCreateEvent;
-import com.baigu.eop.sdk.context.UserConext;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.plugin.AutoRegisterPlugin;
-import com.baigu.framework.util.DateUtil;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +34,7 @@ public class StatAgentSalePlugin extends AutoRegisterPlugin implements
      */
     @Override
     public void onAfterOrderCreate(Order order, List<CartItem> itemList, String sessionid) {
-        Member member = UserConext.getCurrentMember();
+        /*Member member = UserConext.getCurrentMember();
         Double personSale = order.getGoods_amount();
         String month = DateUtil.toMonthString(order.getCreate_time() * 1000);
         daoSupport.execute("insert into es_month_sale(member_id, month, person_sale, team_sale) values(?, ?, ?, ?) " +
@@ -75,6 +70,6 @@ public class StatAgentSalePlugin extends AutoRegisterPlugin implements
         }
 
         //更新奖金表使重新计算奖金
-        daoSupport.execute("INSERT INTO es_month_bonus (member_id, `month`) VALUES (?, ?) ON DUPLICATE KEY UPDATE recount = 1", member.getMember_id(), month);
+        daoSupport.execute("INSERT INTO es_month_bonus (member_id, `month`) VALUES (?, ?) ON DUPLICATE KEY UPDATE recount = 1", member.getMember_id(), month);*/
     }
 }
