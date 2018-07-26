@@ -92,7 +92,9 @@ public class MemberSaleManager implements IMemberSaleManager {
         if (StringUtils.isNotBlank(parentIds)) {
             for (String parentId : parentIds.split(",")) {
                 parentId = parentId.replace("[", "").replace("]", "");
-                this.daoSupport.execute("update es_month_sale set team_sale = team_sale - " + amount + " where `month` = " + month + " and member_id = " + parentId + " and team_sale >= " + amount);
+                if (StringUtils.isNotBlank(parentId)) {
+                    this.daoSupport.execute("update es_month_sale set team_sale = team_sale - " + amount + " where `month` = " + month + " and member_id = " + parentId + " and team_sale >= " + amount);
+                }
             }
         }
     }

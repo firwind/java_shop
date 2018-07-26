@@ -15,11 +15,11 @@ import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.DateUtil;
 import com.baigu.framework.util.RandomString;
 import com.baigu.framework.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -254,12 +254,15 @@ public class MemberManager implements IMemberManager {
             mb.setBankno(member.getBankno());
             this.daoSupport.update("es_member_bank", mb, "member_id=" + member.getMember_id());
         } else {
-            mb = new MemberBank();
-            mb.setMember_id(member.getMember_id());
-            mb.setBankaccount(member.getBankaccount());
-            mb.setBankname(member.getBankname());
-            mb.setBankno(member.getBankno());
-            this.daoSupport.insert("es_member_bank", mb);
+            //注册的时候不用填写银行信息
+            if (StringUtils.isNotBlank(member.getBankaccount()) && StringUtils.isNotBlank(member.getBankname()) && StringUtils.isNotBlank(member.getBankno())) {
+                mb = new MemberBank();
+                mb.setMember_id(member.getMember_id());
+                mb.setBankaccount(member.getBankaccount());
+                mb.setBankname(member.getBankname());
+                mb.setBankno(member.getBankno());
+                this.daoSupport.insert("es_member_bank", mb);
+            }
         }
 
         Integer memberpoint = member.getPoint();
