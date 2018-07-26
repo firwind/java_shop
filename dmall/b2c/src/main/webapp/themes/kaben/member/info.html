@@ -88,11 +88,40 @@
 					</div>
 				</div>
 				<div class="pre_add" colspan="3">
+					<span><i>*</i>开户行：</span>
+					<div class="pre_row">
+						<select id="bankName" name="bankname">
+							<option <#if member.bankname?exists && member.bankname == '中国工商银行' >selected="true"</#if> pattern="^(620200|620302|620402|620403|620404|620406|620407|620409|620410|620411|620412|620502|620503|620405|620408|620512|620602|620604|620607|620611|620612|620704|620706|620707|620708|620709|620710|620609|620712|620713|620714|620802|620711|620904|620905|621001|620902|621103|621105|621106|621107|621102|621203|621204|621205|621206|621207|621208|621209|621210|621302|621303|621202|621305|621306|621307|621309|621311|621313|621211|621315|621304|621402|621404|621405|621406|621407|621408|621409|621410|621502|621317|621511|621602|621603|621604|621605|621608|621609|621610|621611|621612|621613|621614|621615|621616|621617|621607|621606|621804|621807|621813|621814|621817|621901|621904|621905|621906|621907|621908|621909|621910|621911|621912|621913|621915|622002|621903|622004|622005|622006|622007|622008|622010|622011|622012|621914|622015|622016|622003|622018|622019|622020|622102|622103|622104|622105|622013|622111|622114|622017|622110|622303|622304|622305|622306|622307|622308|622309|622314|622315|622317|622302|622402|622403|622404|622313|622504|622505|622509|622513|622517|622502|622604|622605|622606|622510|622703|622715|622806|622902|622903|622706|623002|623006|623008|623011|623012|622904|623015|623100|623202|623301|623400|623500|623602|623803|623901|623014|624100|624200|624301|624402|623700|624000)\d{12}$" value="中国工商银行">中国工商银行</option>
+							<option <#if member.bankname?exists && member.bankname == '中国农业银行' >selected="true"</#if> pattern="^(622841|622824|622826|622848|620059|621282|622828|622823|621336|621619|622821|622822|622825|622827|622845|622849|623018|623206|621671|622840|622843|622844|622846|622847|620501)\d{13}$" value="中国农业银行">中国农业银行</option>
+							<option <#if member.bankname?exists && member.bankname == '中国建设银行' >selected="true"</#if> pattern="^(621284|436742|589970|620060|621081|621467|621598|621621|621700|622280|622700|623211|623668)\d{13}$" value="中国建设银行">中国建设银行</option>
+							<option <#if member.bankname?exists && member.bankname == '中国银行' >selected="true"</#if> pattern="^(621660|621661|621662|621663|621665|621667|621668|621669|621666|456351|601382|621256|621212|621283|620061|621725|621330|621331|621332|621333|621297|621568|621569|621672|623208|621620|621756|621757|621758|621759|621785|621786|621787|621788|621789|621790|622273|622274|622771|622772|622770|621741|621041)\d{13}$" value="中国银行">中国银行</option>
+							<option <#if member.bankname?exists && member.bankname == '招商银行' >selected="true"</#if> pattern="^(402658|410062|468203|512425|524011|622580|622588|622598|622609|95555|621286|621483|621485|621486|621299)\d{10}$" value="招商银行">招商银行</option>
+							<option <#if member.bankname?exists && member.bankname == '交通银行' >selected="true"</#if> pattern="^(622261|622260|622262|621002|621069|621436|621335)\d{13}$" value="交通银行">交通银行</option>
+							<option <#if member.bankname?exists && member.bankname == '中国民生银行' >selected="true"</#if> pattern="^(622615|622616|622618|622622|622617|622619|415599|421393|421865|427570|427571|472067|472068|622620)\d{10}$" value="中国民生银行">中国民生银行</option>
+							<option <#if member.bankname?exists && member.bankname == '中信银行' >selected="true"</#if> pattern="^(433670|433680|442729|442730|620082|622690|622691|622692|622696|622698|622998|622999|433671|968807|968808|968809|621771|621767|621768|621770|621772|621773|622453|622456)\d{10}$" value="中信银行">中信银行</option>
+							<option <#if member.bankname?exists && member.bankname == '兴业银行' >selected="true"</#if> pattern="^(461982|486493|486494|486861|523036|451289|527414|528057|622901|622902|622922|628212|451290|524070|625084|625085|625086|625087|548738|549633|552398|625082|625083|625960|625961|625962|625963)\d{10}$" value="兴业银行">兴业银行</option>
+							<option <#if member.bankname?exists && member.bankname == '上海浦东发展银行' >selected="true"</#if> pattern="^(622516|622517|622518|622521|622522|622523|984301|984303|621352|621793|621795|621796|621351|621390|621792|621791)\d{10}$" value="上海浦东发展银行">上海浦东发展银行</option>
+						</select>
+					</div>
+				</div>
+				<div class="pre_add" colspan="3">
+					<span><i>*</i>开户姓名：</span>
+					<div class="pre_row">
+						<input id="bankAccount" name="bankaccount" isrequired="true" type="text" value="${member.bankaccount!''}" class="input_add gray_unable" maxlength="20" style="float:left;">
+					</div>
+				</div>
+				<div class="pre_add" colspan="3">
+					<span><i>*</i>银行卡号：</span>
+					<div class="pre_row">
+						<input id="bankNo"  name="bankno" isrequired="true" type="text" value="${member.bankno!''}" class="input_add gray_unable" maxlength="20" style="float:left;">
+					</div>
+				</div>
+				<!--<div class="pre_add" colspan="3">
 					<span><i>*</i>用户邮箱：</span>
 					<div class="pre_row">
 						<input name="email" class="input_add gray_unable" id="email" isrequired="true"  data-options="required:true,validType:'email'" type="text" value="${member.email!''}" maxlength="25" dataType="email" style="float:left;">
 					</div>
-				</div>
+				</div>-->
 				<!--<div class="pre_add" colspan="3">
 					<span><i>*</i>邮编：</span>
 					<div class="pre_row">
@@ -129,7 +158,7 @@ $(function(){
         $('#fileUp').css('width', 110);
         $('.uploadIco').css('marginLeft', 0);
     }
-	 
+
 	//保存会员信息
 	$("#btnSubmit").click(function(){
 		if(!$("input[name='mybirthday']").val()){
@@ -142,6 +171,21 @@ $(function(){
 		if(!$("#form_saveMember").checkall()){
 			return false;
 		}
+        var bankOption =$("#bankName option:selected");
+        var pattern = bankOption.attr("pattern");
+        if(pattern){
+            var reg = new RegExp(pattern);
+			var bankNo = $("#bankNo").val();
+			if(!reg.test(bankNo)){
+			 	var bankName = $("#bankName").val();
+			 	alert("银行卡号不满足"+bankName+"的格式")
+				return false;
+			}
+        } else {
+         	alert("表达式为空");
+         	return false;
+		}
+
 		//检测邮箱是否重复
 		var flag = true ;
 		$.ajax({

@@ -1,6 +1,7 @@
 package com.baigu.app.shop.core.member.service.impl;
 
 import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberBank;
 import com.baigu.app.base.core.model.MemberLv;
 import com.baigu.app.base.core.service.IMemberManager;
 import com.baigu.app.shop.core.member.plugin.MemberPluginBundle;
@@ -244,6 +245,23 @@ public class MemberManager implements IMemberManager {
     public Member edit(Member member) {
         // 前后台用到的是一个edit方法，请在action处理好
         this.daoSupport.update("es_member", member, "member_id=" + member.getMember_id());
+
+        //TODO 现在暂时是一个用户对应一张银行卡，将来可能是多张
+        MemberBank mb = this.daoSupport.queryForObject("SELECT * FROM es_member_bank WHERE member_id = " + member.getMember_id(), MemberBank.class);
+        if (mb != null) {
+            mb.setBankaccount(member.getBankaccount());
+            mb.setBankname(member.getBankname());
+            mb.setBankno(member.getBankno());
+            this.daoSupport.update("es_member_bank", mb, "member_id=" + member.getMember_id());
+        } else {
+            mb = new MemberBank();
+            mb.setMember_id(member.getMember_id());
+            mb.setBankaccount(member.getBankaccount());
+            mb.setBankname(member.getBankname());
+            mb.setBankno(member.getBankno());
+            this.daoSupport.insert("es_member_bank", mb);
+        }
+
         Integer memberpoint = member.getPoint();
 
         //xulipeng  增加修改插件
@@ -269,7 +287,6 @@ public class MemberManager implements IMemberManager {
                     + " l on m.lv_id = l.lv_id where m.disabled!=1 and m.member_id=?";
 
             Member newMember = this.daoSupport.queryForObject(sql, Member.class, member.getMember_id());
-
             ThreadContextHolder.getSession().setAttribute(UserConext.CURRENT_MEMBER_KEY, newMember);
         }
         return null;

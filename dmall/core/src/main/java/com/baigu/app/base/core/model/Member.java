@@ -66,6 +66,9 @@ public class Member implements java.io.Serializable {
     private Long last_send_email; //最后发送激活邮件的时间
     private String find_code;    //找回密码代码
 
+	private String bankname;
+	private String bankno;
+	private String bankaccount;
 
     @PrimaryKeyField
     public Integer getMember_id() {
@@ -474,5 +477,32 @@ public class Member implements java.io.Serializable {
 
 	public void setReview_time(Long review_time) {
 		this.review_time = review_time;
+	}
+
+	@NotDbField
+	public String getBankname() {
+		return bankname;
+	}
+
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
+	}
+
+	@NotDbField
+	public String getBankno() {
+		return bankno;
+	}
+
+	public void setBankno(String bankno) {
+		this.bankno = bankno;
+	}
+
+	@NotDbField
+	public String getBankaccount() {
+		return bankaccount;
+	}
+
+	public void setBankaccount(String bankaccount) {
+		this.bankaccount = bankaccount;
 	}
 }

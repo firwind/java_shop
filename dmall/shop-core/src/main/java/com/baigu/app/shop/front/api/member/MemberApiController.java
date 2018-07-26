@@ -18,6 +18,7 @@ import com.baigu.framework.jms.EmailModel;
 import com.baigu.framework.jms.EmailProducer;
 import com.baigu.framework.util.*;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -824,15 +825,24 @@ public class MemberApiController  {
     @ResponseBody
     @RequestMapping(value = "/save-info", produces = MediaType.APPLICATION_JSON_VALUE)
     public JsonResult saveInfo(
-            @RequestParam(value = "tel", required = false) String tel,
-            @RequestParam(value = "file", required = false) MultipartFile file, String truename,
-            @RequestParam(value = "zip", required = false) String zip, String mobile, String sex,
-            String city, String region, String town, String email, String address, String mybirthday, Integer province_id,
-            Integer city_id, Integer region_id, Integer town_id, String province) {
-        Member member = UserConext.getCurrentMember();
+			@RequestParam(value = "tel", required = false) String tel,
+			@RequestParam(value = "file", required = false) MultipartFile file, String truename,
+			@RequestParam(value = "zip", required = false) String zip, String mobile, String sex,
+			String city, String region, String town, String email, String address, String mybirthday, Integer province_id,
+			Integer city_id, Integer region_id, Integer town_id, String province, String bankname, String bankno, String bankaccount) {
+		Member member = UserConext.getCurrentMember();
 
 		member = memberManager.get(member.getMember_id());
 
+		if (StringUtils.isNotBlank(bankname)) {
+			member.setBankname(bankname);
+		}
+		if (StringUtils.isNotBlank(bankno)) {
+			member.setBankno(bankno);
+		}
+		if (StringUtils.isNotBlank(bankaccount)) {
+			member.setBankaccount(bankaccount);
+		}
 
 		//先上传图片
 		String faceField = "faceFile";

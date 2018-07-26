@@ -1,25 +1,28 @@
 package com.baigu.app.shop.front.tag.member;
 
-import java.io.IOException;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.baigu.app.base.core.model.Member;
+import com.baigu.app.base.core.model.MemberBank;
+import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.webcontext.ThreadContextHolder;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.RequestUtil;
+import freemarker.template.TemplateModelException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.baigu.app.base.core.model.Member;
-import com.baigu.eop.sdk.context.UserConext;
-import com.baigu.framework.context.webcontext.ThreadContextHolder;
-import com.baigu.framework.taglib.BaseFreeMarkerTag;
-import com.baigu.framework.util.RequestUtil;
-
-import freemarker.template.TemplateModelException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Map;
 
 @Component
 @Scope("prototype")
 public class MemberLoginCheckTag extends BaseFreeMarkerTag {
+
+	@Autowired
+	private IDaoSupport daoSupport;
 	
 	/**
 	 * 会员详细标签
@@ -57,6 +60,13 @@ public class MemberLoginCheckTag extends BaseFreeMarkerTag {
 				return null;
 			}
 		} else {
+			//追加银行卡信息
+			MemberBank mb = this.daoSupport.queryForObject("SELECT * FROM es_member_bank WHERE member_id = " + member.getMember_id(), MemberBank.class);
+			if (mb != null) {
+				member.setBankaccount(mb.getBankaccount());
+				member.setBankno(mb.getBankno());
+				member.setBankname(mb.getBankname());
+			}
 			return member;
 		}
 	}
