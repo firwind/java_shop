@@ -1,0 +1,95 @@
+<#include '/admin/header.html' >
+    <#assign regionSelectDirective="com.baigu.app.shop.front.tag.goods.other.regions.RegionSelectDirective"?new()>
+        <script type="text/javascript" src="${ctx}/statics/e_tools/js/jquery.addressSelect-1.0.js"></script>
+        <style>
+            .layui-form-item{
+                width:30%;
+                display:inline-block;
+                margin-left:3%;
+            }
+            .layui-input-block{
+                margin-left: 150px!important;
+            }
+            .layui-form-label{
+                width:150px!important;
+            }
+        </style>
+        <div  class="admin-main">
+            <!--表单区域  -->
+            <form id="addForm" class="layui-form layui-form-pane" style="padding-top: 10px;">
+                <input type="hidden" name="id" value="${cusotmer.id}" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">客户名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" value="${cusotmer.name!''}"  id="name" name="name" maxlength="100"  lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">客户地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" value="${cusotmer.address!''}"  id="address" name="address" maxlength="255"  lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">负责人姓名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" value="${cusotmer.leadername!''}"  id="leadername" name="leadername" maxlength="100"  lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">负责人号码：</label>
+                    <div class="layui-input-block">
+                        <input type="text" value="${cusotmer.phone!''}"  id="phone" name="phone" maxlength="11"  lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width:100%">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="addFilter">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            var index = parent.layer.getFrameIndex(window.name);
+
+            layui.use(['form', 'layedit', 'laydate'], function(){
+                var form = layui.form()
+                    ,layer = layui.layer
+                    ,layedit = layui.layedit
+                    ,laydate = layui.laydate;
+
+                //监听提交
+                form.on('submit(addFilter)', function(data){
+                    var options = {
+                        url : "${ctx}/shop/admin/oem/customer/editSubmit.do",
+                        type : "POST",
+                        dataType : 'json',
+                        success : function(result) {
+                            if (result.result == 1) {
+                                $.Loading.success(result.message);
+                                parent.CloseTabByTitle("客户添加");
+                            }
+                            if (result.result == 0) {
+                                $.Loading.error(result.message);
+                            }
+                        },
+                        error : function(e) {
+                            $.Loading.error("出现错误 ，请重试");
+                        }
+                    };
+                    $("#addForm").ajaxSubmit(options);
+
+                    return false;
+                });
+                form.render();
+            });
+        </script>
+
+        <#include '/admin/footer.html' >

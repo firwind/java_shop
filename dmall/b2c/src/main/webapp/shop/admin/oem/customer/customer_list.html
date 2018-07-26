@@ -1,0 +1,126 @@
+<#include '/admin/header.html' >
+    <#assign dateFormat="com.baigu.framework.directive.DateformateDirective"?new()>
+        <div  class="admin-main">
+            <div>
+                <!--按钮操作  -->
+                <div class="table_control">
+                    <div class="table_opera">
+                        <button type="button" class="layui-btn layui-btn-primary " title="添加客户" onclick="add();"><i class="icon iconfont icon-add"></i></button>
+                    </div>
+                    <!--搜索区域  -->
+                    <div class="table_search">
+                        <input type="text" id="_search" placeholder="请输入客户名" style="height:25px;">
+                        <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
+                    </div>
+                </div>
+            </div>
+            <!--高级搜索生成内容区域  -->
+            <div class="high_search">
+                <form action="" class="layui-form layui-form-one" action=""></form>
+            </div>
+
+            <!--表格区域  -->
+            <form id="saleform">
+                <table id="orderdata" class="layui-table site-table table-hover" width="100%" lay-skin="line" >
+                    <thead>
+                    <tr>
+                        <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
+                        <th>客户名</th>
+                        <th>客户地址</th>
+                        <th>负责人姓名</th>
+                        <th>负责人电话</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+                <!--传值等操作(暂定)  -->
+                <div id="addBrand" ></div>
+            </form>
+        </div>
+
+        <!--js区域  -->
+        <script>
+            var index = parent.layer.getFrameIndex(window.name);
+
+            /* 监听开始搜索按钮 */
+            var table;
+            $(function(){
+                table = $('#orderdata').DataTable({
+                    "language": {
+                        "url": "${staticserver}/media/zh_CN.txt"
+                    },
+                    "processing": true,
+                    "serverSide": true,
+                    "ordering": false,
+                    "searching": false,
+                    "lengthChange": false,
+                    ajax: {
+                        //指定数据源
+                        type:"post",
+                        url: '${ctx}/shop/admin/oem/customer/list-json.do',
+                    },
+                    columns: [ //定义列
+                        {"data": function (obj) {
+                            return '<input type="checkbox" name="groupIds" class="fly-checkbox" value=' + obj.id +'>';
+                        }},
+                        {data: "name"},
+                        {data: "address"},
+                        {data: "leadername"},
+                        {data: "phone"},
+                        {data: function(obj) {
+                            if(obj.updatetime==null){
+                                return " ";
+                            }else{
+                                return  getFormatDateByLong(obj.updatetime/1000, "yyyy-MM-dd hh:mm:ss");
+                            }
+                        }},
+                        {data: null,"render": function(data, type, row) {
+                            var html = "";
+                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='update(\""+data['id']+"\")'>修改</a>&nbsp;";
+                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='del(\""+data['id']+"\")'>删除</a>&nbsp;";
+                            return html;
+                        }}
+                    ]
+                });
+            });
+
+            function add(){
+                newTab("客户添加","/shop/admin/oem/customer/add.do");
+            }
+
+            function update(id){
+                newTab("客户修改","/shop/admin/oem/customer/edit.do?id="+id);
+            }
+
+            function del(id){
+                if(!confirm("确认删除该记录吗？")){
+                    return;
+                }
+                var options = {
+                    url : "${ctx}/shop/admin/oem/customer/delete.do?id="+id,
+                    type : "POST",
+                    dataType : 'json',
+                    success : function(result) {
+                        if (result.result == 1) {
+                            $.Loading.success(result.message);
+                            table.ajax.url(ctx+"/shop/admin/oem/customer/list-json.do").load();
+                        }
+                        if (result.result == 0) {
+                            $.Loading.error(result.message);
+                        }
+                    },
+                    error : function(e) {
+                        $.Loading.error("出现错误 ，请重试");
+                    }
+                };
+                $.ajax(options);
+            }
+
+            //普通搜索
+            function searchOrder(){
+                var keyword = $("#_search").val();
+                table.ajax.url(ctx+"/shop/admin/oem/customer/list-json.do?keyword="+keyword).load();
+            }
+        </script>
+        <#include '/admin/footer.html' >
