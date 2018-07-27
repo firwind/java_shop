@@ -147,6 +147,7 @@ public class ExcelUtil {
 				if (csCell == null) {
 					return "";
 				}
+				csCell.setCellType(Cell.CELL_TYPE_STRING);
 				return csCell.getStringCellValue();
 			}
 		} catch (Exception e) {

@@ -1,8 +1,10 @@
 package com.baigu.app.shop.core.oem.service.impl;
 
+import com.baigu.app.shop.core.oem.model.OemExpress;
 import com.baigu.app.shop.core.oem.model.OemGoods;
 import com.baigu.app.shop.core.oem.model.OemOrder;
 import com.baigu.app.shop.core.oem.model.OemOrderDetail;
+import com.baigu.app.shop.core.oem.service.IExpressManager;
 import com.baigu.app.shop.core.oem.service.IGoodsManager;
 import com.baigu.app.shop.core.oem.service.IOrderManager;
 import com.baigu.framework.action.JsonResult;
@@ -37,6 +39,8 @@ public class OrderManager implements IOrderManager {
     private IDaoSupport daoSupport;
     @Autowired
     private IGoodsManager goodsManager;
+    @Autowired
+    private IExpressManager expressManager;
 
     /**
      * 查询分页
@@ -113,7 +117,7 @@ public class OrderManager implements IOrderManager {
      * @param in
      */
     @Override
-    public JsonResult importOemExcel(InputStream in, String fileName) throws IOException {
+    public JsonResult importOemExcel(InputStream in, Integer customerId) throws IOException {
         try {
             ExcelUtil excelUtil = new ExcelUtil();
             excelUtil.openModal(in);
@@ -122,6 +126,7 @@ public class OrderManager implements IOrderManager {
             List<OemOrder> oemOrders = new LinkedList<OemOrder>();
             List<OemOrderDetail> oemOrderDetails = new LinkedList<OemOrderDetail>();
             Map<String, BigDecimal> orderWeight = new HashMap<String, BigDecimal>();//统计订单总重量
+            Map<String, BigDecimal> orderPrice = new HashMap<String, BigDecimal>();//统计订单总金额
             OemGoods goods = null;
             OemOrder order = null;
             OemOrderDetail detail = null;
@@ -132,6 +137,9 @@ public class OrderManager implements IOrderManager {
 
                 order = new OemOrder();
                 detail = new OemOrderDetail();
+
+                //客户id
+                order.setCustomer_id(customerId);
 
                 String orderNo = excelUtil.readStringToCell(row, 0);
                 if (StringUtils.isNotBlank(orderNo)) {
@@ -177,6 +185,8 @@ public class OrderManager implements IOrderManager {
                 String cneeProvince = excelUtil.readStringToCell(row, 7);
                 if (StringUtils.isNotBlank(cneeProvince)) {
                     order.setCneeprovince(cneeProvince);
+                } else {
+                    return JsonResultUtil.getErrorJson("快递到省不能为空");
                 }
                 String cneeCity = excelUtil.readStringToCell(row, 8);
                 if (StringUtils.isNotBlank(cneeCity)) {
@@ -190,6 +200,10 @@ public class OrderManager implements IOrderManager {
                 if (StringUtils.isNotBlank(cneeAddr)) {
                     order.setCneeaddr(cneeAddr);
                 }
+
+                //未发货
+                order.setStatus(OemOrder.UNSHIP);
+
                 //统计订单总重量
                 if (orderWeight.get(orderNo) == null) {
                     BigDecimal weight = goods.getWeight().multiply(new BigDecimal(goodsNum));
@@ -199,11 +213,25 @@ public class OrderManager implements IOrderManager {
                     BigDecimal weight = goods.getWeight().multiply(new BigDecimal(goodsNum));
                     orderWeight.put(orderNo, orderWeight.get(orderNo).add(weight));
                 }
+                //统计订单金额
+                if (orderPrice.get(orderNo) == null) {
+                    BigDecimal price = goods.getPrice().multiply(new BigDecimal(goodsNum));
+                    orderPrice.put(orderNo, price);
+                } else {
+                    BigDecimal price = goods.getPrice().multiply(new BigDecimal(goodsNum));
+                    orderWeight.put(orderNo, orderWeight.get(orderNo).add(price));
+                }
             }
             try {
                 for (OemOrder oemOrder : oemOrders) {
                     //计算运费
-                    oemOrder.setFreight(calculateFreight(order.getExpname(), orderWeight.get(order.getOrderno())));
+                    try {
+                        oemOrder.setPrice(orderPrice.get(oemOrder.getOrderno()));
+                        oemOrder.setFreight(calculateFreight(oemOrder.getExpname(), oemOrder.getCneeprovince(), orderWeight.get(oemOrder.getOrderno())));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return JsonResultUtil.getErrorJson("计算快递失败");
+                    }
                     this.daoSupport.insert("oem_order", oemOrder);
                 }
                 for (OemOrderDetail oemDetail : oemOrderDetails) {
@@ -228,8 +256,25 @@ public class OrderManager implements IOrderManager {
      * @param weight
      * @return
      */
-    private BigDecimal calculateFreight(String expName, BigDecimal weight) {
-        return BigDecimal.ZERO;
+    private BigDecimal calculateFreight(String expName, String province, BigDecimal weight) {
+        OemExpress express = expressManager.get(expName, province);
+        if (express == null) {//如果没查到，则找默认快递
+            express = expressManager.get(expName, null);
+        }
+        if (express == null) {
+            throw new RuntimeException("对应快递未找到");
+        }
+        BigDecimal freight = BigDecimal.ZERO;
+        if (weight.compareTo(BigDecimal.ZERO) >= 0 && weight.compareTo(express.getFweight()) <= 0) {
+            return express.getFmoney();
+        } else if (weight.compareTo(express.getFweight()) > 0) {
+            freight = freight.add(express.getFmoney());//先加首重金额
+            BigDecimal exceedWeight = weight.subtract(express.getFweight());//超过首重的重量
+            BigDecimal count = exceedWeight.divide(express.getSweight(), 0, BigDecimal.ROUND_CEILING);//算超出几个续重
+            BigDecimal totalSmoney = count.multiply(express.getSmoney());
+            freight = freight.add(totalSmoney);//再加续重金额
+        }
+        return freight;
     }
 
     private String createTempSql(Map map, String other, String order) {

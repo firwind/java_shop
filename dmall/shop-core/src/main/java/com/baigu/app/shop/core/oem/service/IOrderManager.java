@@ -24,5 +24,5 @@ public interface IOrderManager {
 
     void setShipped(Integer[] ids);
 
-    JsonResult importOemExcel(InputStream in, String fileName) throws IOException;
+    JsonResult importOemExcel(InputStream in, Integer customerId) throws IOException;
 }

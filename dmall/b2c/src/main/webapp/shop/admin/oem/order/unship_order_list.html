@@ -97,6 +97,7 @@
                         {data: null,"render": function(data, type, row) {
                             var html = "";
                             html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='setShipped(\""+data['id']+"\")'>设为已发货</a>&nbsp;";
+                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='del(\""+data['id']+"\")'>删除</a>&nbsp;";
                             return html;
                         }}
                     ]
@@ -113,6 +114,7 @@
                     success : function(result) {
                         //加载客户下拉选项
                         if (result.result == 1) {
+                            $("#customerName").empty();
                             $("#customerName").append("<option value=' '>-- 请选择 --</option>");
                             if(result.data && result.data.length>0){
                                 $.each(result.data,function(i,data){
@@ -120,10 +122,10 @@
                                 })
                             }
                             //注册事件
-                            $("#customerName").on("change",function(){
+                            $("#customerName").unbind().on("change",function(){
                                 //弹出file
-                                $("#oemFile").trigger("click");
-                                $("#oemFile").on("change",function (event) {
+                                $("#oemFile").click();
+                                $("#oemFile").unbind().on("change",function (event) {
                                     var file = this.files;
                                     var options = {
                                         url : "${ctx}/shop/admin/oem/order/importOemExcel.do",
@@ -140,6 +142,9 @@
                                             //清空文件域
                                             var oemFile = document.getElementById('oemFile') ;
                                             oemFile.outerHTML=oemFile.outerHTML;
+
+                                            //关闭弹框
+                                            $("#customerSelector").hide();
                                         },
                                         error : function(e) {
                                             $.Loading.error("出现错误 ，请重试");
@@ -150,6 +155,30 @@
                                     $("#oemForm").ajaxSubmit(options);
                                 })
                             });
+                        }
+                        if (result.result == 0) {
+                            $.Loading.error(result.message);
+                        }
+                    },
+                    error : function(e) {
+                        $.Loading.error("出现错误 ，请重试");
+                    }
+                };
+                $.ajax(options);
+            }
+
+            function del(id){
+                if(!confirm("确认删除该记录吗？")){
+                    return;
+                }
+                var options = {
+                    url : "${ctx}/shop/admin/oem/order/delete.do?id="+id,
+                    type : "POST",
+                    dataType : 'json',
+                    success : function(result) {
+                        if (result.result == 1) {
+                            $.Loading.success(result.message);
+                            table.ajax.url(url).load();
                         }
                         if (result.result == 0) {
                             $.Loading.error(result.message);

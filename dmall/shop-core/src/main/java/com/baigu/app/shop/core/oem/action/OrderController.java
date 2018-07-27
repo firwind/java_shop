@@ -91,7 +91,7 @@ public class OrderController extends GridController {
                             return JsonResultUtil.getErrorJson("不支持的Excel格式，请上传后缀为xls或者xlsx的文件");
                         }
                         InputStream in = file.getInputStream();
-                        JsonResult importResult = orderManager.importOemExcel(in, fileName);
+                        JsonResult importResult = orderManager.importOemExcel(in, customerId);
                         return importResult;
                     }
                 }
