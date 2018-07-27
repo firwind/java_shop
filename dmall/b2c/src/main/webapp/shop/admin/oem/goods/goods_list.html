@@ -5,11 +5,11 @@
                 <!--按钮操作  -->
                 <div class="table_control">
                     <div class="table_opera">
-                        <button type="button" class="layui-btn layui-btn-primary " title="添加客户" onclick="add();"><i class="icon iconfont icon-add"></i></button>
+                        <button type="button" class="layui-btn layui-btn-primary " title="添加商品" onclick="add();"><i class="icon iconfont icon-add"></i></button>
                     </div>
                     <!--搜索区域  -->
                     <div class="table_search">
-                        <input type="text" id="_search" placeholder="请输入客户名" style="height:25px;">
+                        <input type="text" id="_search" placeholder="请输入商品名" style="height:25px;">
                         <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
                     </div>
                 </div>
@@ -21,10 +21,11 @@
                     <thead>
                     <tr>
                         <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
-                        <th>客户名</th>
-                        <th>客户地址</th>
-                        <th>负责人姓名</th>
-                        <th>负责人电话</th>
+                        <th>商品名</th>
+                        <th>商品号</th>
+                        <th>商品规格</th>
+                        <th>商品重量</th>
+                        <th>商品价格</th>
                         <th>修改时间</th>
                         <th>操作</th>
                     </tr>
@@ -54,16 +55,17 @@
                     ajax: {
                         //指定数据源
                         type:"post",
-                        url: '${ctx}/shop/admin/oem/customer/list-json.do'
+                        url: '${ctx}/shop/admin/oem/goods/list-json.do'
                     },
                     columns: [ //定义列
                         {"data": function (obj) {
                             return '<input type="checkbox" name="ids" class="fly-checkbox" value=' + obj.id +'>';
                         }},
                         {data: "name"},
-                        {data: "address"},
-                        {data: "leadername"},
-                        {data: "phone"},
+                        {data: "code"},
+                        {data: "sku"},
+                        {data: "weight"},
+                        {data: "price"},
                         {data: function(obj) {
                             if(obj.updatetime==null){
                                 return " ";
@@ -82,11 +84,11 @@
             });
 
             function add(){
-                newTab("客户添加","/shop/admin/oem/customer/add.do");
+                newTab("商品添加","/shop/admin/oem/goods/add.do");
             }
 
             function update(id){
-                newTab("客户修改","/shop/admin/oem/customer/edit.do?id="+id);
+                newTab("商品修改","/shop/admin/oem/goods/edit.do?id="+id);
             }
 
             function del(id){
@@ -94,13 +96,13 @@
                     return;
                 }
                 var options = {
-                    url : "${ctx}/shop/admin/oem/customer/delete.do?id="+id,
+                    url : "${ctx}/shop/admin/oem/goods/delete.do?id="+id,
                     type : "POST",
                     dataType : 'json',
                     success : function(result) {
                         if (result.result == 1) {
                             $.Loading.success(result.message);
-                            table.ajax.url(ctx+"/shop/admin/oem/customer/list-json.do").load();
+                            table.ajax.url(ctx+"/shop/admin/oem/goods/list-json.do").load();
                         }
                         if (result.result == 0) {
                             $.Loading.error(result.message);
@@ -116,7 +118,7 @@
             //普通搜索
             function searchOrder(){
                 var keyword = $("#_search").val();
-                table.ajax.url(ctx+"/shop/admin/oem/customer/list-json.do?keyword="+keyword).load();
+                table.ajax.url(ctx+"/shop/admin/oem/goods/list-json.do?keyword="+keyword).load();
             }
         </script>
         <#include '/admin/footer.html' >

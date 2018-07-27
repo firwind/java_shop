@@ -10,6 +10,8 @@ import java.util.Date;
 public class OemOrder implements Serializable {
     private Integer id;
     private String orderno;
+    private String cname;//客户名
+    private Integer status;
     private String expname;
     private BigDecimal freight;
     private Integer customer_id;
@@ -20,6 +22,9 @@ public class OemOrder implements Serializable {
     private String cneecity;
     private String cneeaddr;
     private Date updatetime;
+
+    public static final int UNSHIP = 10;//未发货
+    public static final int SHIP = 20;//已发货
 
     public Integer getId() {
         return id;
@@ -115,5 +120,21 @@ public class OemOrder implements Serializable {
 
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
     }
 }

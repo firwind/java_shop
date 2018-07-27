@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.oem.action;
 
-import com.baigu.app.shop.core.oem.model.OemCustomer;
-import com.baigu.app.shop.core.oem.service.ICustomerManager;
+import com.baigu.app.shop.core.oem.model.OemOrder;
+import com.baigu.app.shop.core.oem.service.IOrderManager;
 import com.baigu.framework.action.GridController;
 import com.baigu.framework.action.GridJsonResult;
 import com.baigu.framework.action.JsonResult;
@@ -20,29 +20,50 @@ import java.util.Map;
 /**
  * create by xt on 2018-07-26 17:00
  */
-@Controller
+@Controller("oemOrderController")
 @Scope("prototype")
-@RequestMapping("/shop/admin/oem/customer")
+@RequestMapping("/shop/admin/oem/order")
 @SuppressWarnings({"rawtypes", "unchecked"})
-public class CustomerController extends GridController {
+public class OrderController extends GridController {
 
     @Autowired
-    private ICustomerManager customerManager;
+    private IOrderManager orderManager;
 
-    @RequestMapping(value = "/list")
-
-    public ModelAndView list() {
+    @RequestMapping(value = "/unshipList")
+    public ModelAndView unshipList() {
         ModelAndView view = getGridModelAndView();
-        view.setViewName("/shop/admin/oem/customer/customer_list");
+        view.setViewName("/shop/admin/oem/order/unship_order_list");
+        return view;
+    }
+
+    @RequestMapping(value = "/shipList")
+    public ModelAndView shipList() {
+        ModelAndView view = getGridModelAndView();
+        view.setViewName("/shop/admin/oem/order/ship_order_list");
         return view;
     }
 
     @ResponseBody
+    @RequestMapping(value = "/setShipped", method = RequestMethod.POST)
+    public JsonResult setShipped(Integer[] ids) {
+        try {
+            if (ids.length > 0) {
+                orderManager.setShipped(ids);
+            }
+            return JsonResultUtil.getSuccessJson("操作成功");
+        } catch (Exception e) {
+            this.logger.error(e.getMessage(), e);
+            return JsonResultUtil.getErrorJson("操作失败");
+        }
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/list-json")
-    public GridJsonResult listJson(String keyword) {
+    public GridJsonResult listJson(String keyword, Integer status) {
         Map<String, Object> where = new HashMap<String, Object>();
         where.put("keyword", keyword);
-        webpage = customerManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
+        where.put("status", status);
+        webpage = orderManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
         return JsonResultUtil.getGridJson(webpage);
     }
 
@@ -50,7 +71,7 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public JsonResult delete(Integer id) {
         try {
-            customerManager.delete(id);
+            orderManager.delete(id);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);
@@ -61,15 +82,15 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("/shop/admin/oem/customer/customer_add");
+        view.setViewName("/shop/admin/oem/order/order_add");
         return view;
     }
 
     @ResponseBody
     @RequestMapping(value = "/addSubmit", method = RequestMethod.POST)
-    public JsonResult addSubmit(OemCustomer customer) {
+    public JsonResult addSubmit(OemOrder order) {
         try {
-            customerManager.add(customer);
+            orderManager.add(order);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);
@@ -80,17 +101,17 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView edit(Integer id) {
         ModelAndView view = new ModelAndView();
-        OemCustomer customer = customerManager.get(id);
-        view.addObject("cusotmer", customer);
-        view.setViewName("/shop/admin/oem/customer/customer_edit");
+        OemOrder order = orderManager.get(id);
+        view.addObject("order", order);
+        view.setViewName("/shop/admin/oem/order/order_edit");
         return view;
     }
 
     @ResponseBody
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
-    public JsonResult editSubmit(OemCustomer customer) {
+    public JsonResult editSubmit(OemOrder order) {
         try {
-            customerManager.update(customer);
+            orderManager.update(order);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);

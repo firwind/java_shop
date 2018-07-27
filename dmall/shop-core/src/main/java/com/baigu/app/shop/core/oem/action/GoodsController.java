@@ -1,7 +1,7 @@
 package com.baigu.app.shop.core.oem.action;
 
-import com.baigu.app.shop.core.oem.model.OemCustomer;
-import com.baigu.app.shop.core.oem.service.ICustomerManager;
+import com.baigu.app.shop.core.oem.model.OemGoods;
+import com.baigu.app.shop.core.oem.service.IGoodsManager;
 import com.baigu.framework.action.GridController;
 import com.baigu.framework.action.GridJsonResult;
 import com.baigu.framework.action.JsonResult;
@@ -20,20 +20,20 @@ import java.util.Map;
 /**
  * create by xt on 2018-07-26 17:00
  */
-@Controller
+@Controller("oemGoodsController")
 @Scope("prototype")
-@RequestMapping("/shop/admin/oem/customer")
+@RequestMapping("/shop/admin/oem/goods")
 @SuppressWarnings({"rawtypes", "unchecked"})
-public class CustomerController extends GridController {
+public class GoodsController extends GridController {
 
     @Autowired
-    private ICustomerManager customerManager;
+    private IGoodsManager goodsManager;
 
     @RequestMapping(value = "/list")
 
     public ModelAndView list() {
         ModelAndView view = getGridModelAndView();
-        view.setViewName("/shop/admin/oem/customer/customer_list");
+        view.setViewName("/shop/admin/oem/goods/goods_list");
         return view;
     }
 
@@ -42,7 +42,7 @@ public class CustomerController extends GridController {
     public GridJsonResult listJson(String keyword) {
         Map<String, Object> where = new HashMap<String, Object>();
         where.put("keyword", keyword);
-        webpage = customerManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
+        webpage = goodsManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
         return JsonResultUtil.getGridJson(webpage);
     }
 
@@ -50,7 +50,7 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public JsonResult delete(Integer id) {
         try {
-            customerManager.delete(id);
+            goodsManager.delete(id);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);
@@ -61,15 +61,15 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("/shop/admin/oem/customer/customer_add");
+        view.setViewName("/shop/admin/oem/goods/goods_add");
         return view;
     }
 
     @ResponseBody
     @RequestMapping(value = "/addSubmit", method = RequestMethod.POST)
-    public JsonResult addSubmit(OemCustomer customer) {
+    public JsonResult addSubmit(OemGoods goods) {
         try {
-            customerManager.add(customer);
+            goodsManager.add(goods);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);
@@ -80,17 +80,17 @@ public class CustomerController extends GridController {
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView edit(Integer id) {
         ModelAndView view = new ModelAndView();
-        OemCustomer customer = customerManager.get(id);
-        view.addObject("cusotmer", customer);
-        view.setViewName("/shop/admin/oem/customer/customer_edit");
+        OemGoods goods = goodsManager.get(id);
+        view.addObject("goods", goods);
+        view.setViewName("/shop/admin/oem/goods/goods_edit");
         return view;
     }
 
     @ResponseBody
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
-    public JsonResult editSubmit(OemCustomer customer) {
+    public JsonResult editSubmit(OemGoods goods) {
         try {
-            customerManager.update(customer);
+            goodsManager.update(goods);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);
