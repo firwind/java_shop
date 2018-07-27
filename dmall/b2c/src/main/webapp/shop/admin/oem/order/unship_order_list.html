@@ -4,9 +4,23 @@
             <div>
                 <!--按钮操作  -->
                 <div class="table_control">
-                   <div class="table_opera">
+                   <div class="table_opera" style="position: relative;">
                         <button type="button" class="layui-btn layui-btn-primary " title="批量设置已发货" onclick="batchSetShipped();"><i class="icon iconfont icon-settings"></i></button>
-                    </div>
+                        <button type="button" class="layui-btn layui-btn-primary " title="导入代加工订单" onclick="importOemExcel();"><i class="icon iconfont icon-activity"></i></button>
+                        <form id="oemForm" enctype="multipart/form-data" style="display: none;">
+                            <input id="oemFile" type="file" name="oemfile" />
+                            <input id="customerId" type="hidden" name="customerId" />
+                        </form>
+                        <div id="customerSelector"  class="admin-main" style="display: none; position: absolute; top:10px; left:50px; z-index: 999; width:500px;">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">客户名：</label>
+                                <div class="layui-input-block">
+                                    <select name="cname" id="customerName" class="select">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
                     <!--搜索区域  -->
                     <div class="table_search">
                         <input type="text" id="_search" placeholder="请输入客户名" style="height:25px;">
@@ -88,6 +102,65 @@
                     ]
                 });
             });
+
+            //导入代加工Excel
+            function importOemExcel(){
+                $("#customerSelector").toggle();
+                var options = {
+                    url : "${ctx}/shop/admin/oem/customer/getCustomerList.do",
+                    type : "POST",
+                    dataType : 'json',
+                    success : function(result) {
+                        //加载客户下拉选项
+                        if (result.result == 1) {
+                            $("#customerName").append("<option value=' '>-- 请选择 --</option>");
+                            if(result.data && result.data.length>0){
+                                $.each(result.data,function(i,data){
+                                    $("#customerName").append("<option value='"+data.id+"'>"+data.name+"</option>");
+                                })
+                            }
+                            //注册事件
+                            $("#customerName").on("change",function(){
+                                //弹出file
+                                $("#oemFile").trigger("click");
+                                $("#oemFile").on("change",function (event) {
+                                    var file = this.files;
+                                    var options = {
+                                        url : "${ctx}/shop/admin/oem/order/importOemExcel.do",
+                                        type : "POST",
+                                        dataType : 'json',
+                                        success : function(result) {
+                                            if (result.result == 1) {
+                                                $.Loading.success(result.message);
+                                                table.ajax.url(url).load();
+                                            }
+                                            if (result.result == 0) {
+                                                $.Loading.error(result.message);
+                                            }
+                                            //清空文件域
+                                            var oemFile = document.getElementById('oemFile') ;
+                                            oemFile.outerHTML=oemFile.outerHTML;
+                                        },
+                                        error : function(e) {
+                                            $.Loading.error("出现错误 ，请重试");
+                                        }
+                                    };
+                                    var customerId = $("#customerName").val();
+                                    $("#customerId").val(customerId);
+                                    $("#oemForm").ajaxSubmit(options);
+                                })
+                            });
+                        }
+                        if (result.result == 0) {
+                            $.Loading.error(result.message);
+                        }
+                    },
+                    error : function(e) {
+                        $.Loading.error("出现错误 ，请重试");
+                    }
+                };
+                $.ajax(options);
+            }
 
             /**
              * 设为已发货

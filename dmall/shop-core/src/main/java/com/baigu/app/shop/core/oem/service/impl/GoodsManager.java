@@ -78,6 +78,17 @@ public class GoodsManager implements IGoodsManager {
         return this.daoSupport.queryForObject("SELECT * FROM `oem_goods` WHERE id = " + id, OemGoods.class);
     }
 
+    /**
+     * 根据唯一编号查询goods
+     *
+     * @param code
+     * @return
+     */
+    @Override
+    public OemGoods get(String code) {
+        return this.daoSupport.queryForObject("SELECT * FROM `oem_goods` WHERE code = ?", OemGoods.class, code);
+    }
+
     private String createTempSql(Map map, String other, String order) {
         String sql = "SELECT * FROM `oem_goods` WHERE 1 = 1";
         String keyword = (String) map.get("keyword");

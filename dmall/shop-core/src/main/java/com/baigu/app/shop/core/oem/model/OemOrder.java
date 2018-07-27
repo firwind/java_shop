@@ -20,6 +20,7 @@ public class OemOrder implements Serializable {
     private String cneephone;
     private String cneeprovince;
     private String cneecity;
+    private String cneedistrict;
     private String cneeaddr;
     private Date updatetime;
 
@@ -104,6 +105,14 @@ public class OemOrder implements Serializable {
 
     public void setCneecity(String cneecity) {
         this.cneecity = cneecity;
+    }
+
+    public String getCneedistrict() {
+        return cneedistrict;
+    }
+
+    public void setCneedistrict(String cneedistrict) {
+        this.cneedistrict = cneedistrict;
     }
 
     public String getCneeaddr() {

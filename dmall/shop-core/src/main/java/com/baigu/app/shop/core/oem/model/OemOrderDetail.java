@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class OemOrderDetail implements Serializable {
     private Integer id;
-    private Integer order_id;
+    private String orderno;
     private Integer goods_id;
     private Integer num;
     private Date updatetime;
@@ -21,12 +21,12 @@ public class OemOrderDetail implements Serializable {
         this.id = id;
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public String getOrderno() {
+        return orderno;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setOrderno(String orderno) {
+        this.orderno = orderno;
     }
 
     public Integer getGoods_id() {

@@ -18,4 +18,6 @@ public interface IGoodsManager {
     void update(OemGoods goods);
 
     OemGoods get(Integer id);
+
+    OemGoods get(String code);
 }

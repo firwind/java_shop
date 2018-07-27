@@ -3,6 +3,7 @@ package com.baigu.app.shop.core.oem.service;
 import com.baigu.app.shop.core.oem.model.OemCustomer;
 import com.baigu.framework.database.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,6 @@ public interface ICustomerManager {
     void update(OemCustomer customer);
 
     OemCustomer get(Integer id);
+
+    List<OemCustomer> list();
 }

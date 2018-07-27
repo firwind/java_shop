@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +36,23 @@ public class CustomerController extends GridController {
         ModelAndView view = getGridModelAndView();
         view.setViewName("/shop/admin/oem/customer/customer_list");
         return view;
+    }
+
+    /**
+     * 获取所有客户列表
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getCustomerList", method = RequestMethod.POST)
+    public JsonResult getCustomerList() {
+        try {
+            List<OemCustomer> customerList = customerManager.list();
+            return JsonResultUtil.getObjectMessageJson(customerList, "操作成功");
+        } catch (Exception e) {
+            this.logger.error(e.getMessage(), e);
+            return JsonResultUtil.getErrorJson("操作失败");
+        }
     }
 
     @ResponseBody

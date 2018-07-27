@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -76,6 +77,11 @@ public class CustomerManager implements ICustomerManager {
     @Override
     public OemCustomer get(Integer id) {
         return this.daoSupport.queryForObject("SELECT * FROM `oem_customer` WHERE id = " + id, OemCustomer.class);
+    }
+
+    @Override
+    public List<OemCustomer> list() {
+        return this.daoSupport.queryForList("SELECT * FROM `oem_customer`", OemCustomer.class);
     }
 
     private String createTempSql(Map map, String other, String order) {

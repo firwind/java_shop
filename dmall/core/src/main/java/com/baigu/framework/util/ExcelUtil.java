@@ -1,23 +1,13 @@
 package com.baigu.framework.util;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.DataFormat;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 /**
  * excel工具类
@@ -122,18 +112,63 @@ public class ExcelUtil {
 		}
 	}
 
+	/**
+	 * 判断是否是空行
+	 *
+	 * @param numRow
+	 * @return
+	 */
+	public boolean isNullRow(int numRow) {
+		if (wb.getSheetAt(0) != null) {
+			Sheet aSheet = wb.getSheetAt(0);
+			Row row = aSheet.getRow((short) numRow);
+			return row == null;
+		} else {
+			return true; //没有默认sheet也返回是空
+		}
+	}
+
+	/**
+	 * 获取单元格值
+	 *
+	 * @param numRow
+	 * @param numCol
+	 * @return
+	 */
+	public String readStringToCell(int numRow, int numCol) {
+		try {
+			if (wb.getSheetAt(0) != null) {
+				Sheet aSheet = wb.getSheetAt(0);
+				Row row = aSheet.getRow((short) numRow);
+				if (row == null) {
+					return "";
+				}
+				Cell csCell = row.getCell((short) numCol);
+				if (csCell == null) {
+					return "";
+				}
+				return csCell.getStringCellValue();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
 	public void writeStringToCell(int numRow, int numCol, String strval) {
 		try {
 			strval = StringUtil.isEmpty(strval) ? "" : strval;
 			if (wb.getSheetAt(0) != null) {
 				Sheet aSheet = wb.getSheetAt(0);
 				Row row = aSheet.getRow((short) numRow);
-				if (row == null)
+				if (row == null) {
 					row = aSheet.createRow(numRow);
+				}
 
 				Cell csCell = row.getCell((short) numCol);
-				if (csCell == null)
+				if (csCell == null) {
 					csCell = row.createCell(numCol);
+				}
 				// csCell.setEncoding(HSSFCell.ENCODING_UTF_16);
 				csCell.setCellValue(strval);
 
@@ -240,8 +275,9 @@ public class ExcelUtil {
 				Sheet aSheet = wb.getSheetAt(0);
 				Row row = aSheet.getRow((short) numRow);
 
-				if (row == null)
+				if (row == null) {
 					row = aSheet.createRow((short) numRow);
+				}
 
 				for (int i = 0; i < object.length; i++) {
 					Cell csCell = row.createCell((short) i);
@@ -257,10 +293,11 @@ public class ExcelUtil {
 					style.setTopBorderColor(HSSFColor.BLACK.index);
 
 					csCell.setCellStyle(style);
-					if (object[i] != null)
+					if (object[i] != null) {
 						csCell.setCellValue(object[i].toString());
-					else
+					} else {
 						csCell.setCellValue("0");
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -306,12 +343,14 @@ public class ExcelUtil {
 	}
 	
 	public static Object getCellValue(Cell cell) {
-		if (cell == null)
+		if (cell == null) {
 			return null;
+		}
 		int celltype = cell.getCellType();
 
-		if (celltype == Cell.CELL_TYPE_NUMERIC)
+		if (celltype == Cell.CELL_TYPE_NUMERIC) {
 			return cell.getNumericCellValue();
+		}
 
 		if (celltype == Cell.CELL_TYPE_STRING) {
 			String value = cell.getStringCellValue();
@@ -333,11 +372,13 @@ public class ExcelUtil {
 			return value;
 		}
 
-		if (celltype == cell.CELL_TYPE_BLANK)
+		if (celltype == cell.CELL_TYPE_BLANK) {
 			return "";
+		}
 
-		if (celltype == cell.CELL_TYPE_ERROR)
+		if (celltype == cell.CELL_TYPE_ERROR) {
 			return "";
+		}
 
 		return "";
 	}

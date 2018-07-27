@@ -1,8 +1,11 @@
 package com.baigu.app.shop.core.oem.service;
 
 import com.baigu.app.shop.core.oem.model.OemOrder;
+import com.baigu.framework.action.JsonResult;
 import com.baigu.framework.database.Page;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 /**
@@ -20,4 +23,6 @@ public interface IOrderManager {
     OemOrder get(Integer id);
 
     void setShipped(Integer[] ids);
+
+    JsonResult importOemExcel(InputStream in, String fileName) throws IOException;
 }
