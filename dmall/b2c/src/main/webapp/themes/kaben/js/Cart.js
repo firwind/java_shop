@@ -28,7 +28,7 @@ var Cart = {
                     }
                     num--;
                 }
-                num = (num <= 1 || num > 100000) ? 1 : num;
+                num = (num <= 1) ? 1 : num;
                 self.updateNum(itemid, num, productid, objipt);
             }
         });
@@ -103,7 +103,7 @@ var Cart = {
         var pBuy      = _this.parent();//获取父节点
         var itemid    = pBuy.attr("itemid");
         var productid = pBuy.attr("productid");
-        _val          = (_val <= 1 || _val > 100000) ? 1 : _val
+        _val          = (_val <= 1) ? 1 : _val
         self.updateNum(itemid, _val, productid, _this);
     },
 
