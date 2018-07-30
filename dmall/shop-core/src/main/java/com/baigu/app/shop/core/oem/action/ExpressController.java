@@ -6,6 +6,7 @@ import com.baigu.framework.action.GridController;
 import com.baigu.framework.action.GridJsonResult;
 import com.baigu.framework.action.JsonResult;
 import com.baigu.framework.util.JsonResultUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -108,6 +109,9 @@ public class ExpressController extends GridController {
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
     public JsonResult editSubmit(OemExpress express) {
         try {
+            if (StringUtils.isBlank(express.getProvince())) {
+                express.setProvince(null);//如果是空字符串，设置为NULL
+            }
             expressManager.update(express);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {

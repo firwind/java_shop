@@ -27,7 +27,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">地区：</label>
                     <div class="layui-input-block">
-                        <input type="text" value="${express.province}"  id="province" name="province" maxlength="100"  lay-verify="required" autocomplete="off" class="layui-input">
+                        <input type="text" value="${express.province!''}"  id="province" name="province" maxlength="100" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -83,7 +83,7 @@
                         success : function(result) {
                             if (result.result == 1) {
                                 $.Loading.success(result.message);
-                                parent.CloseTabByTitle("快递配置添加");
+                                parent.CloseTabByTitle("快递配置修改");
                             }
                             if (result.result == 0) {
                                 $.Loading.error(result.message);

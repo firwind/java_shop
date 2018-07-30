@@ -74,7 +74,7 @@
                         success : function(result) {
                             if (result.result == 1) {
                                 $.Loading.success(result.message);
-                                parent.CloseTabByTitle("客户添加");
+                                parent.CloseTabByTitle("客户修改");
                             }
                             if (result.result == 0) {
                                 $.Loading.error(result.message);

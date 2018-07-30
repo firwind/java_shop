@@ -12,6 +12,7 @@ import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
 import com.baigu.framework.util.ExcelUtil;
 import com.baigu.framework.util.JsonResultUtil;
+import com.baigu.framework.util.RandomString;
 import com.baigu.framework.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -142,8 +143,10 @@ public class OrderManager implements IOrderManager {
                 order.setCustomer_id(customerId);
 
                 String orderNo = excelUtil.readStringToCell(row, 0);
+                String uniqueOrderNo = null;//唯一订单号，避免重复
                 if (StringUtils.isNotBlank(orderNo)) {
-                    order.setOrderno(orderNo);
+                    uniqueOrderNo = genUniqueOrderNo(orderNo);
+                    order.setOrderno(uniqueOrderNo);
                 } else {
                     return JsonResultUtil.getErrorJson("订单号为空");
                 }
@@ -166,7 +169,7 @@ public class OrderManager implements IOrderManager {
                 if (StringUtils.isNotBlank(goodsNum)) {
                     detail.setGoods_id(goods.getId());
                     detail.setNum(Integer.valueOf(goodsNum));
-                    detail.setOrderno(orderNo);
+                    detail.setOrderno(uniqueOrderNo);
                     oemOrderDetails.add(detail);//添加详情记录
                 }
                 //快递信息
@@ -226,8 +229,9 @@ public class OrderManager implements IOrderManager {
                 for (OemOrder oemOrder : oemOrders) {
                     //计算运费
                     try {
-                        oemOrder.setPrice(orderPrice.get(oemOrder.getOrderno()));
-                        oemOrder.setFreight(calculateFreight(oemOrder.getExpname(), oemOrder.getCneeprovince(), orderWeight.get(oemOrder.getOrderno())));
+                        String orderNo = getOriginOrderNo(oemOrder.getOrderno());
+                        oemOrder.setPrice(orderPrice.get(orderNo));
+                        oemOrder.setFreight(calculateFreight(oemOrder.getExpname(), oemOrder.getCneeprovince(), orderWeight.get(orderNo)));
                     } catch (Exception e) {
                         e.printStackTrace();
                         return JsonResultUtil.getErrorJson("计算快递失败");
@@ -247,6 +251,26 @@ public class OrderManager implements IOrderManager {
                 in.close();
             }
         }
+    }
+
+    /**
+     * 生成唯一的订单号
+     *
+     * @param orderNo
+     * @return
+     */
+    private String genUniqueOrderNo(String orderNo) {
+        return orderNo + "_" + new RandomString(8).nextString().toUpperCase();
+    }
+
+    /**
+     * 获取原始订单号
+     *
+     * @param uniqueOrderNo
+     * @return
+     */
+    private String getOriginOrderNo(String uniqueOrderNo) {
+        return uniqueOrderNo.substring(0, uniqueOrderNo.lastIndexOf("_"));
     }
 
     /**
