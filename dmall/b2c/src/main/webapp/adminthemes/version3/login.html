@@ -1,62 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>${site.title!'' }</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href=" ../favicon.ico" />
 
-<link type="image/x-icon" href="${site.icofile!''}" rel="bookmark" />
-<link rel="stylesheet" type="text/css"href="${ctx}/adminthemes/version3/plugins/layui/css/layui.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/adminthemes/version3/css/login.css" />
-<script type="text/javascript" src="${ctx}/adminthemes/new/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="${ctx}/adminthemes/new/js/jquery-form-2.33.js"></script>
-<script type="text/javascript"src="${ctx}/adminthemes/version3/plugins/layui/layui.js "></script>
-<script type="text/javascript" src="../adminthemes/version3/js/login.js"></script>
-<style type="text/css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>登录</title>
+	<link rel="shortcut icon" href=" ../favicon.ico" />
 
-</style>
+	<link type="image/x-icon" href="${site.icofile!''}" rel="bookmark" />
+	<link rel="stylesheet" type="text/css"href="${ctx}/adminthemes/version3/plugins/layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/adminthemes/version3/css/login.css" />
+	<script type="text/javascript" src="${ctx}/adminthemes/version3/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="${ctx}/adminthemes/new/js/jquery-form-2.33.js"></script>
+	<script type="text/javascript"src="${ctx}/adminthemes/version3/plugins/layui/layui.js "></script>
+	<script type="text/javascript" src="${ctx}/adminthemes/version3/js/login.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" href="${ctx}/adminthemes/version3/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${ctx}/adminthemes/version3/assets/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${ctx}/adminthemes/version3/assets/css/form-elements.css">
+	<link rel="stylesheet" href="${ctx}/adminthemes/version3/assets/css/style.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="${ctx}/adminthemes/version3/assets/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="${ctx}/adminthemes/version3/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="${ctx}/adminthemes/version3/assets/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href=" ../favicon.ico" />
+	<link type="image/x-icon" href="${site.icofile!''}" rel="bookmark" />
+
 </head>
+
 <body>
-<div class="all">
-<!--logo  -->
-<div class="box">
-   <div class="top">
-   		<div class="logo">
-   			<img alt="" src="${ctx}/adminthemes/version3/images/logo_03.png">
-   		
-   		</div>
-   </div>
-   <div class="center">
-   		 	<form class="layui-form" method="" >
-   		 		<input type="hidden" id="referer" value="${referer!''}" />
-   		 		<span class="red"></span>
-	 			<input type="text" id="username"  lay-verify="username"  placeholder="这里输入登录名">
-	 		 	<input type="password" id="password"   lay-verify="pass"  placeholder="这里输入密码">
-	 			 <input type="text" maxlength="4"  id="valid_code"  autocomplete="off" placeholder="验证码" >
-   		 		<div class="code">
-   		 			  <img id="code_img" class="code_img"  style="cursor: pointer;"/>
-   		 		</div>
-   		 			  <input id="login_btn" name="login_btn" style="cursor: pointer;" lay-submit="" lay-filter="login" value="登录" >
-   		 	</form>
+
+<!-- Top content -->
+<div class="top-content">
+
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text">
+					<h1><strong>盐卤味商城</strong> 管理系统登录</h1>
+					<div class="description">
+						<p>
+
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3 form-box">
+					<div class="form-bottom">
+						<form class="layui-form" method="" id="form">
+							<input type="hidden" id="referer" value="${referer!''}" />
+							<div class="form-group">
+								<input type="text" id="username" placeholder="这里输入登录名" style="width:100%;">
+							</div>
+							<div class="form-group">
+								<input type="password" id="password"  placeholder="这里输入密码" style="width:100%;">
+							</div>
+							<div class="form-group">
+								<div class="code">
+									<img id="code_img" class="code_img" style="">
+								</div>
+								<div style="float: left">
+									<input type="text" maxlength="4"  id="valid_code"  autocomplete="off" style="width:100%;">
+								</div>
+							</div>
+							<button type="submit"  id="login_btn"  class="btn btn-lg"  lay-filter="login"><label>登&nbsp;录</label></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-   <div class="flood">
-       <span>
-          <input type="checkbox" id="" style="cursor: pointer;">       
-       </span>
-       <span style="color:#85888e;">
-       		保持登录状态
-       </span>
-   	</div>
+
 </div>
-</div>
+<!-- Javascript -->
+<script src="${ctx}/adminthemes/version3/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="${ctx}/adminthemes/version3/assets/js/jquery.backstretch.min.js"></script>
+<script src="${ctx}/adminthemes/version3/assets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="${ctx}/adminthemes/version3/assets/js/placeholder.js"></script>
+<![endif]-->
 <script>
-$(function(){
- Loginer.init();
- 
- //获得屏幕高度
- var height = $(window).height();
- $("body").css({"height":height+"px","overflow":"hidden"});
-});
+    $(function(){
+        Loginer.init();
+
+        //获得屏幕高度
+        var height = $(window).height();
+        $("body").css({"height":height+"px","overflow":"hidden"});
+    });
 </script>
 </body>
+
 </html>
