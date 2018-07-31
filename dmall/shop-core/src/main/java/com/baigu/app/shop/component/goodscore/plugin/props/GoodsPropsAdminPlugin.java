@@ -1,24 +1,23 @@
 package com.baigu.app.shop.component.goodscore.plugin.props;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import com.baigu.app.shop.core.goods.plugin.AbstractGoodsPlugin;
-import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.baigu.app.shop.core.goods.model.Attribute;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.model.GoodsType;
+import com.baigu.app.shop.core.goods.plugin.AbstractGoodsPlugin;
 import com.baigu.app.shop.core.goods.plugin.IGoodsTabShowEvent;
+import com.baigu.app.shop.core.goods.service.IBrandManager;
+import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
 import com.baigu.app.shop.core.goods.service.IGoodsTypeManager;
 import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品自定义属性管理插件
@@ -36,6 +35,9 @@ public class GoodsPropsAdminPlugin extends AbstractGoodsPlugin implements IGoods
 	
 	@Autowired
 	private IGoodsTypeManager goodsTypeManager;
+
+	@Autowired
+	private IBrandManager brandManager;
 	
 	
 	/**
@@ -60,7 +62,8 @@ public class GoodsPropsAdminPlugin extends AbstractGoodsPlugin implements IGoods
 		List attrList = this.goodsTypeManager.getAttrListByTypeId(typeid);
 		
 		if(goodsType.getJoin_brand()==1){
-			List brandList = this.goodsTypeManager.listByTypeId(typeid);
+//			List brandList = this.goodsTypeManager.listByTypeId(typeid);
+			List brandList = this.brandManager.list();
 			freeMarkerPaser.putData("brandList", brandList);
 		}
 		
@@ -91,7 +94,8 @@ public class GoodsPropsAdminPlugin extends AbstractGoodsPlugin implements IGoods
 		
 		GoodsType goodsType = this.goodsTypeManager.getById(typeid);
 		if(goodsType.getJoin_brand()==1){
-			List brandList = this.goodsTypeManager.listByTypeId(typeid);
+//			List brandList = this.goodsTypeManager.listByTypeId(typeid);
+			List brandList = this.brandManager.list();
 			freeMarkerPaser.putData("brandList", brandList);
 		}
 		
@@ -237,7 +241,9 @@ public class GoodsPropsAdminPlugin extends AbstractGoodsPlugin implements IGoods
 		
 
 		List  propList = this.goodsTypeManager.getAttrListByTypeId( typeid );
-		if(propList==null) return propList;
+		if (propList == null) {
+			return propList;
+		}
 		Map<String, String> propMap = (Map)goodsView.get("propMap");
 		for (int i = 0; i < propList.size(); i++) {
 			Attribute attribute = (Attribute) propList.get(i);
