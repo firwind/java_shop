@@ -35,12 +35,16 @@
 		var blankHieght = parseInt($(".float-footer").height());
 		$(".foat-blank").css("height",blankHieght+"px");
 
-		var tabIndex = "${tab!'1'}";
-		switch(tabIndex){
-			case "1":
+		var tabIndex = "${tab!'-1'}";
+		if(tabIndex=="-1"){
+		    location.href = "index.html?tab=1";
+		    return;
+		}
+        switch(tabIndex){
+            case "1":
                 $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-home").attr("class","float-go-home_select").next("span").css("color","#d91c1c");
                 break;
-			case "2":
+            case "2":
                 $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-classify").attr("class","float-go-classify_select").next("span").css("color","#d91c1c");
                 break
             case "3":
@@ -49,6 +53,6 @@
             case "4":
                 $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-member").attr("class","float-go-member_select").next("span").css("color","#d91c1c");
                 break
-		}
+        }
 	})
 </script>
