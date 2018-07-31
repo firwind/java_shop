@@ -2,25 +2,25 @@
 <div class="float-footer">
 	<ul>
 		<li>
-			<a href="${ctx}/index.html">
+			<a href="${ctx}/index.html?tab=1">
 				<i class="float-go-home"></i>
 				<span>首页</span>
 			</a>
 		</li>
 		<li>
-			<a href="${ctx}/classify.html">
+			<a href="${ctx}/classify.html?tab=2">
 				<i class="float-go-classify"></i>
 				<span>分类</span>
 			</a>
 		</li>
 		<li>
-			<a href="${ctx}/cart.html">
+			<a href="${ctx}/cart.html?tab=3">
 				<i class="float-go-cart"></i>
 				<span>购物车</span>
 			</a>
 		</li>
 		<li>
-			<a href="${ctx}/member.html">
+			<a href="${ctx}/member.html?tab=4">
 				<i class="float-go-member"></i>
 				<span>会员</span>
 			</a>
@@ -34,5 +34,21 @@
 		//动态获得空白位置高度
 		var blankHieght = parseInt($(".float-footer").height());
 		$(".foat-blank").css("height",blankHieght+"px");
+
+		var tabIndex = "${tab!'1'}";
+		switch(tabIndex){
+			case "1":
+                $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-home").attr("class","float-go-home_select").next("span").css("color","#d91c1c");
+                break;
+			case "2":
+                $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-classify").attr("class","float-go-classify_select").next("span").css("color","#d91c1c");
+                break
+            case "3":
+                $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-cart").attr("class","float-go-cart_select").next("span").css("color","#d91c1c");
+                break
+            case "4":
+                $(".float-footer ul li").eq(parseInt(tabIndex)-1).find("i:first").removeClass("float-go-member").attr("class","float-go-member_select").next("span").css("color","#d91c1c");
+                break
+		}
 	})
 </script>

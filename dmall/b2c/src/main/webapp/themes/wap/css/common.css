@@ -1020,24 +1020,44 @@ a {
 }
 
 .float-footer ul li a .float-go-home {
-    background: url(../images/foot-iocn.png) -0.05rem -0.05em;
+    background: url(../images/footicon1.png) 1.4rem 1.4rem;
+    background-size: 1.4rem;
+}
+
+.float-go-home_select {
+    background: url(../images/footicon1_select.png) 1.4rem 1.4rem;
     background-size: 1.4rem;
 }
 
 .float-footer ul li a .float-go-classify {
-    background: url(../images/foot-iocn2.png) -0.1rem -0.03rem no-repeat;
+    background: url(../images/footicon2.png) -0.1rem -0.03rem no-repeat;
+    background-size: 1.4rem;
+}
+
+.float-go-classify_select {
+    background: url(../images/footicon2_select.png) 1.4rem 1.4rem;
     background-size: 1.4rem;
 }
 
 .float-footer ul li a .float-go-cart {
-    background: url(../images/foot-iocn3.png) -0.25rem -0.15rem no-repeat;
+    background: url(../images/footicon3.png) -0.25rem -0.15rem no-repeat;
     background-size: 130%;
 }
 
+.float-go-cart_select {
+    background: url(../images/footicon3_select.png) 1.4rem 1.4rem;
+    background-size: 1.4rem;
+}
+
 .float-footer ul li a .float-go-member {
-    background: url(../images/foot-iocn4.png) -0.2rem 0rem no-repeat;
+    background: url(../images/footicon4.png) -0.2rem 0rem no-repeat;
     background-size: 120%;
 
+}
+
+.float-go-member_select {
+    background: url(../images/footicon4_select.png) 1.4rem 1.4rem;
+    background-size: 1.4rem;
 }
 
 /********返回顶部按钮**********/
