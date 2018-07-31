@@ -1,19 +1,18 @@
 package com.baigu.app.shop.core.other.service.cache;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
+import com.baigu.framework.cache.CacheFactory;
+import com.baigu.framework.cache.ICache;
+import com.baigu.framework.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.baigu.framework.cache.CacheFactory;
-import com.baigu.framework.cache.ICache;
-import com.baigu.framework.util.StringUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品分类缓存代理
@@ -82,6 +81,11 @@ public class GoodsCatCacheProxy  implements
 			}
 		}
 		return catList;
+	}
+
+	@Override
+	public Cat getRecommendCat() {
+		return goodsCatManager.getRecommendCat();
 	}
 
 	/*

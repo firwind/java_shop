@@ -29,8 +29,8 @@
 .goods-detail-box .goods-name{
 	font-size:0.9rem;color:#333;
 }
-.goods-detail-box .goods-this-price{font-size:0.8rem;color:#FF5722;font-weight:normal;padding:0.4rem 0px 0px 0px;display:table;width:100%;}
-.goods-detail-box .goods-this-price span{font-size:1.6rem;font-weight:200;color:#FF5722;}
+.goods-detail-box .goods-this-price{font-size:0.8rem;color:#d91c1c;font-weight:normal;padding:0.4rem 0px 0px 0px;display:table;width:100%;}
+.goods-detail-box .goods-this-price span{font-size:1.6rem;font-weight:200;color:#d91c1c;}
 .goods-sn{
 	font-size: 0.66rem;
     line-height: .9rem;
@@ -46,7 +46,7 @@
 
 .godos-spac{width:90%;margin:1rem 5%;padding:1rem 0px;border-top: 1px solid #f6f6f6;}
 .godos-spac h4{font-size:0.8rem;font-weight:200;color:#999;}
-.godos-spac h4 span{color:#FF5722;font-size:0.8rem;}
+.godos-spac h4 span{color:#d91c1c;font-size:0.8rem;}
 .godos-spac .spec_item{
 	width:100%;ovelfow:hidden;
 }
@@ -76,7 +76,7 @@
     margin-right: .2rem;
     display:block;
 }
-.godos-spac .spec_item ul .selected span{border: 1px solid #FF5722;}
+.godos-spac .spec_item ul .selected span{border: 1px solid #d91c1c;}
 .goods-other-box{
 	width:100%;
 	 padding:1rem 0px 1rem 0px;
@@ -133,7 +133,7 @@
     font-size: 0.78rem;
     display:block;
 }
-.goods-intro-box .goods-tab ul .selected span{color:#FF5722;font-size:0.9rem;}
+.goods-intro-box .goods-tab ul .selected span{color:#d91c1c;font-size:0.9rem;}
 .rer_para{width:90%;margin:1rem 5%;}
 .rer_para table tr th{width:35%;padding:0.6rem 1rem 0.6rem 0px;text-align:right;border-top: 1px solid #f6f6f6;}
 .rer_para table tr td{width:60%;padding:0.6rem 0px;text-align:left;border-top: 1px solid #f6f6f6;color:#999;}
@@ -176,7 +176,7 @@
     width: 100%;
     -webkit-box-flex: 1;
     box-flex: 1;
-	background-color: #FF5722;
+	background-color: #d91c1c;
     font-size: 1rem;
     line-height:2.3rem;
     color: #fff;
@@ -242,7 +242,7 @@
     font-size: 0.78rem;
     display:block;
 }
-.switch-tab-box ul .selected span{color:#FF5722;font-size:0.9rem;}
+.switch-tab-box ul .selected span{color:#d91c1c;font-size:0.9rem;}
 
 
 .comment-tab-list{
@@ -286,7 +286,7 @@
     margin-bottom:0.4rem;
 }
 .discuss_list_wrapper .grade_list ul li .problem_time p{
-	color:#FF5722;   
+	color:#d91c1c;
 	display: block;
     width: 100%;
     -webkit-box-flex: 1;

@@ -1,26 +1,25 @@
 package com.baigu.app.shop.core.goods.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.baigu.app.base.core.model.Member;
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.model.mapper.CatMapper;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.baigu.app.base.core.model.Member;
 import com.baigu.eop.sdk.context.UserConext;
 import com.baigu.eop.sdk.utils.StaticResourcesUtil;
 import com.baigu.framework.annotation.Log;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.StringUtil;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service("goodsCatDbManager")
 public class GoodsCatManager  implements IGoodsCatManager {
@@ -36,7 +35,9 @@ public class GoodsCatManager  implements IGoodsCatManager {
 	 */
 	@Override
 	public boolean checkname(String name,Integer catid){
-		if(name!=null)name=name.trim();
+		if (name != null) {
+			name = name.trim();
+		}
 		String sql ="select count(0) from es_goods_cat where name=? and cat_id!=?";
 		if(catid==null){
 			catid=0;
@@ -86,6 +87,21 @@ public class GoodsCatManager  implements IGoodsCatManager {
 			String image = cat.getImage();
 			if(image!=null){
 				image  =StaticResourcesUtil.convertToUrl(image); 
+				cat.setImage(image);
+			}
+		}
+		return cat;
+	}
+
+	@Override
+	public Cat getRecommendCat() {
+		String recommendName = "推荐分类";
+		String sql = "select * from es_goods_cat  where name = ? and parent_id !=0"; //不是第一级而且名字是"推荐分类"
+		Cat cat = daoSupport.queryForObject(sql, Cat.class, recommendName);
+		if (cat != null) {
+			String image = cat.getImage();
+			if (image != null) {
+				image = StaticResourcesUtil.convertToUrl(image);
 				cat.setImage(image);
 			}
 		}

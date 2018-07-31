@@ -14,7 +14,7 @@
 				<div style="border:1px solid #dcdcdc;height:34px;overflow:hidden;float:left;width:300px;border-right:0px none;">
 					<input type="text" class="hunt" id="keyword" placeholder="<#if keyword??>${keyword!''}<#else>请输入产品关键字等...</#if>" />
 				</div>
-				<div  name="s_seek" class="s_seek" id="searchBtn" style="border:1px solid #33a600;height:34px;overflow:hidden;float:left;width:100px;">搜索</div>
+				<div  name="s_seek" class="s_seek" id="searchBtn" style="border:1px solid #d91c1c;height:34px;overflow:hidden;float:left;width:100px;">搜索</div>
 			</div>
 			<div class="hot_keyword">
 				<h1>热门搜索：</h1>
@@ -90,13 +90,18 @@
 					</div>
 		<!-- 导航  end -->
 		</div>
+	<!-- 调用三级分类标签 -->
+	<#assign catListTag= newTag("goodsCatTag")>
+	<!-- 调用三级分类信息 -->
+	<#assign cat = catListTag("'recommend':'yes'")!'' >
 		<div class="menu_right">
 			<ul>
 				<li><a href="${ctx}/index.html">首 页</a></li>
-				<li><a href="${ctx}/goods_list.html?cat=1">零食天地</a></li>
-				<li><a href="${ctx}/goods_list.html?cat=4">进口食品</a></li>
-				<li><a href="${ctx}/goods_list.html?cat=38">个人护理</a></li>
-				<li><a href="${ctx}/goods_list.html?cat=35">箱包钟表</a></li>
+				<#if cat.recommendList??>
+					<#list cat.recommendList as recommend>
+						<li><a href="${ctx}/goods_list.html?cat=${recommend.cat_id}">${recommend.name!''}</a></li>
+					</#list>
+				</#if>
 				<#if floorIsOn=="ON" >
 				<li><a href="${ctx}/subject/subject-index.html">专题</a></li>
 				</#if>

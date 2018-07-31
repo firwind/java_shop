@@ -2,7 +2,7 @@
 #register_wrapper{width:500px;margin:60px auto;overflow:hidden;background:#fff;}
 #register_wrapper .span-auto{width:500px;overflow:hidden;text-align:center;}
 #register_wrapper .span-auto h1{
-	 color:#ff6700;
+	 color:#d91c1c;
     font: 20px/24px "microsoft yahei";
     margin-bottom: 26px;
 }
@@ -11,7 +11,7 @@
 
 /********结算成功*****/
 .payment-result{width:1200px;margin:40px auto;height:330px;}
-.payment-result .payment-result-left{width:507px;height:330px;overflow:hidden;float:left;background:#33a600;padding-top:70px;text-align:center;}
+.payment-result .payment-result-left{width:507px;height:330px;overflow:hidden;float:left;background:#d91c1c;padding-top:70px;text-align:center;}
 .payment-result .payment-result-left h1{width:507px;height:60px;font-size:40px;color:#fff;}
 .payment-result .payment-result-left span{color:#fff;height:47px;font-size:14px;display:block;}
 .payment-result .payment-result-left h2{color:#ffff00;font-size:30px;height:57px;}
@@ -70,7 +70,7 @@ color: #a7a7a7;
 	padding: 6px 48px;display:block;font-size:14px;color:#757575;
 }
 .help-main .help_content .left .selected{
-	color:#ff6700;
+	color:#d91c1c;
 }
 .help-main .help_content .right{
 	 background: #fff;
@@ -226,7 +226,7 @@ color: #a7a7a7;
     width: 210px;
 }
 .back-password-same .tip{ 
-	color: #ff6700;
+	color: #d91c1c;
     font-size: 12px;
     text-align: left;
 }

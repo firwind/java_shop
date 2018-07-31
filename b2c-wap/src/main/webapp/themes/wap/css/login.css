@@ -96,8 +96,8 @@ body {
 }
 
 .login-tab .item.selected a {
-    color: #ff6700;
-    border-bottom: 2px solid #ff6700;
+    color: #d91c1c;
+    border-bottom: 2px solid #d91c1c;
 }
 
 /* 登录、注册表单
@@ -232,7 +232,7 @@ body {
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    background-color: #ff6700;
+    background-color: #d91c1c;
     color: #ffffff;
     text-align: center;
     line-height: 40px;
@@ -275,7 +275,7 @@ body {
 	width: 100%;
     height: 40px;
     border-radius: 5px;
-    background-color: #9bc45e;
+    background-color: #d91c1c;
     color: #ffffff;
     text-align: center;
     line-height: 40px;

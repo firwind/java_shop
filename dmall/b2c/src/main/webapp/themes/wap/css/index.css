@@ -49,7 +49,7 @@
 
 .index-goods-list:nth-child(1n+0) .index-goods-name a{color:#6394e3}
 .index-goods-list:nth-child(2n+0) .index-goods-name a{color:#d24b48}
-.index-goods-list:nth-child(3n+0) .index-goods-name a{color:#9bc45e}
+.index-goods-list:nth-child(3n+0) .index-goods-name a{color:#d91c1c}
 
 .index-goods-list:nth-child(1n+0) .index-goods-price-backdrop{background:rgba(99, 148, 227, 0.7);}
 .index-goods-list:nth-child(2n+0) .index-goods-price-backdrop{background:rgba(210, 75, 72, 0.7);}

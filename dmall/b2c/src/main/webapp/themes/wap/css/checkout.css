@@ -39,7 +39,7 @@ body {
     height: 15px;
     line-height: 16px;
     color: #fff;
-    background-color: #ff6700;
+    background-color: #d91c1c;
     font-size: 12px;
     text-align: center;
     margin-left: 14px;
@@ -190,7 +190,7 @@ body {
 .price-box {
     float: left;
     font-size: 16px;
-    color: #ff6700;
+    color: #d91c1c;
 }
 
 .price-box em {
@@ -199,7 +199,7 @@ body {
 
 .price-box .price {
     font-size: 16px;
-    color: #ff6700;
+    color: #d91c1c;
 }
 
 .sam-num {
@@ -363,7 +363,7 @@ body {
 }
 
 .price-box-span {
-    color: #ff6700;
+    color: #d91c1c;
     font-size: 16px;
     float: left;
 }
@@ -757,7 +757,7 @@ body {
 
 .num-bonus {
     padding: .2em .6em;
-    background: #ff6700;
+    background: #d91c1c;
     color: #fff;
     font-size: .875em;
     font-style: normal;
@@ -793,8 +793,8 @@ body {
 }
 
 .nav-checkout-bonus .item.selected a {
-    color: #ff6700;
-    border-bottom: 1px solid #ff6700;
+    color: #d91c1c;
+    border-bottom: 1px solid #d91c1c;
 }
 
 .content-bonus .items {
@@ -837,7 +837,7 @@ body {
 .count-item .value-count-item {
     float: right;
     font-size: 14px;
-    color: #ff6700;
+    color: #d91c1c;
     position: relative;
 }
 
@@ -862,7 +862,7 @@ body {
     width: 35%;
     height: 100%;
     text-align: center;
-    background-color: #ff6700;
+    background-color: #d91c1c;
     color: #fff;
     line-height: 50px;
     font-size: 14px;
@@ -873,11 +873,11 @@ body {
     margin-left: 15%;
     line-height: 50px;
     font-size: 14px;
-    color: #ff6700;
+    color: #d91c1c;
 }
 
 .submit-order .inner-left span {
-    color: #ff6700;
+    color: #d91c1c;
 }
 
 .submit-order .inner-left .big-price {
@@ -937,7 +937,7 @@ body {
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-    background: #FF5722;
+    background: #d91c1c;
     color: #fff;
 }
 
@@ -951,7 +951,7 @@ body {
     height: 1.5rem;
     line-height: 1.5rem;
     font-size: 1.1rem;
-    color: #FF5722;
+    color: #d91c1c;
 }
 
 .order-success-box-word .order-pay-result-sn {

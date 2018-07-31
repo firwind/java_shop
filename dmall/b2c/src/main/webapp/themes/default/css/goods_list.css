@@ -35,7 +35,7 @@ table {
 .goods_list_all .goods_list_comment li .goodslist_pic{width:120px;height:120px;margin:0px auto;}
 .goods_list_all .goods_list_comment li .goodslist_pic img{height: 120px;width: 120px;}
 .goods_list_all .goods_list_comment li h2{font-weight:normal;color:#999;}
-.goods_list_all .goods_list_comment li h3{color:#d93600}
+.goods_list_all .goods_list_comment li h3{color:#d91c1c}
 .goods_list_all .right{float:right;width:779px;}
 
 .goods_bar { background: #F7F7F7; display: block; height: 36px; border: solid 1px #D7D7D7; }
@@ -57,7 +57,7 @@ table {
 .sorting_goods li.selected,
 .sorting_goods li:hover { background-color: #FFF;}
 .sorting_goods li.selected a,
-.sorting_goods li:hover a { color: #D93600;}
+.sorting_goods li:hover a { color: #d91c1c;}
 .sorting_goods li a:hover { text-decoration: none;}
 .sorting_goods li.selected a.asc i { background-position: -14px -11px;}
 .sorting_goods li.selected a.desc i,
@@ -84,7 +84,7 @@ table {
 /*********************/
 /*******商品列表补充样式**********/
 .goodslist_nav{width:980px;margin:10px auto;}
-.goodslist_nav .breadcrumb{border-top:2px solid #d93600;color:#333;padding-top:10px;width:980px;margin:0px auto;}
+.goodslist_nav .breadcrumb{border-top:2px solid #d91c1c;color:#333;padding-top:10px;width:980px;margin:0px auto;}
 .goodslist_nav span{float:left;display:inline;margin-right:5px;color: #555;font: lighter 14px/20px "Microsoft Yahei";margin:0px 5px 0px 0px;line-height:30px;text-align: center;}
 .goodslist_nav span a{color:#555;}
 

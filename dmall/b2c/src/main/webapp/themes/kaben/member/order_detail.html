@@ -91,7 +91,7 @@
 	<#assign orderGiftDetailTag = newTag("orderGiftDetailTag") />
 	<#assign gift = orderGiftDetailTag("{'gift_id':${orderDetail.gift_id},'order_id':${orderDetail.order_id}}") />
 	<div class="order-detail-same">
-		<h2>获取赠品<em style="color: #ff6700">(赠)</em></h2>
+		<h2>获取赠品<em style="color: #d91c1c">(赠)</em></h2>
 		<p><span>赠品图片：</span><img height="50px;" width="50px;" src="${gift.gift_img!''}" /></p>
 		<p><span>赠品名称：</span>${gift.gift_name!''}</p>
 		<p><span>赠品价值：</span>${(gift.gift_price!0)?string.currency}元</p>
@@ -105,7 +105,7 @@
 	<#assign orderBonusDetailTag = newTag("orderBonusDetailTag") />
 	<#assign bonus = orderBonusDetailTag("{'bonus_id':${orderDetail.bonus_id},'order_id':${orderDetail.order_id}}") />
 	<div class="order-detail-same">
-		<h2>获取优惠券<em style="color: #ff6700">(赠)</em></h2>
+		<h2>获取优惠券<em style="color: #d91c1c">(赠)</em></h2>
 		<p><span>优惠券名称：</span>${bonus.bonus_name!''}</p>
 		<p><span>优惠券面额：</span>${(bonus.bonus_money!0)?string.currency}元</p>
 		<p><span>优惠券有效期：</span><@dateformat time="${bonus.use_start_date?c}" pattern="yyyy-MM-dd"/> -- <@dateformat time="${bonus.use_end_date?c}" pattern="yyyy-MM-dd"/></p>
@@ -116,7 +116,7 @@
 	<!-- 订单获取的积分信息 by_DMRain 2016-6-14 -->
 	<#if orderDetail.activity_point?exists && orderDetail.activity_point != 0 >
 	<div class="order-detail-same" style="min-height: 10px;">
-		<h2>获取积分<em style="color: #ff6700">(赠)</em></h2>
+		<h2>获取积分<em style="color: #d91c1c">(赠)</em></h2>
 		<p><span>积分：</span>${orderDetail.activity_point!0}分</p>
 	</div>
 	</#if>

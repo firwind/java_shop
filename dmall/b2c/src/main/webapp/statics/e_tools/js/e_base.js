@@ -751,7 +751,7 @@ if ((Sys.ie < 11) && (($.cookie('app_up_message') == undefined) || ($.cookie('ap
     $(document).ready(function () {
         setTimeout(show, 1000);
         function show() {
-            var html = '<div id="upBrowserMessage" style="position: fixed; height: 30px; width: 100%; color: #333; background-color: #ff6700; z-index: 1000; top: -30px; font-size: 12px; line-height: 30px; text-align: center">'
+            var html = '<div id="upBrowserMessage" style="position: fixed; height: 30px; width: 100%; color: #333; background-color: #d91c1c; z-index: 1000; top: -30px; font-size: 12px; line-height: 30px; text-align: center">'
                 + '您的浏览器版本过低，为了更好的体验，避免出现兼容问题，建议您升级浏览器！'
                 + '<a href="//cdn.dmeng.net/upgrade-your-browser.html" style="color: #0a89c7;">升级浏览器</a>'
                 + '<a id="closeBrowserMessage" href="javascript: void(0);" class="icomoon" style="color: #dddddd; position: absolute; float: right; right: 20px; top: 0;"></a>'

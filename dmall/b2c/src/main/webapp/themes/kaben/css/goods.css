@@ -158,7 +158,7 @@
 }
 
 .kaben-price span {
-	color: #ff6700;
+	color: #d91c1c;
 	font-size: 26px;
 	margin: 0px 5px 0px 0px;
 }
@@ -205,7 +205,7 @@
 }
 
 .priceArea_rightArea p:nth-child(2) {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 #detail-wrapper .base dl {
@@ -390,7 +390,7 @@
 }
 
 .main-details .main-details-left .details-left-same .hot-titArea-cont-list dl dd .price {
-	color: #ff6700;
+	color: #d91c1c;
 	display: inline-block;
 	font-size: 18px;
 }
@@ -435,7 +435,7 @@
 }
 
 .rer-detail .content-main-tit .selected {
-	background: #33a600 none repeat scroll 0 0;
+	background: #d91c1c none repeat scroll 0 0;
 	color: #ffffff !important;
 }
 
@@ -447,7 +447,7 @@
 	text-align: center;
 	display: none;
 	width: 140px;
-	background: url(../images/icon.png) no-repeat 1px -62px #ff6700;
+	background: url(../images/icon.png) no-repeat 1px -62px #d91c1c;
 	font-size: 14px;
 	line-height: 45px;
 	padding-left: 20px;
@@ -616,7 +616,7 @@
 }
 
 .tab_sale .sale_content dt {
-	border-bottom: 1px solid #33a600;
+	border-bottom: 1px solid #d91c1c;
 	font-size: 16px;
 	font-weight: bold;
 	padding-bottom: 8px;
@@ -634,7 +634,7 @@
 }
 
 .tab_sale .sale_content dd .tit_h1 .cg {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .tab_sale .sale_content dd .sale_content_tit {
@@ -1310,7 +1310,7 @@
 
 #ask_form_wrapper h1 {
 	border-bottom: 1px solid #f5f5f5;
-	border-top: 2px solid #ff6700;
+	border-top: 2px solid #d91c1c;
 	color: #777;
 	display: block;
 	font: 14px/20px "Microsoft Yahei";

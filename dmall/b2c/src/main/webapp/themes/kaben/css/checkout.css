@@ -30,7 +30,7 @@
      list-style: outside none none;
 }
 .h_btm .flow-steps ol .num1 {
-    background: #ff6700;
+    background: #d91c1c;
     width: 163px;
 }
 .h_btm .flow-steps ol li span{
@@ -57,14 +57,14 @@
     font-style:normal;
 }
 .h_btm .flow-steps ol .num1 span{
-	 color: #ff6700;
+	 color: #d91c1c;
 }
 .h_btm .flow-steps ol .num1 em{
-	background: #ff6700 none repeat scroll 0 0;
+	background: #d91c1c none repeat scroll 0 0;
     color: #fff;
 }
 .h_btm .flow-steps ol .num2{
-  background: #ff6700;
+  background: #d91c1c;
     width: 290px;
 }
 .h_btm .flow-steps ol .num3{
@@ -72,10 +72,10 @@
    width: 162px;
 }
 .h_btm .flow-steps ol .num2 span {
-    left: 108px;color: #ff6700;
+    left: 108px;color: #d91c1c;
 }
 .h_btm .flow-steps ol .num2 em {
-        background: #ff6700 none repeat scroll 0 0;
+        background: #d91c1c none repeat scroll 0 0;
     color: #fff;
     left: 128px;
 }
@@ -125,9 +125,9 @@
     width: 157px;}
 #checkout_wrapper .new  .address_div .c_address dl dd input{border: 1px solid #dededf;float: left;height: 29px;line-height: 30px;margin: 0 10px 0 0px;padding-left: 5px;width: 200px;}
 
-.checkout_new_address{background:#ff6700;width:130px;border:0px none;text-align:center;padding:0px;margin:0px;color:#fff;font-size:12px;height:35px;line-height:35px;transition: all 0.4s ease 0s;}
+.checkout_new_address{background:#d91c1c;width:130px;border:0px none;text-align:center;padding:0px;margin:0px;color:#fff;font-size:12px;height:35px;line-height:35px;transition: all 0.4s ease 0s;}
 .checkout_new_address:hover{background:#f25807;}
-.checkout_edit_address{background:#ff6700;width:130px;border:0px none;text-align:center;padding:0px;margin:0px;color:#fff;font-size:12px;height:35px;line-height:35px;transition: all 0.4s ease 0s;}
+.checkout_edit_address{background:#d91c1c;width:130px;border:0px none;text-align:center;padding:0px;margin:0px;color:#fff;font-size:12px;height:35px;line-height:35px;transition: all 0.4s ease 0s;}
 .checkout_edit_address:hover{background:#f25807;}
 
 
@@ -138,12 +138,12 @@
 .checkout_addresslist h3{width:100%;height:25px;line-height:25px;margin-bottom:8px;}
 .checkout_addresslist p{width:180px;line-height:20px;top:5px;display:block;text-align:justify}
 .checkout_addresslist .checkout_yes{width:33px;height:33px;position:absolute;right:0px;bottom:0px;display:block;}
-.current{border:1px solid #33a600}
+.current{border:1px solid #d91c1c}
 .address{width:1060px;overflow:hidden;}
 .address .list{width:1060px;overflow:hidden;}
 .address {width:100%;overflow:hidden;padding:0px 0px 35px 0px;border-bottom:1px dashed #b2b2b2;margin-bottom:20px;}
 .modify .c_new_address{width:1060px;height:35px;line-height:35px;margin-top:50px;}
-.modify .c_new_address a{display:block;background: #ff6700;border: 0 none;color: #fff;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px; transition: all 0.4s ease 0s;}
+.modify .c_new_address a{display:block;background: #d91c1c;border: 0 none;color: #fff;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px; transition: all 0.4s ease 0s;}
 .modify .c_new_address a:hover{background:#f25807}
 
 .add_new_address dl{width:100%;height:35px;line-height:34px;display:block;clear:both;margin-bottom:8px;}
@@ -186,7 +186,7 @@
 .payment .payment_modify .list ul li{float:left;display:inline;margin-right:50px;width:300px;}   
 .payment .payment_modify .list ul li input{float:left;display:inline;height:40px;line-height:40px;margin:1px 5px 0px 0px;} 
 .payment .payment_modify .list ul li p{float:left;height:40px;line-height:40px;}
-#savePaymentBtn{ background:#ff6700 ;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin:10px 0px 15px 0px;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
+#savePaymentBtn{ background:#d91c1c ;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin:10px 0px 15px 0px;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
 #savePaymentBtn:hover{background:#f25807}
 
 
@@ -202,7 +202,7 @@
 .send_timetools label{display: inline;float: left;margin-right: 50px;width: 150px;}
 .send_timetools label input{float:left;display:inline;height:40px;line-height:40px;margin:1px 5px 0px 0px;} 
 .send_timetools label p{float:left;height:40px;line-height:40px;}
-.send_timesave{cursor: pointer;clear:both; background:#ff6700 ;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin:10px 0px 15px 0px;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
+.send_timesave{cursor: pointer;clear:both; background:#d91c1c ;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin:10px 0px 15px 0px;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
 .send_timesave:hover{background:#f25807}
 
 
@@ -227,7 +227,7 @@
 .invoice_tools dl dd .receiptTitle{width:200px;height:28px;line-height:28px;margin:3px 0px 0px 10px;}
 .invoice_tools dl dd .receiptContent{border:1px solid #dcddde;color:#999;display:block;float:left;font-size:14px;height:33px;margin:0 10px 0 0;width:150px;}
 .invoice_tools .invoice_button{width:1060px;height:35px;clear:both;margin-bottom:15px;padding-top:15px;}
-.invoice_tools .invoice_button .invoice_save{cursor: pointer;float:left;background: #ff6700;border: 0 none;color: #fff; display: block;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
+.invoice_tools .invoice_button .invoice_save{cursor: pointer;float:left;background: #d91c1c;border: 0 none;color: #fff; display: block;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px;transition: all 0.4s ease 0s;}
 .invoice_tools .invoice_button p{float:left;display:inline;height:35px;line-height:50px;overflow:hidden;margin-left:20px;color:#ccc;}
 
 .invoice_tools .invoice_button .invoice_save:hover{background:#f25807}
@@ -268,7 +268,7 @@
 .dly_list ul li strong{float:left;height:35px;line-height:35px;margin:0px 5px 0px 0px;display:block;color:#da4f49;}
 .dly_list ul li i{float:left;height:35px;line-height:35px;margin:0px 5px 0px 0px;display:block;color:#aaa;}
 .dly_list ul li i p{width:100%;height:35px;line-height:35px;display:inline;}
-#savedlymentBtn{background:#ff6700;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px;margin-bottom:15px;transition: all 0.4s ease 0s;}
+#savedlymentBtn{background:#d91c1c;border: 0 none;color: #fff;display: block;font-size: 12px;height: 35px;line-height: 35px;margin: 0;padding: 0;text-align: center;width: 130px;margin-bottom:15px;transition: all 0.4s ease 0s;}
 #savedlymentBtn:hover{background:#f25807}
 
 .total_box{width:1060px;overflow:hidden;clear:both;margin-top:10px;position:relative;min-height:265px;}

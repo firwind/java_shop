@@ -1,29 +1,15 @@
 package com.baigu.framework.util;
 
-import java.awt.Graphics;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.HeadlessException;
-import java.awt.Image;
-import java.awt.Transparency;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
-import javax.swing.ImageIcon;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Delete;
 import org.apache.tools.ant.taskdefs.Expand;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 /**
  * 文件工具类
@@ -91,7 +77,9 @@ public class FileUtil {
 	
 	
 	public static void createFile(InputStream in, String filePath) {
-		if(in==null) throw new RuntimeException("create file error: inputstream is null");
+		if (in == null) {
+			throw new RuntimeException("create file error: inputstream is null");
+		}
 		int potPos = filePath.lastIndexOf('/') + 1;
 		String folderPath = filePath.substring(0, potPos);
 		createFolder(folderPath);
@@ -144,7 +132,7 @@ public class FileUtil {
 	 */
 	public static boolean isAllowUpImg(String imgFileName){
 		imgFileName = imgFileName.toLowerCase();
-		String allowTYpe = "gif,jpg,bmp,png,jpeg,swf"; 
+		String allowTYpe = "gif,jpg,bmp,png,jpeg,swf";
 		if (!imgFileName.trim().equals("") && imgFileName.length() > 0) {
 			String ex = imgFileName.substring(imgFileName.lastIndexOf(".") + 1, imgFileName.length());
 			return allowTYpe.toUpperCase().indexOf(ex.toUpperCase()) >= 0;
@@ -424,9 +412,10 @@ public class FileUtil {
 		////System.out.println("copy " + sourceFolder + " to " + destinationFolder);
 		try{
 			File sourceF = new File(sourceFolder);
-			if (sourceF.exists())
+			if (sourceF.exists()) {
 				FileUtils.copyDirectory(new File(sourceFolder), new File(
 						destinationFolder));
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new RuntimeException("copy file error");
@@ -445,8 +434,10 @@ public class FileUtil {
 	public static void copyNewFile(String sourceFolder, String targetFolder){
 		try{
 			File sourceF = new File(sourceFolder);
-			
-			if(!targetFolder.endsWith("/")) targetFolder=targetFolder+"/";
+
+			if (!targetFolder.endsWith("/")) {
+				targetFolder = targetFolder + "/";
+			}
 		 
 			if (sourceF.exists()){
 				File[] filelist = sourceF.listFiles();

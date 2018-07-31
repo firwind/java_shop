@@ -59,7 +59,7 @@
 .forget_password a{color:#0088cc}
 .m_submit{width:400px;text-align:center;height:70px;}
 .m_submit .blue_btn{
-	  background: #44b540;
+	  background: #d91c1c;
     border-radius: 3px;
     box-shadow: 0 1px 2px #dbdbdb;
     color: #fff;
@@ -86,7 +86,7 @@
 	 background: #fff none repeat scroll 0 0;
     border: 1px solid #dcdcdc;
     border-radius: 3px;
-    color: #44b540;
+    color: #d91c1c;
     display: block;
     float: right;
     margin-left: 5px;

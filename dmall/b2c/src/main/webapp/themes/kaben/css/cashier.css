@@ -71,13 +71,13 @@
 .cashier-change h2 b {
 	font-weight: 200;
 	font-size: 14px;
-	color: #ff6700
+	color: #d91c1c
 }
 
 .cashier-change h2 span {
 	font-size: 20px;
 	font-size: 20px;
-	color: #d93600;
+	color: #d91c1c;
 	margin: 0 5px 0 0;
 }
 
@@ -266,7 +266,7 @@
 	text-align: center;
 	color: #fff;
 	font-size: 14px;
-	background: #d93600;
+	background: #d91c1c;
 	display: block;
 	margin: 30px auto 0 auto;
 }
@@ -279,7 +279,7 @@
 	text-align: center;
 	color: #fff;
 	font-size: 14px;
-	background: #d93600;
+	background: #d91c1c;
 	display: block;
 	margin: 30px auto 0 auto;
 }

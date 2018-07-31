@@ -1,20 +1,19 @@
 package com.baigu.app.shop.front.tag.goods;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.baigu.app.shop.core.goods.model.Cat;
 import com.baigu.app.shop.core.goods.service.IGoodsCatManager;
+import com.baigu.eop.sdk.utils.StaticResourcesUtil;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import com.baigu.framework.util.StringUtil;
+import freemarker.template.TemplateModelException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.baigu.eop.sdk.utils.StaticResourcesUtil;
-import com.baigu.framework.taglib.BaseFreeMarkerTag;
-import com.baigu.framework.util.StringUtil;
-
-import freemarker.template.TemplateModelException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /**
  * 商品分类标签
  * @author lina
@@ -37,14 +36,35 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {
+		Map<String, Object> data = new HashMap();
+
+		//是否推荐分类
+		String recommend = (String) params.get("recommend");
+		boolean isRecommend = false;
+		if (StringUtils.isNotBlank(recommend)) {
+			isRecommend = recommend.equalsIgnoreCase("yes");
+		}
+
+		if (isRecommend) {
+			List<Cat> recommendList = null;
+			Cat reCat = goodsCatManager.getRecommendCat();
+			if (reCat != null) {
+				recommendList = goodsCatManager.listChildren(reCat.getCat_id());
+			}
+			data.put("recommendList", recommendList);
+			return data;
+		}
+
+
 		Integer parentid=(Integer) params.get("parentid");
 		if(parentid==null){
 			parentid = 0;
 		}
+
 		List<Cat> cat_tree =  goodsCatManager.listAllChildren(parentid);
 		String catimage = (String) params.get("catimage");
 		boolean showimage  = catimage!= null &&catimage.equals("on") ?true:false;
-		
+
 		String imgPath="";
 		if(!cat_tree.isEmpty()){
 			for(Cat cat:cat_tree){
@@ -57,7 +77,6 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 			}
 		}
 		
-		Map<String, Object> data =new HashMap();
 		data.put("showimg", showimage);//是否显示分类图片
 		data.put("cat_tree", cat_tree);//分类列表数据
 		return data;

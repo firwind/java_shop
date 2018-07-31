@@ -50,7 +50,7 @@
     display: block;
     height: 2.5 erm;
     line-height: 2.5rem;
-    background: #FF5722;
+    background: #d91c1c;
     color: #fff;
     font-size: 0.8rem;
 }
@@ -192,7 +192,7 @@ c .cart-goods-spec span {
 
 .cart-float .cart-float-price p span {
     font-size: 1.2rem;
-    color: #FF5722;
+    color: #d91c1c;
     margin-right: .2em;
     font-weight: bold;
 }
@@ -215,7 +215,7 @@ c .cart-goods-spec span {
 }
 
 .cart-float .cart-float-same .go-checkout {
-    background: #FF5722;
+    background: #d91c1c;
     color: #fff;
     width: 100%;
     display: block;
@@ -229,7 +229,7 @@ c .cart-goods-spec span {
     display: block;
     width: 1.1rem;
     height: 1.1rem;
-    border: 1px solid #FF5721;
+    border: 1px solid #d91c1c;
     border-radius: 2rem;
 }
 
@@ -244,7 +244,7 @@ c .cart-goods-spec span {
 
 .all-selected-box p {
     padding: 0.1rem 0.5rem;
-    background: #FF5721;
+    background: #d91c1c;
     color: #fff;
 }
 

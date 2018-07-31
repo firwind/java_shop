@@ -2,19 +2,19 @@
 .promotion-title{background: #ffffff none repeat scroll 0 0;box-shadow: 0 2px 5px #ccc;margin: 30px auto;min-height: 500px;overflow: hidden;width: 1140px;position:relative;padding:30px;}
 .promotion-title .same-title{width:317px;height:317px;position:absolute;background:url(../images/cuxiao.png) no-repeat center center;}
 .promotion-title .title1{top:40px;left:140px;}
-.promotion-title .title1 p{width:317px;font-size:16px;line-height:30px;color:#ff6700;text-align:center;font-weight:200;}
-.promotion-title .title1 span{width:317px;line-height:35px;text-align:center;color:#ff6700;display:block;font-size:14px;}
+.promotion-title .title1 p{width:317px;font-size:16px;line-height:30px;color:#d91c1c;text-align:center;font-weight:200;}
+.promotion-title .title1 span{width:317px;line-height:35px;text-align:center;color:#d91c1c;display:block;font-size:14px;}
 .promotion-title .title1 .promotion-time{margin:90px 0 0 0;}
 .promotion-title .title2{top:230px;left:340px;}
-.promotion-title .title2 h2{width:317px;height:317px;text-align:center;line-height:317px;font-size:30px;font-weight:200;color:#ff6700;}
+.promotion-title .title2 h2{width:317px;height:317px;text-align:center;line-height:317px;font-size:30px;font-weight:200;color:#d91c1c;}
 .promotion-title .title3{top:40px;left:520px;}
-.promotion-title .title3 h2{width:100%;height:30px;line-height:30px;text-align:center; color: #ff6700;font-size: 30px;font-weight: 200;margin:0 0 10px 0;}
-.promotion-title .title3 p{width:241px;margin:0px auto;line-height:25px;font-size:14px;color:#ff6700;text-align:center;font-weight:200;display:none;}
+.promotion-title .title3 h2{width:100%;height:30px;line-height:30px;text-align:center; color: #d91c1c;font-size: 30px;font-weight: 200;margin:0 0 10px 0;}
+.promotion-title .title3 p{width:241px;margin:0px auto;line-height:25px;font-size:14px;color:#d91c1c;text-align:center;font-weight:200;display:none;}
 .promotion-title .title3 p span{font-size:18px;color:#fc7c79;margin:0 5px;}
 .promotion-title .title3 .promotion-inside{width:317px;height:317px;display:position:relative;}
 .title3-word{position:absolute;width:317px;overflow:hidden;top:50%;left:0;}
 .promotion-title .title4{top:230px;left:710px;}
-.promotion-title .title4 p{width:201px;margin:0px auto;line-height:25px;font-size:14px;color:#ff6700;text-align:center;font-weight:200;position:absolute;top:50%;left:58px;}
+.promotion-title .title4 p{width:201px;margin:0px auto;line-height:25px;font-size:14px;color:#d91c1c;text-align:center;font-weight:200;position:absolute;top:50%;left:58px;}
 .promotion-title .title4 .promotion-inside{width:317px;height:317px;display:position:relative;}
  */
  
@@ -24,17 +24,17 @@
 .promotion-title{background: #ffffff none repeat scroll 0 0;box-shadow: 0 2px 5px #ccc;margin: 30px auto;min-height: 500px;overflow: hidden;width: 1140px;position:relative;padding:30px;}
 .same-title{width:100%;margin:0 0 20px 0;overflow:hidden;}
 .same-title h2{
- 	 border-bottom: 1px solid #33a600;
+ 	 border-bottom: 1px solid #d91c1c;
     float: left;
     font: 200 14px/30px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
     height: 30px;
     margin-bottom: -1px;
     padding: 9px 0;
     width:100px;
-    color:#33a600;
+    color:#d91c1c;
  }
 .same-title .promotion-word{
- 	  border-top: 1px dotted #33a600;
+ 	  border-top: 1px dotted #d91c1c;
     clear: both;
     line-height: 22px;
     overflow: hidden;

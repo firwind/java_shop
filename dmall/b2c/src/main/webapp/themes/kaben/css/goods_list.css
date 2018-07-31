@@ -7,7 +7,7 @@
 .other_same li span a:hover strong{background:url(../images/close2.jpg) no-repeat center center;}
 
 .goodslist_nav{width:1200px;margin:10px auto;}
-.goodslist_nav .breadcrumb{border-top:2px solid #d93600;color:#333;padding-top:10px;width:980px;margin:0px auto;}
+.goodslist_nav .breadcrumb{border-top:2px solid #d91c1c;color:#333;padding-top:10px;width:980px;margin:0px auto;}
 .goodslist_nav span{float:left;display:inline;margin-right:5px;color: #555;font: lighter 14px/20px "Microsoft Yahei";margin:0px 5px 0px 0px;line-height:30px;text-align: center;}
 .goodslist_nav span a{color:#555;}
 
@@ -96,7 +96,7 @@
 }
 .goods_list_all .goods_bar p{
 	    background: #fff;
-    color: #ff6700;
+    color: #d91c1c;
     float: left;
     height: 42px;
     line-height: 42px;
@@ -129,7 +129,7 @@
 	display:inline;
 }
 .goods_list_all .goods_bar .bar_page .page span{
-	 color: #ff6700;
+	 color: #d91c1c;
     float: left;
     height: 42px;
     line-height: 42px;
@@ -172,7 +172,7 @@
     width: 205px;
 }
 .goodslist_circulate .goodslist_all .item .goodslist .goodslist_intro .goodslist_price em{
-	  color: #ff6700;
+	  color: #d91c1c;
     float: left;
     font-family: Arial;
     font-size: 18px;
@@ -234,7 +234,7 @@
     height: 37px;
     line-height: 37px;
     overflow: hidden;
-    width: 58px;
+    width: 108px;
 }
 .goods_list_page .page ul{
 	 display:inline-block;border-right:1px solid #ededed;
@@ -249,11 +249,11 @@
 	display:block;border:1px solid #ededed;border-right:0px none;height:35px;line-height:35px;
 }
 .goods_list_page .page ul li a:hover{
-	border:1px solid #ff6700;padding:0px 0px 0px 1px;
+	border:1px solid #d91c1c;padding:0px 0px 0px 1px;
 }
 .goods_list_page .page ul li .selected{
-	 border:1px solid #ff6700;border-right:0px none;
-    background:#ff6700;
+	 border:1px solid #d91c1c;border-right:0px none;
+    background:#d91c1c;
     color: #fff;
 }
 
@@ -321,14 +321,14 @@
     width: 135px;
 }
 .list_m1 .m1_r .r_info .i_in .i_price span {
-    color: #ff6700;
+    color: #d91c1c;
     font-family: Arial;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: -1px;
 }
 .list_m1 .m1_r .r_info .i_in .i_btn a {
-    background: #ff6700 none repeat scroll 0 0;
+    background: #d91c1c none repeat scroll 0 0;
     border-radius: 3px;
     color: #fff;
     display: block;

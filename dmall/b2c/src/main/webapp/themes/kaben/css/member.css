@@ -238,7 +238,7 @@ input.mall_td {
 }
 
 .left_menu .member-munu ul .hover a {
-	color: #ff6700
+	color: #d91c1c
 }
 
 #content_wrapper {
@@ -314,8 +314,8 @@ input.mall_td {
 	height: 28px;
 	line-height: 28px;
 	width: 118px;
-	background: #ff6700;
-	border-color: #ff6700;
+	background: #d91c1c;
+	border-color: #d91c1c;
 	color: #fff;
 }
 
@@ -354,7 +354,7 @@ input.mall_td {
 }
 
 .member_parameter ul li h3 span {
-	color: #ff6700;
+	color: #d91c1c;
 	font-size: 18px;
 }
 
@@ -418,7 +418,7 @@ input.mall_td {
 }
 
 .order-list .order-list-tab ul .selected a span {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .order-list .order-list-tab .search-order {
@@ -489,7 +489,7 @@ input.mall_td {
 }
 
 .order-list .order-list-all h3 span em {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .order-list .order-list-all h3 span b {
@@ -603,7 +603,7 @@ input.mall_td {
 }
 
 .order-detail .order-detail-title em {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .order-detail .order-detail-title .order-tools {
@@ -703,7 +703,7 @@ input.mall_td {
 }
 
 .order-detail-price tr td {
-	color: #ff6700;
+	color: #d91c1c;
 	text-align: right;
 	font-weight: 400;
 	padding: 5px 0;
@@ -712,7 +712,7 @@ input.mall_td {
 .order-detail-price tr td span {
 	font-size: 30px;
 	font-weight: 200;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 /***** 积分  *********/
@@ -763,7 +763,7 @@ input.mall_td {
 }
 
 .member-point .member-point-tab .selected {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-point .member-point-box {
@@ -805,7 +805,7 @@ input.mall_td {
 	height: 18px;
 	line-height: 1;
 	margin-right: 5px;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-point .member-point-box .point-intro-same p {
@@ -819,7 +819,7 @@ input.mall_td {
 	height: 18px;
 	line-height: 1;
 	margin: 0px 5px;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-point-box .point-upward {
@@ -1057,7 +1057,7 @@ input.mall_td {
 .pre_base_info span, .pre_alter_info .tip {
 	text-align: left;
 	padding-left: 10px;
-	color: #ff6700;
+	color: #d91c1c;
 	font-weight: 200;
 }
 
@@ -1244,7 +1244,7 @@ input.mall_td {
 	height: 38px;
 	line-height: 38px;
 	font-weight: 100;
-	color: #ff6700;
+	color: #d91c1c;
 	margin: 0px;
 	padding: 0px;
 }
@@ -1302,11 +1302,11 @@ input.mall_td {
 }
 
 .member-commen .member-comment-tab ul .selected {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-commen .member-comment-tab .selected {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-comment-box {
@@ -1360,7 +1360,7 @@ input.mall_td {
 
 .member-comment-box .member-comment-list .member-comment-outside li .member-common-goods p a:hover
 	{
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-comment-box .member-comment-list ul li .member-common-goods i {
@@ -1383,7 +1383,7 @@ input.mall_td {
 	position: absolute;
 	top: 0px;
 	left: 480px;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .member-comment-box .member-comment-list ul li .member-comment img {
@@ -1476,7 +1476,7 @@ input.mall_td {
 }
 
 .member-comment-wait .member-wait-goods li h4 {
-	color: #ff6700;
+	color: #d91c1c;
 	margin: 0 0 10px;
 	font-weight: 400;
 }
@@ -1549,7 +1549,7 @@ input.mall_td {
 .pore_re .security .vefy_input_05 .tip {
 	text-align: left;
 	font-size: 12px;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .pore_re .security .vefy_input_05 input {
@@ -1672,7 +1672,7 @@ input.mall_td {
 .member-address-list .member-address-box p a {
 	margin: 0px 0px 0px 5px;
 	transition: all 0.4s ease 0s;
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 #btn_add_addr {
@@ -1968,7 +1968,7 @@ input.mall_td {
 
 .reg_go_index {
 	transition: all 0.4s ease 0s;
-	background-color: #ff6700;
+	background-color: #d91c1c;
 	border-radius: 2px;
 	color: #fff;
 	display: inline-block;
@@ -2079,7 +2079,7 @@ input.mall_td {
 .return_detail .tip {
 	text-align: left;
 	font-size: 12px;
-	color: #ff6700;
+	color: #d91c1c;
 	margin-left: 10px;
 }
 
@@ -2286,7 +2286,7 @@ input.mall_td {
 }
 
 .return-intro .return-detail-box h2 .return-detail-sn {
-	color: #ff6700;
+	color: #d91c1c;
 	font-size: 14px;
 }
 
@@ -2356,7 +2356,7 @@ input.mall_td {
 }
 
 .return-intro .return-detail-box .return-derail-reply {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 /*********快递查询**************/
@@ -2537,8 +2537,8 @@ input.mall_td {
 }
 
 .have-read-one {
-	background: #ff6700 none repeat scroll 0 0;
-	border: 1px solid #ff6700;
+	background: #d91c1c none repeat scroll 0 0;
+	border: 1px solid #d91c1c;
 	font-size: 12px;
 	color: #fff;
 }
@@ -2613,7 +2613,7 @@ input.mall_td {
 }
 
 .messagefront-list ul .selected span {
-	color: #ff6700;
+	color: #d91c1c;
 }
 
 .messagefront-list .point-upward {
@@ -2867,8 +2867,8 @@ input.mall_td {
 	line-height: 48px;
 	padding: 0;
 	width: 220px;
-	background-color: #33a600;
-	background-image: linear-gradient(to bottom, #33a600 0px, #33a600 100%);
+	background-color: #d91c1c;
+	background-image: linear-gradient(to bottom, #d91c1c 0px, #d91c1c 100%);
 	border-radius: 3px;
 	color: #fff;
 	cursor: pointer;

@@ -18,7 +18,7 @@ $(function () {
     module.navigator.init({
         title          : '邮箱注册',
         titleColor     : '#fff',
-        backgroundColor: '#ff6700',
+        backgroundColor: '#d91c1c',
         left : {
             style: 'light'
         },

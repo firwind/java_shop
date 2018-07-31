@@ -30,7 +30,7 @@
      list-style: outside none none;
 }
 .h-btm .flow-steps ol .num1 {
-    background: #ff6700;
+    background: #d91c1c;
     width: 163px;
 }
 .h-btm .flow-steps ol li span{
@@ -57,10 +57,10 @@
     font-style:normal;
 }
 .h-btm .flow-steps ol .num1 span{
-	 color: #ff6700;
+	 color: #d91c1c;
 }
 .h-btm .flow-steps ol .num1 em{
-	background: #ff6700 none repeat scroll 0 0;
+	background: #d91c1c none repeat scroll 0 0;
     color: #fff;
 }
 .h-btm .flow-steps ol .num2{

@@ -19,7 +19,7 @@ $(function () {
     module.navigator.init({
         title          : '登录',
         titleColor     : '#fff',
-        backgroundColor: '#ff6700',
+        backgroundColor: '#d91c1c',
         left: {
             style: 'light'
         },
@@ -115,7 +115,7 @@ $(function () {
                             layer.open({
                                 title     : [
                                     '完善信息',
-                                    'background-color:#ff6700; color:#fff;'
+                                    'background-color:#d91c1c; color:#fff;'
                                 ],
                                 shadeClose: false,
                                 anim      : 'scale',

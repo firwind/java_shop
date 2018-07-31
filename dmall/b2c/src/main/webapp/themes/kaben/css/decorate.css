@@ -4,11 +4,11 @@
 .showcase_tab .showcase_ul{background-color:transparent;border-color:transparent transparent #f0f0f0;border-style:solid;border-width:0 0 2px;height:40px;position:relative;z-index:1;}
 .showcase_tab .showcase_ul li{background-color: transparent; width: 20%; *width: 195px; height: 40px; float: left; padding: 0; position: relative; z-index: 1; cursor: pointer;}
 .showcase_tab .showcase_ul li a {font-size: 12px; font-weight: 600; line-height: 38px; text-align: center;display:block;}	
-.onshowcase a{color:#33a600;}
-.showcase_tab .showcase_ul li a:hover{color:#33a600;}
+.onshowcase a{color:#d91c1c;}
+.showcase_tab .showcase_ul li a:hover{color:#d91c1c;}
 .showcase_tab .showcase_ul li i{border-style:dashed dashed solid;border-width:5px;bottom:0;display:none;float:right;font-size:0;height:0;left:50%;line-height:0;margin-left:-4px;position:absolute;width:0;z-index:1;}	
-.showcase_tab .showcase_ul .onshowcase{border-color:#33a600;border-style:solid;border-width:0 0 2px;}
-.showcase_tab .showcase_ul .onshowcase i{display: block;border-color:transparent transparent #33a600;}
+.showcase_tab .showcase_ul .onshowcase{border-color:#d91c1c;border-style:solid;border-width:0 0 2px;}
+.showcase_tab .showcase_ul .onshowcase i{display: block;border-color:transparent transparent #d91c1c;}
 .showcase .showcase_goods{width:1200px;overflow:hidden;}
 .showcase .showcase_goods ul{margin-left:-1px;overflow:hidden;width:1210px;}
 .showcase .showcase_goods ul li{border-left:1px dotted #f0f0f0;float:left;height:235px;overflow:hidden;padding:15px 0 0;width:197px;}
@@ -30,8 +30,8 @@
 .child_floor_tab ul li {  float: left;  height: 30px;  cursor: pointer;  opacity: 1;  }
 .child_floor_tab .floor_tab_ul {  height: 30px;  line-height: 30px;  }
 .child_floor_tab .floor_tab_ul li {  float: left;  width: 58px;  border: none;  text-align: center;  }
-.child_floor_tab .floor_tab_ul .curBg {  background: #33a600;  height: 3px;  z-index: 1;  bottom: 0px;  }
-.child_floor_tab .floor_tab_ul .curBg a {  color: #33a600;  border-color: #33a600;  }
+.child_floor_tab .floor_tab_ul .curBg {  background: #d91c1c;  height: 3px;  z-index: 1;  bottom: 0px;  }
+.child_floor_tab .floor_tab_ul .curBg a {  color: #d91c1c;  border-color: #d91c1c;  }
 .child_floor_tab .tab_item a {  float: left;  width: 100%;  height: 30px;  line-height: 30px;  overflow: hidden;  text-decoration: none;  white-space: nowrap;  border-top: 3px solid #ffffff;  }
 .child_floor_show {  wdith: 580px;  height: 391px;  overflow: hidden;  float: left;  }
 .child_floor_show_left {  float: left;  height: 391px;  position: relative;  width: 300px;  }
@@ -65,7 +65,7 @@
 .child_floor_style2 ul li .goods-img{height:130px;margin:5px auto;width:130px;}
 .child_floor_style2 ul li .goods-name{height:20px;margin:0 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:170px;}
 .child_floor_style2 ul li .goods-price{height:20px;line-height:20px;overflow:hidden;padding:0 5px;text-align:left;width:185px;}
-.child_floor_style2 ul li .goods-price span{color:#ff6700;font-family:Arial;font-size:18px;letter-spacing:-1px;}
+.child_floor_style2 ul li .goods-price span{color:#d91c1c;font-family:Arial;font-size:18px;letter-spacing:-1px;}
 
 
 /************专题样式*************/

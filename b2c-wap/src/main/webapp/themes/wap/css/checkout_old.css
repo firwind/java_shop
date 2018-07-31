@@ -134,8 +134,8 @@
 }
 
 .checkout-bill-box ul .selected {
-    border-color: #FF5722;
-    color: #FF5722;
+    border-color: #d91c1c;
+    color: #d91c1c;
 }
 
 .bill-company-title {
@@ -156,9 +156,9 @@
     height: 2rem;
     display: block;
     text-align: center;
-    border: 1px solid #FF5722;
+    border: 1px solid #d91c1c;
     -webkit-appearance: none;
-    color: #FF5722;
+    color: #d91c1c;
 }
 
 .bill-company-title .bill-company-ok {
@@ -172,8 +172,8 @@
     height: 2rem;
     display: block;
     text-align: center;
-    border: 1px solid #FF5722;
-    color: #FF5722;
+    border: 1px solid #d91c1c;
+    color: #d91c1c;
 }
 
 .bonus-box {
@@ -241,7 +241,7 @@
     text-align: center;
     border: 1px solid #eee;
     -webkit-appearance: none;
-    color: #FF5722;
+    color: #d91c1c;
 }
 
 .bonusC01 a {
@@ -308,8 +308,8 @@
 }
 
 .checkout-ship-day .ship-day-list .selected {
-    border: 1px solid #FF5722;
-    color: #FF5722;
+    border: 1px solid #d91c1c;
+    color: #d91c1c;
 }
 
 .checkout-ship-day .ship-day-list label p {
@@ -318,7 +318,7 @@
 }
 
 .checkout-ship-day .ship-day-list .selected p {
-    color: #FF5722;
+    color: #d91c1c;
 }
 
 .checkout-goods-list {
@@ -420,7 +420,7 @@
     text-align: center;
     border: 1px solid #eee;
     -webkit-appearance: none;
-    color: #FF5722;
+    color: #d91c1c;
     font-family: Arial, Verdana, Sans-serif;
 }
 
@@ -466,7 +466,7 @@
     box-flex: 1;
     width: 80%;
     text-align: center;
-    background: #FF5722;
+    background: #d91c1c;
     color: #fff;
 }
 
@@ -478,7 +478,7 @@
 
 .cleckout-float .cleckout-float-price p span {
     font-size: 1.2rem;
-    color: #FF5722;
+    color: #d91c1c;
     margin-right: .2em;
     font-weight: bold;
 }
@@ -537,7 +537,7 @@
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-    background: #FF5722;
+    background: #d91c1c;
     color: #fff;
 }
 
@@ -551,7 +551,7 @@
     height: 1.5rem;
     line-height: 1.5rem;
     font-size: 1.1rem;
-    color: #FF5722;
+    color: #d91c1c;
 }
 
 .order-success-box-word .order-pay-result-sn {

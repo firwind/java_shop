@@ -1,9 +1,9 @@
 package com.baigu.app.shop.core.goods.service;
 
+import com.baigu.app.shop.core.goods.model.Cat;
+
 import java.util.List;
 import java.util.Map;
-
-import com.baigu.app.shop.core.goods.model.Cat;
 
 
 /**
@@ -71,11 +71,10 @@ public interface IGoodsCatManager {
 	 * @return
 	 */
 	public List<Cat> listAllChildren(Integer cat_id);
-	
 
-	
-	
-	
+
+	Cat getRecommendCat();
+
 	/**
 	 * 读取某类别下的子类别，只是儿子
 	 * @param cat_id

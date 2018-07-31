@@ -38,7 +38,7 @@
     width: 70px;
     height: 88%;
     padding: 0;
-    background-color: #ff6700;
+    background-color: #d91c1c;
     outline: none;
     border: none;
     color: #fff;
@@ -64,7 +64,7 @@
 .security .validate-button button {
     width: 80vw;
     height: 7vh;
-    background-color: #ff6700;
+    background-color: #d91c1c;
     color: #fff;
     text-align: center;
     line-height: 7vh;

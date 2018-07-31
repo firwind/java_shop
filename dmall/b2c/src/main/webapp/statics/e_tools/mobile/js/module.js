@@ -141,9 +141,9 @@ Module.prototype.layerConfirm = function (ops) {
  * @type {{error, success}}
  */
 Module.prototype.message = (function () {
-    var _background = '#42aa43';
+    var _background = '#d91c1c';
     function _error(msg, callback) {_background = '#ff4351';showMessage(msg, callback);}
-    function _success(msg, callback) {_background = '#42aa43';showMessage(msg, callback);}
+    function _success(msg, callback) {_background = '#d91c1c';showMessage(msg, callback);}
     function showMessage(msg, callback) {
         layer.open({
             title: [
