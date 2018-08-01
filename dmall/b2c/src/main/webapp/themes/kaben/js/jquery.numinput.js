@@ -15,7 +15,7 @@
 		function createEl(target){
 			var value=1;
 			if(target.attr("value")) value=target.attr("value");
-            var input = '<input type="text" value="'+ value +'" oldValue="'+ value +'" size="5" name="'+ opts.name +'" autocomplete="off" style="width: 40px;" />'
+            var input = '<input type="text" value="'+ value +'" oldValue="'+ value +'" size="5" name="'+ opts.name +'" autocomplete="off" style="width: auto;" />'
 			var incBtn =$('<span class="numadjust increase">+</span>');
 			var decBtn =$('<span class="numadjust decrease">-</span>');
 			target.append(decBtn).append(input).append(incBtn);

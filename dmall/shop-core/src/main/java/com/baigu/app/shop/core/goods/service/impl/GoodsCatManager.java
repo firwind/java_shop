@@ -222,6 +222,12 @@ public class GoodsCatManager  implements IGoodsCatManager {
 	@Log(type=LogType.GOODS,detail="更新商品类别名为${cat.name}的商品类别")
 	public void update(Cat cat) {
 		Cat parent = null;
+
+		//更新分类下商品类型id
+		if (cat.getType_id() != null && cat.getType_id() != 0) {
+			String sql = "update es_goods set type_id = " + cat.getType_id() + " where cat_id = " + cat.getCat_id();
+			this.daoSupport.execute(sql);
+		}
 		
 		if (cat.getParent_id() != null && cat.getParent_id().intValue() != 0) {
 			
@@ -250,7 +256,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 				Integer cat_id = (Integer) maps.get("cat_id");
 				Map childmap = new HashMap();
 				childmap.put("cat_path", cat.getCat_path()+cat_id+"|");
-				daoSupport.update("es_goods_cat", childmap, " cat_id="+cat_id);
+				daoSupport.update("es_goods_cat", childmap, " cat_id=" + cat_id);
 			}
 		}
 		
