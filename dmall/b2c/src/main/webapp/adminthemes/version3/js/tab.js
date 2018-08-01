@@ -129,7 +129,12 @@ layui.define(['element', 'common'], function(exports) {
 			if(_config.closed) {
 				title += '<span></span><i class="iconfont layui-unselect layui-tab-close" data-id="' + globalTabIdIndex + '">&#xe646;</i>';
 			}
+
+
+            // CustomRightClick(globalTabIdIndex);
+
 			//添加tab
+
 			element.tabAdd(ELEM.tabFilter, {
 				title: title,
 				content: content,
@@ -157,6 +162,34 @@ layui.define(['element', 'common'], function(exports) {
 			$(".layui-tab-content iframe")[index].contentWindow.location.reload(true);
 		}
 	};
+
+
+    function CustomRightClick(id) {
+    	debugger
+
+        //取消右键
+        $(window.parent.document).find('.layui-tab-title li').contextmenu(function () { return false; })
+        $(window.parent.document).find('.layui-tab-title,.layui-tab-title li').click(function () {
+            $('.rightmenu').hide();
+        });
+        //桌面点击右击
+        $(window.parent.document).find('.layui-tab-title li').contextmenu(function (e) {
+
+            var rightHtml = "<ul class=\"rightmenu\">" +
+                "            <li data-type=\"closethis\">关闭当前</li>" +
+                "            <li data-type=\"closeall\">关闭所有</li>" +
+                "        </ul>";
+
+            var popupmenu = $(rightHtml);
+            popupmenu.find("li").attr("data-id",id);
+            l = ($(document).width() - e.clientX) < popupmenu.width() ? (e.clientX - popupmenu.width()) : e.clientX;
+            t = ($(document).height() - e.clientY) < popupmenu.height() ? (e.clientY - popupmenu.height()) : e.clientY;
+            popupmenu.css({ left: l, top: t }).show();
+            //alert("右键菜单")
+            return false;
+        });
+    }
+
 	Tab.prototype.on = function(events, callback) {
 		
 	}

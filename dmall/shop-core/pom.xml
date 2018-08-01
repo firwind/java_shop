@@ -46,6 +46,7 @@
 						</includes>
 						<argLine>-Dfile.encoding=UTF-8</argLine>
         				<runOrder>alphabetical</runOrder>
+										<skip>true</skip>
 					</configuration>
 			</plugin>			
 			<plugin>
