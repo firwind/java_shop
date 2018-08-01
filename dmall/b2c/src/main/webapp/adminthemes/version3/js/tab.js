@@ -186,6 +186,23 @@ layui.define(['element', 'common'], function(exports) {
         	}
         });
 	}
+
+    /**
+     *  根据tabid关闭Tab
+     */
+    Tab.prototype.closeByTabid = function(tabid){
+        element.tabDelete("layout-tab",tabid);
+    }
+
+    /**
+     *  根据tabid刷新Tab
+     */
+    Tab.prototype.refreshByTabid = function(tabid){
+        var target = $(window.parent.document).find(".layui-tab-title li[lay-id='"+tabid+"']");
+        var dataId = target.find(".layui-tab-close").attr("data-id");
+        var src =ELEM.contentBox.find('iframe[data-id=' + dataId + ']')[0].src
+        ELEM.contentBox.find('iframe[data-id=' + dataId + ']')[0].src = src;
+    }
 	
 	/**
 	 * 关闭其它Tab

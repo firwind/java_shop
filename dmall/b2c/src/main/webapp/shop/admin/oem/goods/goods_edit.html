@@ -78,7 +78,7 @@
                         success : function(result) {
                             if (result.result == 1) {
                                 $.Loading.success(result.message);
-                                parent.CloseTabByTitle("商品修改");
+                                closeAndRefresh("商品列表")
                             }
                             if (result.result == 0) {
                                 $.Loading.error(result.message);

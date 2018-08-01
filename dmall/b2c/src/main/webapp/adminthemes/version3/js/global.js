@@ -56,7 +56,32 @@ layui.config({
     closeOther = function(){
     	window.parent.tab.closeOther();
     }
-    
+
+    //根据title关闭tab页面
+    closeByTitle = function(title){
+        var tabid = window.parent.tab.getTabId(title);
+        if(tabid==-1){
+            throw "tab's title ["+title+"] not found!";
+            return;
+        }
+        window.parent.tab.closeByTabid(tabid);
+    }
+
+    //根据title刷新tab页面
+    refreshByTitle = function(title){
+        var tabid = window.parent.tab.getTabId(title);
+        if(tabid==-1){
+            throw "tab's title ["+title+"] not found!";
+            return;
+        }
+        window.parent.tab.refreshByTabid(tabid);
+    }
+
+    //关闭当前页并且刷新指定标题tab页
+    closeAndRefresh = function(title){
+        refreshByTitle(title);
+        closeCurrent();
+    }
 })
 
 var dialog = {
