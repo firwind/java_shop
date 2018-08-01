@@ -22,12 +22,21 @@
 					<include>**/*.xml</include>
 				</includes>
 			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+					<include>**/*.sql</include>
+					<include>**/*.dic</include>
+				</includes>
+			</resource>
 		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration><skip>true</skip></configuration>
+				<configuration><skipTests>true</skipTests></configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
