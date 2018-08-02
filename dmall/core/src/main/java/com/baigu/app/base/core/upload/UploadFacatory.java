@@ -1,10 +1,9 @@
 package com.baigu.app.base.core.upload;
 
-import com.baigu.app.base.core.model.FastDfsSetting;
-import org.springframework.stereotype.Component;
-
 import com.baigu.app.base.core.model.ClusterSetting;
+import com.baigu.app.base.core.model.FastDfsSetting;
 import com.baigu.framework.context.spring.SpringContextHolder;
+import org.springframework.stereotype.Component;
 @Component
 public class UploadFacatory {
 
@@ -16,7 +15,8 @@ public class UploadFacatory {
 	 * @return
 	 */
 	public static IUploader getUploaer(){
-		IUploader uploade =(IUploader)SpringContextHolder.getBean("localUploader");
+		//默认使用虚拟路径上传
+		IUploader uploade = (IUploader) SpringContextHolder.getBean("virtualPathUploader");
 		
 		//如果开启fastdfs
 		if(ClusterSetting.getFdfs_open()==1){
