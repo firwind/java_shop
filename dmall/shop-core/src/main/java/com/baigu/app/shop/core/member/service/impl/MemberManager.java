@@ -146,7 +146,7 @@ public class MemberManager implements IMemberManager {
         member.setMember_id(memberid);
 
         String parentIds;
-        if (upLineMember.getParentids() == null) {
+        if (StringUtils.isBlank(upLineMember.getParentids())) {
             parentIds = "[" + upLineMember.getMember_id() + "]";
         } else {
             parentIds = upLineMember.getParentids() + "," + "[" + upLineMember.getMember_id() + "]";
