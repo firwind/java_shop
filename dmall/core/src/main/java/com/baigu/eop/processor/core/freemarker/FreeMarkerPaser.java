@@ -141,8 +141,8 @@ public final class FreeMarkerPaser {
 			
 			Template temp = cfg.getTemplate(name + pageExt);
 			ByteOutputStream stream = new ByteOutputStream();
-			Writer out = new OutputStreamWriter(stream, "UTF-8");
-			
+			Writer out = new OutputStreamWriter(stream);
+
 			temp.process(data, out);
 			out.flush();
 			String content = stream.toString();
@@ -151,6 +151,10 @@ public final class FreeMarkerPaser {
 				content = EopUtil.wrapjavascript(content, this.getResPath());
 				content = EopUtil.wrapcss(content, getResPath());
 			}
+
+			//tomcat7.x编码问题
+			content = new String(content.getBytes("ISO-8859-1"), "UTF-8");
+
 			// content= StringUtil.compressHtml(content);
 			return content;
 		} catch (Exception e) {
