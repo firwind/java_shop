@@ -1,25 +1,23 @@
 package com.baigu.eop.processor.core.freemarker;
 
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.baigu.eop.SystemSetting;
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.eop.sdk.utils.EopUtil;
 import com.baigu.eop.sdk.utils.FreeMarkerUtil;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.baigu.framework.taglib.TagCreator;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
-
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateModelException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * FreeMarker解析器
@@ -95,18 +93,21 @@ public final class FreeMarkerPaser {
 	 * @param value
 	 */
 	public void putData(String key, Object value) {
-		if (key != null && value != null)
+		if (key != null && value != null) {
 			data.put(key, value);
+		}
 	}
 
 	public void putData(Map map) {
-		if (map != null)
+		if (map != null) {
 			data.putAll(map);
+		}
 	}
 
 	public Object getData(String key) {
-		if (key == null)
+		if (key == null) {
 			return null;
+		}
 
 		return data.get(key);
 	}
@@ -140,7 +141,7 @@ public final class FreeMarkerPaser {
 			
 			Template temp = cfg.getTemplate(name + pageExt);
 			ByteOutputStream stream = new ByteOutputStream();
-			Writer out = new OutputStreamWriter(stream);
+			Writer out = new OutputStreamWriter(stream, "UTF-8");
 			
 			temp.process(data, out);
 			out.flush();
@@ -228,8 +229,9 @@ public final class FreeMarkerPaser {
 	 */
 	public void setPageName(String pageName) {
 		this.pageName = pageName;
-		if(clazz!=null)
-		this.log.debug(this.clazz.getSimpleName() +"set pageName ["+pageName+"]" );
+		if (clazz != null) {
+			this.log.debug(this.clazz.getSimpleName() + "set pageName [" + pageName + "]");
+		}
 	}
 
 	/**
@@ -243,8 +245,9 @@ public final class FreeMarkerPaser {
 
 	public void setPageFolder(String pageFolder) {
 		this.pageFolder = pageFolder;
-		if(clazz!=null)
-		this.log.debug(this.clazz.getSimpleName() +"set folder ["+pageFolder+"]" );
+		if (clazz != null) {
+			this.log.debug(this.clazz.getSimpleName() + "set folder [" + pageFolder + "]");
+		}
 	}
 
 	/**
