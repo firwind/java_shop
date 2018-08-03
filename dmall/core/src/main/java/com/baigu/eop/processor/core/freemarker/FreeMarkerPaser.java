@@ -140,6 +140,7 @@ public final class FreeMarkerPaser {
             data.put("product_type", EopSetting.PRODUCT);
 
             Template temp = cfg.getTemplate(name + pageExt);
+            temp.setEncoding("UTF-8");
             ByteOutputStream stream = new ByteOutputStream();
             Writer out = new OutputStreamWriter(stream);
 
