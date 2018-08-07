@@ -1,16 +1,15 @@
 package com.baigu.eop;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import com.baigu.app.base.core.model.ClusterSetting;
 import com.baigu.app.base.core.service.IClusterSettingService;
+import com.baigu.app.base.core.service.ISettingService;
+import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.util.RequestUtil;
 import com.baigu.framework.util.StringUtil;
-import com.baigu.app.base.core.service.ISettingService;
-import com.baigu.framework.context.spring.SpringContextHolder;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 系统设置
@@ -41,14 +40,19 @@ public class SystemSetting {
 	private static ClusterSetting clusterSetting;
 
 	//系统设置中的分组
-	public static final String setting_key="system"; 
-	
+	public static final String setting_key = "system";
+	//模板引擎设置中的分组
+	public static final String temp_engine_key = "tempengine_setting";
+
 	//后台菜单列表
 	public static final String menuListKey="menuListKey";
 	
 	//系统缓存设置
-	public static String cache="ehCache";	
-	
+	public static String cache = "ehCache";
+
+	private static String te_accept_encoding; //模板引擎接收编码
+	private static String te_output_encoding; //模板引擎输出编码
+
 	
 	//系统设置的默认初始化
 	static{
@@ -60,8 +64,9 @@ public class SystemSetting {
 		 backend_pagesize = 10;
 		 HttpServletRequest request= ThreadContextHolder.getHttpRequest();
 		 default_img_url = static_server_domain+"/images/no_picture.jpg";
-		 if(request!=null)
-			  context_path =request.getContextPath();
+		if (request != null) {
+			context_path = request.getContextPath();
+		}
 		 
 		 wap_folder="wap";
 		 wap_domain=app_domain.replaceAll("www", "m");
@@ -118,10 +123,8 @@ public class SystemSetting {
 		//是否开启测试模式
 		String  test_mode_str = settings.get("test_mode");
 		setTest_mode( StringUtil.toInt(test_mode_str,0) );
-		
-		
-		
-		
+
+
 		//是否开启了文件集群
 		fs_cluster = SpringContextHolder.containsBean("clusterFileManager");
 		
@@ -131,6 +134,19 @@ public class SystemSetting {
 			IClusterSettingService clusterSettingService = SpringContextHolder.getBean("clusterSettingService");
 			clusterSetting = clusterSettingService.getSetting();
 		}
+
+		//初始化模板引擎配置
+		loadTempEngineSetting();
+	}
+
+	/**
+	 * 加载模板引擎配置
+	 */
+	public static void loadTempEngineSetting() {
+		ISettingService settingService = SpringContextHolder.getBean("settingService");
+		Map<String, String> settings = settingService.getSetting(temp_engine_key);
+		te_accept_encoding = settings.get("acceptencoding");
+		te_output_encoding = settings.get("outputencoding");
 	}
 	 
 	
@@ -195,9 +211,15 @@ public class SystemSetting {
 		return wap_domain;
 	}
 
- 
-	
-	
+
+	public static String getTe_accept_encoding() {
+		return te_accept_encoding;
+	}
+
+	public static String getTe_output_encoding() {
+		return te_output_encoding;
+	}
+
 	public static boolean getFs_cluster() {
 		return fs_cluster;
 	}

@@ -11,6 +11,7 @@ import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateModelException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -139,11 +140,10 @@ public final class FreeMarkerPaser {
             data.put("staticserver", SystemSetting.getStatic_server_domain());
             data.put("product_type", EopSetting.PRODUCT);
 
-            Template temp = cfg.getTemplate(name + pageExt);
-            temp.setEncoding("UTF-8");
             ByteOutputStream stream = new ByteOutputStream();
             Writer out = new OutputStreamWriter(stream);
 
+            Template temp = cfg.getTemplate(name + pageExt);
             temp.process(data, out);
             out.flush();
             String content = stream.toString();
@@ -153,8 +153,9 @@ public final class FreeMarkerPaser {
                 content = EopUtil.wrapcss(content, getResPath());
             }
 
-            //tomcat7.x编码问题
-//			content = new String(content.getBytes("ISO-8859-1"), "UTF-8");
+            if (StringUtils.isNotBlank(SystemSetting.getTe_accept_encoding()) && StringUtils.isNotBlank(SystemSetting.getTe_output_encoding())) {
+                content = new String(content.getBytes(SystemSetting.getTe_output_encoding()), SystemSetting.getTe_accept_encoding());
+            }
 
             // content= StringUtil.compressHtml(content);
             return content;

@@ -9,7 +9,11 @@
 			<plugin name="系统设置插件" id="systemSettingPlugin">
 				<bundle id="settingPluginBundle"></bundle>
 			</plugin>
-			
+
+			<plugin name="模板引擎设置插件" id="tempEngineSettingPlugin">
+				<bundle id="settingPluginBundle"></bundle>
+			</plugin>
+
 	</plugins>		
 
 </component>
