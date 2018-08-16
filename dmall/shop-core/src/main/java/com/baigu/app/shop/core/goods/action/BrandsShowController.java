@@ -1,20 +1,19 @@
 package com.baigu.app.shop.core.goods.action;
- 
+
 
 import com.baigu.app.shop.core.goods.service.IBrandManager;
+import com.baigu.app.shop.core.goods.service.IBrandsTagManager;
 import com.baigu.app.shop.core.goods.service.ITagManager;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.baigu.app.shop.core.goods.service.IBrandsTagManager;
-import com.baigu.framework.action.GridController;
-import com.baigu.framework.action.GridJsonResult;
-import com.baigu.framework.action.JsonResult;
-import com.baigu.framework.util.JsonResultUtil;
 
 @Scope("prototype")
 @Controller 
@@ -52,9 +51,9 @@ public class BrandsShowController extends GridController {
 	 * @return
 	 */
 	@RequestMapping(value="/brand-list")
-	public ModelAndView brandlist(Integer tag_id){ 
+	public ModelAndView brandlist(Integer tagid) {
 		ModelAndView view=getGridModelAndView();
-		view.addObject("tag_id",tag_id);
+		view.addObject("tag_id", tagid);
 		view.setViewName("/shop/admin/brandsshow/brandlist");
 		
 		return view;
