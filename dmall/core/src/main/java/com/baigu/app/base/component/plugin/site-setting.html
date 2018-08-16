@@ -38,6 +38,16 @@
 
 
 <div class="layui-form-item w500">
+	<label class="layui-form-label">网站二维码</label>
+	<div class="layui-input-block">
+		<@image src="${site_seting.qrcode!'' }" id="qrcode" style='width:100px' /><br/>
+		<input type="hidden" id="qrcode_url" name="site_seting.qrcode" value="${site_seting.qrcode!'' }" >
+		<input name="file" class="layui-upload-file" type="file" id="uploadQrcodeBtn" >
+	</div>
+</div>
+
+
+<div class="layui-form-item w500">
 	<label class="layui-form-label">关闭站点</label>
 	<div class="layui-input-block">
 		<input type="radio" name="site_seting.siteon"   value="1" title="否" <#if site_seting.siteon=="1">checked="checked"</#if> />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,6 +84,18 @@ $(function(){
 		    	$("#logofile_url").val(res.path);
 		    }
 		 });
-	}); 
+	});
+
+    $("#uploadQrcodeBtn").click(function(){
+        layui.upload({
+            url: '${ctx}/eop/upload/upload-file.do?ajax=1&subFolder=spec'
+            ,elem: '#uploadQrcodeBtn' //指定原始元素，默认直接查找class="layui-upload-file"
+            ,method: 'post' //上传接口的http类型
+            ,success: function(res){
+                qrcode.src = res.path;
+                $("#qrcode_url").val(res.path);
+            }
+        });
+    });
 });
 </script>

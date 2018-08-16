@@ -1,12 +1,12 @@
 package com.baigu.eop.resource.model;
 
-import java.io.Serializable;
-import java.util.Map;
-
 import com.baigu.app.base.core.service.ISettingService;
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.util.StringUtil;
+
+import java.io.Serializable;
+import java.util.Map;
 
 /**
  * 站点信息<br>
@@ -47,7 +47,8 @@ public class EopSite implements Serializable {
 	private  Integer adminthemeid; //后台模板id
 
 	private  String logofile; //logo文件路径，fs:开头或http://开头，需要用<@image指令解析
-           
+	private String qrcode;
+
 	//内存常驻缓存
 	private static EopSite mySelf=null;
 	
@@ -97,7 +98,8 @@ public class EopSite implements Serializable {
 		mySelf.themepath  = (String)siteSetting.get("themepath");
 		mySelf.adminthemeid  = toInt((String)siteSetting.get("adminthemeid"));
 		mySelf.logofile  = (String)siteSetting.get("logofile");
-		 
+		mySelf.qrcode = (String) siteSetting.get("qrcode");
+
 	}
 	
 	
@@ -155,4 +157,7 @@ public class EopSite implements Serializable {
 		return logofile;
 	}
 
+	public String getQrcode() {
+		return qrcode;
+	}
 }
