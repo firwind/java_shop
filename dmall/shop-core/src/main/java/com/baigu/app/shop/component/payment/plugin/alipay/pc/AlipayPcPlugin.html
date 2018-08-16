@@ -1,0 +1,41 @@
+<div class="layui-form-item" >
+    <label class="layui-form-label" style="width: 150"> appId：</label>
+    <div class="layui-input-block">
+      	<input type="text"  name="app_id"  value="${app_id!''}" id="seller_email"  maxlength="50"   lay-verify="required" autocomplete="off" class="layui-input" style="width: 480">
+    </div>
+</div>
+<div class="layui-form-item" >
+    <label class="layui-form-label" style="width: 150">公钥： </label>
+    <div class="layui-input-block">
+      	<input type="text"  name="public_key" id="partner"  value="${public_key!''}"   lay-verify="required" autocomplete="off" class="layui-input" style="width: 480">
+    </div>
+</div>
+<div class="layui-form-item" >
+    <label class="layui-form-label" style="width: 150"> 私钥：</label>
+    <div class="layui-input-block">
+      	<input type="text"  name="private_key"  value="${private_key!''}" id="key"   lay-verify="required" autocomplete="off" class="layui-input" style="width: 480">
+    </div>
+</div>
+
+<!--<div class="layui-form-item">
+    <label class="layui-form-label" style="width: 150"> 内容编码：</label>
+    <div class="layui-input-block">
+        <select name="content_encoding"  >
+            <option value=" ">不编码</option>
+            <option value="UTF-8" <#if content_encoding?exists && content_encoding=='UTF-8'>selected</#if>>UTF-8</option>
+            <option value="GBK" <#if content_encoding?exists && content_encoding=='GBK'>selected</#if>>GBK</option>
+        </select>
+    </div>
+</div>-->
+
+<div class="layui-form-item">
+    <label class="layui-form-label" style="width: 150">校验参数编码：</label>
+    <div class="layui-input-block" >
+        <select name="param_encoding"  >
+            <option value=" ">不编码</option>
+            <option value="UTF-8" <#if param_encoding?exists &&  param_encoding=='UTF-8'>selected</#if>>UTF-8</option>
+            <option value="GBK" <#if  param_encoding?exists && param_encoding=='GBK'>selected</#if>>GBK</option>
+        </select>
+    </div>
+</div>
+

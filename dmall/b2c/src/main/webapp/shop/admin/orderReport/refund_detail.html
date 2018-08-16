@@ -152,9 +152,10 @@
 
 
 //获取支付方式
-var pay_way=$(".refund_way").val();
-var num = document.getElementById('num').innerHTML
 function pass(status){
+
+    var pay_way=$(".refund_way").val();
+    var num = document.getElementById('num').innerHTML
 	
 	if(pay_way.indexOf("原支付方式")>=0){
 		if(Number($("#refund_money").val())	 == 0){

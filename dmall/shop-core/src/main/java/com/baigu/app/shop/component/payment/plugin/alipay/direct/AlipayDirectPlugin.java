@@ -159,7 +159,7 @@ public class AlipayDirectPlugin extends AbstractPaymentPlugin implements IPaymen
             sParaTemp.put("anti_phishing_key", "");
             sParaTemp.put("exter_invoke_ip", "");
 
-            return AlipaySubmit.buildRequest(sParaTemp);
+            return AlipaySubmit.buildWapRequest(sParaTemp);
         } catch (Exception e) {
             return "转码失败";
         }

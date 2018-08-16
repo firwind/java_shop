@@ -1,4 +1,4 @@
-package com.baigu.app.shop.component.payment.plugin.alipay.wap;
+package com.baigu.app.shop.component.payment.plugin.alipay.pc;
 
 import com.baigu.app.base.core.model.Member;
 import com.baigu.app.base.core.service.IMemberManager;
@@ -28,12 +28,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 支付宝wap支付接口
- *
- * @version 1.1 kanon 2016-7－26 修改支付回调方法，添加买家支付宝账号进行纪录。
+ * 支付宝PC支付接口
  */
 @Component
-public class AlipayWapPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
+public class AlipayPcPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 
     @Autowired
     private IDaoSupport daoSupport;
@@ -60,7 +58,7 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin implements IPaymentEv
             //需http://格式的完整路径，不能加?id=123这类自定义参数
 
             //页面跳转同步通知页面路径
-            String return_url = this.getReturnWapUrl(payCfg, order);
+            String return_url = this.getReturnUrl(payCfg, order);
             //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
 
             String show_url = this.getWapShowUrl(order);
@@ -92,7 +90,7 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin implements IPaymentEv
 
             //把请求参数打包成数组
             Map<String, String> sParaTemp = new HashMap<String, String>();
-            sParaTemp.put("service", "alipay.wap.create.direct.pay.by.user");
+            sParaTemp.put("service", "alipay.pc.create.direct.pay.by.user");
             sParaTemp.put("app_id", app_id);
             sParaTemp.put("private_key", private_key);
             sParaTemp.put("public_key", public_key);
@@ -104,7 +102,7 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin implements IPaymentEv
             sParaTemp.put("body", body);
             sParaTemp.put("total_fee", price);
             sParaTemp.put("show_url", show_url);
-            String sHtmlText = AlipaySubmit.buildWapRequest(sParaTemp);
+            String sHtmlText = AlipaySubmit.buildPcRequest(sParaTemp);
             return sHtmlText;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -282,12 +280,12 @@ public class AlipayWapPlugin extends AbstractPaymentPlugin implements IPaymentEv
 
     @Override
     public String getId() {
-        return "alipayWapPlugin";
+        return "alipayPcPlugin";
     }
 
     @Override
     public String getName() {
-        return "支付宝Wap支付接口";
+        return "支付宝PC支付接口";
     }
 
     @Override

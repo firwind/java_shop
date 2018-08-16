@@ -1,16 +1,14 @@
 package com.baigu.app.shop.front.tag.order;
 
-import java.util.Map;
-
 import com.baigu.app.shop.core.order.model.PayCfg;
+import com.baigu.framework.database.IDaoSupport;
+import com.baigu.framework.taglib.BaseFreeMarkerTag;
+import freemarker.template.TemplateModelException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.baigu.framework.database.IDaoSupport;
-import com.baigu.framework.taglib.BaseFreeMarkerTag;
-
-import freemarker.template.TemplateModelException;
+import java.util.Map;
 
 /**
  * 
@@ -34,6 +32,10 @@ public class PaymentCfgTag extends BaseFreeMarkerTag {
 	protected Object exec(Map params) throws TemplateModelException {
 		String sql="select * from es_payment_cfg where type = 'offline'";
 		PayCfg cfg=this.daoSupport.queryForObject(sql, PayCfg.class);
+		if (cfg == null) {
+			cfg = new PayCfg();
+			cfg.setId(0);
+		}
 		return cfg;	
 	}
 

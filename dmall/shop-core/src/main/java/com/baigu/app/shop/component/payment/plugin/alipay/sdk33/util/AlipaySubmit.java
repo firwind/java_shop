@@ -3,10 +3,13 @@ package com.baigu.app.shop.component.payment.plugin.alipay.sdk33.util;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.domain.AlipayTradePagePayModel;
 import com.alipay.api.domain.AlipayTradeRefundModel;
 import com.alipay.api.domain.AlipayTradeWapPayModel;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.request.AlipayTradeRefundRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.alipay.api.response.AlipayTradePagePayResponse;
 import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.baigu.app.shop.component.payment.plugin.alipay.sdk33.config.AlipayConfig;
@@ -89,7 +92,7 @@ public class AlipaySubmit {
      * @param sParaTemp     请求参数数组
      * @return 提交表单HTML文本
      */
-    public static String buildRequest(Map<String, String> sParaTemp) {
+    public static String buildWapRequest(Map<String, String> sParaTemp) {
         StringBuffer sbHtml = new StringBuffer();
         String app_id = sParaTemp.get("app_id");
         String private_key = sParaTemp.get("private_key");
@@ -109,6 +112,42 @@ public class AlipaySubmit {
         model.setProductCode("QUICK_WAP_WAY");
         request.setBizModel(model);
         AlipayTradeWapPayResponse response = null;
+        try {
+            response = alipayClient.pageExecute(request);
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        String form = response.getBody();
+        sbHtml.append(form);
+        return sbHtml.toString();
+    }
+
+    /**
+     * 建立请求，以表单HTML形式构造（默认）
+     *
+     * @param sParaTemp 请求参数数组
+     * @return 提交表单HTML文本
+     */
+    public static String buildPcRequest(Map<String, String> sParaTemp) {
+        StringBuffer sbHtml = new StringBuffer();
+        String app_id = sParaTemp.get("app_id");
+        String private_key = sParaTemp.get("private_key");
+        String public_key = sParaTemp.get("public_key");
+        AlipayClient alipayClient = new DefaultAlipayClient(ALIPAY_GATEWAY_NEW, app_id, private_key, AlipayConfig.format, AlipayConfig.charset, public_key, AlipayConfig.sign_type);
+
+        AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
+        request.setNotifyUrl(sParaTemp.get("notify_url"));
+        request.setReturnUrl(sParaTemp.get("return_url"));
+        //model
+        AlipayTradePagePayModel model = new AlipayTradePagePayModel();
+        model.setOutTradeNo(sParaTemp.get("out_trade_no"));
+        model.setSubject(sParaTemp.get("subject"));
+        model.setTotalAmount(sParaTemp.get("total_fee"));
+        model.setBody(sParaTemp.get("body"));
+//        model.setTimeoutExpress(timeout_express);
+        model.setProductCode("FAST_INSTANT_TRADE_PAY");
+        request.setBizModel(model);
+        AlipayTradePagePayResponse response = null;
         try {
             response = alipayClient.pageExecute(request);
         } catch (AlipayApiException e) {
@@ -286,5 +325,9 @@ public class AlipaySubmit {
         }
 
         return nameValuePair;
+    }
+
+    public static String buildRequest(Map<String, String> sParaTemp) {
+        return null;
     }
 }

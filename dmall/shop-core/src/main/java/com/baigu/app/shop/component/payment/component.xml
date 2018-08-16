@@ -10,6 +10,9 @@
 	 	<plugin name="支付宝WAP即时到账接口" id="alipayWapPlugin">
 			<bundle id="paymentPluginBundle"></bundle>
 		</plugin>
+	 	<plugin name="支付宝PC即时到账接口" id="alipayPcPlugin">
+			<bundle id="paymentPluginBundle"></bundle>
+		</plugin>
 		<plugin name="财付通即时到账接口 " id="tenpayDirectPlugin">
 			<bundle id="paymentPluginBundle"></bundle>
 		</plugin>

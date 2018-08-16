@@ -15,6 +15,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 import org.springframework.util.Assert;
 
 import java.util.HashMap;
@@ -56,7 +58,12 @@ public class JdbcDaoSupport implements IDaoSupport {
 	@Override
 	public int getLastId(String table) {
 		if (EopSetting.DBTYPE.equals("1")) {
-			return queryForInt("SELECT last_insert_id() as id");
+			// 这种方法只能在同一个Connnection中使用，不符合实际使用情况，不能用
+//			return queryForInt("SELECT last_insert_id() as id");
+			SqlRowSet rowSet = jdbcTemplate.queryForRowSet("select * from " + table + " limit 0");
+			SqlRowSetMetaData metaData = rowSet.getMetaData();
+			String firstColumnName = metaData.getColumnName(1);
+			return queryForInt("SELECT max(" + firstColumnName + ") FROM " + table);
 		} else if (EopSetting.DBTYPE.equals("2")) {
 			int result = 0;
 			result = queryForInt("SELECT s_" + table + ".currval as id from DUAL");
