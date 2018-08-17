@@ -145,8 +145,10 @@ public class SystemSetting {
 	public static void loadTempEngineSetting() {
 		ISettingService settingService = SpringContextHolder.getBean("settingService");
 		Map<String, String> settings = settingService.getSetting(temp_engine_key);
-		te_accept_encoding = settings.get("acceptencoding");
-		te_output_encoding = settings.get("outputencoding");
+		if (settings != null) {
+			te_accept_encoding = settings.get("acceptencoding");
+			te_output_encoding = settings.get("outputencoding");
+		}
 	}
 	 
 	

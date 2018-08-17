@@ -23,10 +23,52 @@
 			height: 10rem;
 		}
 		.swiper-container img {
-			width: 100%;
+			max-width: 100%;
 			height: 100%;
 			border: none;
+			display: block;
+			margin: 0 auto;
 		}
+		
+		/*.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background-color:#000;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flexbox;
+			display: -moz-flexbox;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-moz-box-pack: center;
+			-ms-box-pack: center;
+			-moz-flex-pack: center;
+			-ms-flex-pack: center;
+			-webkit-flex-pack: center;
+			-webkit-justify-content: center;
+			-moz-justify-content: center;
+			justify-content: center;
+			-webkit-justify-content: center;
+			-webkit-box-align: center;
+			-moz-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+			align-items: center;
+		}
+		.swiper-slide img{width:100%;height:100%;}
+		.swiper-slide .title{position:absolute;bottom:0;left:0;width:100%;height:35px;z-index:999}
+		.swiper-slide .title p{position:absolute;line-height:35px;color:#fff;z-index:9999;left:10px;}
+		.swiper-slide .fl-bg{width:100%;height:100%;position:absolute;top:0;left:0;background-color:#000;opacity: 0.6;}
+		.swiper-pagination{position:fixed;color:#fff;}
+		.slide-info{width:100%;height:auto;position:absolute;top:50%;left:0;}*/
 	</style>
 <!-- 广告 -->
 	<div class="">
@@ -98,9 +140,28 @@ $(function(){
 		pagination: '.swiper-pagination',
         lazyLoading : true,
         lazyLoadingInPrevNext : true,
-        lazyLoadingInPrevNextAmount : 1,
+        lazyLoadingInPrevNextAmount : 1
 	})
+
+    /*var winH = document.body.scrollHeight==0?document.documentElement.scrollHeight:document.body.scrollHeight;
+    var picH=document.getElementsByClassName("swiper-slide");
+    for(var i=0;i<picH.length;i++){
+        var divH=picH[i].getElementsByClassName("slide-info")[0];
+        var oImg=picH[i].getElementsByTagName("img")[0];
+        picH[i].index=i;
+        picH[i].style.height=winH+"px";
+        divH.style.height = getStyle(oImg,'height');
+        divH.style.marginTop =-parseFloat(getStyle(oImg,'height'))/2+"px";
+
+    }*/
+
 });
+
+//图片处于页面中间的js
+//兼容不同浏览器获取行间样式
+function getStyle ( obj, attr ) {
+    return obj.currentStyle?obj.currentStyle[attr] :     getComputedStyle( obj )[attr];
+}
 </script>
 
 <#include 'common/float_footer.html'/>
