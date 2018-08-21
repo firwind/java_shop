@@ -99,7 +99,7 @@ public class SmsLkPlugin extends AbstractSmsPlugin implements ISmsSendEvent {
 
 	@Override
 	public String getId() {
-		return "smsLtPlugin";
+		return "smsLkPlugin";
 	}
 
 	@Override
