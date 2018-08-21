@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="凌凯短信组件"  version="1.0" dmall_version="3.0.0" author="dmall">
+
+	<plugins>
+ 		<plugin name="凌凯短信插件" id="smsLkPlugin">
+			<bundle id="smsPluginBundle"></bundle>
+		</plugin>
+	</plugins>
+	
+</component>

@@ -79,6 +79,7 @@
 		<module>cms-core</module>
 		<module>weixin</module>
 		<module>zt-sms</module>
+		<module>lk-sms</module>
 	</modules>
 	<build>
 		<resources>

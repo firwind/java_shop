@@ -1,27 +1,26 @@
 package com.baigu.eop.processor.back;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URLEncoder;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.baigu.eop.IEopProcessor;
 import com.baigu.eop.SystemSetting;
+import com.baigu.eop.resource.IAdminThemeManager;
+import com.baigu.eop.resource.IMenuManager;
 import com.baigu.eop.resource.model.AdminTheme;
 import com.baigu.eop.resource.model.AdminUser;
 import com.baigu.eop.resource.model.EopSite;
 import com.baigu.eop.resource.model.Menu;
 import com.baigu.eop.sdk.context.EopSetting;
 import com.baigu.eop.sdk.context.UserConext;
+import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.context.webcontext.ThreadContextHolder;
 import com.baigu.framework.util.RequestUtil;
-import com.baigu.eop.resource.IAdminThemeManager;
-import com.baigu.eop.resource.IMenuManager;
-import com.baigu.framework.context.spring.SpringContextHolder;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.util.List;
 
 /**
  * 后台模板处理器<br>
@@ -184,6 +183,7 @@ public class BackendProcessor implements IEopProcessor {
 				
 				EopSite site=EopSite.getInstance();
 				String product_type = EopSetting.PRODUCT;
+				httpRequest.setAttribute("domainName", RequestUtil.getDomain());
 				httpRequest.setAttribute("site",site);
 				httpRequest.setAttribute("ctx",ctx);
 				httpRequest.setAttribute("product_type",product_type);

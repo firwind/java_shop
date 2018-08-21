@@ -108,7 +108,7 @@
 		<input type="radio" name="system.static_page_open"  lay-filter="check" class="check"  clz="pageCreatorComponent" value="1" title="通过静态页组件生成" <#if system.static_page_open=="1">checked="checked"</#if> />
 		<input type="radio" name="system.static_page_open"   value="0" title="关闭" <#if system.static_page_open=="0">checked="checked"</#if>  />
 	</div>
-	<div class="layui-form-mid layui-word-aux">请确认购买并安装了静态页生成组件再启用，<a href="http://www.dmall.com.cn/component/page-creator.html" target="_blank">点击这里了解此组件的详细情况</a></div>
+	<div class="layui-form-mid layui-word-aux">请确认购买并安装了静态页生成组件再启用，<a href="${domainName!''}/component/page-creator.html" target="_blank">点击这里了解此组件的详细情况</a></div>
 	<div class="layui-form-mid layui-word-aux">第一次安装静态页生成组件需要重新生成所有页面。<a href="javascript:newTab('生成静态页','${ctx}/shop/admin/page-create/input.do')">点击这里去生成所有页面。</a></div>
 </div>
 
@@ -118,7 +118,7 @@
 		<input type="radio" name="system.lucene"  lay-filter="check" class="check" clz="goodsIndexComponent"   value="1" title="通过Lucene全文检索" <#if system.lucene=="1">checked="checked"</#if> />
 		<input type="radio" name="system.lucene"   value="0" title="关闭" <#if system.lucene=="0">checked="checked"</#if>  />
 	</div>
-	<div class="layui-form-mid layui-word-aux">请确认购买并安装了商品索引组件再启用，<a href="http://www.dmall.com.cn/component/lucene.html" target="_blank">点击这里了解此组件的详细情况</a></div>
+	<div class="layui-form-mid layui-word-aux">请确认购买并安装了商品索引组件再启用，<a href="${domainName!''}/component/lucene.html" target="_blank">点击这里了解此组件的详细情况</a></div>
 	<div class="layui-form-mid layui-word-aux">第一次安装商品索引组件需要重新生成所有索引。<a href="javascript:newTab('生成商品索引','${ctx}/shop/admin/goods-index/input.do')">点击这里去生成所有索引。</a></div>
 </div>
 

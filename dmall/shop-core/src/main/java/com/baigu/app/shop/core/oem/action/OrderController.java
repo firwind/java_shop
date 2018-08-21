@@ -50,6 +50,14 @@ public class OrderController extends GridController {
         return view;
     }
 
+    @RequestMapping(value = "/orderDetail")
+    public ModelAndView orderDetail(String orderNo) {
+        ModelAndView view = getGridModelAndView();
+        view.addObject("orderNo", orderNo);
+        view.setViewName("/shop/admin/oem/order/order_detail_list");
+        return view;
+    }
+
     @ResponseBody
     @RequestMapping(value = "/setShipped", method = RequestMethod.POST)
     public JsonResult setShipped(Integer[] ids) {
@@ -110,6 +118,15 @@ public class OrderController extends GridController {
         where.put("keyword", keyword);
         where.put("status", status);
         webpage = orderManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
+        return JsonResultUtil.getGridJson(webpage);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/list-detail")
+    public GridJsonResult listDetail(String orderNo) {
+        Map<String, Object> where = new HashMap<String, Object>();
+        where.put("orderNo", orderNo);
+        webpage = orderManager.pageOrderDetail(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
         return JsonResultUtil.getGridJson(webpage);
     }
 

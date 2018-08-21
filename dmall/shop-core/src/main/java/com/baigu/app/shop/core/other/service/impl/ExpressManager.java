@@ -1,26 +1,24 @@
 package com.baigu.app.shop.core.other.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.baigu.app.shop.core.order.service.IExpressManager;
-import net.sf.json.JSONObject;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.baigu.app.base.core.model.ExpressPlatform;
 import com.baigu.app.base.core.plugin.express.IExpressEvent;
+import com.baigu.app.shop.core.order.service.IExpressManager;
 import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.baigu.framework.annotation.Log;
 import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.plugin.IPlugin;
+import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 快递manager
@@ -41,7 +39,7 @@ public class ExpressManager implements IExpressManager {
 	 */
 	@Override
 	public List getList() {
-		List list = this.daoSupport.queryForList("select * from es_express_platform");
+		List list = this.daoSupport.queryForList("select * from es_express_platform where is_open is not null");
 		return list;
 	}
 
@@ -153,7 +151,9 @@ public class ExpressManager implements IExpressManager {
 	private Map<String, String> getConfigParams(Integer id) {
 		ExpressPlatform platform = this.getPlateform(id);
 		String config  = platform.getConfig();
-		if(null == config ) return new HashMap<String,String>();
+		if (null == config) {
+			return new HashMap<String, String>();
+		}
 		JSONObject jsonObject = JSONObject.fromObject( config );  
 		Map itemMap = (Map)jsonObject.toBean(jsonObject, Map.class);
 		return itemMap;

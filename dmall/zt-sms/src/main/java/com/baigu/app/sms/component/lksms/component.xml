@@ -3,6 +3,7 @@
 
 	<plugins>
  		<plugin name="助通短信插件" id="smsZtPlugin">
+			<bundle id="smsPluginBundle"></bundle>
 		</plugin>
 	</plugins>
 	

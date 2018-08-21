@@ -60,6 +60,17 @@ public class OrderManager implements IOrderManager {
         return webPage;
     }
 
+    @Override
+    public Page pageOrderDetail(Map map, int page, int pageSize, String other, String order) {
+        String sql = "SELECT g.`name`, g.`code`, g.sku, g.weight, g.price, d.num, d.orderno FROM oem_order_detail d LEFT JOIN oem_goods g ON g.id = d.goods_id WHERE 1=1";
+        String orderNo = (String) map.get("orderNo");
+        if (StringUtils.isNotBlank(orderNo)) {
+            sql += " AND d.orderno = '" + orderNo + "'";
+        }
+        Page webPage = this.daoSupport.queryForPage(sql, page, pageSize);
+        return webPage;
+    }
+
     /**
      * 删除
      *
@@ -128,6 +139,7 @@ public class OrderManager implements IOrderManager {
             List<OemOrderDetail> oemOrderDetails = new LinkedList<OemOrderDetail>();
             Map<String, BigDecimal> orderWeight = new HashMap<String, BigDecimal>();//统计订单总重量
             Map<String, BigDecimal> orderPrice = new HashMap<String, BigDecimal>();//统计订单总金额
+            Map<String, String> orderNoMap = new HashMap<String, String>();//原始orderNo和实际生成orderNo映射
             OemGoods goods = null;
             OemOrder order = null;
             OemOrderDetail detail = null;
@@ -145,7 +157,12 @@ public class OrderManager implements IOrderManager {
                 String orderNo = excelUtil.readStringToCell(row, 0);
                 String uniqueOrderNo = null;//唯一订单号，避免重复
                 if (StringUtils.isNotBlank(orderNo)) {
-                    uniqueOrderNo = genUniqueOrderNo(orderNo);
+                    if (orderNoMap.get(orderNo) == null) {
+                        uniqueOrderNo = genUniqueOrderNo(orderNo);
+                        orderNoMap.put(orderNo, uniqueOrderNo);
+                    } else {
+                        uniqueOrderNo = orderNoMap.get(orderNo);
+                    }
                     order.setOrderno(uniqueOrderNo);
                 } else {
                     return JsonResultUtil.getErrorJson("订单号为空");
@@ -169,7 +186,7 @@ public class OrderManager implements IOrderManager {
                 if (StringUtils.isNotBlank(goodsNum)) {
                     detail.setGoods_id(goods.getId());
                     detail.setNum(Integer.valueOf(goodsNum));
-                    detail.setOrderno(uniqueOrderNo);
+                    detail.setOrderno(orderNoMap.get(orderNo));
                     oemOrderDetails.add(detail);//添加详情记录
                 }
                 //快递信息
@@ -211,6 +228,7 @@ public class OrderManager implements IOrderManager {
                 if (orderWeight.get(orderNo) == null) {
                     BigDecimal weight = goods.getWeight().multiply(new BigDecimal(goodsNum));
                     orderWeight.put(orderNo, weight);
+                    orderNoMap.put(orderNo, uniqueOrderNo);
                     oemOrders.add(order);//只添加一条唯一记录
                 } else {
                     BigDecimal weight = goods.getWeight().multiply(new BigDecimal(goodsNum));

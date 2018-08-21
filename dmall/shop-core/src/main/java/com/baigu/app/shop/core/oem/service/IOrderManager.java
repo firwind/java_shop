@@ -14,6 +14,8 @@ import java.util.Map;
 public interface IOrderManager {
     Page pageSale(Map map, int page, int pageSize, String other, String order);
 
+    Page pageOrderDetail(Map map, int page, int pageSize, String other, String order);
+
     void delete(Integer id);
 
     void add(OemOrder order);
@@ -23,6 +25,7 @@ public interface IOrderManager {
     OemOrder get(Integer id);
 
     void setShipped(Integer[] ids);
+
 
     JsonResult importOemExcel(InputStream in, Integer customerId) throws IOException;
 }

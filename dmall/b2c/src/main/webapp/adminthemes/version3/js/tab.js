@@ -156,10 +156,12 @@ layui.define(['element', 'common'], function(exports) {
 			//切换到当前打开的选项卡
 			element.tabChange(ELEM.tabFilter, that.getTabId(data.title));
 		} else {
+			that.closeByTabid(that.getTabId(data.title));
+			that.tabAdd(data);
 			//加载到当前并刷新选项卡
-			element.tabChange(ELEM.tabFilter, that.getTabId(data.title))
+			/*element.tabChange(ELEM.tabFilter, that.getTabId(data.title))
 			var index= $('.layui-tab-title .layui-this').index();
-			$(".layui-tab-content iframe")[index].contentWindow.location.reload(true);
+			$(".layui-tab-content iframe")[index].contentWindow.location.reload(true);*/
 		}
 	};
 

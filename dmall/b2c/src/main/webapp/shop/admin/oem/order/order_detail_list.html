@@ -1,0 +1,77 @@
+<#include '/admin/header.html' >
+    <#assign dateFormat="com.baigu.framework.directive.DateformateDirective"?new()>
+        <div  class="admin-main">
+            <div>
+                <!--按钮操作  -->
+                <div class="table_control">
+                    <!--搜索区域  -->
+                    <div class="table_search">
+                        <input type="text" id="_search" placeholder="请输入客户名" style="height:25px;">
+                        <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!--表格区域  -->
+            <form id="subForm">
+                <table id="tabledata" class="layui-table site-table table-hover" width="100%" lay-skin="line" >
+                    <thead>
+                    <tr>
+                        <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
+                        <th>商品名</th>
+                        <th>商品号</th>
+                        <th>规格</th>
+                        <th>重量</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                    </tr>
+                    </thead>
+                </table>
+                <!--传值等操作(暂定)  -->
+                <div id="addBrand" ></div>
+            </form>
+        </div>
+
+        <!--js区域  -->
+        <script>
+            var index = parent.layer.getFrameIndex(window.name);
+
+            /* 监听开始搜索按钮 */
+            var table;
+            var url = "${ctx}/shop/admin/oem/order/list-detail.do?orderNo=${orderNo}";
+            $(function(){
+                table = $('#tabledata').DataTable({
+                    "language": {
+                        "url": "${ctx}/statics/media/zh_CN.txt"
+                    },
+                    "processing": true,
+                    "serverSide": true,
+                    "ordering": false,
+                    "searching": false,
+                    "lengthChange": false,
+                    ajax: {
+                        //指定数据源
+                        type:"post",
+                        url: url
+                    },
+                    columns: [ //定义列
+                        {"data": function (obj) {
+                            return '<input type="checkbox" name="ids" class="fly-checkbox" value=' + obj.id +'>';
+                        }},
+                        {data: "name"},
+                        {data: "code"},
+                        {data: "sku"},
+                        {data: "weight"},
+                        {data: "price"},
+                        {data: "num"}
+                    ]
+                });
+            });
+
+            //普通搜索
+            function searchOrder(){
+                var keyword = $("#_search").val();
+                table.ajax.url(url+"&keyword="+keyword).load();
+            }
+        </script>
+        <#include '/admin/footer.html' >
