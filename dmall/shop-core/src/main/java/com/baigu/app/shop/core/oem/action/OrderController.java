@@ -5,6 +5,8 @@ import com.baigu.app.shop.core.oem.service.IOrderManager;
 import com.baigu.framework.action.GridController;
 import com.baigu.framework.action.GridJsonResult;
 import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.ExcelUtil;
+import com.baigu.framework.util.FileUtil;
 import com.baigu.framework.util.JsonResultUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -70,6 +73,14 @@ public class OrderController extends GridController {
             this.logger.error(e.getMessage(), e);
             return JsonResultUtil.getErrorJson("操作失败");
         }
+    }
+
+    @RequestMapping(value = "/downloadOrderTemplate")
+    public void downloadOrderTemplate(HttpServletResponse response) {
+        ExcelUtil excelUtil = new ExcelUtil();
+        InputStream in = FileUtil.getResourceAsStream("com/baigu/app/shop/core/oem/service/impl/oemOrder.xls");
+        excelUtil.openModal(in);
+        excelUtil.writeToResponse(response, "代加工订单模板");
     }
 
     /**
@@ -135,6 +146,18 @@ public class OrderController extends GridController {
     public JsonResult delete(Integer id) {
         try {
             orderManager.delete(id);
+            return JsonResultUtil.getSuccessJson("操作成功");
+        } catch (Exception e) {
+            this.logger.error(e.getMessage(), e);
+            return JsonResultUtil.getErrorJson("操作失败");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/batchDelete", method = RequestMethod.POST)
+    public JsonResult batchDelete(Integer[] ids) {
+        try {
+            orderManager.delete(ids);
             return JsonResultUtil.getSuccessJson("操作成功");
         } catch (Exception e) {
             this.logger.error(e.getMessage(), e);

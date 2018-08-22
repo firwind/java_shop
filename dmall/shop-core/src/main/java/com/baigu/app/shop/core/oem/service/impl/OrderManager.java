@@ -81,6 +81,13 @@ public class OrderManager implements IOrderManager {
         this.daoSupport.execute("DELETE FROM oem_order WHERE id = " + id);
     }
 
+    @Override
+    public void delete(Integer[] ids) {
+        String idsStr = StringUtil.arrayToString(ids, ",");
+        String sql = "DELETE FROM `oem_order` WHERE id IN (" + idsStr + ")";
+        this.daoSupport.execute(sql);
+    }
+
     /**
      * 添加
      *

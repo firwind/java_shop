@@ -18,6 +18,8 @@ public interface IOrderManager {
 
     void delete(Integer id);
 
+    void delete(Integer[] ids);
+
     void add(OemOrder order);
 
     void update(OemOrder order);

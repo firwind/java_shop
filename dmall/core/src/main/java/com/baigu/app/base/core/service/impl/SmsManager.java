@@ -1,22 +1,19 @@
 package com.baigu.app.base.core.service.impl;
 
-import java.util.HashMap;
-
-import java.util.List;
-import java.util.Map;
-
 import com.baigu.app.base.core.model.SmsPlatform;
 import com.baigu.app.base.core.plugin.sms.ISmsSendEvent;
 import com.baigu.app.base.core.service.ISmsManager;
-import com.baigu.framework.plugin.IPlugin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baigu.eop.processor.core.freemarker.FreeMarkerPaser;
 import com.baigu.framework.context.spring.SpringContextHolder;
 import com.baigu.framework.database.IDaoSupport;
-
+import com.baigu.framework.plugin.IPlugin;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 短信管理Manager
@@ -60,7 +57,7 @@ public class SmsManager  implements ISmsManager {
 		IPlugin installPlugin = null;
 		installPlugin = SpringContextHolder.getBean(pluginid);
 		fp.setClz(installPlugin.getClass());
-		
+
 		Map<String,String> params = this.getConfigParams(smsid);
 		fp.putData(params);
 		return fp.proessPageContent();
@@ -138,7 +135,9 @@ public class SmsManager  implements ISmsManager {
 	private Map<String, String> getConfigParams(Integer id) {
 		SmsPlatform platform = this.get(id);
 		String config  = platform.getConfig();
-		if(null == config ) return new HashMap<String,String>();
+		if (null == config) {
+			return new HashMap<String, String>();
+		}
 		JSONObject jsonObject = JSONObject.fromObject( config );  
 		Map itemMap = (Map)jsonObject.toBean(jsonObject, Map.class);
 		return itemMap;

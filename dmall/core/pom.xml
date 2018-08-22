@@ -423,6 +423,5 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/alipay-sdk-java20171201160035.jar</systemPath>
 		</dependency>
-
 	</dependencies>
 </project> 

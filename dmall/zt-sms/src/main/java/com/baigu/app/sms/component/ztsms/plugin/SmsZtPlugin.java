@@ -1,4 +1,4 @@
-package com.baigu.app.sms.component.lksms.plugin;
+package com.baigu.app.sms.component.ztsms.plugin;
 
 import com.baigu.app.base.core.plugin.sms.AbstractSmsPlugin;
 import com.baigu.app.base.core.plugin.sms.ISmsSendEvent;

@@ -6,6 +6,8 @@
                 <div class="table_control">
                    <div class="table_opera" style="position: relative;">
                         <button type="button" class="layui-btn layui-btn-primary " title="批量发货" onclick="batchSetShipped();"><i class="icon iconfont icon-settings"></i></button>
+                       <button type="button" class="layui-btn layui-btn-primary " title="批量删除" onclick='batchDelete()'><i class="icon iconfont icon-guanbi1"></i></button>
+                        <button type="button" class="layui-btn layui-btn-primary " title="代加工订单模板下载" onclick="downloadOrderTemplate();"><i class="icon iconfont icon-down"></i></button>
                         <button type="button" class="layui-btn layui-btn-primary " title="导入代加工订单" onclick="importOemExcel();"><i class="icon iconfont icon-activity"></i></button>
                         <form id="oemForm" enctype="multipart/form-data" style="display: none;">
                             <input id="oemFile" type="file" name="oemfile" />
@@ -98,7 +100,6 @@
                             var html = "";
                             html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='setShipped(\""+data['id']+"\")'>发货</a>&nbsp;";
                             html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='orderDetail(\""+data['orderno']+"\")'>详情</a>&nbsp;";
-                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='del(\""+data['id']+"\")'>删除</a>&nbsp;";
                             return html;
                         }}
                     ]
@@ -107,6 +108,10 @@
 
             function orderDetail(orderNo){
                 newTab("订单详情","${ctx}/shop/admin/oem/order/orderDetail.do?orderNo="+orderNo);
+            }
+
+            function downloadOrderTemplate(){
+                open("${ctx}/shop/admin/oem/order/downloadOrderTemplate.do");
             }
 
             //导入代加工Excel
@@ -242,6 +247,35 @@
                 }
                 var options = {
                     url : "${ctx}/shop/admin/oem/order/setShipped.do",
+                    type : "POST",
+                    dataType : 'json',
+                    success : function(result) {
+                        if (result.result == 1) {
+                            $.Loading.success(result.message);
+                            table.ajax.url(url).load();
+                        }
+                        if (result.result == 0) {
+                            $.Loading.error(result.message);
+                        }
+                    },
+                    error : function(e) {
+                        $.Loading.error("出现错误 ，请重试");
+                    }
+                };
+                $("#subForm").ajaxSubmit(options);
+            }
+
+            function batchDelete(){
+                var check = $("input[name='ids']").is("input:checked");
+                if(check == false){
+                    alert("请选择至少一条记录");
+                    return false;
+                }
+                if(!confirm("确认批量删除吗")){
+                    return;
+                }
+                var options = {
+                    url : "${ctx}/shop/admin/oem/order/batchDelete.do",
                     type : "POST",
                     dataType : 'json',
                     success : function(result) {
