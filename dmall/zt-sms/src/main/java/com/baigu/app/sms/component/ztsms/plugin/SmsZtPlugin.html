@@ -1,28 +1,20 @@
-
-<div class="layui-form-item w500">
-	<label class="layui-form-label">用户名</label>
-	<div class="layui-input-block">
-		<input type="text" name="username" value="${username!'' }" lay-verify="required" autocomplete="off" class="layui-input" />
-	</div>
-</div>
-
-<div class="layui-form-item w500">
-	<label class="layui-form-label">密码</label>
-	<div class="layui-input-block">
-		<input type="password" name="password" value="${password!'' }" autocomplete="off" class="layui-input" />
-	</div>
-</div>
-
-<div class="layui-form-item w500">
-	<label class="layui-form-label">产品id</label>
-	<div class="layui-input-block">
-		<input type="text" name="productid" value="${productid!'' }" lay-verify="required" autocomplete="off" class="layui-input" />
-	</div>
-</div>
-
-<div class="layui-form-item w500">
-	<label class="layui-form-label">扩展的小号（没有请留空）</label>
-	<div class="layui-input-block">
-		<input type="text" name="xh" value="${xh!'' }" lay-verify="required" autocomplete="off" class="layui-input" />
-	</div>
-</div>
+<tr>
+	<td>用户名</td>
+	<td><input class="input_text easyui-validatebox" type="text" id="apikey"
+			   name="username" data-options="required:true"  maxlength="40" value="${username!''}" ></input></td>
+</tr>
+<tr>
+	<td>密码：</td>
+	<td><input class="input_text easyui-validatebox" type="password" id="password"
+			   name="password" data-options="required:true" maxlength="40" value="${password!''}"  ></input></td>
+</tr>
+<tr>
+	<td>产品id：</td>
+	<td><input class="input_text easyui-validatebox" type="text" id="productid"
+			   name="productid" data-options="required:true" maxlength="40" value="${productid!''}"></input></td>
+</tr>
+<tr>
+	<td>扩展的小号（没有请留空）：</td>
+	<td><input class="input_text easyui-validatebox" type="text" id="xh"
+			   name="xh" maxlength="40" value="${xh!''}"></input></td>
+</tr>

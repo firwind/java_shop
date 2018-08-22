@@ -1,6 +1,7 @@
 package com.baigu.app.base.core.plugin.sms;
 
 import com.baigu.framework.plugin.AutoRegisterPluginsBundle;
+import com.baigu.framework.plugin.IPlugin;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,6 +35,15 @@ public class SmsPluginBundle extends AutoRegisterPluginsBundle {
 //		}
 //		return false;
 //	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see AutoRegisterPluginsBundle#registerPlugin(IPlugin)
+	 */
+	@Override
+	public void registerPlugin(IPlugin plugin) {
+		super.registerPlugin(plugin);
+	}
 
 	@Override
 	public String getName() {
