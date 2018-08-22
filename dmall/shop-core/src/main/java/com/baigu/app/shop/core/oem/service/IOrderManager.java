@@ -30,4 +30,8 @@ public interface IOrderManager {
 
 
     JsonResult importOemExcel(InputStream in, Integer customerId) throws IOException;
+
+    Page pagePayeeList(Map<String, Object> where, int page, int pageSize, String sort, String order);
+
+    void setReceived(Integer[] ids);
 }

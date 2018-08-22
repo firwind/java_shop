@@ -1,0 +1,138 @@
+<#include '/admin/header.html' >
+    <#assign dateFormat="com.baigu.framework.directive.DateformateDirective"?new()>
+        <div  class="admin-main">
+            <div>
+                <!--按钮操作  -->
+                <div class="table_control">
+                    <div class="table_opera">
+                    </div>
+                    <!--搜索区域  -->
+                    <div class="table_search">
+                        <input type="text" id="_search" placeholder="请输入收款单号" style="height:25px; vertical-align: inherit; margin-top: 0;">
+                        <select name="received" id="_received" class="inputSelect valid" id="activity_status" style="margin-right: 10px;width: 100px;height: 28px;">
+                            <option value="">全部</option>
+                            <option value="10">未收款</option>
+                            <option value="20">已收款</option>
+                        </select>
+                        <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!--表格区域  -->
+            <form id="subForm">
+                <table id="tabledata" class="layui-table site-table table-hover" width="100%" lay-skin="line" >
+                    <thead>
+                    <tr>
+                        <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
+                        <th>收款单号</th>
+                        <th>总金额</th>
+                        <th>是否已收款</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+                <!--传值等操作(暂定)  -->
+                <div id="addBrand" ></div>
+            </form>
+        </div>
+
+        <!--js区域  -->
+        <script>
+            var index = parent.layer.getFrameIndex(window.name);
+            var url  = "${ctx}/shop/admin/oem/order/payeeList.do";
+
+            /* 监听开始搜索按钮 */
+            var table;
+            $(function(){
+                table = $('#tabledata').DataTable({
+                    "language": {
+                        "url": "${ctx}/statics/media/zh_CN.txt"
+                    },
+                    "processing": true,
+                    "serverSide": true,
+                    "ordering": false,
+                    "searching": false,
+                    "lengthChange": false,
+                    ajax: {
+                        //指定数据源
+                        type:"post",
+                        url: url
+                    },
+                    columns: [ //定义列
+                        {"data": function (obj) {
+                            return '<input type="checkbox" name="ids" class="fly-checkbox" value=' + obj.id +'>';
+                        }},
+                        {data: "payeeno"},
+                        {data: "amount"},
+                        {data: function(obj) {
+                            if(obj.received==null){
+                                return"";
+                            } else {
+                                return obj.received == 10?"未收款":"已收款"
+                            }
+                        }},
+                        {data: function(obj) {
+                            if(obj.updatetime==null){
+                                return " ";
+                            }else{
+                                return  getFormatDateByLong(obj.updatetime/1000, "yyyy-MM-dd hh:mm:ss");
+                            }
+                        }},
+                        {data: null,"render": function(data, type, row) {
+                            var html = "";
+                            if(data.received && data.received==10){
+                                html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='setReceived(\""+data['id']+"\")'>设为已收</a>&nbsp;";
+                            }
+                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='payeeOrder(\""+data['id']+"\")'>详情</a>&nbsp;";
+                            return html;
+                        }}
+                    ]
+                });
+            });
+
+            function payeeOrder(id){
+                newTab("收款单详情","/shop/admin/oem/order/payeeOrderList.do?payeeId="+id);
+            }
+
+            function setReceived(id){
+                if(!confirm("确认设为已收款吗？")){
+                    return;
+                }
+                if(id){
+                    id = [id];
+                } else {
+                    alert("参数不正确!");
+                    return ;
+                }
+                var options = {
+                    url : "${ctx}/shop/admin/oem/order/setReceived.do",
+                    type : "POST",
+                    data:{ids:id},
+                    traditional:true,//禁用jq深度序列号，以避免传递数组变量名改变
+                    dataType : 'json',
+                    success : function(result) {
+                        if (result.result == 1) {
+                            $.Loading.success(result.message);
+                            table.ajax.url(url).load();
+                        }
+                        if (result.result == 0) {
+                            $.Loading.error(result.message);
+                        }
+                    },
+                    error : function(e) {
+                        $.Loading.error("出现错误 ，请重试");
+                    }
+                };
+                $.ajax(options);
+            }
+
+            //普通搜索
+            function searchOrder(){
+                var keyword = $("#_search").val();
+                var received = $("#_received").val();
+                table.ajax.url(ctx+"/shop/admin/oem/order/payeeList.do?keyword="+keyword+"&received="+received).load();
+            }
+        </script>
+        <#include '/admin/footer.html' >

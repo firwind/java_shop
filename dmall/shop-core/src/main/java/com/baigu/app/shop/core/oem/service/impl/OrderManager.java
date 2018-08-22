@@ -1,9 +1,6 @@
 package com.baigu.app.shop.core.oem.service.impl;
 
-import com.baigu.app.shop.core.oem.model.OemExpress;
-import com.baigu.app.shop.core.oem.model.OemGoods;
-import com.baigu.app.shop.core.oem.model.OemOrder;
-import com.baigu.app.shop.core.oem.model.OemOrderDetail;
+import com.baigu.app.shop.core.oem.model.*;
 import com.baigu.app.shop.core.oem.service.IExpressManager;
 import com.baigu.app.shop.core.oem.service.IGoodsManager;
 import com.baigu.app.shop.core.oem.service.IOrderManager;
@@ -18,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,6 +66,7 @@ public class OrderManager implements IOrderManager {
         if (StringUtils.isNotBlank(orderNo)) {
             sql += " AND d.orderno = '" + orderNo + "'";
         }
+        sql += " ORDER BY d.updatetime DESC";
         Page webPage = this.daoSupport.queryForPage(sql, page, pageSize);
         return webPage;
     }
@@ -123,11 +123,22 @@ public class OrderManager implements IOrderManager {
      *
      * @param ids
      */
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void setShipped(Integer[] ids) {
         String idsStr = StringUtil.arrayToString(ids, ",");
-        String sql = "UPDATE `oem_order` SET status=? WHERE id IN (" + idsStr + ")";
-        this.daoSupport.execute(sql, OemOrder.SHIP);
+        //订单总价：订单价格+运费
+        double totalAmount = this.daoSupport.queryForDouble("SELECT IFNULL(SUM(price+freight),0) FROM `oem_order` WHERE id IN (" + idsStr + ")");
+        //生成收款单
+        OemPayee payee = new OemPayee();
+        payee.setPayeeno(new RandomString(16).nextString().toUpperCase());
+        payee.setReceived(OemPayee.NO_RECEIVED);
+        payee.setAmount(new BigDecimal(totalAmount));
+        this.daoSupport.insert("oem_payee", payee);
+        int insertId = this.daoSupport.getLastId("oem_payee");
+        //设置已收货
+        String sql = "UPDATE `oem_order` SET status=?,payee_id=? WHERE id IN (" + idsStr + ")";
+        this.daoSupport.execute(sql, OemOrder.SHIP, insertId);
     }
 
     /**
@@ -278,6 +289,29 @@ public class OrderManager implements IOrderManager {
         }
     }
 
+    @Override
+    public Page pagePayeeList(Map<String, Object> where, int page, int pageSize, String sort, String order) {
+        String sql = "SELECT * FROM `oem_payee` WHERE 1=1";
+        String keyword = (String) where.get("keyword");
+        Integer received = (Integer) where.get("received");
+        if (StringUtils.isNotBlank(keyword)) {
+            sql += " AND payeeno LIKE '%" + keyword + "%'";
+        }
+        if (received != null) {
+            sql += " AND received = " + received;
+        }
+        sql += " ORDER BY updatetime DESC";
+        Page webPage = this.daoSupport.queryForPage(sql, page, pageSize);
+        return webPage;
+    }
+
+    @Override
+    public void setReceived(Integer[] ids) {
+        String idsStr = StringUtil.arrayToString(ids, ",");
+        String sql = "UPDATE `oem_payee` SET received=? WHERE id IN (" + idsStr + ")";
+        this.daoSupport.execute(sql, OemPayee.RECEIVED);
+    }
+
     /**
      * 生成唯一的订单号
      *
@@ -330,11 +364,27 @@ public class OrderManager implements IOrderManager {
         String sql = "SELECT c.`name` cname, o.* FROM oem_order o LEFT JOIN oem_customer c ON c.id = o.customer_id WHERE 1 = 1";
         String keyword = (String) map.get("keyword");
         Integer status = (Integer) map.get("status");
+        String customName = (String) map.get("customName");
+        String startTime = (String) map.get("startTime");
+        String endTime = (String) map.get("endTime");
+        Integer payeeId = (Integer) map.get("payeeId");
         if (StringUtils.isNotBlank(keyword)) {
             sql += " AND c.`name` LIKE '%" + keyword + "%'";
         }
+        if (StringUtils.isNotBlank(customName)) {
+            sql += " AND c.`name` LIKE '%" + customName + "%'";
+        }
+        if (StringUtils.isNotBlank(startTime)) {
+            sql += " AND o.`updatetime` >= '" + startTime + "'";
+        }
+        if (StringUtils.isNotBlank(endTime)) {
+            sql += " AND o.`updatetime` <= '" + endTime + "'";
+        }
         if (status != null) {
             sql += " AND status = " + status;
+        }
+        if (payeeId != null) {
+            sql += " AND payee_id = " + payeeId;
         }
         sql += " ORDER BY updatetime DESC";
         if (StringUtils.isNotBlank(other) && StringUtils.isNotBlank(order)) {

@@ -57,6 +57,7 @@
                         <th>收货人手机</th>
                         <th>收货人地址</th>
                         <th>修改时间</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                 </table>
@@ -71,7 +72,7 @@
 
             /* 监听开始搜索按钮 */
             var table;
-            var url = "${ctx}/shop/admin/oem/order/list-json.do?status=20";
+            var url = "${ctx}/shop/admin/oem/order/list-json.do?status=20&payeeId=${payeeId}";
             $(function(){
                 //高级搜索框的显示隐藏
                 $("#high_search").on("click",function(event){
@@ -149,15 +150,19 @@
                             }else{
                                 return  getFormatDateByLong(obj.updatetime/1000, "yyyy-MM-dd hh:mm:ss");
                             }
-                        }}/*,
+                        }},
                         {data: null,"render": function(data, type, row) {
                             var html = "";
-                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='setShipped(\""+data['id']+"\")'>设为已发货</a>&nbsp;";
+                            html+= "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='orderDetail(\""+data['orderno']+"\")'>详情</a>&nbsp;";
                             return html;
-                        }}*/
+                        }}
                     ]
                 });
             });
+
+            function orderDetail(orderNo){
+                newTab("收款订单详情","${ctx}/shop/admin/oem/order/orderDetail.do?orderNo="+orderNo);
+            }
 
             //普通搜索
             function searchOrder(){

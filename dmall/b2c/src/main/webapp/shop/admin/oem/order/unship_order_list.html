@@ -27,6 +27,36 @@
                     <div class="table_search">
                         <input type="text" id="_search" placeholder="请输入客户名" style="height:25px;">
                         <button type="button" class="layui-btn layui-btn-primary layui-btn-small" onclick="searchOrder()"><i class="layui-icon">&#xe615;</i></button>
+                        <button type="button" class="layui-btn layui-btn-primary layui-btn-small" id="high_search">高级搜索</button>
+                        <!--高级搜索区域  -->
+                        <div class="high_searchcontent">
+                            <div class="content_title"><span>高级搜索</span></div>
+                            <form id="search_form" class="layui-form" action="post">
+                                <div class="layui-form-item" style="width:100%;">
+                                    <label class="layui-form-label" >下单时间</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" type="text" id="custom_name" placeholder="请输入客户名" style="height:25px;">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="width:100%;">
+                                    <label class="layui-form-label" >下单时间</label>
+                                    <div class="layui-input-inline" >
+                                        <input class="layui-input" placeholder="开始日" id="start_time">
+                                    </div>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" placeholder="截止日" id="end_time">
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="reset">
+                                        <button type="reset" id="reset_btn" class="layui-btn  layui-btn-primary">重置</button>
+                                    </li>
+                                    <li class="submit">
+                                        <button type="button" id="submit_btn" class="layui-btn layui-btn-primary"  onclick="highSearch()" lay-submit="" lay-filter="highsearch" >开始搜索</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -63,6 +93,50 @@
             var table;
             var url = "${ctx}/shop/admin/oem/order/list-json.do?status=10";
             $(function(){
+                //高级搜索框的显示隐藏
+                $("#high_search").on("click",function(event){
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    $(".high_searchcontent").toggle();
+                })
+
+                //layui日期控件配置
+                layui.use('laydate', function(){
+                    var laydate = layui.laydate;
+
+                    var start = {
+                        min: '2014-01-01 23:59:59',
+                        max: '2099-06-16 23:59:59',
+                        istoday: false,
+                        istime: true,
+                        format: 'YYYY-MM-DD hh:mm:ss',
+                        choose: function(datas){
+                            end.min = datas; //开始日选好后，重置结束日的最小日期
+                            end.start = datas //将结束日的初始值设定为开始日
+                        }
+                    };
+
+                    var end = {
+                        min: '2014-01-01 23:59:59',
+                        max: '2099-06-16 23:59:59',
+                        istoday: false,
+                        istime: true,
+                        format: 'YYYY-MM-DD hh:mm:ss',
+                        choose: function(datas){
+                            start.max = datas; //结束日选好后，重置开始日的最大日期
+                        }
+                    };
+
+                    document.getElementById('start_time').onclick = function(){
+                        start.elem = this;
+                        laydate(start);
+                    }
+                    document.getElementById('end_time').onclick = function(){
+                        end.elem = this
+                        laydate(end);
+                    }
+                });
+
                 table = $('#tabledata').DataTable({
                     "language": {
                         "url": "${ctx}/statics/media/zh_CN.txt"
@@ -298,6 +372,11 @@
             function searchOrder(){
                 var keyword = $("#_search").val();
                 table.ajax.url(url+"&keyword="+keyword).load();
+            }
+
+            function highSearch(){
+                var param = "&customName="+$("#custom_name").val() + "&startTime="+$("#start_time").val()+"&endTime="+$("#end_time").val();
+                table.ajax.url(url+param).load();
             }
         </script>
         <#include '/admin/footer.html' >

@@ -14,6 +14,7 @@ public class OemOrder implements Serializable {
     private Integer status;
     private String expname;
     private BigDecimal freight;
+    private Integer payee_id;
     private Integer customer_id;
     private BigDecimal price;
     private String cneename;
@@ -145,5 +146,13 @@ public class OemOrder implements Serializable {
 
     public void setCname(String cname) {
         this.cname = cname;
+    }
+
+    public Integer getPayee_id() {
+        return payee_id;
+    }
+
+    public void setPayee_id(Integer payee_id) {
+        this.payee_id = payee_id;
     }
 }

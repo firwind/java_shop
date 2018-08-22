@@ -53,12 +53,62 @@ public class OrderController extends GridController {
         return view;
     }
 
+    @RequestMapping(value = "/payeeOrderList")
+    public ModelAndView payeeOrderList(Integer payeeId) {
+        ModelAndView view = getGridModelAndView();
+        view.addObject("payeeId", payeeId);
+        view.setViewName("/shop/admin/oem/order/payee_order_list");
+        return view;
+    }
+
     @RequestMapping(value = "/orderDetail")
     public ModelAndView orderDetail(String orderNo) {
         ModelAndView view = getGridModelAndView();
         view.addObject("orderNo", orderNo);
         view.setViewName("/shop/admin/oem/order/order_detail_list");
         return view;
+    }
+
+    /**
+     * 跳转到收款单页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/payee")
+    public ModelAndView payee() {
+        ModelAndView view = getGridModelAndView();
+        view.setViewName("/shop/admin/oem/order/payee");
+        return view;
+    }
+
+    /**
+     * 设置收款单已收款
+     *
+     * @param ids
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/setReceived", method = RequestMethod.POST)
+    public JsonResult setReceived(Integer[] ids) {
+        try {
+            if (ids.length > 0) {
+                orderManager.setReceived(ids);
+            }
+            return JsonResultUtil.getSuccessJson("操作成功");
+        } catch (Exception e) {
+            this.logger.error(e.getMessage(), e);
+            return JsonResultUtil.getErrorJson("操作失败");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/payeeList", method = RequestMethod.POST)
+    public Object payeeList(String keyword, Integer received) {
+        Map<String, Object> where = new HashMap<String, Object>();
+        where.put("keyword", keyword);
+        where.put("received", received);
+        webpage = orderManager.pagePayeeList(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
+        return JsonResultUtil.getGridJson(webpage);
     }
 
     @ResponseBody
@@ -124,10 +174,14 @@ public class OrderController extends GridController {
 
     @ResponseBody
     @RequestMapping(value = "/list-json")
-    public GridJsonResult listJson(String keyword, Integer status) {
+    public GridJsonResult listJson(String keyword, String customName, String startTime, String endTime, Integer status, Integer payeeId) {
         Map<String, Object> where = new HashMap<String, Object>();
         where.put("keyword", keyword);
         where.put("status", status);
+        where.put("customName", customName);
+        where.put("startTime", startTime);
+        where.put("endTime", endTime);
+        where.put("payeeId", payeeId);
         webpage = orderManager.pageSale(where, this.getPage(), this.getPageSize(), this.getSort(), this.getOrder());
         return JsonResultUtil.getGridJson(webpage);
     }
