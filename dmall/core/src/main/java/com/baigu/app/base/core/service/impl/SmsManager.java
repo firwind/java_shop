@@ -60,6 +60,7 @@ public class SmsManager  implements ISmsManager {
 
 		Map<String,String> params = this.getConfigParams(smsid);
 		fp.putData(params);
+
 		return fp.proessPageContent();
 	}
 	
