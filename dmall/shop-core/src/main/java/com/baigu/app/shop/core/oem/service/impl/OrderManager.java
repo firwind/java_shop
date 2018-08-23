@@ -11,6 +11,7 @@ import com.baigu.framework.util.ExcelUtil;
 import com.baigu.framework.util.JsonResultUtil;
 import com.baigu.framework.util.RandomString;
 import com.baigu.framework.util.StringUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,18 +128,9 @@ public class OrderManager implements IOrderManager {
     @Override
     public void setShipped(Integer[] ids) {
         String idsStr = StringUtil.arrayToString(ids, ",");
-        //订单总价：订单价格+运费
-        double totalAmount = this.daoSupport.queryForDouble("SELECT IFNULL(SUM(price+freight),0) FROM `oem_order` WHERE id IN (" + idsStr + ")");
-        //生成收款单
-        OemPayee payee = new OemPayee();
-        payee.setPayeeno(new RandomString(16).nextString().toUpperCase());
-        payee.setReceived(OemPayee.NO_RECEIVED);
-        payee.setAmount(new BigDecimal(totalAmount));
-        this.daoSupport.insert("oem_payee", payee);
-        int insertId = this.daoSupport.getLastId("oem_payee");
         //设置已收货
-        String sql = "UPDATE `oem_order` SET status=?,payee_id=? WHERE id IN (" + idsStr + ")";
-        this.daoSupport.execute(sql, OemOrder.SHIP, insertId);
+        String sql = "UPDATE `oem_order` SET status=? WHERE id IN (" + idsStr + ")";
+        this.daoSupport.execute(sql, OemOrder.SHIP);
     }
 
     /**
@@ -262,6 +254,12 @@ public class OrderManager implements IOrderManager {
                 }
             }
             try {
+                if (CollectionUtils.isEmpty(oemOrders)) {
+                    return JsonResultUtil.getErrorJson("没有可用的订单记录");
+                }
+                BigDecimal payeeAmount = BigDecimal.ZERO;
+                BigDecimal payeeFreight = BigDecimal.ZERO;
+                List<Integer> orderIds = new LinkedList<Integer>();
                 for (OemOrder oemOrder : oemOrders) {
                     //计算运费
                     try {
@@ -272,8 +270,13 @@ public class OrderManager implements IOrderManager {
                         e.printStackTrace();
                         return JsonResultUtil.getErrorJson("计算快递失败");
                     }
+                    //累加
+                    payeeAmount = payeeAmount.add(oemOrder.getPrice());
+                    payeeFreight = payeeFreight.add(oemOrder.getFreight());
                     this.daoSupport.insert("oem_order", oemOrder);
+                    orderIds.add(this.daoSupport.getLastId("oem_order"));
                 }
+                generatePayee(orderIds.toArray(new Integer[orderIds.size()]), customerId, payeeFreight, payeeAmount);
                 for (OemOrderDetail oemDetail : oemOrderDetails) {
                     this.daoSupport.insert("oem_order_detail", oemDetail);
                 }
@@ -289,18 +292,44 @@ public class OrderManager implements IOrderManager {
         }
     }
 
+    /**
+     * 生成收款单
+     *
+     * @param ids
+     * @param payeeCustomerId
+     * @param payeeFreight    收款单邮费总价
+     * @param payeeAmount     收款单商品总价
+     */
+    private void generatePayee(Integer[] ids, Integer payeeCustomerId, BigDecimal payeeFreight, BigDecimal payeeAmount) {
+        //生成收款单
+        OemPayee payee = new OemPayee();
+        payee.setPayeeno(new RandomString(16).nextString().toUpperCase());
+        payee.setCustomer_id(payeeCustomerId);
+        payee.setReceived(OemPayee.NO_RECEIVED);
+        payee.setFreight(payeeFreight);
+        payee.setAmount(payeeAmount);
+        payee.setTotal(payeeAmount.add(payeeFreight));
+        this.daoSupport.insert("oem_payee", payee);
+        int insertId = this.daoSupport.getLastId("oem_payee");
+
+        String idsStr = StringUtil.arrayToString(ids, ",");
+        //设置已收货
+        String sql = "UPDATE `oem_order` SET payee_id=? WHERE id IN (" + idsStr + ")";
+        this.daoSupport.execute(sql, insertId);
+    }
+
     @Override
     public Page pagePayeeList(Map<String, Object> where, int page, int pageSize, String sort, String order) {
-        String sql = "SELECT * FROM `oem_payee` WHERE 1=1";
+        String sql = "SELECT p.*, c.`name`, c.phone FROM `oem_payee` p, `oem_customer` c WHERE p.customer_id = c.id";
         String keyword = (String) where.get("keyword");
         Integer received = (Integer) where.get("received");
         if (StringUtils.isNotBlank(keyword)) {
-            sql += " AND payeeno LIKE '%" + keyword + "%'";
+            sql += " AND p.payeeno LIKE '%" + keyword + "%'";
         }
         if (received != null) {
-            sql += " AND received = " + received;
+            sql += " AND p.received = " + received;
         }
-        sql += " ORDER BY updatetime DESC";
+        sql += " ORDER BY p.updatetime DESC";
         Page webPage = this.daoSupport.queryForPage(sql, page, pageSize);
         return webPage;
     }

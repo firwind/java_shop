@@ -25,7 +25,11 @@
                     <thead>
                     <tr>
                         <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
+                        <th>客户名</th>
+                        <th>客户手机</th>
                         <th>收款单号</th>
+                        <th>商品总价</th>
+                        <th>邮费总价</th>
                         <th>总金额</th>
                         <th>是否已收款</th>
                         <th>修改时间</th>
@@ -64,8 +68,12 @@
                         {"data": function (obj) {
                             return '<input type="checkbox" name="ids" class="fly-checkbox" value=' + obj.id +'>';
                         }},
+                        {data: "name"},
+                        {data: "phone"},
                         {data: "payeeno"},
                         {data: "amount"},
+                        {data: "freight"},
+                        {data: "total"},
                         {data: function(obj) {
                             if(obj.received==null){
                                 return"";
