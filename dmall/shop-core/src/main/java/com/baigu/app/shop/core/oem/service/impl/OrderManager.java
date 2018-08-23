@@ -124,7 +124,6 @@ public class OrderManager implements IOrderManager {
      *
      * @param ids
      */
-    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void setShipped(Integer[] ids) {
         String idsStr = StringUtil.arrayToString(ids, ",");
@@ -138,6 +137,7 @@ public class OrderManager implements IOrderManager {
      *
      * @param in
      */
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public JsonResult importOemExcel(InputStream in, Integer customerId) throws IOException {
         try {
