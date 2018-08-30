@@ -165,6 +165,7 @@ height:240px;
             <th>分类</th>
             <th>销售价格</th>
             <th>上架</th>
+            <th>热销</th>
             <th>品牌</th>
             <th>操作</th>
         </tr>
@@ -266,6 +267,13 @@ $(function(){
 	        	}else{
 	        		return "预览商品";
 	        	}
+            }},
+            {data: function (obj) {
+                if(obj.hot==1){
+                    return "是";
+                }else{
+                    return "否";
+                }
             }},
 	        {data: "brand_name"},
 	        {data: function (obj) {

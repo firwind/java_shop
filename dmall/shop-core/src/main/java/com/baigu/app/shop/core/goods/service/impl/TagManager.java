@@ -1,20 +1,21 @@
 package com.baigu.app.shop.core.goods.service.impl;
 
 
-import java.util.List;
-import java.util.Map;
-
-import com.baigu.app.shop.core.goods.service.ITagManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import com.baigu.app.shop.core.goods.model.Tag;
+import com.baigu.app.shop.core.goods.model.exception.NotGoodsTagException;
+import com.baigu.app.shop.core.goods.service.ITagManager;
 import com.baigu.framework.annotation.Log;
 import com.baigu.framework.database.IDaoSupport;
 import com.baigu.framework.database.Page;
 import com.baigu.framework.log.LogType;
 import com.baigu.framework.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Saas式的标签管理
@@ -53,10 +54,17 @@ public class TagManager implements ITagManager {
 	 * (non-Javadoc)
 	 * @see ITagManager#add(Tag)
 	 */
+	@Transactional
 	@Override
 	@Log(type=LogType.GOODS,detail="添加了一个${tag.tag_name}的标签")
 	public void add(Tag tag) {
 		tag.setRel_count(0);
+		if (tag.getShow_home() == 1) {
+			if (tag.getType() == 1) {
+				throw new NotGoodsTagException("该标签是品牌标签，不能设置首页展示");
+			}
+			this.daoSupport.execute("update es_tags set show_home = 0");
+		}
 		this.daoSupport.insert("es_tags", tag);
 		
 	}
@@ -67,14 +75,17 @@ public class TagManager implements ITagManager {
 	 */
 	@Override
 	public boolean checkJoinGoods(Integer[] tagids) {
-		if(tagids==null ) return false;
+		if (tagids == null) {
+			return false;
+		}
 		String ids =StringUtil.implode(",", tagids);
 		String sql ="select count(0)  from es_tag_rel where tag_id in("+ids+")";	 
 		int count  = this.daoSupport.queryForInt(sql);
-		if(count>0)
+		if (count > 0) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 	
 	/*
@@ -113,9 +124,16 @@ public class TagManager implements ITagManager {
 	 * (non-Javadoc)
 	 * @see ITagManager#update(Tag)
 	 */
+	@Transactional
 	@Override
 	@Log(type=LogType.GOODS,detail="修改${tag.tag_name}的标签")
 	public void update(Tag tag) {
+		if (tag.getShow_home() == 1) {
+			if (tag.getType() == 1) {
+				throw new NotGoodsTagException("该标签是品牌标签，不能设置首页展示");
+			}
+			this.daoSupport.execute("update es_tags set show_home = 0");
+		}
 		this.daoSupport.update("es_tags", tag, "tag_id="+tag.getTag_id());
 		
 	}

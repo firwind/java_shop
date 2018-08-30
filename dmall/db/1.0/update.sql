@@ -21,4 +21,9 @@ CREATE TABLE `oem_payee` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+# 商品表增加一个字段标识商品是否为热销商品
+ALTER TABLE es_goods ADD COLUMN(hot INT(8) DEFAULT 0);
+
+# 标记该标签商品是否展示到首页
+ALTER TABLE es_tags ADD COLUMN(show_home INT(8) DEFAULT 0);
 

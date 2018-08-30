@@ -21,7 +21,15 @@
       			<input type="radio" name="type" value="1" title="是" checked="checked">
     		</div>
   		</div>
-  		
+
+  		<div class="layui-form-item">
+    		<label class="layui-form-label">首页展示：</label>
+    		<div class="layui-input-block">
+      			<input type="radio" name="show_home" value="0" title="否" checked="checked">
+      			<input type="radio" name="show_home" value="1" title="是">
+    		</div>
+  		</div>
+
   		<div class="layui-layer-btn layui-layer-btn-" style="padding:8px 12px;z-index:1000; position: fixed;left: 1px;width: 96%;height: 30px; background:rgba(230,230,230,0.8)"> 
 	  			<a class="layui-layer-btn0" type="submit" style="margin: 0px 0px 0px 100px;" lay-submit="" lay-filter="savetag">保存</a>
 	  			<a class="layui-layer-btn1" style="margin: 0px 100px 0px 0px;">取消</a>
@@ -62,6 +70,9 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     					parent.layer.close(index);
     					parent.table.ajax.reload();
     				}
+                    if(result.result==0){
+                        parent.$.Loading.error(result.message);
+                    }
     			}
     	};
    		$("#addTagForm").ajaxSubmit(options);

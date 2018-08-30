@@ -32,6 +32,14 @@
 </div>
 
 <div class="layui-form-item">
+	<label class="layui-form-label">是否热销：</label>
+	<div class="layui-input-block">
+		<input type="radio" name="hot" value="0" title="否" <#if goods.hot==0>checked="checked"</#if>>
+		<input type="radio" name="hot" value="1" title="是" <#if goods.hot==1>checked="checked"</#if>>
+	</div>
+</div>
+
+<div class="layui-form-item">
 	<label class="layui-form-label">市场价格</label>
 	<div class="layui-input-block">
 		<input type="text" name="mktprice" lay-verify="number" autocomplete="off" maxlength="9" placeholder="请输入市场价格" class="layui-input w300" value="${goodsView.mktprice}" >

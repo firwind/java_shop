@@ -33,6 +33,8 @@ public class GoodsListTag extends BaseFreeMarkerTag {
 	 * @param catid:分类id,可选项，如果为空则查询所有分类下的商品
 	 * @param tagid:标签id，可选项
 	 * @param goodsnum:要读取的商品数量，必填项。
+	 * @param hot 是否热销商品
+	 * @param showhome 是否展示首页的标签商品
 	 * @return 商品列表
 	 * {@link Goods}
 	 */
@@ -41,13 +43,15 @@ public class GoodsListTag extends BaseFreeMarkerTag {
 		String catid =(String) params.get("catid");
 		String tagid = (String)params.get("tagid");
 		String goodsnum = (String)params.get("goodsnum");
-	 
+		String hot = (String) params.get("hot");
+		String showhome = (String) params.get("showhome");
+
 		if(catid == null || catid.equals("")){
 			String uri  = ThreadContextHolder.getHttpRequest().getServletPath();
 			//catid = UrlUtils.getParamStringValue(uri,"cat");
 		}
-		
-		List goodsList  = goodsManager.listGoods(catid, tagid, goodsnum);
+
+		List goodsList = goodsManager.listGoods(catid, tagid, goodsnum, hot, showhome);
 //		GoodsUtils.handleGoodsMap(goodsList);
 		return goodsList;
 	}

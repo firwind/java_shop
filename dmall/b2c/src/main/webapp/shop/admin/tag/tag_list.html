@@ -35,6 +35,7 @@
             <th>标签id</th>
             <th>标签</th>
             <th>标签类型</th>
+            <th>是否首页展示</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -76,6 +77,13 @@ $(function(){
 	    			return '商品标签';
 	    		}
             }},
+            {"data": function (obj) {
+                if(obj.show_home==1){
+                    return '是';
+                }else{
+                    return '否';
+                }
+            }},
 	        {data: null,"render": function(data, type, row) {
 	        	return "<a class='layui-btn layui-btn-small _aa' name='change_btn' onclick='editTag("+data["tag_id"]+")'>操作</a>";		//获取值:data["brand_id"]
 	       	}}
@@ -90,7 +98,7 @@ $(function(){
 	            shade: [0.3, '#000'],//黑色背景
 	            shadeClose:false,//黑色背景是否可以点击关闭
 	            content:'${ctx}/shop/admin/tag/add.do',//内容的URL
-	            area:['560px','250px'],//弹框大小
+	            area:['560px','300px'],//弹框大小
 	            scrollbar: false//是否允许浏览器出现滚动条
 	        });
 		});
@@ -105,7 +113,7 @@ function editTag(tag_id){
         shade: [0.3, '#000'],//黑色背景
         shadeClose:false,//黑色背景是否可以点击关闭
         content:'${ctx}/shop/admin/tag/edit.do?tagId='+tag_id,//内容的URL
-        area:['450px','150px'],//弹框大小
+        area:['450px','300px'],//弹框大小
         scrollbar: false//是否允许浏览器出现滚动条
     });
 }

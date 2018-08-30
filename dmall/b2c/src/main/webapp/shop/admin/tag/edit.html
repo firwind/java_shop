@@ -8,12 +8,22 @@
     <!--表单区域  -->
 	<form id="editTagForm" class="layui-form layui-form-pane" action="">
 	<input type="hidden" name="tag_id" value="${tag.tag_id }"/>
+	<input type="hidden" name="type" value="${tag.type }"/>
   		<div class="layui-form-item">
     		<label class="layui-form-label">标签名称</label>
     		<div class="layui-input-block">
       			<input type="text"  name="tag_name" id="name" value="${tag.tag_name}" maxlength="30" lay-verify="tag_name"  autocomplete="off" class="layui-input">
     		</div>
   		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">首页展示：</label>
+			<div class="layui-input-block">
+				<input type="radio" name="show_home" value="0" title="否" <#if tag.show_home==0>checked="checked"</#if>>
+				<input type="radio" name="show_home" value="1" title="是" <#if tag.show_home==1>checked="checked"</#if>>
+			</div>
+		</div>
+
   		<div class="layui-layer-btn layui-layer-btn-" style="padding:8px 12px;z-index:1000;position: fixed;left: 1px;width: 96%;height: 30px; background:rgba(230,230,230,0.8)"> 
 	  			<a class="layui-layer-btn0" type="submit" style="margin: 0px 0px 0px 100px;" lay-submit="" lay-filter="edittag">保存</a>
 	  			<a class="layui-layer-btn1" style="margin: 0px 100px 0px 0px;">取消</a>

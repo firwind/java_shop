@@ -1,15 +1,14 @@
 package com.baigu.app.shop.core.goods.service;
 
-import java.util.List;
-import java.util.Map;
-
+import com.baigu.app.shop.core.goods.model.Goods;
 import com.baigu.app.shop.core.goods.model.GoodsStores;
+import com.baigu.app.shop.core.goods.model.support.GoodsEditDTO;
+import com.baigu.framework.database.Page;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baigu.app.shop.core.goods.model.Goods;
-import com.baigu.app.shop.core.goods.model.support.GoodsEditDTO;
-import com.baigu.framework.database.Page;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品管理接口
@@ -224,8 +223,8 @@ public interface IGoodsManager {
 	 * @param goodsnum 数量
 	 * @return List
 	 */
-	public List listGoods(String catid,String tagid,String goodsnum);
-	
+	public List listGoods(String catid, String tagid, String goodsnum, String hot, String showhome);
+
 	/**
 	 * 购买过商品的会员
 	 * @param goods_id 商品Id

@@ -40,6 +40,7 @@ public class Goods implements java.io.Serializable {
 	private String meta_description;
 	private Integer point; // 积分
 	private Integer sord;
+	private Integer hot; //是否热销
 
 	private Double 	commission;	//商品佣金比例
 	
@@ -312,5 +313,11 @@ public class Goods implements java.io.Serializable {
 		this.commission = commission;
 	}
 
+	public Integer getHot() {
+		return hot;
+	}
 
+	public void setHot(Integer hot) {
+		this.hot = hot;
+	}
 }

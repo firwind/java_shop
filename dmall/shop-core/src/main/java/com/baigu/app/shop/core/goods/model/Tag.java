@@ -16,6 +16,7 @@ public class Tag implements java.io.Serializable{
 	private Integer tag_id;
 	private String tag_name;
 	private Integer rel_count;
+	private Integer show_home;
 	/**
 	 * add by Chopper
 	 * 区分标签商品 还是 标签 品牌
@@ -47,5 +48,12 @@ public class Tag implements java.io.Serializable{
 	public void setType(Integer type) {
 		this.type = type;
 	}
-	
+
+	public Integer getShow_home() {
+		return show_home;
+	}
+
+	public void setShow_home(Integer show_home) {
+		this.show_home = show_home;
+	}
 }

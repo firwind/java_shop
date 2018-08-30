@@ -1,18 +1,19 @@
 package com.baigu.app.shop.core.goods.action;
+
 import com.baigu.app.shop.core.goods.model.Tag;
+import com.baigu.app.shop.core.goods.model.exception.NotGoodsTagException;
 import com.baigu.app.shop.core.goods.service.ITagManager;
+import com.baigu.eop.sdk.context.EopSetting;
+import com.baigu.framework.action.GridController;
+import com.baigu.framework.action.GridJsonResult;
+import com.baigu.framework.action.JsonResult;
+import com.baigu.framework.util.JsonResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.baigu.eop.sdk.context.EopSetting;
-import com.baigu.framework.action.GridController;
-import com.baigu.framework.action.GridJsonResult;
-import com.baigu.framework.action.JsonResult;
-import com.baigu.framework.util.JsonResultUtil;
 
 /**
  * 标签action
@@ -95,6 +96,8 @@ public class TagController extends GridController{
 		try {
 			this.tagManager.add(tag);
 			return JsonResultUtil.getSuccessJson("添加标签成功");
+		} catch (NotGoodsTagException e) {
+			return JsonResultUtil.getErrorJson("品牌标签不能设置展示首页");
 		} catch (Exception e) {
 			logger.error("添加标签失败", e);
 			return JsonResultUtil.getErrorJson("添加标签失败");
@@ -116,8 +119,15 @@ public class TagController extends GridController{
 				return JsonResultUtil.getErrorJson("抱歉，当前为演示站点，以不能修改这些示例数据，请下载安装包在本地体验这些功能！");
 			}
 		}
-		
-		this.tagManager.update(tag);
+
+		try {
+			this.tagManager.update(tag);
+		} catch (NotGoodsTagException e) {
+			return JsonResultUtil.getErrorJson("品牌标签不能设置展示首页");
+		} catch (Exception e) {
+			logger.error("修改标签失败", e);
+			return JsonResultUtil.getErrorJson("修改标签失败");
+		}
 		return JsonResultUtil.getSuccessJson("商品标签修改成功");
 	}
 	
